@@ -113,15 +113,32 @@
 
   /* ---------- hero ---------- */
   .hero { display: grid; grid-template-columns: 65fr 35fr; gap: 48px; align-items: center; }
-  .hero-art { display: grid; place-items: center; }
-  .hero-art img { width: min(240px, 100%); height: auto; }
+  .hero-art { display: grid; place-items: center; position: relative; }
+  /* Let the bin run past its column into the surrounding space rather than
+     sitting politely inside it. */
+  /* Fills its column and nudges into the page gutter. The overhang is a fixed
+     12px so it can never exceed the 24px gutter and scroll the page sideways. */
+  .hero-bin { width: min(100%, 400px); height: auto; margin-right: -12px; }
   .annotation {
     color: var(--mid-grey); font-size: .95rem; text-align: center;
-    margin-top: 20px; max-width: 200px;
+    margin-top: 24px; max-width: 200px;
   }
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; gap: 24px; }
-    .hero-art { display: none; }
+    .hero { grid-template-columns: 1fr; gap: 8px; }
+    .hero-art { place-items: start; }
+    .hero-bin { width: 116px; margin: 0; }
+    .annotation { display: none; }
+  }
+
+  /* The lid lifts once on arrival and settles. Never loops. */
+  .bin-lid { transform-origin: 18px 44px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .bin-lid { animation: lid-open 520ms cubic-bezier(.34, 1.4, .64, 1) 260ms both; }
+  }
+  @keyframes lid-open {
+    0%   { transform: rotate(0deg); }
+    55%  { transform: rotate(-6.5deg); }
+    100% { transform: rotate(0deg); }
   }
 
   /* ---------- postcode form ---------- */
@@ -172,6 +189,19 @@
   .msg.err { background: #FDECEA; color: var(--error); border: 1px solid #F1C4BF; }
   .msg.info { background: var(--white); color: var(--mid-grey); border: var(--hairline); }
 
+  /* ---------- brand rays (reusable, used sparingly) ---------- */
+  .rays-mark { flex: none; overflow: visible; }
+  .rays-mark line { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; }
+
+  /* ---------- "put it out tonight" sticker ---------- */
+  .sticker {
+    display: inline-block; background: var(--brand-green); color: var(--ink);
+    border: var(--edge); border-radius: 4px; padding: 7px 11px;
+    font-family: var(--font-display); font-weight: 700; font-size: .92rem;
+    line-height: 1.08; letter-spacing: -0.01em; text-transform: uppercase;
+    transform: rotate(-5deg); margin-top: 16px;
+  }
+
   /* ---------- results ---------- */
   .results-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
   .results-head .change { margin-left: auto; }
@@ -184,25 +214,46 @@
     background: var(--white); border: var(--hairline); border-radius: var(--r-card);
     padding: 24px;
   }
+  /* The icon tile is drawn like the logo: category colour filled, ink outlined. */
   .tile {
-    width: 52px; height: 52px; border-radius: var(--r-control);
+    width: 56px; height: 56px; border-radius: var(--r-control);
     display: grid; place-items: center; margin-bottom: 18px;
+    background: var(--white); border: var(--edge);
   }
-  .tile svg { width: 28px; height: 28px; fill: var(--white); }
-  .bin .name { color: var(--mid-grey); font-size: .95rem; }
+  .tile svg { width: 32px; height: 32px; }
+  .bin .name {
+    color: var(--mid-grey); font-size: .95rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
   .bin .rel {
-    font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em;
-    font-size: 1.75rem; line-height: 1.05; margin-top: 4px;
+    font-family: var(--font-display); font-weight: 700; letter-spacing: -0.04em;
+    font-size: clamp(2rem, 3vw, 2.75rem); line-height: .94; margin-top: 8px;
+    text-transform: uppercase; display: flex; align-items: flex-start; gap: 8px;
   }
-  .bin .abs { margin-top: 6px; font-size: .95rem; }
-  .bin .out { margin-top: 12px; font-size: .875rem; color: var(--mid-grey); }
+  .bin .abs { margin-top: 10px; font-size: 1rem; line-height: 1.25; }
   .rel.soon { color: var(--action-blue); }
+  .bin .late { margin-top: 14px; font-size: .875rem; color: var(--mid-grey); }
+  @media (max-width: 640px) { .bin .rel { font-size: clamp(2rem, 9vw, 2.5rem); } }
+
+  /* Results arrive with a short lift, staggered just enough to read as one
+     group settling rather than a list animating. */
+  @media (prefers-reduced-motion: no-preference) {
+    .bin { animation: card-in 300ms ease-out both; }
+  }
+  @keyframes card-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
 
   /* ---------- calendar panel ---------- */
   .calendar-panel {
     background: var(--brand-green); border: var(--edge); border-radius: var(--r-panel);
-    padding: 48px; margin-top: 40px;
+    padding: 48px; margin-top: 40px; position: relative; isolation: isolate;
+    /* Calendar-grid squares at ~3%. Must stay under the text, never near it. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='68'%3E%3Cg fill='%23161616' fill-opacity='0.028'%3E%3Crect x='6' y='6' width='9' height='9' rx='2'/%3E%3Crect x='22' y='6' width='9' height='9' rx='2'/%3E%3Crect x='38' y='6' width='9' height='9' rx='2'/%3E%3Crect x='6' y='22' width='9' height='9' rx='2'/%3E%3Crect x='22' y='22' width='9' height='9' rx='2'/%3E%3Crect x='38' y='22' width='9' height='9' rx='2'/%3E%3Crect x='6' y='38' width='9' height='9' rx='2'/%3E%3Crect x='22' y='38' width='9' height='9' rx='2'/%3E%3Crect x='38' y='38' width='9' height='9' rx='2'/%3E%3C/g%3E%3C/svg%3E");
   }
+  .calendar-panel > * { position: relative; }
+  .panel-head { display: flex; align-items: flex-start; gap: 14px; }
   @media (max-width: 640px) { .calendar-panel { padding: 32px 24px; } }
   .calendar-panel h2 { max-width: 16ch; }
   .feed {
@@ -225,11 +276,40 @@
   .sorted p { margin-top: 10px; }
   .ticks { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
   .tick { display: flex; align-items: center; gap: 9px; font-size: .95rem; }
-  .tick .sw { width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center; }
-  .tick .sw svg { width: 15px; height: 15px; fill: var(--white); }
+  .tick .sw { width: 24px; height: 24px; display: grid; place-items: center; }
+  .tick .sw svg { width: 20px; height: 20px; }
   .tick .ok { color: var(--bin-garden); font-weight: 700; }
 
+  .burst { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+  .burst span {
+    position: absolute; left: 50%; top: 42%; width: 10px; height: 10px;
+    background: var(--ink); opacity: 0;
+  }
+  .burst .r { border-radius: 50%; }
+  .burst .g { background: var(--brand-green); border: 1.5px solid var(--ink); }
+  .burst .b { background: var(--action-blue); }
+  @media (prefers-reduced-motion: no-preference) {
+    .burst span { animation: pop 520ms ease-out both; }
+  }
+  @keyframes pop {
+    0%   { opacity: 0; transform: translate(0,0) scale(.4); }
+    30%  { opacity: 1; }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1); }
+  }
+
   /* ---------- how it works ---------- */
+  #how { position: relative; overflow: hidden; }
+  /* Cropped hard by the section so only the top of the letters shows - it
+     should never run through the body copy. */
+  .bleed-word {
+    position: absolute; right: -3%; bottom: -19%; margin: 0; z-index: 0;
+    font-family: var(--font-display); font-weight: 700; font-size: 19vw;
+    letter-spacing: -0.05em; line-height: .8; color: transparent;
+    -webkit-text-stroke: 2px rgba(22, 22, 22, .075);
+    pointer-events: none; user-select: none; white-space: nowrap;
+  }
+  #how > *:not(.bleed-word) { position: relative; z-index: 1; }
+  @media (max-width: 860px) { .bleed-word { font-size: 30vw; bottom: -8%; } }
   .steps { display: grid; gap: 40px; grid-template-columns: repeat(3, 1fr); margin-top: 48px; }
   @media (max-width: 860px) { .steps { grid-template-columns: 1fr; gap: 32px; } }
   .step .n {
@@ -330,7 +410,28 @@
       </div>
 
       <div class="hero-art" aria-hidden="true">
-        <img src="/assets/logo/bin-day-mark-clean.png" alt="" />
+        <svg class="hero-bin" viewBox="0 0 168 170" role="presentation" focusable="false">
+          <g class="rays" stroke="var(--ink)" stroke-width="9" stroke-linecap="round">
+            <line x1="112" y1="34" x2="119" y2="12" />
+            <line x1="129" y1="46" x2="144" y2="29" />
+            <line x1="137" y1="66" x2="159" y2="60" />
+          </g>
+          <g class="bin-lid">
+            <rect x="14" y="26" width="92" height="20" rx="7"
+                  fill="var(--brand-green)" stroke="var(--ink)" stroke-width="7" />
+            <rect x="46" y="14" width="28" height="14" rx="5"
+                  fill="var(--brand-green)" stroke="var(--ink)" stroke-width="7" />
+          </g>
+          <path d="M22 50 h76 l-8 92 a10 10 0 0 1 -10 9 h-40 a10 10 0 0 1 -10 -9 z"
+                fill="var(--brand-green)" stroke="var(--ink)" stroke-width="7"
+                stroke-linejoin="round" />
+          <g stroke="var(--ink)" stroke-width="7" stroke-linecap="round">
+            <line x1="46" y1="62" x2="46" y2="78" />
+            <line x1="74" y1="62" x2="74" y2="78" />
+          </g>
+          <circle cx="88" cy="150" r="14" fill="var(--ink)" />
+          <circle cx="88" cy="150" r="5" fill="var(--cream)" />
+        </svg>
         <p class="annotation">Less guessing.<br />More doing.</p>
       </div>
     </div>
@@ -342,6 +443,7 @@
   <div id="sorted-mount"></div>
 
   <section class="page-shell" id="how" aria-labelledby="how-title">
+    <p class="bleed-word" aria-hidden="true">SORTED.</p>
     <h2 id="how-title">How it works</h2>
     <div class="steps">
       <div class="step">
@@ -414,7 +516,15 @@
     <div class="bins" id="bins"></div>
 
     <div class="calendar-panel">
-      <h2>Never think about bin day again.</h2>
+      <div class="panel-head">
+        <svg class="rays-mark" width="30" height="30" viewBox="0 0 22 22" aria-hidden="true"
+             focusable="false" style="margin-top:6px">
+          <line x1="4" y1="13" x2="1.5" y2="17"/>
+          <line x1="9.5" y1="8.5" x2="8" y2="3.5"/>
+          <line x1="14.5" y1="10" x2="18.5" y2="7"/>
+        </svg>
+        <h2>Never think about bin day again.</h2>
+      </div>
       <p class="lede">Add your collections to your calendar and we'll keep it up to date.</p>
       <div class="feed" id="feed-url"></div>
       <div class="actions">
@@ -431,7 +541,8 @@
 
 <template id="tpl-sorted">
   <section class="page-shell" id="sorted-wrap" style="padding-top:0">
-    <div class="sorted">
+    <div class="sorted" style="position:relative">
+      <div class="burst" id="burst" aria-hidden="true"></div>
       <h2 id="sorted-title" tabindex="-1">That's the bins sorted.</h2>
       <p>Your collections are now in your calendar.</p>
       <p class="helper">You may now return to more interesting things.</p>
@@ -452,13 +563,45 @@ const LABELS = {
   usrn:         { label: "Street reference (USRN)", hint: "" },
 };
 
+/** One family, drawn like the logo: chunky flat vector, ink outline, category
+ *  colour fill. Never used without the written label beside them. */
 const ICONS = {
-  general:   '<path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>',
-  recycling: '<path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/>',
-  garden:    '<path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32 2.6 1.23 5.8.78 7.95-1.37C19.27 14.57 20 4 20 4S9.43 4.73 6.05 8.05z"/>',
-  food:      '<path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>',
-  paper:     '<path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>',
+  general: c => `<g fill="${c}" stroke="var(--ink)" stroke-width="1.9" stroke-linejoin="round">
+      <rect x="3.2" y="5.6" width="17.6" height="3.9" rx="1.3"/>
+      <rect x="9.6" y="2.6" width="4.8" height="3.1" rx="1.1"/>
+      <path d="M5 10.4h14l-1.2 9.8a1.8 1.8 0 0 1-1.8 1.6H8a1.8 1.8 0 0 1-1.8-1.6z"/>
+    </g>`,
+  // Three arrowheads in a ring - the recycling mark, chunky enough to read at 32px.
+  recycling: c => `<g fill="${c}" stroke="var(--ink)" stroke-width="1.8" stroke-linejoin="round">
+      <path d="M12 2.6 16.1 9.4 7.9 9.4Z"/>
+      <path d="M12 2.6 16.1 9.4 7.9 9.4Z" transform="rotate(120 12 12.8)"/>
+      <path d="M12 2.6 16.1 9.4 7.9 9.4Z" transform="rotate(240 12 12.8)"/>
+    </g>`,
+  garden: c => `<g stroke="var(--ink)" stroke-width="1.9" stroke-linejoin="round">
+      <path d="M12 21.4C5.6 15.6 6.2 8.8 12 2.6c5.8 6.2 6.4 13-.0 18.8z" fill="${c}"/>
+      <path d="M12 20V6" fill="none" stroke-linecap="round"/>
+    </g>`,
+  food: c => `<g stroke="var(--ink)" stroke-width="1.9" stroke-linejoin="round">
+      <path d="M8.4 7.2V5.9a3.6 3.6 0 0 1 7.2 0v1.3" fill="none" stroke-linecap="round"/>
+      <path d="M4.8 7.2h14.4l-1.3 12.6a1.8 1.8 0 0 1-1.8 1.6H7.9a1.8 1.8 0 0 1-1.8-1.6z" fill="${c}"/>
+    </g>`,
+  paper: c => `<g stroke="var(--ink)" stroke-width="1.9" stroke-linejoin="round">
+      <rect x="3" y="4.4" width="11" height="14.6" rx="1.7" fill="var(--white)"/>
+      <rect x="9.4" y="5.6" width="11.6" height="14.6" rx="1.7" fill="${c}"/>
+      <path d="M12.2 9.6h6M12.2 12.8h6M12.2 16h4" fill="none" stroke-linecap="round"/>
+    </g>`,
 };
+
+
+/** The three ray marks from the logo. Used sparingly - imminent collections,
+ *  the calendar call to action, and the success state. Nothing else. */
+const RAYS = (cls = "") => `<svg class="rays-mark ${cls}" width="22" height="22"
+    viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+    <line x1="4" y1="13" x2="1.5" y2="17"/>
+    <line x1="9.5" y1="8.5" x2="8" y2="3.5"/>
+    <line x1="14.5" y1="10" x2="18.5" y2="7"/>
+  </svg>`;
+
 
 // Councils name bins by colour and that is how people think about them, so a
 // named colour wins for the tile; the icon still follows the waste category,
@@ -581,7 +724,7 @@ function renderResult(ics, url, where) {
   currentBins = [...next.entries()].sort((a, b) => a[1] - b[1]);
   const box = $("bins");
   box.innerHTML = "";
-  currentBins.forEach(([name, when]) => {
+  currentBins.forEach(([name, when], i) => {
     const { category, colour } = classify(name);
     const days = Math.round((when - today) / 86400000);
     const soon = days <= 1;
@@ -590,17 +733,20 @@ function renderResult(ics, url, where) {
       { weekday: "long", day: "numeric", month: "long" });
     // Bins go out the night before collection. On collection day "put it out
     // tonight" would be a day late, so only say it when there's still time.
-    const action = days === 1 ? "Put it out tonight."
-      : days === 0 ? "Should already be out." : "";
+    const sticker = days === 1;                      // only the night before
+    const action = days === 0 ? "Should already be out." : "";
     const el = document.createElement("div");
     el.className = "bin";
     el.innerHTML =
-      `<div class="tile" style="background:${colour}">` +
-        `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[category]}</svg></div>` +
+      `<div class="tile">` +
+        `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[category](colour)}</svg></div>` +
       `<div class="name">${name}</div>` +
-      `<div class="rel${soon ? " soon" : ""}">${rel}</div>` +
+      `<div class="rel${soon ? " soon" : ""}">${rel}${soon ? RAYS() : ""}</div>` +
       `<div class="abs">${abs}</div>` +
-      (action ? `<div class="out">${action}</div>` : "");
+      (sticker ? `<div class="sticker">Put it out<br>tonight</div>`
+               : action ? `<div class="late">${action}</div>` : "");
+    // A short stagger so the group reads as one thing settling.
+    el.style.animationDelay = `${Math.min(i, 5) * 70}ms`;
     box.append(el);
   });
 
@@ -665,8 +811,25 @@ function bindResultActions() {
   });
 }
 
+/** Six simple marks from the brand vocabulary, thrown outward once. No
+ *  library, no loop, nothing covering the viewport. */
+function celebrate() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const host = $("burst");
+  if (!host) return;
+  const shapes = [
+    { cls: "g", dx: -150, dy: -70 }, { cls: "",  dx: -80,  dy: -110 },
+    { cls: "b r", dx: 0,  dy: -125 }, { cls: "g r", dx: 90, dy: -105 },
+    { cls: "",   dx: 155, dy: -60 }, { cls: "b",  dx: -20, dy: -150 },
+  ];
+  host.innerHTML = shapes.map(sh =>
+    `<span class="${sh.cls}" style="--dx:${sh.dx}px;--dy:${sh.dy}px;` +
+    `animation-delay:${Math.random() * 60 | 0}ms"></span>`).join("");
+}
+
 function showSorted() {
   mountSorted();
+  celebrate();
   const box = $("ticks");
   box.innerHTML = "";
   currentBins.forEach(([name]) => {
@@ -675,8 +838,8 @@ function showSorted() {
     el.className = "tick";
     el.innerHTML =
       `<span class="ok" aria-hidden="true">✓</span>` +
-      `<span class="sw" style="background:${colour}">` +
-        `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[category]}</svg></span>` +
+      `<span class="sw"><svg viewBox="0 0 24 24" aria-hidden="true">` +
+        `${ICONS[category](colour)}</svg></span>` +
       `<span>${name}</span>`;
     box.append(el);
   });

@@ -69,6 +69,30 @@ from it.
 - `site.webmanifest` makes it installable, which suits something people check
   weekly from a phone.
 
+## Graphic language
+
+Personality comes from scale, type and a small fixed vocabulary - not decoration.
+
+- **Hero bin** is inline SVG (not the PNG), so the lid can animate and it stays
+  crisp. It fills its column and overhangs by a **fixed 12px**: the gutter is
+  24px, so the bleed can never scroll the page sideways. An earlier version used
+  a percentage overhang and a ray that sat outside the viewBox, which overflowed
+  at 1024px.
+- **Brand rays** appear in exactly three places: beside an imminent collection,
+  beside the calendar call to action, and in the success burst. Nowhere else.
+- **The sticker** is a night-before reminder only. On collection day it is not a
+  reminder, so that case is quiet text - a playful sticker saying "should
+  already be out" would be the wrong tone as well as the wrong information.
+- **Collection icons** are one family: chunky flat vector, ink outline,
+  category-colour fill, drawn like the logo. Always beside a written label.
+- **`SORTED.`** behind How it works is cropped to the tops of the letters at
+  7.5% stroke. If it ever crosses body copy, crop it further or delete it.
+- **The lime panel pattern** is a calendar grid at ~3%. If it reads as dots, it
+  is too strong.
+
+All motion sits inside `@media (prefers-reduced-motion: no-preference)`, and
+`celebrate()` checks the query itself before creating anything.
+
 ## Third-party widgets
 
 The Ko-fi button is the only third-party UI. It is recoloured to Electric Blue
