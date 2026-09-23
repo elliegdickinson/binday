@@ -18,7 +18,7 @@ from collections import defaultdict
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import FileResponse, JSONResponse, Response
 
-from . import postcodes
+from . import browser, postcodes
 from .ics import build
 from .pickers import stockport, syncfusion, wakefield
 
@@ -31,6 +31,14 @@ USER_AGENT = f"bindayBot/0.1 (+{CONTACT})"
 CACHE_TTL = 12 * 60 * 60        # seconds - councils publish at most daily
 RATE_LIMIT = 30                 # requests per IP per window
 RATE_WINDOW = 300               # seconds
+
+COLLECT_TIMEOUT = 45            # seconds, plain-HTTP councils
+BROWSER_TIMEOUT = 150           # seconds - Chromium has to start and drive a form
+# Chromium is the memory hog on this box, so browser lookups queue rather than
+# run together. Everything else stays concurrent.
+BROWSER_SLOTS = asyncio.Semaphore(1)
+
+browser.use_system_chromedriver()
 
 # Councils with a postcode -> address picker. Everything else either needs no
 # UPRN at all, or asks the user to supply one until a picker is written.
@@ -123,6 +131,7 @@ async def councils() -> JSONResponse:
             "needs": value["needs"],
             "picker": key in PICKERS,
             "supported": _identifiable(key, value),
+            "browser": bool(value.get("browser")),
             # Ready = a postcode is enough, because either no UPRN is needed
             # or a picker can find it.
             "ready": _identifiable(key, value)
@@ -157,6 +166,7 @@ async def lookup(request: Request, postcode: str) -> JSONResponse:
             "name": COUNCILS[k]["name"],
             "needs": COUNCILS[k]["needs"],
             "picker": k in PICKERS,
+            "browser": bool(COUNCILS[k].get("browser")),
             "supported": _identifiable(k, COUNCILS[k]),
             "ready": _identifiable(k, COUNCILS[k])
                      and ("uprn" not in COUNCILS[k]["needs"] or k in PICKERS),
@@ -257,15 +267,22 @@ async def feed(
 
     target = url or meta["url"]
 
+    needs_browser = meta.get("browser") and council not in COLLECTORS
     cache_key = f"feed:{council}:{uprn}:{postcode}:{number}:{target}"
     if (hit := _cached(cache_key)) is None:
-        try:
-            hit = await asyncio.wait_for(
+        async def run():
+            return await asyncio.wait_for(
                 asyncio.to_thread(_collect, council, target, {
                     "uprn": uprn, "postcode": postcode, "number": number,
                 }),
-                timeout=45,
+                timeout=BROWSER_TIMEOUT if needs_browser else COLLECT_TIMEOUT,
             )
+        try:
+            if needs_browser:
+                async with BROWSER_SLOTS:
+                    hit = await run()
+            else:
+                hit = await run()
         except asyncio.TimeoutError:
             raise HTTPException(504, "The council's site did not respond.")
         except Exception as exc:                              # noqa: BLE001
@@ -292,7 +309,8 @@ async def health() -> dict:
                 if _identifiable(k, v)
                 and ("uprn" not in v["needs"] or k in PICKERS))
     return {"ok": True, "councils": len(COUNCILS), "ready": ready,
-            "auto_detectable": len(BY_LAD)}
+            "auto_detectable": len(BY_LAD),
+            "browser": sum(1 for v in COUNCILS.values() if v.get("browser"))}
 
 
 @app.get("/")

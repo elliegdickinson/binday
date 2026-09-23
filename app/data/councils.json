@@ -1,5 +1,6 @@
 {
  "AberdeenCityCouncil": {
+  "browser": false,
   "lad": "S12000033",
   "name": "Aberdeen City",
   "needs": [
@@ -9,6 +10,7 @@
   "url": "https://www.aberdeencity.gov.uk"
  },
  "AberdeenshireCouncil": {
+  "browser": false,
   "lad": "S12000034",
   "name": "Aberdeenshire",
   "needs": [
@@ -18,6 +20,7 @@
   "url": "https://online.aberdeenshire.gov.uk"
  },
  "AdurAndWorthingCouncils": {
+  "browser": false,
   "lad": "E07000223",
   "name": "Adur",
   "needs": [],
@@ -25,6 +28,7 @@
   "url": "https://www.adur-worthing.gov.uk/bin-day/?brlu-selected-address=100061878829"
  },
  "AmberValleyBoroughCouncil": {
+  "browser": false,
   "lad": "E07000032",
   "name": "Amber Valley",
   "needs": [
@@ -33,7 +37,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://ambervalley.gov.uk"
  },
+ "AngusCouncil": {
+  "browser": true,
+  "lad": "S12000041",
+  "name": "Angus",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN. Requires Selenium",
+  "url": "https://www.angus.gov.uk/bins_litter_and_recycling/bin_collection_days"
+ },
  "AntrimAndNewtonabbeyCouncil": {
+  "browser": false,
   "lad": "N09000001",
   "name": "Antrim and Newtownabbey",
   "needs": [],
@@ -41,6 +57,7 @@
   "url": "https://antrimandnewtownabbey.gov.uk/residents/bins-recycling/bins-schedule/?Id=643"
  },
  "ArdsAndNorthDownCouncil": {
+  "browser": false,
   "lad": "N09000011",
   "name": "Ards and North Down",
   "needs": [
@@ -49,7 +66,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.ardsandnorthdown.gov.uk"
  },
+ "ArgyllandButeCouncil": {
+  "browser": true,
+  "lad": "S12000035",
+  "name": "Argyll and Bute",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.argyll-bute.gov.uk/rubbish-and-recycling/household-waste/bin-collection"
+ },
  "ArmaghBanbridgeCraigavonCouncil": {
+  "browser": false,
   "lad": "N09000002",
   "name": "Armagh City, Banbridge and Craigavon",
   "needs": [
@@ -58,7 +87,41 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.armaghbanbridgecraigavon.gov.uk/"
  },
+ "ArunCouncil": {
+  "browser": true,
+  "lad": "E07000224",
+  "name": "Arun",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house name/number and postcode in their respective parameters, both wrapped in double quotes. This parser requires a Selenium webdriver.",
+  "url": "https://www1.arun.gov.uk/when-are-my-bins-collected"
+ },
+ "AshfieldDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000170",
+  "name": "Ashfield",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house name/number and postcode in their respective parameters, both wrapped in double quotes. This parser requires a Selenium webdriver",
+  "url": "https://www.ashfield.gov.uk"
+ },
+ "AshfordBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000105",
+  "name": "Ashford",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://ashford.gov.uk"
+ },
  "BCPCouncil": {
+  "browser": false,
   "lad": "E06000058",
   "name": "Bournemouth, Christchurch and Poole",
   "needs": [
@@ -67,7 +130,41 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://bcpportal.bcpcouncil.gov.uk/checkyourbincollection"
  },
+ "BaberghDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000200",
+  "name": "Babergh",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://www.babergh.gov.uk"
+ },
+ "BarkingDagenham": {
+  "browser": true,
+  "lad": "E09000002",
+  "name": "Barking and Dagenham",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Use house number and postcode. Requires Selenium.",
+  "url": "https://www.lbbd.gov.uk/rubbish-recycling/household-bin-collection/check-your-bin-collection-days"
+ },
+ "BarnetCouncil": {
+  "browser": true,
+  "lad": "E09000003",
+  "name": "Barnet",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Follow the instructions [here](https://www.barnet.gov.uk/recycling-and-waste/bin-collections/find-your-bin-collection-day) until you get the page listing your address, then copy the entire address text and use that in the house number field. This parser requires a Selenium webdriver.",
+  "url": "https://www.barnet.gov.uk/recycling-and-waste/bin-collections/find-your-bin-collection-day"
+ },
  "BarnsleyMBCouncil": {
+  "browser": false,
   "lad": "E08000016",
   "name": "Barnsley",
   "needs": [
@@ -78,6 +175,7 @@
   "url": "https://waste.barnsley.gov.uk/ViewCollection/Collections"
  },
  "BasildonCouncil": {
+  "browser": false,
   "lad": "E07000066",
   "name": "Basildon",
   "needs": [
@@ -87,6 +185,7 @@
   "url": "https://mybasildon.powerappsportals.com/check/where_i_live/"
  },
  "BasingstokeCouncil": {
+  "browser": false,
   "lad": "E07000084",
   "name": "Basingstoke and Deane",
   "needs": [
@@ -96,6 +195,7 @@
   "url": "https://www.basingstoke.gov.uk/bincollection"
  },
  "BassetlawDistrictCouncil": {
+  "browser": false,
   "lad": "E07000171",
   "name": "Bassetlaw",
   "needs": [
@@ -106,6 +206,7 @@
   "url": "https://www.bassetlaw.gov.uk"
  },
  "BathAndNorthEastSomersetCouncil": {
+  "browser": false,
   "lad": "E06000022",
   "name": "Bath and North East Somerset",
   "needs": [
@@ -115,6 +216,7 @@
   "url": "https://www.bathnes.gov.uk/webforms/waste/collectionday/"
  },
  "BedfordBoroughCouncil": {
+  "browser": false,
   "lad": "E06000055",
   "name": "Bedford",
   "needs": [
@@ -124,6 +226,7 @@
   "url": "https://www.bedford.gov.uk/bins-and-recycling/household-bins-and-recycling/check-your-bin-day"
  },
  "BedfordshireCouncil": {
+  "browser": false,
   "lad": "E06000056",
   "name": "Central Bedfordshire",
   "needs": [
@@ -134,6 +237,7 @@
   "url": "https://www.centralbedfordshire.gov.uk/info/163/bins_and_waste_collections_-_check_bin_collection_day"
  },
  "BelfastCityCouncil": {
+  "browser": false,
   "lad": "N09000003",
   "name": "Belfast",
   "needs": [
@@ -143,7 +247,18 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://online.belfastcity.gov.uk/find-bin-collection-day/Default.aspx"
  },
+ "BexleyCouncil": {
+  "browser": true,
+  "lad": "E09000004",
+  "name": "Bexley",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to locate it. This parser requires a Selenium webdriver.",
+  "url": "https://waste.bexley.gov.uk/waste"
+ },
  "BirminghamCityCouncil": {
+  "browser": false,
   "lad": "E08000025",
   "name": "Birmingham",
   "needs": [
@@ -154,6 +269,7 @@
   "url": "https://www.birmingham.gov.uk/info/50388/check_your_collection_day"
  },
  "BlabyDistrictCouncil": {
+  "browser": false,
   "lad": "E07000129",
   "name": "Blaby",
   "needs": [
@@ -163,6 +279,7 @@
   "url": "https://www.blaby.gov.uk"
  },
  "BlackburnCouncil": {
+  "browser": false,
   "lad": "E06000008",
   "name": "Blackburn with Darwen",
   "needs": [
@@ -172,6 +289,7 @@
   "url": "https://www.blackburn.gov.uk"
  },
  "BlackpoolCouncil": {
+  "browser": false,
   "lad": "E06000009",
   "name": "Blackpool",
   "needs": [
@@ -182,7 +300,19 @@
   "note": "Provide postcode and house number. UPRN also accepted.",
   "url": "https://www.blackpool.gov.uk/"
  },
+ "BlaenauGwentCountyBoroughCouncil": {
+  "browser": true,
+  "lad": "W06000019",
+  "name": "Blaenau Gwent",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.blaenau-gwent.gov.uk"
+ },
  "BolsoverCouncil": {
+  "browser": false,
   "lad": "E07000033",
   "name": "Bolsover",
   "needs": [
@@ -192,6 +322,7 @@
   "url": "https://bolsover.gov.uk"
  },
  "BoltonCouncil": {
+  "browser": false,
   "lad": "E08000001",
   "name": "Bolton",
   "needs": [
@@ -200,7 +331,19 @@
   "note": "To get the UPRN, you will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search). Previously required a single field that was UPRN and full address; now requires UPRN and postcode as separate fields.",
   "url": "https://bolton.gov.uk"
  },
+ "BostonBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000136",
+  "name": "Boston",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
+  "url": "https://www.boston.gov.uk/findwastecollections"
+ },
  "BracknellForestCouncil": {
+  "browser": false,
   "lad": "E06000036",
   "name": "Bracknell Forest",
   "needs": [
@@ -212,6 +355,7 @@
   "url": "https://selfservice.mybfc.bracknell-forest.gov.uk/w/webpage/waste-collection-days"
  },
  "BradfordMDC": {
+  "browser": false,
   "lad": "E08000032",
   "name": "Bradford",
   "needs": [
@@ -221,6 +365,7 @@
   "url": "https://onlineforms.bradford.gov.uk/ufs/collectiondates.eb"
  },
  "BraintreeDistrictCouncil": {
+  "browser": false,
   "lad": "E07000067",
   "name": "Braintree",
   "needs": [
@@ -231,6 +376,7 @@
   "url": "https://www.braintree.gov.uk/"
  },
  "BrecklandCouncil": {
+  "browser": false,
   "lad": "E07000143",
   "name": "Breckland",
   "needs": [
@@ -240,6 +386,7 @@
   "url": "https://www.breckland.gov.uk"
  },
  "BrentCouncil": {
+  "browser": false,
   "lad": "E09000005",
   "name": "Brent",
   "needs": [
@@ -250,6 +397,7 @@
   "url": "https://recyclingservices.brent.gov.uk/waste"
  },
  "BridgendCountyBoroughCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Bridgend County Borough",
   "needs": [
@@ -258,7 +406,19 @@
   "note": "",
   "url": "https://www.bridgend.gov.uk"
  },
+ "BrightonandHoveCityCouncil": {
+  "browser": true,
+  "lad": "E06000043",
+  "name": "Brighton and Hove",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Use house number and postcode. Requires Selenium",
+  "url": "https://enviroservices.brighton-hove.gov.uk/link/collections"
+ },
  "BristolCityCouncil": {
+  "browser": false,
   "lad": "E06000023",
   "name": "City of Bristol",
   "needs": [
@@ -267,7 +427,27 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://bristolcouncil.powerappsportals.com/completedynamicformunauth/?servicetypeid=7dce896c-b3ba-ea11-a812-000d3a7f1cdc"
  },
+ "BroadlandDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000144",
+  "name": "Broadland",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Use house number and postcode. Requires Selenium.",
+  "url": "https://area.southnorfolkandbroadland.gov.uk/FindAddress"
+ },
+ "BromleyBoroughCouncil": {
+  "browser": true,
+  "lad": "E09000006",
+  "name": "Bromley",
+  "needs": [],
+  "note": "Follow the instructions [here](https://recyclingservices.bromley.gov.uk/waste) until the \"Your bin days\" page then copy the URL and replace the URL in the command.",
+  "url": "https://recyclingservices.bromley.gov.uk/waste/6087017"
+ },
  "BromsgroveDistrictCouncil": {
+  "browser": false,
   "lad": "E07000234",
   "name": "Bromsgrove",
   "needs": [
@@ -276,7 +456,31 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.bromsgrove.gov.uk"
  },
+ "BroxbourneCouncil": {
+  "browser": true,
+  "lad": "E07000095",
+  "name": "Broxbourne",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.broxbourne.gov.uk"
+ },
+ "BroxtoweBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000172",
+  "name": "Broxtowe",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Pass the UPRN and postcode. House number used as fallback if UPRN doesn't match dropdown.",
+  "url": "https://www.broxtowe.gov.uk/"
+ },
  "BuckinghamshireCouncil": {
+  "browser": false,
   "lad": "E06000060",
   "name": "Buckinghamshire",
   "needs": [
@@ -286,6 +490,7 @@
   "url": "https://www.buckinghamshire.gov.uk/waste-and-recycling/find-out-when-its-your-bin-collection/"
  },
  "BurnleyBoroughCouncil": {
+  "browser": false,
   "lad": "E07000117",
   "name": "Burnley",
   "needs": [
@@ -295,6 +500,7 @@
   "url": "https://www.burnley.gov.uk"
  },
  "BuryCouncil": {
+  "browser": false,
   "lad": "E08000002",
   "name": "Bury",
   "needs": [
@@ -305,6 +511,7 @@
   "url": "https://www.bury.gov.uk/waste-and-recycling/bin-collection-days-and-alerts"
  },
  "CaerphillyCountyBoroughCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Caerphilly County Borough",
   "needs": [
@@ -315,6 +522,7 @@
   "url": "https://www.caerphilly.gov.uk"
  },
  "CalderdaleCouncil": {
+  "browser": false,
   "lad": "E08000033",
   "name": "Calderdale",
   "needs": [
@@ -326,6 +534,7 @@
   "url": "https://www.calderdale.gov.uk/environment/waste/household-collections/collectiondayfinder.jsp"
  },
  "CambridgeCityCouncil": {
+  "browser": false,
   "lad": "E07000008",
   "name": "Cambridge",
   "needs": [
@@ -335,6 +544,7 @@
   "url": "https://www.cambridge.gov.uk/"
  },
  "CannockChaseDistrictCouncil": {
+  "browser": false,
   "lad": "E07000192",
   "name": "Cannock Chase",
   "needs": [
@@ -345,6 +555,7 @@
   "url": "https://www.cannockchasedc.gov.uk/"
  },
  "CanterburyCityCouncil": {
+  "browser": false,
   "lad": "E07000106",
   "name": "Canterbury",
   "needs": [
@@ -354,6 +565,7 @@
   "url": "https://www.canterbury.gov.uk"
  },
  "CardiffCouncil": {
+  "browser": false,
   "lad": "W06000015",
   "name": "Cardiff",
   "needs": [
@@ -363,6 +575,7 @@
   "url": "https://www.cardiff.gov.uk"
  },
  "CarmarthenshireCountyCouncil": {
+  "browser": false,
   "lad": "W06000010",
   "name": "Carmarthenshire",
   "needs": [
@@ -372,6 +585,7 @@
   "url": "https://www.carmarthenshire.gov.wales"
  },
  "CastlepointDistrictCouncil": {
+  "browser": false,
   "lad": "E07000069",
   "name": "Castle Point",
   "needs": [
@@ -380,7 +594,19 @@
   "note": "For this council, 'uprn' is actually a 4-digit code for your street. Go [here](https://apps.castlepoint.gov.uk/cpapps/index.cfm?fa=wastecalendar) and inspect the source of the dropdown box to find the 4-digit number for your street.",
   "url": "https://apps.castlepoint.gov.uk/cpapps/index.cfm?fa=wastecalendar"
  },
+ "CeredigionCountyCouncil": {
+  "browser": true,
+  "lad": "W06000008",
+  "name": "Ceredigion",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "House Number is the full address as it appears on the drop-down on the site when you search by postcode. This parser requires a Selenium webdriver.",
+  "url": "https://www.ceredigion.gov.uk/resident/bins-recycling/"
+ },
  "CharnwoodBoroughCouncil": {
+  "browser": false,
   "lad": "E07000130",
   "name": "Charnwood",
   "needs": [
@@ -389,7 +615,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.charnwood.gov.uk/pages/waste_collections_calendars"
  },
+ "ChelmsfordCityCouncil": {
+  "browser": true,
+  "lad": "E07000070",
+  "name": "Chelmsford",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Follow the instructions [here](https://www.chelmsford.gov.uk/myhome/) until you get the page listing your address, then copy the entire address text and use that in the house number field.",
+  "url": "https://www.chelmsford.gov.uk/myhome/"
+ },
  "CheltenhamBoroughCouncil": {
+  "browser": false,
   "lad": "E07000078",
   "name": "Cheltenham",
   "needs": [
@@ -400,6 +638,7 @@
   "url": "https://www.cheltenham.gov.uk"
  },
  "CherwellDistrictCouncil": {
+  "browser": false,
   "lad": "E07000177",
   "name": "Cherwell",
   "needs": [
@@ -409,6 +648,7 @@
   "url": "https://www.cherwell.gov.uk"
  },
  "CheshireEastCouncil": {
+  "browser": false,
   "lad": "E06000049",
   "name": "Cheshire East",
   "needs": [
@@ -418,6 +658,7 @@
   "url": "https://online.cheshireeast.gov.uk/mycollectionday"
  },
  "CheshireWestAndChesterCouncil": {
+  "browser": false,
   "lad": "E06000050",
   "name": "Cheshire West and Chester",
   "needs": [
@@ -427,6 +668,7 @@
   "url": "https://my.cheshirewestandchester.gov.uk"
  },
  "ChesterfieldBoroughCouncil": {
+  "browser": false,
   "lad": "E07000034",
   "name": "Chesterfield",
   "needs": [
@@ -435,7 +677,19 @@
   "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://www.chesterfield.gov.uk"
  },
+ "ChichesterDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000225",
+  "name": "Chichester",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Needs the full address and postcode as it appears on [this page](https://www.chichester.gov.uk/checkyourbinday).",
+  "url": "https://www.chichester.gov.uk/checkyourbinday"
+ },
  "ChorleyCouncil": {
+  "browser": false,
   "lad": "E07000118",
   "name": "Chorley",
   "needs": [
@@ -446,6 +700,7 @@
   "url": "https://forms.chorleysouthribble.gov.uk/xfp/form/71"
  },
  "ClackmannanshireCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Clackmannanshire",
   "needs": [
@@ -455,6 +710,7 @@
   "url": "https://www.clacks.gov.uk"
  },
  "CneSiarCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Comhairle nan Eilean Siar",
   "needs": [
@@ -464,7 +720,20 @@
   "note": "",
   "url": "https://www.cne-siar.gov.uk"
  },
+ "ColchesterCityCouncil": {
+  "browser": true,
+  "lad": "E07000071",
+  "name": "Colchester",
+  "needs": [
+   "postcode",
+   "house_number",
+   "paon"
+  ],
+  "note": "Pass the house name/number in the house number parameter, wrapped in double quotes.",
+  "url": "https://www.colchester.gov.uk/your-recycling-calendar"
+ },
  "ConwyCountyBorough": {
+  "browser": false,
   "lad": "W06000003",
   "name": "Conwy",
   "needs": [
@@ -474,6 +743,7 @@
   "url": "https://www.conwy.gov.uk"
  },
  "CornwallCouncil": {
+  "browser": false,
   "lad": "E06000052",
   "name": "Cornwall",
   "needs": [
@@ -482,7 +752,19 @@
   "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
   "url": "https://www.cornwall.gov.uk/my-area/"
  },
+ "CotswoldDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000079",
+  "name": "Cotswold",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the full address in the house number and postcode in",
+  "url": "https://community.cotswold.gov.uk/s/waste-collection-enquiry"
+ },
  "CoventryCityCouncil": {
+  "browser": false,
   "lad": "E08000026",
   "name": "Coventry",
   "needs": [],
@@ -490,6 +772,7 @@
   "url": "https://www.coventry.gov.uk/directory-record/62310/abberton-way-"
  },
  "CrawleyBoroughCouncil": {
+  "browser": false,
   "lad": "E07000226",
   "name": "Crawley",
   "needs": [
@@ -499,7 +782,19 @@
   "note": "Crawley needs to be passed both a UPRN and a USRN to work. Find these on [FindMyAddress](https://www.findmyaddress.co.uk/search) or [FindMyStreet](https://www.findmystreet.co.uk/map).",
   "url": "https://my.crawley.gov.uk/"
  },
+ "CroydonCouncil": {
+  "browser": true,
+  "lad": "E09000008",
+  "name": "Croydon",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://service.croydon.gov.uk/wasteservices/w/webpage/bin-day-enter-address"
+ },
  "CumberlandCouncil": {
+  "browser": false,
   "lad": "E06000063",
   "name": "Cumberland",
   "needs": [
@@ -508,7 +803,19 @@
   "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
   "url": "https://www.cumberland.gov.uk/bins-recycling-and-street-cleaning/waste-collections/bin-collection-schedule"
  },
+ "DacorumBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000096",
+  "name": "Dacorum",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://webapps.dacorum.gov.uk/bincollections/"
+ },
  "DarlingtonBoroughCouncil": {
+  "browser": false,
   "lad": "E06000005",
   "name": "Darlington Borough Council",
   "needs": [
@@ -518,6 +825,7 @@
   "url": "https://www.darlington.gov.uk/bins-waste-and-recycling/collection-day-lookup/"
  },
  "DartfordBoroughCouncil": {
+  "browser": false,
   "lad": "E07000107",
   "name": "Dartford",
   "needs": [
@@ -527,6 +835,7 @@
   "url": "https://www.dartford.gov.uk/waste-recycling/collection-day"
  },
  "DenbighshireCouncil": {
+  "browser": false,
   "lad": "W06000004",
   "name": "Denbighshire",
   "needs": [
@@ -536,6 +845,7 @@
   "url": "https://www.denbighshire.gov.uk/"
  },
  "DerbyCityCouncil": {
+  "browser": false,
   "lad": "E06000015",
   "name": "Derby",
   "needs": [
@@ -545,6 +855,7 @@
   "url": "https://www.derby.gov.uk"
  },
  "DerbyshireDalesDistrictCouncil": {
+  "browser": false,
   "lad": "E07000035",
   "name": "Derbyshire Dales",
   "needs": [
@@ -555,6 +866,7 @@
   "url": "https://www.derbyshiredales.gov.uk/"
  },
  "DoncasterCouncil": {
+  "browser": false,
   "lad": "E08000017",
   "name": "Doncaster",
   "needs": [
@@ -564,6 +876,7 @@
   "url": "https://www.doncaster.gov.uk/Compass/Entity/Launch/D3/"
  },
  "DorsetCouncil": {
+  "browser": false,
   "lad": "E06000059",
   "name": "Dorset Council",
   "needs": [
@@ -573,6 +886,7 @@
   "url": "https://www.dorsetcouncil.gov.uk/"
  },
  "DoverDistrictCouncil": {
+  "browser": false,
   "lad": "E07000108",
   "name": "Dover",
   "needs": [
@@ -583,6 +897,7 @@
   "url": "https://portal.waste.dover.gov.uk"
  },
  "DudleyCouncil": {
+  "browser": false,
   "lad": "E08000027",
   "name": "Dudley",
   "needs": [
@@ -592,6 +907,7 @@
   "url": "https://my.dudley.gov.uk"
  },
  "DumfriesandGallowayCouncil": {
+  "browser": false,
   "lad": "S12000006",
   "name": "Dumfries and Galloway Council",
   "needs": [
@@ -603,6 +919,7 @@
   "url": "https://www.dumfriesandgalloway.gov.uk"
  },
  "DundeeCityCouncil": {
+  "browser": false,
   "lad": "S12000042",
   "name": "Dundee City",
   "needs": [
@@ -612,6 +929,7 @@
   "url": "https://www.dundeecity.gov.uk/"
  },
  "DurhamCouncil": {
+  "browser": false,
   "lad": "E06000047",
   "name": "County Durham",
   "needs": [
@@ -621,6 +939,7 @@
   "url": "https://www.durham.gov.uk/bincollections?uprn="
  },
  "EalingCouncil": {
+  "browser": false,
   "lad": "E09000009",
   "name": "Ealing (deprecated, use LondonBoroughEaling)",
   "needs": [
@@ -630,6 +949,7 @@
   "url": "https://www.ealing.gov.uk/site/custom_scripts/WasteCollectionWS/home/FindCollection"
  },
  "EastAyrshireCouncil": {
+  "browser": false,
   "lad": "S12000008",
   "name": "East Ayrshire",
   "needs": [
@@ -640,6 +960,7 @@
   "url": "https://www.east-ayrshire.gov.uk"
  },
  "EastCambridgeshireCouncil": {
+  "browser": false,
   "lad": "E07000009",
   "name": "East Cambridgeshire",
   "needs": [
@@ -649,6 +970,7 @@
   "url": "https://www.eastcambs.gov.uk/"
  },
  "EastDevonDC": {
+  "browser": false,
   "lad": "E07000040",
   "name": "East Devon",
   "needs": [
@@ -660,6 +982,7 @@
   "url": "https://eastdevon.gov.uk/recycling-and-waste/recycling-waste-information/when-is-my-bin-collected/"
  },
  "EastDunbartonshireCouncil": {
+  "browser": false,
   "lad": "S12000045",
   "name": "East Dunbartonshire",
   "needs": [
@@ -669,6 +992,7 @@
   "url": "https://www.eastdunbarton.gov.uk/"
  },
  "EastHampshireDC": {
+  "browser": false,
   "lad": "",
   "name": "East Hampshire",
   "needs": [
@@ -679,6 +1003,7 @@
   "url": "https://www.easthants.gov.uk"
  },
  "EastHertsCouncil": {
+  "browser": false,
   "lad": "E07000097",
   "name": "East Herts Council",
   "needs": [
@@ -687,7 +1012,19 @@
   "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://east-herts.co.uk/api/services/"
  },
+ "EastLindseyDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000137",
+  "name": "East Lindsey",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house name/number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://www.e-lindsey.gov.uk/"
+ },
  "EastLothianCouncil": {
+  "browser": false,
   "lad": "S12000010",
   "name": "East Lothian",
   "needs": [
@@ -697,14 +1034,49 @@
   "note": "Pass the house number and postcode in their respective parameters",
   "url": "https://eastlothian.gov.uk"
  },
+ "EastRenfrewshireCouncil": {
+  "browser": true,
+  "lad": "S12000011",
+  "name": "East Renfrewshire",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house name/number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://eastrenfrewshire.gov.uk/"
+ },
+ "EastRidingCouncil": {
+  "browser": true,
+  "lad": "E06000011",
+  "name": "East Riding of Yorkshire",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Put the full address as it displays on the council website dropdown when you do the check manually.",
+  "url": "https://www.eastriding.gov.uk"
+ },
  "EastStaffordshireBoroughCouncil": {
+  "browser": false,
   "lad": "E07000193",
   "name": "East Staffordshire",
   "needs": [],
   "note": "Replace `XXXXX` with your property's ID when selecting from https://www.eaststaffsbc.gov.uk/bins-rubbish-recycling/collection-dates.",
   "url": "https://www.eaststaffsbc.gov.uk/bins-rubbish-recycling/collection-dates/68382"
  },
+ "EastSuffolkCouncil": {
+  "browser": true,
+  "lad": "E07000244",
+  "name": "East Suffolk",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "To get the UPRN, you can use [FindMyAddress](https://www.findmyaddress.co.uk/search). This parser requires a Selenium webdriver.",
+  "url": "https://my.eastsuffolk.gov.uk/service/Bin_collection_dates_finder"
+ },
  "EastbourneBoroughCouncil": {
+  "browser": false,
   "lad": "E07000061",
   "name": "Eastbourne",
   "needs": [
@@ -713,7 +1085,18 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.lewes-eastbourne.gov.uk/article/1158/When-is-my-bin-collection-day"
  },
+ "EastleighBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000086",
+  "name": "Eastleigh",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.eastleigh.gov.uk/waste-bins-and-recycling/collection-dates/your-waste-bin-and-recycling-collections?uprn="
+ },
  "EdenDistrictCouncil": {
+  "browser": false,
   "lad": "E06000064",
   "name": "Eden District (Westmorland and Furness)",
   "needs": [
@@ -723,6 +1106,7 @@
   "url": "https://my.eden.gov.uk/myeden.aspx"
  },
  "EdinburghCityCouncil": {
+  "browser": false,
   "lad": "S12000036",
   "name": "City of Edinburgh",
   "needs": [
@@ -733,6 +1117,7 @@
   "url": "https://www.edinburgh.gov.uk"
  },
  "ElmbridgeBoroughCouncil": {
+  "browser": false,
   "lad": "E07000207",
   "name": "Elmbridge",
   "needs": [
@@ -741,14 +1126,48 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.elmbridge.gov.uk"
  },
+ "EnfieldCouncil": {
+  "browser": true,
+  "lad": "E09000010",
+  "name": "Enfield",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://www.enfield.gov.uk/services/rubbish-and-recycling/find-my-collection-day"
+ },
  "EnvironmentFirst": {
+  "browser": false,
   "lad": "",
   "name": "Environment First",
   "needs": [],
   "note": "For properties with collections managed by Environment First, such as Lewes and Eastbourne. Replace the XXXXXXXXXX with the UPRN of your property\u00ef\u00bf\u00bdyou can use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find this.",
   "url": "https://environmentfirst.co.uk/house.php?uprn=100060055444"
  },
+ "EppingForestDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000072",
+  "name": "Epping Forest",
+  "needs": [
+   "postcode"
+  ],
+  "note": "Add your postcode.",
+  "url": "https://eppingforestdc.maps.arcgis.com/apps/instant/lookup/index.html?appid=bfca32b46e2a47cd9c0a84f2d8cdde17&find=IG9%206EP"
+ },
+ "EpsomandEwellBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000208",
+  "name": "Epsom and Ewell",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN. Requires Selenium.",
+  "url": "https://www.epsom-ewell.gov.uk"
+ },
  "ErewashBoroughCouncil": {
+  "browser": false,
   "lad": "E07000036",
   "name": "Erewash",
   "needs": [
@@ -758,6 +1177,7 @@
   "url": "https://www.erewash.gov.uk"
  },
  "ExeterCityCouncil": {
+  "browser": false,
   "lad": "E07000041",
   "name": "Exeter",
   "needs": [
@@ -767,6 +1187,7 @@
   "url": "https://www.exeter.gov.uk"
  },
  "FalkirkCouncil": {
+  "browser": false,
   "lad": "S12000014",
   "name": "Falkirk",
   "needs": [
@@ -776,6 +1197,7 @@
   "url": "https://www.falkirk.gov.uk"
  },
  "FarehamBoroughCouncil": {
+  "browser": false,
   "lad": "E07000087",
   "name": "Fareham",
   "needs": [
@@ -785,6 +1207,7 @@
   "url": "https://www.fareham.gov.uk/bincalendar/intro.aspx"
  },
  "FenlandDistrictCouncil": {
+  "browser": false,
   "lad": "E07000010",
   "name": "Fenland",
   "needs": [
@@ -795,6 +1218,7 @@
   "url": "https://www.fenland.gov.uk/article/13114/"
  },
  "FermanaghOmaghDistrictCouncil": {
+  "browser": false,
   "lad": "N09000006",
   "name": "Fermanagh and Omagh",
   "needs": [
@@ -804,7 +1228,19 @@
   "note": "Pass the house number and postcode in their respective parameters.",
   "url": "https://www.fermanaghomagh.com/services/environment-and-waste/waste-collection-calendar/"
  },
+ "FifeCouncil": {
+  "browser": true,
+  "lad": "S12000047",
+  "name": "Fife",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass in the house number and postcode parameters. This parser requires a Selenium webdriver.",
+  "url": "https://www.fife.gov.uk"
+ },
  "FlintshireCountyCouncil": {
+  "browser": false,
   "lad": "W06000005",
   "name": "Flintshire",
   "needs": [
@@ -814,6 +1250,7 @@
   "url": "https://digital.flintshire.gov.uk"
  },
  "FolkestoneandHytheDistrictCouncil": {
+  "browser": false,
   "lad": "E07000112",
   "name": "Folkestone and Hythe",
   "needs": [
@@ -822,7 +1259,19 @@
   "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
   "url": "https://www.folkestone-hythe.gov.uk"
  },
+ "ForestOfDeanDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000080",
+  "name": "Forest of Dean",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the full address in the house number and postcode parameters. This parser requires a Selenium webdriver.",
+  "url": "https://community.fdean.gov.uk/s/waste-collection-enquiry"
+ },
  "FyldeCouncil": {
+  "browser": false,
   "lad": "E07000119",
   "name": "Fylde",
   "needs": [
@@ -832,6 +1281,7 @@
   "url": "https://www.fylde.gov.uk"
  },
  "GatesheadCouncil": {
+  "browser": false,
   "lad": "E08000037",
   "name": "Gateshead",
   "needs": [
@@ -842,6 +1292,7 @@
   "url": "https://www.gateshead.gov.uk/article/3150/Bin-collection-day-checker"
  },
  "GedlingBoroughCouncil": {
+  "browser": false,
   "lad": "E07000173",
   "name": "Gedling",
   "needs": [
@@ -851,6 +1302,7 @@
   "url": "https://www.gedling.gov.uk/"
  },
  "GlasgowCityCouncil": {
+  "browser": false,
   "lad": "S12000049",
   "name": "Glasgow City",
   "needs": [
@@ -859,7 +1311,20 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://onlineservices.glasgow.gov.uk/forms/refuseandrecyclingcalendar/AddressSearch.aspx"
  },
+ "GloucesterCityCouncil": {
+  "browser": true,
+  "lad": "E07000081",
+  "name": "Gloucester",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Pass the house number, postcode, and UPRN in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://gloucester-self.achieveservice.com/service/Bins___Check_your_bin_day"
+ },
  "GooglePublicCalendarCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Google Calendar (Public)",
   "needs": [],
@@ -867,6 +1332,7 @@
   "url": "https://calendar.google.com/calendar/ical/0d775884b4db6a7bae5204f06dae113c1a36e505b25991ebc27c6bd42edf5b5e%40group.calendar.google.com/public/basic.ics"
  },
  "GosportBoroughCouncil": {
+  "browser": false,
   "lad": "E07000082",
   "name": "Gosport Borough Council",
   "needs": [
@@ -876,6 +1342,7 @@
   "url": "https://www.gosport.gov.uk/refuserecyclingdays"
  },
  "GraveshamBoroughCouncil": {
+  "browser": false,
   "lad": "E07000109",
   "name": "Gravesham",
   "needs": [
@@ -885,7 +1352,30 @@
   "note": "Pass your postcode and house number in their respective parameters, or alternatively a UPRN found via [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://my.gravesham.gov.uk"
  },
+ "GreatYarmouthBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000145",
+  "name": "Great Yarmouth",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the postcode, and UPRN in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://myaccount.great-yarmouth.gov.uk/article/6456/Find-my-waste-collection-days"
+ },
+ "GuildfordCouncil": {
+  "browser": true,
+  "lad": "E07000209",
+  "name": "Guildford",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "If the bin day is 'today' then the collectionDate will only show today's date if before 7 AM; else the date will be in 'previousCollectionDate'.",
+  "url": "https://my.guildford.gov.uk/customers/s/view-bin-collections"
+ },
  "GwyneddCouncil": {
+  "browser": false,
   "lad": "W06000002",
   "name": "Gwynedd",
   "needs": [
@@ -895,6 +1385,7 @@
   "url": "https://diogel.gwynedd.llyw.cymru"
  },
  "HackneyCouncil": {
+  "browser": false,
   "lad": "E09000012",
   "name": "Hackney",
   "needs": [
@@ -904,7 +1395,19 @@
   "note": "Pass the postcode and house number in their respective arguments, both wrapped in quotes.",
   "url": "https://www.hackney.gov.uk"
  },
+ "HaltonBoroughCouncil": {
+  "browser": true,
+  "lad": "E06000006",
+  "name": "Halton",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode. This parser requires a Selenium webdriver.",
+  "url": "https://webapp.halton.gov.uk/PublicWebForms/WasteServiceSearchv1.aspx#collections"
+ },
  "HarboroughDistrictCouncil": {
+  "browser": false,
   "lad": "E07000131",
   "name": "Harborough",
   "needs": [
@@ -914,6 +1417,7 @@
   "url": "https://www.harborough.gov.uk"
  },
  "HaringeyCouncil": {
+  "browser": false,
   "lad": "E09000014",
   "name": "Haringey",
   "needs": [
@@ -924,6 +1428,7 @@
   "url": "https://wastecollections.haringey.gov.uk/property"
  },
  "HarlowCouncil": {
+  "browser": false,
   "lad": "E07000073",
   "name": "Harlow",
   "needs": [
@@ -933,6 +1438,7 @@
   "url": "https://harlow.gov.uk"
  },
  "HarrogateBoroughCouncil": {
+  "browser": false,
   "lad": "E07000165",
   "name": "Harrogate",
   "needs": [
@@ -942,6 +1448,7 @@
   "url": "https://secure.harrogate.gov.uk/inmyarea"
  },
  "HartDistrictCouncil": {
+  "browser": false,
   "lad": "E07000089",
   "name": "Hart",
   "needs": [
@@ -951,6 +1458,7 @@
   "url": "https://www.hart.gov.uk/"
  },
  "HartlepoolBoroughCouncil": {
+  "browser": false,
   "lad": "E06000001",
   "name": "Hartlepool",
   "needs": [
@@ -960,6 +1468,7 @@
   "url": "https://www.hartlepool.gov.uk"
  },
  "HastingsBoroughCouncil": {
+  "browser": false,
   "lad": "E07000062",
   "name": "Hastings",
   "needs": [
@@ -969,6 +1478,7 @@
   "url": "https://www.hastings.gov.uk"
  },
  "HerefordshireCouncil": {
+  "browser": false,
   "lad": "E06000019",
   "name": "Herefordshire",
   "needs": [
@@ -977,7 +1487,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.herefordshire.gov.uk/rubbish-recycling/check-bin-collection-day"
  },
+ "HertsmereBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000098",
+  "name": "Hertsmere",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
+  "url": "https://www.hertsmere.gov.uk"
+ },
  "HighPeakCouncil": {
+  "browser": false,
   "lad": "E07000037",
   "name": "High Peak",
   "needs": [
@@ -988,6 +1510,7 @@
   "url": "https://bins.highpeak.gov.uk/PublicDashboard"
  },
  "HighlandCouncil": {
+  "browser": false,
   "lad": "S12000017",
   "name": "Highland",
   "needs": [
@@ -996,7 +1519,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.highland.gov.uk"
  },
+ "Hillingdon": {
+  "browser": true,
+  "lad": "E09000017",
+  "name": "Hillingdon",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the postcode and the full address as it appears in the address pulldown menu.",
+  "url": "https://www.hillingdon.gov.uk/collection-day"
+ },
  "HinckleyandBosworthBoroughCouncil": {
+  "browser": false,
   "lad": "E07000132",
   "name": "Hinckley and Bosworth",
   "needs": [
@@ -1007,6 +1542,7 @@
   "url": "https://www.hinckley-bosworth.gov.uk"
  },
  "HorshamDistrictCouncil": {
+  "browser": false,
   "lad": "E07000227",
   "name": "Horsham",
   "needs": [
@@ -1018,6 +1554,7 @@
   "url": "https://satellite.horsham.gov.uk"
  },
  "HullCityCouncil": {
+  "browser": false,
   "lad": "E06000010",
   "name": "Kingston upon Hull",
   "needs": [
@@ -1027,6 +1564,7 @@
   "url": "https://www.hull.gov.uk/bins-and-recycling/bin-collections/bin-collection-day-checker"
  },
  "HuntingdonDistrictCouncil": {
+  "browser": false,
   "lad": "E07000011",
   "name": "Huntingdonshire",
   "needs": [
@@ -1035,7 +1573,19 @@
   "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "http://www.huntingdonshire.gov.uk/refuse-calendar/"
  },
+ "HyndburnBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000120",
+  "name": "Hyndburn",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search). This parser requires a Selenium webdriver.",
+  "url": "https://iapp.itouchvision.com/iappcollectionday/collection-day/?uuid=FEBA68993831481FD81B2E605364D00A8DC017A4"
+ },
  "InverclydeCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Inverclyde",
   "needs": [
@@ -1046,6 +1596,7 @@
   "url": "https://www.inverclyde.gov.uk"
  },
  "IpswichBoroughCouncil": {
+  "browser": false,
   "lad": "E07000202",
   "name": "Ipswich",
   "needs": [
@@ -1055,6 +1606,7 @@
   "url": "https://app.ipswich.gov.uk/bin-collection/"
  },
  "IsleOfAngleseyCouncil": {
+  "browser": false,
   "lad": "W06000001",
   "name": "Isle of Anglesey",
   "needs": [
@@ -1063,7 +1615,19 @@
   "note": "Pass either UPRN or postcode/house number. URL is not used.",
   "url": "https://www.anglesey.gov.wales/en/Residents/Bins-and-recycling/Waste-Collection-Day.aspx"
  },
+ "IsleOfWightCouncil": {
+  "browser": true,
+  "lad": "",
+  "name": "Isle of Wight",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass your postcode and house number/name in their respective parameters.",
+  "url": "https://digitalservices.iow.gov.uk/wasteday"
+ },
  "IslingtonCouncil": {
+  "browser": false,
   "lad": "E09000019",
   "name": "Islington",
   "needs": [
@@ -1074,6 +1638,7 @@
   "url": "https://www.islington.gov.uk/your-area"
  },
  "KingsLynnandWestNorfolkBC": {
+  "browser": false,
   "lad": "E07000146",
   "name": "Kings Lynn and West Norfolk",
   "needs": [
@@ -1082,7 +1647,16 @@
   "note": "Provide your UPRN. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://www.west-norfolk.gov.uk/"
  },
+ "KingstonUponThamesCouncil": {
+  "browser": true,
+  "lad": "E09000021",
+  "name": "Kingston upon Thames",
+  "needs": [],
+  "note": "Follow the instructions [here](https://waste-services.kingston.gov.uk/waste) until the \"Your bin days\" page, then copy the URL and replace the URL in the command.",
+  "url": "https://waste-services.kingston.gov.uk/waste/2701097"
+ },
  "KirkleesCouncil": {
+  "browser": false,
   "lad": "E08000034",
   "name": "Kirklees",
   "needs": [
@@ -1091,7 +1665,19 @@
   "note": "Provide your UPRN. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://www.kirklees.gov.uk/beta/your-property-bins-recycling/your-bins"
  },
+ "KnowsleyMBCouncil": {
+  "browser": true,
+  "lad": "E08000011",
+  "name": "Knowsley",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the postcode in the postcode parameter, wrapped in double quotes and with a space.",
+  "url": "https://knowsleytransaction.mendixcloud.com/link/youarebeingredirected?target=bincollectioninformation"
+ },
  "LancasterCityCouncil": {
+  "browser": false,
   "lad": "E07000121",
   "name": "Lancaster",
   "needs": [
@@ -1102,6 +1688,7 @@
   "url": "https://lcc-wrp.whitespacews.com"
  },
  "LeedsCityCouncil": {
+  "browser": false,
   "lad": "E08000035",
   "name": "Leeds",
   "needs": [
@@ -1111,6 +1698,7 @@
   "url": "https://www.leeds.gov.uk/residents/bins-and-recycling/check-your-bin-day"
  },
  "LeicesterCityCouncil": {
+  "browser": false,
   "lad": "E06000016",
   "name": "Leicester",
   "needs": [
@@ -1120,6 +1708,7 @@
   "url": "https://biffaleicester.co.uk"
  },
  "LewesDistrictCouncil": {
+  "browser": false,
   "lad": "E07000063",
   "name": "Lewes",
   "needs": [
@@ -1129,6 +1718,7 @@
   "url": "https://www.lewes-eastbourne.gov.uk/article/1158/When-is-my-bin-collection-day"
  },
  "LichfieldDistrictCouncil": {
+  "browser": false,
   "lad": "E07000194",
   "name": "Lichfield",
   "needs": [
@@ -1138,6 +1728,7 @@
   "url": "https://www.lichfielddc.gov.uk"
  },
  "LincolnCouncil": {
+  "browser": false,
   "lad": "E07000138",
   "name": "City of Lincoln",
   "needs": [
@@ -1149,6 +1740,7 @@
   "url": "https://lincoln.gov.uk"
  },
  "LisburnCastlereaghCityCouncil": {
+  "browser": false,
   "lad": "N09000007",
   "name": "Lisburn and Castlereagh",
   "needs": [
@@ -1159,6 +1751,7 @@
   "url": "https://lisburn.isl-fusion.com"
  },
  "LiverpoolCityCouncil": {
+  "browser": false,
   "lad": "E08000012",
   "name": "Liverpool",
   "needs": [
@@ -1168,6 +1761,7 @@
   "url": "https://liverpool.gov.uk/bins-and-recycling/bin-collections/"
  },
  "LondonBoroughCamdenCouncil": {
+  "browser": false,
   "lad": "E09000007",
   "name": "Camden",
   "needs": [
@@ -1179,6 +1773,7 @@
   "url": "https://recyclingandrubbishcollections.camden.gov.uk"
  },
  "LondonBoroughEaling": {
+  "browser": false,
   "lad": "E09000009",
   "name": "Ealing",
   "needs": [
@@ -1188,6 +1783,7 @@
   "url": "https://www.ealing.gov.uk/site/custom_scripts/WasteCollectionWS/home/FindCollection"
  },
  "LondonBoroughHammersmithandFulham": {
+  "browser": false,
   "lad": "E09000013",
   "name": "Hammersmith & Fulham",
   "needs": [
@@ -1197,6 +1793,7 @@
   "url": "https://www.lbhf.gov.uk/"
  },
  "LondonBoroughHarrow": {
+  "browser": false,
   "lad": "E09000015",
   "name": "Harrow",
   "needs": [
@@ -1206,6 +1803,7 @@
   "url": "https://www.harrow.gov.uk"
  },
  "LondonBoroughHavering": {
+  "browser": false,
   "lad": "E09000016",
   "name": "Havering",
   "needs": [
@@ -1215,6 +1813,7 @@
   "url": "https://www.havering.gov.uk"
  },
  "LondonBoroughHounslow": {
+  "browser": false,
   "lad": "E09000018",
   "name": "Hounslow",
   "needs": [
@@ -1224,6 +1823,7 @@
   "url": "https://my.hounslow.gov.uk/service/Waste_and_recycling_collections"
  },
  "LondonBoroughLambeth": {
+  "browser": false,
   "lad": "E09000022",
   "name": "Lambeth",
   "needs": [
@@ -1233,6 +1833,7 @@
   "url": "https://wasteservice.lambeth.gov.uk/WhitespaceComms/GetServicesByUprn"
  },
  "LondonBoroughLewisham": {
+  "browser": false,
   "lad": "E09000023",
   "name": "Lewisham",
   "needs": [
@@ -1242,6 +1843,7 @@
   "url": "https://www.lewisham.gov.uk"
  },
  "LondonBoroughOfRichmondUponThames": {
+  "browser": false,
   "lad": "E09000027",
   "name": "Richmond upon Thames",
   "needs": [
@@ -1251,7 +1853,19 @@
   "note": "Pass UPRN (used as PID) or postcode + house number. Street search is automatic.",
   "url": "https://www.richmond.gov.uk/my_richmond"
  },
+ "LondonBoroughRedbridge": {
+  "browser": true,
+  "lad": "E09000026",
+  "name": "Redbridge",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Follow the instructions [here](https://my.redbridge.gov.uk/RecycleRefuse) until you get the page listing your address, then copy the entire address text and use that in the house number field.",
+  "url": "https://my.redbridge.gov.uk/RecycleRefuse"
+ },
  "LondonBoroughSutton": {
+  "browser": false,
   "lad": "E09000029",
   "name": "Sutton",
   "needs": [
@@ -1263,6 +1877,7 @@
   "url": "https://waste-services.sutton.gov.uk/waste"
  },
  "LutonBoroughCouncil": {
+  "browser": false,
   "lad": "E06000032",
   "name": "Luton",
   "needs": [
@@ -1271,7 +1886,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://myforms.luton.gov.uk"
  },
+ "MaidstoneBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000110",
+  "name": "Maidstone",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://my.maidstone.gov.uk/service/Find-your-bin-day"
+ },
  "MaldonDistrictCouncil": {
+  "browser": false,
   "lad": "E07000074",
   "name": "Maldon",
   "needs": [
@@ -1281,6 +1908,7 @@
   "url": "https://maldon.suez.co.uk/maldon/ServiceSummary"
  },
  "MalvernHillsDC": {
+  "browser": false,
   "lad": "E07000235",
   "name": "Malvern Hills",
   "needs": [
@@ -1290,6 +1918,7 @@
   "url": "https://swict.malvernhills.gov.uk/mhdcroundlookup/HandleSearchScreen"
  },
  "ManchesterCityCouncil": {
+  "browser": false,
   "lad": "E08000003",
   "name": "Manchester",
   "needs": [
@@ -1299,6 +1928,7 @@
   "url": "https://www.manchester.gov.uk/bincollections"
  },
  "MansfieldDistrictCouncil": {
+  "browser": false,
   "lad": "E07000174",
   "name": "Mansfield",
   "needs": [
@@ -1308,6 +1938,7 @@
   "url": "https://www.mansfield.gov.uk/xfp/form/1327"
  },
  "MedwayCouncil": {
+  "browser": false,
   "lad": "E06000035",
   "name": "Medway",
   "needs": [
@@ -1317,6 +1948,7 @@
   "url": "https://www.medway.gov.uk/homepage/45/check_your_waste_collection_day"
  },
  "MeltonBoroughCouncil": {
+  "browser": false,
   "lad": "E07000133",
   "name": "Melton",
   "needs": [
@@ -1326,6 +1958,7 @@
   "url": "https://my.melton.gov.uk/collections"
  },
  "MerthyrTydfilCountyBoroughCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Merthyr Tydfil County Borough",
   "needs": [
@@ -1335,6 +1968,7 @@
   "url": "https://www.merthyr.gov.uk"
  },
  "MertonCouncil": {
+  "browser": false,
   "lad": "E09000024",
   "name": "Merton",
   "needs": [
@@ -1346,6 +1980,7 @@
   "url": "https://fixmystreet.merton.gov.uk/waste/"
  },
  "MidAndEastAntrimBoroughCouncil": {
+  "browser": false,
   "lad": "N09000008",
   "name": "Mid and East Antrim",
   "needs": [
@@ -1356,6 +1991,7 @@
   "url": "https://www.midandeastantrim.gov.uk/resident/waste-recycling/collection-dates/"
  },
  "MidDevonCouncil": {
+  "browser": false,
   "lad": "E07000042",
   "name": "Mid Devon",
   "needs": [
@@ -1364,7 +2000,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.middevon.gov.uk"
  },
+ "MidSuffolkDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000203",
+  "name": "Mid Suffolk",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://www.midsuffolk.gov.uk/check-your-collection-day"
+ },
  "MidSussexDistrictCouncil": {
+  "browser": false,
   "lad": "E07000228",
   "name": "Mid Sussex",
   "needs": [
@@ -1374,7 +2022,19 @@
   "note": "Pass the name of the street with the house number parameter, wrapped in double quotes.",
   "url": "https://www.midsussex.gov.uk"
  },
+ "MidUlsterDistrictCouncil": {
+  "browser": true,
+  "lad": "N09000009",
+  "name": "Mid Ulster",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the full address of the house postcode as displayed on the site. This parser requires a Selenium webdriver.",
+  "url": "https://www.midulstercouncil.org"
+ },
  "MiddlesbroughCouncil": {
+  "browser": false,
   "lad": "E06000002",
   "name": "Middlesbrough",
   "needs": [
@@ -1383,7 +2043,19 @@
   "note": "Pass the entire address without postcode as it appears when you type it on the website. This parser requires a Selenium webdriver.",
   "url": "https://www.middlesbrough.gov.uk/recycling-and-rubbish/bin-collection-dates/"
  },
+ "MidlothianCouncil": {
+  "browser": true,
+  "lad": "S12000019",
+  "name": "Midlothian",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house name/number wrapped in double quotes along with the postcode parameter.",
+  "url": "https://www.midlothian.gov.uk/info/1054/bins_and_recycling/343/bin_collection_days"
+ },
  "MiltonKeynesCityCouncil": {
+  "browser": false,
   "lad": "E06000042",
   "name": "Milton Keynes",
   "needs": [
@@ -1393,6 +2065,7 @@
   "url": "https://mycouncil.milton-keynes.gov.uk/en/service/Waste_Collection_Round_Checker"
  },
  "MoleValleyDistrictCouncil": {
+  "browser": false,
   "lad": "E07000210",
   "name": "Mole Valley",
   "needs": [
@@ -1403,6 +2076,7 @@
   "url": "https://myproperty.molevalley.gov.uk/molevalley/"
  },
  "MonmouthshireCountyCouncil": {
+  "browser": false,
   "lad": "W06000021",
   "name": "Monmouthshire",
   "needs": [
@@ -1412,6 +2086,7 @@
   "url": "https://maps.monmouthshire.gov.uk"
  },
  "MorayCouncil": {
+  "browser": false,
   "lad": "S12000020",
   "name": "Moray",
   "needs": [
@@ -1422,7 +2097,30 @@
   "note": "Find your property ID by going to (https://bindayfinder.moray.gov.uk), search for your property and extracting the ID from the URL. i.e. (https://bindayfinder.moray.gov.uk/disp_bins.php?id=00028841)",
   "url": "https://bindayfinder.moray.gov.uk/"
  },
+ "NeathPortTalbotCouncil": {
+  "browser": true,
+  "lad": "W06000012",
+  "name": "Neath Port Talbot",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://www.npt.gov.uk"
+ },
+ "NewForestCouncil": {
+  "browser": true,
+  "lad": "E07000091",
+  "name": "New Forest",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the postcode and UPRN. This parser requires a Selenium webdriver.",
+  "url": "https://forms.newforest.gov.uk/ufs/FIND_MY_BIN_BAR.eb"
+ },
  "NewarkAndSherwoodDC": {
+  "browser": false,
   "lad": "E07000175",
   "name": "Newark and Sherwood",
   "needs": [
@@ -1432,6 +2130,7 @@
   "url": "https://app.newark-sherwooddc.gov.uk/bincollection/"
  },
  "NewcastleCityCouncil": {
+  "browser": false,
   "lad": "E08000021",
   "name": "Newcastle upon Tyne",
   "needs": [
@@ -1442,6 +2141,7 @@
   "url": "https://new.newcastle.gov.uk/recycling-waste/check-your-bin-collection-day"
  },
  "NewcastleUnderLymeCouncil": {
+  "browser": false,
   "lad": "E07000195",
   "name": "Newcastle-under-Lyme",
   "needs": [
@@ -1451,6 +2151,7 @@
   "url": "https://www.newcastle-staffs.gov.uk"
  },
  "NewhamCouncil": {
+  "browser": false,
   "lad": "E09000025",
   "name": "Newham",
   "needs": [
@@ -1460,6 +2161,7 @@
   "url": "https://bincollection.newham.gov.uk/"
  },
  "NewportCityCouncil": {
+  "browser": false,
   "lad": "W06000022",
   "name": "Newport",
   "needs": [
@@ -1469,6 +2171,7 @@
   "url": "https://www.newport.gov.uk/"
  },
  "NorthAyrshireCouncil": {
+  "browser": false,
   "lad": "S12000021",
   "name": "North Ayrshire",
   "needs": [
@@ -1477,7 +2180,31 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.north-ayrshire.gov.uk/"
  },
+ "NorthDevonCountyCouncil": {
+  "browser": true,
+  "lad": "E07000043",
+  "name": "North Devon",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://my.northdevon.gov.uk/service/WasteRecyclingCollectionCalendar"
+ },
+ "NorthEastDerbyshireDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000038",
+  "name": "North East Derbyshire",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the postcode and UPRN. This parser requires a Selenium webdriver.",
+  "url": "https://myselfservice.ne-derbyshire.gov.uk/service/Check_your_Bin_Day"
+ },
  "NorthEastLincs": {
+  "browser": false,
   "lad": "E06000012",
   "name": "North East Lincolnshire",
   "needs": [
@@ -1486,7 +2213,19 @@
   "note": "Replace XXXXXXXX with your UPRN.",
   "url": "https://www.nelincs.gov.uk/refuse-collection-schedule/?view=timeline&uprn=11062649"
  },
+ "NorthHertfordshireDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000099",
+  "name": "North Hertfordshire",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass a postcode (with space) and house_number/name. The scraper performs the Liberty Create typeahead lookup and matches house_number as a case-insensitive substring.",
+  "url": "https://waste.nc.north-herts.gov.uk/w/webpage/find-bin-collection-day-input-address"
+ },
  "NorthKestevenDistrictCouncil": {
+  "browser": false,
   "lad": "E07000139",
   "name": "North Kesteven",
   "needs": [
@@ -1496,6 +2235,7 @@
   "url": "https://www.n-kesteven.org.uk/bins/display"
  },
  "NorthLanarkshireCouncil": {
+  "browser": false,
   "lad": "S12000050",
   "name": "North Lanarkshire",
   "needs": [],
@@ -1503,6 +2243,7 @@
   "url": "https://www.northlanarkshire.gov.uk/bin-collection-dates/000118016164/48402118"
  },
  "NorthLincolnshireCouncil": {
+  "browser": false,
   "lad": "E06000013",
   "name": "North Lincolnshire",
   "needs": [
@@ -1511,7 +2252,19 @@
   "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://www.northlincs.gov.uk/bins-waste-and-recycling/bin-and-box-collection-dates/"
  },
+ "NorthNorfolkDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000147",
+  "name": "North Norfolk",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the name of the street with the house number parameter, wrapped in double quotes. This parser requires a Selenium webdriver.",
+  "url": "https://www.north-norfolk.gov.uk/"
+ },
  "NorthNorthamptonshireCouncil": {
+  "browser": false,
   "lad": "E06000061",
   "name": "North Northamptonshire",
   "needs": [
@@ -1521,6 +2274,7 @@
   "url": "https://cms.northnorthants.gov.uk/bin-collection-search/calendarevents/100031021318/2023-10-17/2023-10-01"
  },
  "NorthSomersetCouncil": {
+  "browser": false,
   "lad": "E06000024",
   "name": "North Somerset",
   "needs": [
@@ -1531,6 +2285,7 @@
   "url": "https://forms.n-somerset.gov.uk/Waste/CollectionSchedule"
  },
  "NorthTynesideCouncil": {
+  "browser": false,
   "lad": "E08000022",
   "name": "North Tyneside",
   "needs": [
@@ -1539,7 +2294,18 @@
   "note": "Pass only the UPRN (no postcode). You can find the UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://www.northtyneside.gov.uk/waste-collection-schedule"
  },
+ "NorthWarwickshireBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000220",
+  "name": "North Warwickshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.northwarks.gov.uk"
+ },
  "NorthWestLeicestershire": {
+  "browser": false,
   "lad": "E07000134",
   "name": "North West Leicestershire",
   "needs": [
@@ -1550,6 +2316,7 @@
   "url": "https://www.nwleics.gov.uk/pages/collection_information"
  },
  "NorthYorkshire": {
+  "browser": false,
   "lad": "E06000065",
   "name": "North Yorkshire",
   "needs": [
@@ -1558,7 +2325,19 @@
   "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://www.northyorks.gov.uk/bin-calendar/lookup"
  },
+ "NorthumberlandCouncil": {
+  "browser": true,
+  "lad": "E06000057",
+  "name": "Northumberland",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://bincollection.northumberland.gov.uk/postcode"
+ },
  "NorwichCityCouncil": {
+  "browser": false,
   "lad": "E07000148",
   "name": "Norwich",
   "needs": [
@@ -1569,6 +2348,7 @@
   "url": "https://bnr-wrp.whitespacews.com"
  },
  "NottinghamCityCouncil": {
+  "browser": false,
   "lad": "E06000018",
   "name": "Nottingham",
   "needs": [
@@ -1578,6 +2358,7 @@
   "url": "https://geoserver.nottinghamcity.gov.uk/bincollections2/api/collection/100031540180"
  },
  "NuneatonBedworthBoroughCouncil": {
+  "browser": false,
   "lad": "E07000219",
   "name": "Nuneaton and Bedworth",
   "needs": [
@@ -1587,6 +2368,7 @@
   "url": "https://www.nuneatonandbedworth.gov.uk"
  },
  "OadbyAndWigstonBoroughCouncil": {
+  "browser": false,
   "lad": "E07000135",
   "name": "Oadby and Wigston",
   "needs": [
@@ -1596,6 +2378,7 @@
   "url": "https://my.oadby-wigston.gov.uk"
  },
  "OldhamCouncil": {
+  "browser": false,
   "lad": "E08000004",
   "name": "Oldham",
   "needs": [],
@@ -1603,6 +2386,7 @@
   "url": "https://portal.oldham.gov.uk/bincollectiondates/details?uprn=422000033556"
  },
  "OrkneyIslandsCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Orkney Islands",
   "needs": [
@@ -1612,6 +2396,7 @@
   "url": "https://www.orkney.gov.uk"
  },
  "OxfordCityCouncil": {
+  "browser": false,
   "lad": "E07000178",
   "name": "Oxford",
   "needs": [
@@ -1622,6 +2407,7 @@
   "url": "https://www.oxford.gov.uk/xfp/form/142"
  },
  "PembrokeshireCountyCouncil": {
+  "browser": false,
   "lad": "W06000009",
   "name": "Pembrokeshire",
   "needs": [],
@@ -1629,6 +2415,7 @@
   "url": "https://nearest.pembrokeshire.gov.uk/property/100100278790"
  },
  "PerthAndKinrossCouncil": {
+  "browser": false,
   "lad": "S12000048",
   "name": "Perth and Kinross",
   "needs": [
@@ -1637,7 +2424,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.pkc.gov.uk"
  },
+ "PeterboroughCityCouncil": {
+  "browser": true,
+  "lad": "E06000031",
+  "name": "Peterborough",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the full address as it appears o nthe Peterborough website and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://report.peterborough.gov.uk/waste"
+ },
  "PlymouthCouncil": {
+  "browser": false,
   "lad": "E06000026",
   "name": "Plymouth",
   "needs": [
@@ -1646,7 +2445,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.plymouth.gov.uk"
  },
+ "PortsmouthCityCouncil": {
+  "browser": true,
+  "lad": "E06000044",
+  "name": "Portsmouth",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the postcode and UPRN. This parser requires a Selenium webdriver.",
+  "url": "https://my.portsmouth.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-26e27e70-f771-47b1-a34d-af276075cede/AF-Stage-cd7cc291-2e59-42cc-8c3f-1f93e132a2c9/definition.json&redirectlink=%2F&cancelRedirectLink=%2F"
+ },
  "PowysCouncil": {
+  "browser": false,
   "lad": "W06000023",
   "name": "Powys",
   "needs": [
@@ -1656,7 +2467,19 @@
   "note": "",
   "url": "https://en.powys.gov.uk/binday"
  },
+ "PrestonCityCouncil": {
+  "browser": true,
+  "lad": "E07000123",
+  "name": "Preston",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://selfservice.preston.gov.uk/service/Forms/FindMyNearest.aspx?Service=bins"
+ },
  "ReadingBoroughCouncil": {
+  "browser": false,
   "lad": "E06000038",
   "name": "Reading",
   "needs": [],
@@ -1664,6 +2487,7 @@
   "url": "https://api.reading.gov.uk/api/collections/310056735"
  },
  "RedcarandClevelandCouncil": {
+  "browser": false,
   "lad": "E06000003",
   "name": "Redcar and Cleveland",
   "needs": [
@@ -1674,6 +2498,7 @@
   "url": "https://www.redcar-cleveland.gov.uk"
  },
  "RedditchBoroughCouncil": {
+  "browser": false,
   "lad": "E07000236",
   "name": "Redditch",
   "needs": [
@@ -1682,7 +2507,18 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://redditchbc.gov.uk"
  },
+ "ReigateAndBansteadBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000211",
+  "name": "Reigate and Banstead",
+  "needs": [
+   "uprn"
+  ],
+  "note": "To get the UPRN, you can use [FindMyAddress](https://www.findmyaddress.co.uk/search). This parser requires a Selenium webdriver.",
+  "url": "https://www.reigate-banstead.gov.uk/"
+ },
  "RenfrewshireCouncil": {
+  "browser": false,
   "lad": "S12000038",
   "name": "Renfrewshire",
   "needs": [
@@ -1692,6 +2528,7 @@
   "url": "https://www.renfrewshire.gov.uk"
  },
  "RhonddaCynonTaffCouncil": {
+  "browser": false,
   "lad": "W06000016",
   "name": "Rhondda Cynon Taff",
   "needs": [
@@ -1701,6 +2538,7 @@
   "url": "https://www.rctcbc.gov.uk/EN/Resident/RecyclingandWaste/RecyclingandWasteCollectionDays.aspx"
  },
  "RochdaleCouncil": {
+  "browser": false,
   "lad": "E08000005",
   "name": "Rochdale",
   "needs": [
@@ -1711,6 +2549,7 @@
   "url": "https://webforms.rochdale.gov.uk/BinCalendar"
  },
  "RochfordCouncil": {
+  "browser": false,
   "lad": "E07000075",
   "name": "Rochford",
   "needs": [],
@@ -1718,6 +2557,7 @@
   "url": "https://www.rochford.gov.uk/online-bin-collections-calendar"
  },
  "RotherDistrictCouncil": {
+  "browser": false,
   "lad": "E07000064",
   "name": "Rother",
   "needs": [
@@ -1727,6 +2567,7 @@
   "url": "https://www.rother.gov.uk"
  },
  "RotherhamCouncil": {
+  "browser": false,
   "lad": "E08000018",
   "name": "Rotherham",
   "needs": [
@@ -1737,6 +2578,7 @@
   "url": "https://www.rotherham.gov.uk/"
  },
  "RoyalBoroughofGreenwich": {
+  "browser": false,
   "lad": "E09000011",
   "name": "Greenwich",
   "needs": [
@@ -1746,7 +2588,19 @@
   "note": "Provide your house number in the `house_number` parameter and your postcode in the `postcode` parameter.",
   "url": "https://www.royalgreenwich.gov.uk"
  },
+ "RugbyBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000220",
+  "name": "Rugby",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. You can find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.rugby.gov.uk/check-your-next-bin-day"
+ },
  "RunnymedeBoroughCouncil": {
+  "browser": false,
   "lad": "E07000212",
   "name": "Runnymede",
   "needs": [
@@ -1755,7 +2609,19 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.runnymede.gov.uk/"
  },
+ "RushcliffeBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000176",
+  "name": "Rushcliffe",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.rushcliffe.gov.uk/"
+ },
  "RushmoorCouncil": {
+  "browser": false,
   "lad": "E07000092",
   "name": "Rushmoor",
   "needs": [
@@ -1765,6 +2631,7 @@
   "url": "https://www.rushmoor.gov.uk"
  },
  "SalfordCityCouncil": {
+  "browser": false,
   "lad": "E08000006",
   "name": "Salford",
   "needs": [
@@ -1774,6 +2641,7 @@
   "url": "https://www.salford.gov.uk/bins-and-recycling/bin-collection-days/your-bin-collections"
  },
  "SandwellBoroughCouncil": {
+  "browser": false,
   "lad": "E08000028",
   "name": "Sandwell",
   "needs": [
@@ -1783,6 +2651,7 @@
   "url": "https://www.sandwell.gov.uk"
  },
  "ScottishBordersCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Scottish Borders",
   "needs": [
@@ -1794,6 +2663,7 @@
   "url": "https://www.scotborders.gov.uk"
  },
  "SeftonCouncil": {
+  "browser": false,
   "lad": "E08000014",
   "name": "Sefton",
   "needs": [
@@ -1803,7 +2673,19 @@
   "note": "Pass the postcode and house number in their respective arguments, both wrapped in quotes.",
   "url": "https://www.sefton.gov.uk"
  },
+ "SevenoaksDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000111",
+  "name": "Sevenoaks",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house name/number in the `house_number` parameter, wrapped in double quotes, and the postcode in the `postcode` parameter.",
+  "url": "https://sevenoaks-dc-host01.oncreate.app/w/webpage/waste-collection-day"
+ },
  "SheffieldCityCouncil": {
+  "browser": false,
   "lad": "E08000019",
   "name": "Sheffield",
   "needs": [
@@ -1815,6 +2697,7 @@
   "url": "https://wasteservices.sheffield.gov.uk"
  },
  "ShetlandIslandsCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Shetland Islands",
   "needs": [
@@ -1824,6 +2707,7 @@
   "url": "https://www.shetland.gov.uk"
  },
  "ShropshireCouncil": {
+  "browser": false,
   "lad": "E06000051",
   "name": "Shropshire",
   "needs": [],
@@ -1831,6 +2715,7 @@
   "url": "https://bins.shropshire.gov.uk/property/100070034731"
  },
  "SloughBoroughCouncil": {
+  "browser": false,
   "lad": "E06000039",
   "name": "Slough",
   "needs": [
@@ -1841,13 +2726,26 @@
   "url": "https://waste.slough.gov.uk/PublicDashboard"
  },
  "SolihullCouncil": {
+  "browser": false,
   "lad": "E08000029",
   "name": "Solihull",
   "needs": [],
   "note": "Replace `XXXXXXXX` with your UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://digital.solihull.gov.uk/BinCollectionCalendar/Calendar.aspx?UPRN=100071005444"
  },
+ "SomersetCouncil": {
+  "browser": true,
+  "lad": "E06000066",
+  "name": "Somerset",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number and postcode",
+  "url": "https://www.somerset.gov.uk/"
+ },
  "SouthAyrshireCouncil": {
+  "browser": false,
   "lad": "S12000028",
   "name": "South Ayrshire",
   "needs": [
@@ -1858,6 +2756,7 @@
   "url": "https://www.south-ayrshire.gov.uk/"
  },
  "SouthCambridgeshireCouncil": {
+  "browser": false,
   "lad": "E07000012",
   "name": "South Cambridgeshire",
   "needs": [
@@ -1868,6 +2767,7 @@
   "url": "https://www.scambs.gov.uk/recycling-and-bins/find-your-household-bin-collection-day/"
  },
  "SouthDerbyshireDistrictCouncil": {
+  "browser": false,
   "lad": "E07000039",
   "name": "South Derbyshire",
   "needs": [
@@ -1879,6 +2779,7 @@
   "url": "https://maps.southderbyshire.gov.uk/iShareLIVE.web//getdata.aspx"
  },
  "SouthGloucestershireCouncil": {
+  "browser": false,
   "lad": "E06000025",
   "name": "South Gloucestershire",
   "needs": [
@@ -1888,6 +2789,7 @@
   "url": "https://api.southglos.gov.uk/wastecomp/GetCollectionDetails"
  },
  "SouthHamsDistrictCouncil": {
+  "browser": false,
   "lad": "E07000044",
   "name": "South Hams",
   "needs": [
@@ -1896,7 +2798,31 @@
   "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
   "url": "https://www.southhams.gov.uk"
  },
+ "SouthHollandDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000140",
+  "name": "South Holland",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Pass the UPRN and postcode in their respective parameters. This parser requires a Selenium webdriver.",
+  "url": "https://www.sholland.gov.uk/mycollections"
+ },
+ "SouthKestevenDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000141",
+  "name": "South Kesteven District Council",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number or house name in the `house_number` parameter and your postcode in the `postcode` parameter. The parser navigates the postcode bin day checker on the council's `binday` page using Selenium and parses the resulting \"Your Collections\" tables. The returned bin types are normalized to `Grey Bin`, `Food Bin`, `Black Bin`, and `Purple Bin` for Home Assistant compatibility.",
+  "url": "https://www.southkesteven.gov.uk/binday"
+ },
  "SouthLanarkshireCouncil": {
+  "browser": false,
   "lad": "S12000029",
   "name": "South Lanarkshire",
   "needs": [],
@@ -1904,6 +2830,7 @@
   "url": "https://www.southlanarkshire.gov.uk/directory_record/579973/abbeyhill_crescent_lesmahagow"
  },
  "SouthNorfolkCouncil": {
+  "browser": false,
   "lad": "E07000149",
   "name": "South Norfolk",
   "needs": [
@@ -1913,6 +2840,7 @@
   "url": "https://area.southnorfolkandbroadland.gov.uk/FindAddress"
  },
  "SouthOxfordshireCouncil": {
+  "browser": false,
   "lad": "E07000179",
   "name": "South Oxfordshire",
   "needs": [
@@ -1922,6 +2850,7 @@
   "url": "https://www.southoxon.gov.uk/south-oxfordshire-district-council/recycling-rubbish-and-waste/when-is-your-collection-day/"
  },
  "SouthRibbleCouncil": {
+  "browser": false,
   "lad": "E07000126",
   "name": "South Ribble",
   "needs": [
@@ -1932,6 +2861,7 @@
   "url": "https://forms.chorleysouthribble.gov.uk/xfp/form/70"
  },
  "SouthStaffordshireDistrictCouncil": {
+  "browser": false,
   "lad": "E07000196",
   "name": "South Staffordshire",
   "needs": [
@@ -1941,6 +2871,7 @@
   "url": "https://www.sstaffs.gov.uk/where-i-live?objectId=100031802117"
  },
  "SouthTynesideCouncil": {
+  "browser": false,
   "lad": "E08000023",
   "name": "South Tyneside",
   "needs": [
@@ -1951,6 +2882,7 @@
   "url": "https://www.southtyneside.gov.uk/article/33352/Bin-collection-dates"
  },
  "SouthamptonCityCouncil": {
+  "browser": false,
   "lad": "E06000045",
   "name": "Southampton",
   "needs": [
@@ -1960,6 +2892,7 @@
   "url": "https://www.southampton.gov.uk"
  },
  "SouthendOnSeaCityCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Southend-on-Sea City",
   "needs": [
@@ -1969,6 +2902,7 @@
   "url": "https://www.southend.gov.uk"
  },
  "SouthwarkCouncil": {
+  "browser": false,
   "lad": "E09000028",
   "name": "Southwark",
   "needs": [
@@ -1978,6 +2912,7 @@
   "url": "https://services.southwark.gov.uk/bins/lookup/"
  },
  "SpelthorneBoroughCouncil": {
+  "browser": false,
   "lad": "E07000213",
   "name": "Spelthorne",
   "needs": [
@@ -1988,6 +2923,7 @@
   "url": "https://www.spelthorne.gov.uk"
  },
  "StAlbansCityAndDistrictCouncil": {
+  "browser": false,
   "lad": "E07000240",
   "name": "St Albans",
   "needs": [
@@ -1996,7 +2932,19 @@
   "note": "Provide your UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://gis.stalbans.gov.uk/NoticeBoard9/VeoliaProxy.NoticeBoard.asmx/GetServicesByUprnAndNoticeBoard"
  },
+ "StHelensBC": {
+  "browser": true,
+  "lad": "E08000013",
+  "name": "St. Helens",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house name/number in the house number parameter, wrapped in double quotes",
+  "url": "https://www.sthelens.gov.uk/"
+ },
  "StaffordBoroughCouncil": {
+  "browser": false,
   "lad": "E07000197",
   "name": "Stafford",
   "needs": [
@@ -2006,6 +2954,7 @@
   "url": "https://www.staffordbc.gov.uk/address/100032203010"
  },
  "StaffordshireMoorlandsDistrictCouncil": {
+  "browser": false,
   "lad": "E07000198",
   "name": "Staffordshire Moorlands",
   "needs": [
@@ -2016,6 +2965,7 @@
   "url": "https://www.staffsmoorlands.gov.uk/"
  },
  "StevenageBoroughCouncil": {
+  "browser": false,
   "lad": "E07000243",
   "name": "Stevenage",
   "needs": [
@@ -2024,14 +2974,38 @@
   "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
   "url": "https://www.stevenage.gov.uk"
  },
+ "StirlingCouncil": {
+  "browser": true,
+  "lad": "S12000030",
+  "name": "Stirling",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Use the full address as it appears on the drop-down on the site when you search by postcode.",
+  "url": "https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-search/"
+ },
  "StockportBoroughCouncil": {
+  "browser": false,
   "lad": "E08000007",
   "name": "Stockport",
   "needs": [],
   "note": "Replace `XXXXXXXX` with your UPRN.",
   "url": "https://myaccount.stockport.gov.uk/bin-collections/show/100011434401"
  },
+ "StocktonOnTeesCouncil": {
+  "browser": true,
+  "lad": "E06000004",
+  "name": "Stockton-on-Tees",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "",
+  "url": "https://www.stockton.gov.uk/bin-collection-days"
+ },
  "StokeOnTrentCityCouncil": {
+  "browser": false,
   "lad": "E06000021",
   "name": "Stoke-on-Trent",
   "needs": [],
@@ -2039,6 +3013,7 @@
   "url": "https://www.stoke.gov.uk/jadu/custom/webserviceLookUps/BarTecWebServices_missed_bin_calendar.php?UPRN=3455121482"
  },
  "StratfordUponAvonCouncil": {
+  "browser": false,
   "lad": "E07000221",
   "name": "Stratford-on-Avon",
   "needs": [
@@ -2048,6 +3023,7 @@
   "url": "https://www.stratford.gov.uk/waste-recycling/when-we-collect.cfm/part/calendar"
  },
  "StroudDistrictCouncil": {
+  "browser": false,
   "lad": "E07000082",
   "name": "Stroud",
   "needs": [
@@ -2058,6 +3034,7 @@
   "url": "https://www.stroud.gov.uk/my-house?uprn=100120512183&postcode=GL10+3BH"
  },
  "SunderlandCityCouncil": {
+  "browser": false,
   "lad": "E08000024",
   "name": "Sunderland",
   "needs": [
@@ -2068,6 +3045,7 @@
   "url": "https://www.sunderland.gov.uk/article/12142/Find-your-bin-collection-day"
  },
  "SurreyHeathBoroughCouncil": {
+  "browser": false,
   "lad": "E07000214",
   "name": "Surrey Heath",
   "needs": [
@@ -2077,7 +3055,19 @@
   "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
   "url": "https://asjwsw-wrpsurreyheathmunicipal-live.whitespacews.com/"
  },
+ "SwaleBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000113",
+  "name": "Swale",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
+  "url": "https://swale.gov.uk/bins-littering-and-the-environment/bins/collection-days"
+ },
  "SwanseaCouncil": {
+  "browser": false,
   "lad": "W06000011",
   "name": "Swansea",
   "needs": [
@@ -2088,6 +3078,7 @@
   "url": "https://www1.swansea.gov.uk/recyclingsearch/"
  },
  "SwindonBoroughCouncil": {
+  "browser": false,
   "lad": "E06000030",
   "name": "Swindon",
   "needs": [
@@ -2097,6 +3088,7 @@
   "url": "https://www.swindon.gov.uk"
  },
  "TamesideMBCouncil": {
+  "browser": false,
   "lad": "E08000008",
   "name": "Tameside",
   "needs": [
@@ -2106,6 +3098,7 @@
   "url": "http://lite.tameside.gov.uk/BinCollections/CollectionService.svc/GetBinCollection"
  },
  "TamworthBoroughCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Tamworth Borough",
   "needs": [
@@ -2116,6 +3109,7 @@
   "url": "https://www.tamworth.gov.uk"
  },
  "TandridgeDistrictCouncil": {
+  "browser": false,
   "lad": "E07000215",
   "name": "Tandridge",
   "needs": [
@@ -2124,7 +3118,18 @@
   "note": "Provide your UPRN. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to locate it.",
   "url": "https://tdcws01.tandridge.gov.uk/TDCWebAppsPublic/tfaBranded/408?utm_source=pressrelease&utm_medium=smposts&utm_campaign=check_my_bin_day"
  },
+ "TeignbridgeCouncil": {
+  "browser": true,
+  "lad": "E07000045",
+  "name": "Teignbridge",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide Google as the URL as the real URL breaks the integration. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.google.co.uk"
+ },
  "TelfordAndWrekinCouncil": {
+  "browser": false,
   "lad": "E06000020",
   "name": "Telford and Wrekin",
   "needs": [
@@ -2133,7 +3138,30 @@
   "note": "Provide your UPRN. Find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://dac.telford.gov.uk/bindayfinder/"
  },
+ "TendringDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000076",
+  "name": "Tendring",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://tendring-self.achieveservice.com/en/service/Rubbish_and_recycling_collection_days"
+ },
+ "TestValleyBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000093",
+  "name": "Test Valley",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number and postcode",
+  "url": "https://testvalley.gov.uk/wasteandrecycling/when-are-my-bins-collected/when-are-my-bins-collected"
+ },
  "TewkesburyBoroughCouncil": {
+  "browser": false,
   "lad": "E07000083",
   "name": "Tewkesbury",
   "needs": [
@@ -2142,7 +3170,29 @@
   "note": "Provide your UPRN. Find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://tewkesbury.gov.uk/services/waste-and-recycling/"
  },
+ "ThanetDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000114",
+  "name": "Thanet",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.thanet.gov.uk"
+ },
+ "ThreeRiversDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000102",
+  "name": "Three Rivers",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://my.threerivers.gov.uk/en/AchieveForms/?mode=fill&consentMessage=yes&form_uri=sandbox-publish://AF-Process-52df96e3-992a-4b39-bba3-06cfaabcb42b/AF-Stage-01ee28aa-1584-442c-8d1f-119b6e27114a/definition.json&process=1&process_uri=sandbox-processes://AF-Process-52df96e3-992a-4b39-bba3-06cfaabcb42b&process_id=AF-Process-52df96e3-992a-4b39-bba3-06cfaabcb42b&noLoginPrompt=1"
+ },
  "ThurrockCouncil": {
+  "browser": false,
   "lad": "E06000034",
   "name": "Thurrock",
   "needs": [
@@ -2153,6 +3203,7 @@
   "url": "https://www.thurrock.gov.uk"
  },
  "TonbridgeAndMallingBC": {
+  "browser": false,
   "lad": "E07000115",
   "name": "Tonbridge and Malling",
   "needs": [
@@ -2162,7 +3213,30 @@
   "note": "Provide your UPRN and postcode.",
   "url": "https://www.tmbc.gov.uk/"
  },
+ "TorbayCouncil": {
+  "browser": true,
+  "lad": "E06000027",
+  "name": "Torbay",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find it.",
+  "url": "https://www.torbay.gov.uk/recycling/bin-collections/"
+ },
+ "TorfaenCouncil": {
+  "browser": true,
+  "lad": "",
+  "name": "Torfaen",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "",
+  "url": "https://www.torfaen.gov.uk"
+ },
  "TorridgeDistrictCouncil": {
+  "browser": false,
   "lad": "E07000046",
   "name": "Torridge",
   "needs": [
@@ -2171,7 +3245,19 @@
   "note": "Provide your UPRN.",
   "url": "https://torridgedc-self.achieveservice.com"
  },
+ "TowerHamletsCouncil": {
+  "browser": true,
+  "lad": "",
+  "name": "Tower Hamlets",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "",
+  "url": "https://www.towerhamlets.gov.uk"
+ },
  "TunbridgeWellsCouncil": {
+  "browser": false,
   "lad": "E07000116",
   "name": "Tunbridge Wells",
   "needs": [
@@ -2180,7 +3266,20 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
   "url": "https://tunbridgewells.gov.uk"
  },
+ "UttlesfordDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000077",
+  "name": "Uttlesford",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your full address in the `house_number` parameter and your postcode in the `postcode` parameter.",
+  "url": "https://bins.uttlesford.gov.uk/"
+ },
  "ValeofGlamorganCouncil": {
+  "browser": false,
   "lad": "W06000014",
   "name": "The Vale of Glamorgan",
   "needs": [
@@ -2192,6 +3291,7 @@
   "url": "https://www.valeofglamorgan.gov.uk/en/living/Recycling-and-Waste/"
  },
  "ValeofWhiteHorseCouncil": {
+  "browser": false,
   "lad": "E07000180",
   "name": "Vale of White Horse",
   "needs": [
@@ -2201,6 +3301,7 @@
   "url": "https://eform.whitehorsedc.gov.uk/ebase/BINZONE_DESKTOP.eb"
  },
  "WakefieldCityCouncil": {
+  "browser": false,
   "lad": "E08000036",
   "name": "Wakefield",
   "needs": [],
@@ -2208,6 +3309,7 @@
   "url": "https://www.wakefield.gov.uk/where-i-live/?uprn=63035490&a=115%20Elizabeth%20Drive%20Castleford%20WF10%203RR&usrn=41801243&e=445418&n=426091&p=WF10%203RR"
  },
  "WalsallCouncil": {
+  "browser": false,
   "lad": "E08000030",
   "name": "Walsall",
   "needs": [
@@ -2216,7 +3318,20 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
   "url": "https://cag.walsall.gov.uk/"
  },
+ "WalthamForest": {
+  "browser": true,
+  "lad": "E09000031",
+  "name": "Waltham Forest",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://portal.walthamforest.gov.uk/AchieveForms/?mode=fill&consentMessage=yes&form_uri=sandbox-publish://AF-Process-d62ccdd2-3de9-48eb-a229-8e20cbdd6393/AF-Stage-8bf39bf9-5391-4c24-857f-0dc2025c67f4/definition.json&process=1&process_uri=sandbox-processes://AF-Process-d62ccdd2-3de9-48eb-a229-8e20cbdd6393&process_id=AF-Process-d62ccdd2-3de9-48eb-a229-8e20cbdd6393"
+ },
  "WandsworthCouncil": {
+  "browser": false,
   "lad": "E09000032",
   "name": "Wandsworth",
   "needs": [
@@ -2226,6 +3341,7 @@
   "url": "https://www.wandsworth.gov.uk"
  },
  "WarringtonBoroughCouncil": {
+  "browser": false,
   "lad": "E06000007",
   "name": "Warrington",
   "needs": [
@@ -2235,6 +3351,7 @@
   "url": "https://www.warrington.gov.uk"
  },
  "WarwickDistrictCouncil": {
+  "browser": false,
   "lad": "E07000222",
   "name": "Warwick",
   "needs": [],
@@ -2242,6 +3359,7 @@
   "url": "https://estates7.warwickdc.gov.uk/PropertyPortal/Property/Recycling/100070263793"
  },
  "WatfordBoroughCouncil": {
+  "browser": false,
   "lad": "E07000103",
   "name": "Watford",
   "needs": [
@@ -2251,6 +3369,7 @@
   "url": "https://www.watford.gov.uk"
  },
  "WaverleyBoroughCouncil": {
+  "browser": false,
   "lad": "E07000216",
   "name": "Waverley",
   "needs": [
@@ -2261,6 +3380,7 @@
   "url": "https://wav-wrp.whitespacews.com/"
  },
  "WealdenDistrictCouncil": {
+  "browser": false,
   "lad": "E07000065",
   "name": "Wealden",
   "needs": [
@@ -2270,6 +3390,7 @@
   "url": "https://www.wealden.gov.uk/recycling-and-waste/bin-search/"
  },
  "WelhatCouncil": {
+  "browser": false,
   "lad": "E07000241",
   "name": "Welwyn Hatfield",
   "needs": [
@@ -2279,7 +3400,31 @@
   "note": "Provide your UPRN and postcode.",
   "url": "https://www.welhat.gov.uk/xfp/form/214"
  },
+ "WestBerkshireCouncil": {
+  "browser": true,
+  "lad": "E06000037",
+  "name": "West Berkshire",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
+  "url": "https://www.westberks.gov.uk/binday"
+ },
+ "WestDevonBoroughCouncil": {
+  "browser": true,
+  "lad": "E07000047",
+  "name": "West Devon",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide postcode and house number, or UPRN.",
+  "url": "https://westdevon.fccenvironment.co.uk"
+ },
  "WestDunbartonshireCouncil": {
+  "browser": false,
   "lad": "S12000039",
   "name": "West Dunbartonshire",
   "needs": [
@@ -2289,6 +3434,7 @@
   "url": "https://www.west-dunbarton.gov.uk/"
  },
  "WestLancashireBoroughCouncil": {
+  "browser": false,
   "lad": "E07000127",
   "name": "West Lancashire",
   "needs": [
@@ -2299,6 +3445,7 @@
   "url": "https://www.westlancs.gov.uk"
  },
  "WestLindseyDistrictCouncil": {
+  "browser": false,
   "lad": "E07000142",
   "name": "West Lindsey",
   "needs": [
@@ -2308,7 +3455,19 @@
   "note": "Provide your house name/number in the `house_number` parameter, and postcode in the `postcode` parameter, both wrapped in double quotes. If multiple results are returned, the first will be used.",
   "url": "https://www.west-lindsey.gov.uk/"
  },
+ "WestLothianCouncil": {
+  "browser": true,
+  "lad": "S12000040",
+  "name": "West Lothian",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house name/number in the `house_number` parameter (wrapped in double quotes) and your postcode in the `postcode` parameter.",
+  "url": "https://www.westlothian.gov.uk/"
+ },
  "WestMorlandAndFurness": {
+  "browser": false,
   "lad": "E06000064",
   "name": "Westmorland and Furness",
   "needs": [
@@ -2320,6 +3479,7 @@
   "url": "https://www.westmorlandandfurness.gov.uk/"
  },
  "WestNorthamptonshireCouncil": {
+  "browser": false,
   "lad": "E06000062",
   "name": "West Northamptonshire",
   "needs": [
@@ -2328,7 +3488,19 @@
   "note": "Provide your UPRN. You can find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
   "url": "https://www.westnorthants.gov.uk"
  },
+ "WestOxfordshireDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000181",
+  "name": "West Oxfordshire",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and your postcode in the `postcode` parameter.",
+  "url": "https://community.westoxon.gov.uk/s/waste-collection-enquiry"
+ },
  "WestSuffolkCouncil": {
+  "browser": false,
   "lad": "E07000245",
   "name": "West Suffolk",
   "needs": [
@@ -2339,6 +3511,7 @@
   "url": "https://maps.westsuffolk.gov.uk/MyWestSuffolk.aspx"
  },
  "WestminsterCityCouncil": {
+  "browser": false,
   "lad": "",
   "name": "Westminster City",
   "needs": [
@@ -2348,6 +3521,7 @@
   "url": "https://transact.westminster.gov.uk/env/streetsearch.aspx"
  },
  "WiganBoroughCouncil": {
+  "browser": false,
   "lad": "E08000010",
   "name": "Wigan",
   "needs": [
@@ -2358,6 +3532,7 @@
   "url": "https://apps.wigan.gov.uk/MyNeighbourhood/"
  },
  "WiltshireCouncil": {
+  "browser": false,
   "lad": "E06000054",
   "name": "Wiltshire",
   "needs": [
@@ -2367,7 +3542,41 @@
   "note": "Provide your UPRN and postcode. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
   "url": "https://ilambassadorformsprod.azurewebsites.net/wastecollectiondays/index"
  },
+ "WinchesterCityCouncil": {
+  "browser": true,
+  "lad": "E07000094",
+  "name": "Winchester",
+  "needs": [
+   "postcode",
+   "house_number",
+   "paon"
+  ],
+  "note": "Provide your house name/number in the `house_number` parameter (wrapped in double quotes) and your postcode in the `postcode` parameter.",
+  "url": "https://iportal.itouchvision.com/icollectionday/collection-day"
+ },
+ "WindsorAndMaidenheadCouncil": {
+  "browser": true,
+  "lad": "E06000040",
+  "name": "Windsor and Maidenhead",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://forms.rbwm.gov.uk/bincollections?uprn="
+ },
+ "WirralCouncil": {
+  "browser": true,
+  "lad": "E08000015",
+  "name": "Wirral",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass your postcode and house number.",
+  "url": "https://www.wirral.gov.uk"
+ },
  "WokingBoroughCouncil": {
+  "browser": false,
   "lad": "E07000217",
   "name": "Woking",
   "needs": [
@@ -2377,7 +3586,19 @@
   "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter. This works with all collection areas that use Joint Waste Solutions.",
   "url": "https://asjwsw-wrpwokingmunicipal-live.whitespacews.com/"
  },
+ "WokinghamBoroughCouncil": {
+  "browser": true,
+  "lad": "E06000041",
+  "name": "Wokingham",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
+  "url": "https://www.wokingham.gov.uk/rubbish-and-recycling/waste-collection/find-your-bin-collection-day"
+ },
  "WolverhamptonCityCouncil": {
+  "browser": false,
   "lad": "E08000031",
   "name": "Wolverhampton",
   "needs": [
@@ -2389,6 +3610,7 @@
   "url": "https://www.wolverhampton.gov.uk"
  },
  "WorcesterCityCouncil": {
+  "browser": false,
   "lad": "E07000237",
   "name": "Worcester",
   "needs": [
@@ -2397,7 +3619,31 @@
   "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://www.Worcester.gov.uk"
  },
+ "WrexhamCountyBoroughCouncil": {
+  "browser": true,
+  "lad": "W06000006",
+  "name": "Wrexham",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
+  "url": "https://www.wrexham.gov.uk/service/when-are-my-bins-collected"
+ },
+ "WychavonDistrictCouncil": {
+  "browser": true,
+  "lad": "E07000238",
+  "name": "Wychavon",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://selfservice.wychavon.gov.uk/wdcroundlookup/wdc_search.jsp"
+ },
  "WyreCouncil": {
+  "browser": false,
   "lad": "E07000128",
   "name": "Wyre",
   "needs": [
@@ -2407,6 +3653,7 @@
   "url": "https://www.wyre.gov.uk/bins-rubbish-recycling"
  },
  "WyreForestDistrictCouncil": {
+  "browser": false,
   "lad": "E07000239",
   "name": "Wyre Forest",
   "needs": [
@@ -2417,6 +3664,7 @@
   "url": "http://www.wyreforest.gov.uk/querybin.asp"
  },
  "YorkCouncil": {
+  "browser": false,
   "lad": "E06000014",
   "name": "York",
   "needs": [

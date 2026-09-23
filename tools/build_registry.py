@@ -21,9 +21,9 @@ UPSTREAM = ("https://raw.githubusercontent.com/robbrad/UKBinCollectionData/"
 FIELDS = ("postcode", "house_number", "uprn", "paon", "usrn")
 OUT = pathlib.Path(__file__).resolve().parent.parent / "app" / "data" / "councils.json"
 
-# Councils upstream marks as needing a headless browser, but which this app
-# collects natively over plain HTTP (see app/pickers/). They are kept in the
-# registry despite the web_driver flag.
+# Councils this app collects natively over plain HTTP (see app/pickers/),
+# even though upstream drives them with Selenium. Faster and cheaper than the
+# browser, so they keep their own implementations.
 NATIVE = {
     "StaffordshireMoorlandsDistrictCouncil",
     "HighPeakCouncil",
@@ -45,9 +45,11 @@ def main() -> None:
     src = load(sys.argv[1] if len(sys.argv) > 1 else None)
     out = {}
     for key, cfg in src.items():
-        if cfg.get("web_driver") and key not in NATIVE:
-            continue
+        # The image ships Chromium, so browser councils are included now. They
+        # are flagged so the app can give them a longer timeout and queue them.
+        browser = bool(cfg.get("web_driver")) and key not in NATIVE
         out[key] = {
+            "browser": browser,
             "name": cfg.get("wiki_name") or re.sub(r"(?<!^)(?=[A-Z])", " ", key),
             "url": cfg.get("url", ""),
             "needs": [f for f in FIELDS if cfg.get(f)],
@@ -58,6 +60,7 @@ def main() -> None:
         }
 
     OUT.write_text(json.dumps(out, indent=1, sort_keys=True) + "\n")
+    browser = sum(1 for v in out.values() if v["browser"])
     lad = sum(1 for v in out.values() if v["lad"])
     bare = sum(1 for v in out.values() if not v["needs"])
     uprn = sum(1 for v in out.values() if "uprn" in v["needs"])
@@ -65,8 +68,8 @@ def main() -> None:
     print(f"  with an LAD code (auto-detectable from postcode): {lad}")
     print(f"  need a uprn:                 {uprn}")
     print(f"  no identifying input at all: {bare}  (unsupported without a picker)")
-    print(f"  excluded (headless browser): {len(src) - len(out)}")
-    print(f"  re-included via a native collector: {len(NATIVE)}")
+    print(f"  needing Chromium:            {browser}")
+    print(f"  native collectors (no browser, despite upstream): {len(NATIVE)}")
 
 
 if __name__ == "__main__":

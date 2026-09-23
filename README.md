@@ -23,54 +23,42 @@ postcode ──► /api/lookup ──► council (via postcodes.io + LAD24CD)
                                           calendar app re-fetches every ~12h
 ```
 
-Nobody picks their council from a list of 259: [postcodes.io][pio] is free and
+Nobody picks their council from a list of 352: [postcodes.io][pio] is free and
 keyless and returns the ONS local-authority code, which is the same code
-UKBinCollectionData records as `LAD24CD`. **244 of the 259 councils match from
-a postcode alone.** The manual list is still there for the 15 without a code,
-the three ONS codes that carry more than one council upstream, and anyone
-placed wrongly. postcodes.io failing is never fatal - it falls back to the
-list.
+UKBinCollectionData records as `LAD24CD`. **334 of the 352 councils match from
+a postcode alone.** The manual list is still there for the 18 without a code,
+the ONS codes that carry more than one council upstream, and anyone placed
+wrongly. postcodes.io failing is never fatal - it falls back to the list.
 
-## Coverage, honestly
+## Coverage
 
 | | Councils |
 |---|---|
-| In this build (no headless browser needed) | 262 |
-| **Work from a postcode alone** | **54** |
-| Need you to supply a UPRN yourself | 192 |
-| Not supported: lookup needs a property id we can't derive | 16 |
-| Excluded for now (need headless Chrome) | 90 |
-| Auto-detectable from a postcode (have an LAD code) | 247 |
+| **Total** | **352** |
+| Work from a postcode alone | 106 |
+| Need you to supply a UPRN yourself | 229 |
+| Not supported: lookup needs a property id we can't derive | 20 |
+| Collected through headless Chromium | 90 |
+| Collected natively despite upstream using Selenium | 3 |
+| Auto-detectable from a postcode (have an LAD code) | 334 |
 
-Of the 54, four (Stockport, Staffordshire Moorlands, High Peak, Wakefield) get
-there via a postcode → address picker; the rest take a postcode and house
-number directly.
+The image ships Chromium, so the councils UKBinCollectionData drives through
+Selenium work too. They are slower (tens of seconds rather than a couple) and
+are queued one at a time, because Chromium is the memory hog on a small box.
+Everything else stays concurrent.
 
-**Some "needs a browser" councils don't.** Staffordshire Moorlands and High
-Peak are driven upstream through Selenium because their Syncfusion "Public
-Dashboard" renders client-side - but the page is a Razor Page whose handlers
-are ordinary form posts, and the data is embedded as JSON before Syncfusion
-touches it. Plain HTTP gets all of it.
+Three councils - Staffordshire Moorlands, High Peak and Wakefield - are flagged
+`web_driver` upstream but are collected natively over plain HTTP here, because
+it is faster and cheaper than starting a browser. See `app/pickers/`.
 
-`app/pickers/syncfusion.py` does the lookup *and* the collection for that
-platform; adding another council on it is one call to `make(base, name)`.
-`COLLECTORS` in `main.py` routes around UKBinCollectionData, and `NATIVE` in
-the registry generator keeps them despite the upstream `web_driver` flag.
-Wakefield is done the same way (`pickers/wakefield.py`) - a different site, the
-same story. [docs/browser-councils-survey.md](docs/browser-councils-survey.md)
-surveys the remaining 90: no more are on the Syncfusion platform, but 18 share
-Jadu/Firmstep and five share Whitespace/Netcall, so those two clusters are the
-next worthwhile targets.
+### Address lookup is still the gap
 
-The gap is address lookup, not collection data. 192 of the councils here are
-keyed on a UPRN, and **there is no free national postcode → UPRN service** —
-OS Places API is explicitly excluded from the OS Data Hub free credit
-(£0.0282 per lookup, no free tier). So each of those councils needs its own
-picker scraped from its own address form. See `app/pickers/stockport.py` for
-the pattern; it is about 100 lines per council.
-
-Until a council has a picker, the site asks the user for their UPRN and points
-them at findmyaddress.co.uk.
+192 councils are keyed on a UPRN and **there is no free national postcode →
+UPRN service** - OS Places API is explicitly excluded from the OS Data Hub free
+credit (£0.0282 per lookup, no free tier). So each of those needs its own
+address picker scraped from its own council form. Four exist so far
+(`app/pickers/`); until a council has one, the site asks for a UPRN and points
+at findmyaddress.co.uk.
 
 ## Running it
 

@@ -14,12 +14,13 @@ primary_region = "lhr"
 
   [http_service.concurrency]
     type = "requests"
-    soft_limit = 20
-    hard_limit = 40
+    soft_limit = 12
+    hard_limit = 25
 
 [[vm]]
   size = "shared-cpu-1x"
-  memory = "512mb"
+  # Chromium needs the headroom; browser lookups are queued one at a time.
+  memory = "1gb"
 
 [checks.health]
   type = "http"

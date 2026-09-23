@@ -689,7 +689,9 @@ $("go").addEventListener("click", async () => {
       where = [val("house_number"), postcode].filter(Boolean).join(", ");
     }
 
-    show("info", "Asking your council…");
+    show("info", chosen.browser
+      ? "Asking your council… this one is slow, give it a minute."
+      : "Asking your council…");
     const url = `${location.origin}/feed/${chosen.key}.ics?${new URLSearchParams(params)}`;
     renderResult(await api(url), url, where);
     show("", "");
