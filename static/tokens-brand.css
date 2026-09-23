@@ -1,0 +1,70 @@
+/* BIN DAY — brand tokens */
+:root {
+  --bin-day-green: #C8FF38;
+  --bin-day-blue: #456CFF;
+  --bin-day-cream: #F7F4EA;
+  --bin-day-ink: #161616;
+  --bin-day-white: #FFFFFF;
+  --bin-day-grey: #6B6B6B;
+
+  --bin-general: #454545;
+  --bin-recycling: #456CFF;
+  --bin-garden: #4B9E39;
+  --bin-food: #FF7A2F;
+  --bin-paper-card: #A23CF0;
+
+  --font-display: "Space Grotesk", Arial, Helvetica, sans-serif;
+  --font-ui: "Atkinson Hyperlegible", Arial, Helvetica, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  --focus-ring: 0 0 0 3px #456CFF;
+}
+
+body {
+  margin: 0;
+  background: var(--bin-day-cream);
+  color: var(--bin-day-ink);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+h1 { font-size: clamp(3rem, 8vw, 6rem); }
+h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  min-height: 48px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+}
+
+:focus-visible {
+  outline: 3px solid var(--bin-day-blue);
+  outline-offset: 3px;
+}
+
+/* Do not use colour as the only differentiator for bin types.
+   Pair each colour with a text label + icon. */

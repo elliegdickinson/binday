@@ -1,0 +1,78 @@
+{
+  "name": "Bin Day",
+  "tagline": "Your bins. Your calendar. Sorted.",
+  "colors": {
+    "brand": {
+      "dayGreen": "#C8FF38",
+      "electricBlue": "#456CFF",
+      "cream": "#F7F4EA",
+      "ink": "#161616",
+      "white": "#FFFFFF",
+      "midGrey": "#6B6B6B"
+    },
+    "collections": {
+      "generalWaste": "#454545",
+      "recycling": "#456CFF",
+      "gardenWaste": "#4B9E39",
+      "foodWaste": "#FF7A2F",
+      "paperCard": "#A23CF0"
+    },
+    "semantic": {
+      "success": "#3B8E2F",
+      "focus": "#456CFF",
+      "error": "#B42318"
+    }
+  },
+  "typography": {
+    "display": {
+      "family": "Space Grotesk",
+      "weights": [
+        700,
+        800
+      ],
+      "usage": "Hero headlines and section headings only"
+    },
+    "ui": {
+      "family": "Atkinson Hyperlegible",
+      "weights": [
+        400,
+        700
+      ],
+      "usage": "Body copy, navigation, labels, buttons, form fields, helper text"
+    },
+    "fallback": "Arial, Helvetica, sans-serif"
+  },
+  "typeScale": {
+    "heroDesktop": "clamp(4rem, 8vw, 6rem)",
+    "heroMobile": "3rem",
+    "h2": "clamp(2.25rem, 5vw, 3.5rem)",
+    "h3": "1.75rem",
+    "bodyLarge": "1.125rem",
+    "body": "1rem",
+    "small": "0.875rem"
+  },
+  "radius": {
+    "sm": "8px",
+    "md": "12px",
+    "lg": "16px",
+    "xl": "24px"
+  },
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "48px",
+    "3xl": "64px"
+  },
+  "principles": [
+    "Useful first, fun second",
+    "Clear, chunky, accessible, slightly playful",
+    "Dry humour, never wacky",
+    "Do not rely on colour alone to distinguish collection types",
+    "Mobile-first",
+    "No account required for the core flow",
+    "Avoid generic SaaS visual language"
+  ]
+}

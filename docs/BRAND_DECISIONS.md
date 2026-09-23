@@ -1,0 +1,57 @@
+# Brand decisions specific to this build
+
+The brand is defined by [`CLAUDE.md`](../CLAUDE.md), [`BRAND_GUIDELINES.md`](BRAND_GUIDELINES.md)
+and [`tokens/brand-tokens.json`](../tokens/brand-tokens.json). Those are the
+source of truth.
+
+This file records only the decisions the guidelines don't cover, and the one
+place this build deliberately departs from them.
+
+## "Put it out tonight" is a one-day window
+
+Bins go out the night **before** collection, so that line belongs on the day
+before and nowhere else. On collection day it is a day late and would make
+someone miss their collection; the card says "Should already be out." instead.
+
+This was shipped wrong once. It is the only copy on the site that can cost the
+reader something, so treat it as a correctness rule, not a tone one.
+
+## Bin tiles: the council's colour wins over the category colour
+
+The guidelines give five category colours (general, recycling, garden, food,
+paper/card) and say never to rely on colour alone.
+
+But councils name bins by colour - Stockport has a "Blue bin" for paper and
+card. Rendering that tile in the paper/card purple would produce a purple tile
+labelled "Blue bin", which is nonsense to the person holding the bin.
+
+So: **if a bin's name contains a colour, the tile takes that colour.**
+Otherwise it takes its category colour from the kit. The icon always follows
+the waste category, and the written label is always present, so the
+"never colour alone" rule still holds.
+
+Brown has no kit equivalent and uses `#8A5A2B`.
+
+To revert to strict category colours, drop `BIN_COLOURS` from
+`static/index.html` and always resolve through `BY_WASTE`.
+
+## Logo files
+
+The kit's logo PNGs carry roughly 30% padding, and it is asymmetric - sizing by
+height would misalign the mark in the navigation. `bin-day-logo-web.png` and
+`bin-day-mark-web.png` are trimmed, downscaled, colour-quantised derivatives of
+`bin-day-logo-transparent.png` for on-page use. Nothing is recoloured,
+distorted or restyled; regenerate them from the transparent master if it
+changes.
+
+Minimum heights on the page: 48px in navigation, 64px in the footer, 40px below
+560px wide. Below that the stacked two-line lockup stops being readable.
+
+## Third-party widgets
+
+The Ko-fi button is the only third-party UI. It is recoloured to Electric Blue
+rather than Ko-fi's default `#00b9fe`, which fights the lime. Any future widget
+does the same: brand colours, or it doesn't go on.
+
+It floats bottom-left over the content, so the page keeps generous bottom
+padding.

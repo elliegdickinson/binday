@@ -17,6 +17,7 @@ from collections import defaultdict
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import FileResponse, JSONResponse, Response
+from fastapi.staticfiles import StaticFiles
 
 from . import browser, postcodes
 from .ics import build
@@ -313,12 +314,18 @@ async def health() -> dict:
             "browser": sum(1 for v in COUNCILS.values() if v.get("browser"))}
 
 
-@app.get("/logo.png")
-async def logo() -> FileResponse:
-    return FileResponse(HERE.parent / "static" / "logo.png",
-                        headers={"Cache-Control": "public, max-age=604800"})
-
-
 @app.get("/")
 async def index() -> FileResponse:
     return FileResponse(HERE.parent / "static" / "index.html")
+
+
+# Brand assets and tokens ship with the app; they change rarely, so cache hard.
+app.mount("/assets", StaticFiles(directory=HERE.parent / "static" / "assets"),
+          name="assets")
+
+
+@app.get("/tokens-brand.css")
+async def brand_tokens() -> FileResponse:
+    return FileResponse(HERE.parent / "static" / "tokens-brand.css",
+                        media_type="text/css",
+                        headers={"Cache-Control": "public, max-age=604800"})

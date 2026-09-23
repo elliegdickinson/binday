@@ -103,8 +103,14 @@ app/
   pickers/syncfusion.py Public Dashboard councils: picker + collector, no browser
   pickers/wakefield.py  Wakefield: picker + collector, no browser
 static/index.html       the whole front end
+static/assets/          brand kit logos and swatches
+static/tokens-brand.css brand kit CSS variables
+tokens/brand-tokens.json  brand kit design tokens
+CLAUDE.md               brand rules (kit)
+docs/BRAND_GUIDELINES.md  brand guidelines (kit, source of truth)
+docs/BRAND_DECISIONS.md   decisions this build made on top of them
 tools/build_registry.py regenerates councils.json from upstream
-BRAND.md                brand guidelines
+
 ```
 
 Regenerate the council registry after bumping `uk_bin_collection`:

@@ -5,35 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bin Day</title>
 <meta name="description" content="Your bins. Your calendar. Sorted. Find your UK bin collections and put them in your calendar." />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32.png" />
+<link rel="apple-touch-icon" href="/assets/logo/bin-day-mark-192.png" />
+<link rel="stylesheet" href="/tokens-brand.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
 <style>
+  /* Values come from the brand kit (tokens/brand-tokens.json). Local names are
+     kept short; the kit's own --bin-day-* variables load from brand.css. */
   :root {
-    --lime:   #C8FF38;
-    --lime-d: #B6EB2C;
-    --blue:   #456CFF;
-    --blue-d: #3355E6;
+    --lime:   #C8FF38;   /* Bin Day Green */
+    --lime-d: #B6EB2C;   /* darker edge, for borders on lime */
+    --blue:   #456CFF;   /* Electric Blue */
+    --blue-d: #3355E6;   /* hover */
     --cream:  #F7F4EA;
     --ink:    #161616;
     --grey:   #6B6B6B;
     --white:  #FFFFFF;
     --line:   #E4E0D4;
+    --error:  #B42318;
 
-    --w-general:   #4D4D4D;
+    --w-general:   #454545;
     --w-recycling: #456CFF;
-    --w-garden:    #2F7D32;
-    --w-food:      #F57C1F;
-    --w-paper:     #A855E8;
+    --w-garden:    #4B9E39;
+    --w-food:      #FF7A2F;
+    --w-paper:     #A23CF0;
 
-    --radius: 16px;
+    --radius:    16px;   /* --radius-lg */
+    --radius-md: 12px;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: .001ms !important; transition-duration: .001ms !important;
+    }
+  }
   body {
     margin: 0; padding: 0 20px 110px;
     font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
-    background: var(--cream); color: var(--ink); line-height: 1.6;
+    background: var(--cream); color: var(--ink);
+    font-size: 17px; line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 880px; margin: 0 auto; }
@@ -84,10 +98,10 @@
   }
   h2 {
     font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
-    font-size: clamp(1.6rem, 4.6vw, 2.2rem); letter-spacing: -0.03em;
-    margin: 0 0 6px;
+    font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.04em;
+    line-height: 0.98; margin: 0 0 10px;
   }
-  h3 { font-weight: 700; font-size: 1.15rem; margin: 0 0 8px; }
+  h3 { font-weight: 700; font-size: 1.6rem; margin: 0 0 12px; }
 
   label { display: block; font-weight: 700; font-size: .92rem; margin-bottom: 6px; }
   .hint { color: var(--grey); font-size: .88rem; margin: -2px 0 8px; }
@@ -95,13 +109,11 @@
 
   input, select, button {
     font-family: inherit; font-size: 1rem; width: 100%;
-    padding: 14px 16px; border-radius: 12px;
+    min-height: 48px;                       /* kit: 48px minimum control */
+    padding: 14px 16px; border-radius: var(--radius-md);
     border: 1px solid var(--line); background: var(--white); color: var(--ink);
   }
-  input:focus-visible, select:focus-visible,
-  button:focus-visible, a:focus-visible {
-    outline: 3px solid var(--blue); outline-offset: 2px;
-  }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
   button {
     background: var(--blue); color: #fff; border: 0; font-weight: 700;
     cursor: pointer; white-space: nowrap;
@@ -124,14 +136,14 @@
     padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: .95rem;
   }
   .linky {
-    background: none; border: 0; padding: 0; width: auto; color: var(--blue);
+    background: none; border: 0; padding: 0; width: auto; min-height: 0; color: var(--blue);
     font-weight: 700; font-size: .92rem; cursor: pointer; text-decoration: underline;
   }
   .linky:hover { background: none; }
   .field.hidden, .detected.hidden { display: none; }
 
   .msg { padding: 13px 15px; border-radius: 12px; font-size: .94rem; margin-top: 16px; }
-  .msg.err  { background: #FDECEA; color: #8A1C11; border: 1px solid #F3C7C1; }
+  .msg.err  { background: #FDECEA; color: var(--error); border: 1px solid #F3C7C1; }
   .msg.info { background: var(--cream); color: var(--grey); border: 1px solid var(--line); }
 
   /* ---------- results ---------- */
@@ -139,7 +151,7 @@
   .head .change {
     margin-left: auto; color: var(--blue); font-weight: 700;
     font-size: .95rem; background: none; border: 0; padding: 0;
-    width: auto; cursor: pointer;
+    width: auto; min-height: 0; cursor: pointer;
   }
   .head .change:hover { text-decoration: underline; background: none; }
   .bins {
@@ -212,7 +224,7 @@
 <div class="wrap">
 
 <nav>
-  <a class="mark" href="#top"><img src="/logo.png" alt="Bin Day" /></a>
+  <a class="mark" href="#top"><img src="/assets/logo/bin-day-logo-web.png" alt="Bin Day" /></a>
   <span class="links">
     <a class="nav-link" href="#how">How it works</a>
     <a class="nav-link" href="#help">Help</a>
@@ -335,7 +347,7 @@
 </div>
 
 <footer>
-  <a class="mark" href="#top"><img src="/logo.png" alt="Bin Day" /></a>
+  <a class="mark" href="#top"><img src="/assets/logo/bin-day-logo-web.png" alt="Bin Day" /></a>
   <div><span class="strap">Your bins. Your calendar. <u>Sorted.</u></span></div>
   <p class="small">
     Collection data comes from your council, via
@@ -368,9 +380,9 @@ const ICONS = {
 // Councils name bins by colour and that is how people think about them, so a
 // named colour wins for the tile; the icon still follows the waste category.
 const BIN_COLOURS = {
-  black: "#4D4D4D", grey: "#4D4D4D", gray: "#4D4D4D", silver: "#4D4D4D",
-  blue: "#456CFF", green: "#2F7D32", brown: "#8A5A2B",
-  red: "#D14343", purple: "#A855E8", orange: "#F57C1F",
+  black: "#454545", grey: "#454545", gray: "#454545", silver: "#454545",
+  blue: "#456CFF", green: "#4B9E39", brown: "#8A5A2B",
+  red: "#B42318", purple: "#A23CF0", orange: "#FF7A2F",
 };
 const BY_WASTE = [
   [/food|caddy/i,                             "food"],
