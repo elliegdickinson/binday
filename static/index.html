@@ -31,7 +31,7 @@
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    margin: 0; padding: 0 20px 80px;
+    margin: 0; padding: 0 20px 110px;
     font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
     background: var(--cream); color: var(--ink); line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -750,6 +750,19 @@ $("download").addEventListener("click", () => {
 });
 
 $("f-postcode").focus();
+</script>
+
+<!-- Ko-fi. The widget floats bottom-right rather than sitting in the footer,
+     so the page carries extra bottom padding to keep it clear of the calendar
+     buttons on phones. Colour is brand Electric Blue, not the Ko-fi default. -->
+<script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+<script>
+  kofiWidgetOverlay.draw('elliegdickinson', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support Bin Day',
+    'floating-chat.donateButton.background-color': '#456CFF',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
 </script>
 </body>
 </html>

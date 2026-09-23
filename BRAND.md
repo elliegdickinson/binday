@@ -86,6 +86,16 @@ stack on mobile, each showing icon, bin name, relative date ("Tomorrow",
 
 Must work at 360px wide.
 
+## Third-party widgets
+
+The Ko-fi support button is the one piece of third-party UI on the page. It
+takes Electric Blue rather than Ko-fi's default `#00b9fe`, which sits badly
+next to the lime. Any future widget does the same: brand colours, or it doesn't
+go on.
+
+It floats bottom-left over the content, as those widgets do. Keep the page's
+bottom padding generous so it doesn't crowd the last card.
+
 ## Avoid
 
 - Stock photos of smiling people recycling.
