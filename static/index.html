@@ -260,8 +260,33 @@
     word-break: break-all; font-family: ui-monospace, Menlo, monospace;
     font-size: .8rem; background: var(--white); border: var(--edge);
     border-radius: var(--r-control); padding: 14px; margin-top: 28px;
+    cursor: pointer; position: relative;
+    transition: background-color .15s ease;
   }
-  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .feed:hover { background: #FBFBF6; }
+  .feed::after {
+    content: "Click to copy"; position: absolute; right: 4px; bottom: -24px;
+    font-family: var(--font-ui); font-size: .75rem; color: #4A5C18;
+  }
+
+  /* ---------- copy confirmation ---------- */
+  .toast {
+    position: fixed; left: 50%; bottom: 26px; z-index: 40;
+    transform: translateX(-50%); display: flex; align-items: center; gap: 10px;
+    background: var(--ink); color: var(--white); font-weight: 700;
+    padding: 13px 20px; border-radius: var(--r-control);
+    box-shadow: 0 6px 20px rgba(22, 22, 22, .18);
+  }
+  .toast svg { width: 18px; height: 18px; fill: none; stroke: var(--brand-green);
+               stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  @media (prefers-reduced-motion: no-preference) {
+    .toast { animation: toast-in 180ms ease-out both; }
+  }
+  @keyframes toast-in {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+  }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 34px; }
   .actions .main { flex: 1 1 300px; }
   .actions .alt { flex: 0 1 auto; padding-inline: 22px; }
   @media (max-width: 640px) { .actions > * { flex: 1 1 100%; } }
@@ -526,7 +551,8 @@
         <h2>Never think about bin day again.</h2>
       </div>
       <p class="lede">Add your collections to your calendar and we'll keep it up to date.</p>
-      <div class="feed" id="feed-url"></div>
+      <div class="feed" id="feed-url" role="button" tabindex="0"
+           aria-label="Copy the calendar link" title="Click to copy"></div>
       <div class="actions">
         <button id="subscribe" class="ink main">Add bin days to my calendar →</button>
         <button id="copy" class="secondary alt">Copy link</button>
@@ -781,29 +807,55 @@ function bindResultActions() {
     }, 2500);
   });
 
-  $("copy").addEventListener("click", async () => {
-    const note = $("promo-msg");
+    /** One short confirmation, bottom centre. role="status" so it is announced
+   *  as well as seen. */
+  function toast(message) {
+    document.querySelector(".toast")?.remove();
+    const el = document.createElement("div");
+    el.className = "toast";
+    el.setAttribute("role", "status");
+    el.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">` +
+      `<path d="M4 12.5 9.5 18 20 6.5"/></svg><span>${message}</span>`;
+    document.body.append(el);
+    setTimeout(() => el.remove(), 2400);
+  }
+
+  /** Copy the feed url. Falls back to selecting it when the clipboard is
+   *  refused (permissions, no focus), so the keyboard shortcut still works. */
+  async function copyFeed() {
+    const url = $("feed-url").textContent;
     try {
-      await navigator.clipboard.writeText($("feed-url").textContent);
-      $("copy").textContent = "Copied";
-      note.innerHTML = "";
-      setTimeout(() => ($("copy").textContent = "Copy link"), 1800);
-      showSorted();
+      await navigator.clipboard.writeText(url);
+      toast("Link copied");
+      return true;
     } catch {
-      // Clipboard access can be refused (permissions, no focus). Select the link
-      // so the keyboard shortcut still works, and say so right here.
       const range = document.createRange();
       range.selectNodeContents($("feed-url"));
       const sel = window.getSelection();
       sel.removeAllRanges();
       sel.addRange(range);
       const key = navigator.platform.includes("Mac") ? "⌘C" : "Ctrl+C";
-      note.innerHTML = `<div class="msg err" style="margin-top:18px">We've selected
-        the link for you - press ${key} to copy it.</div>`;
+      toast(`Press ${key} to copy`);
+      return false;
+    }
+  }
+
+  // The url box is a copy control in its own right - clicking the thing you
+  // want is more obvious than hunting for the button beside it.
+  $("feed-url").addEventListener("click", copyFeed);
+  $("feed-url").addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); copyFeed(); }
+  });
+
+  $("copy").addEventListener("click", async () => {
+    if (await copyFeed()) {
+      $("copy").textContent = "Copied";
+      setTimeout(() => ($("copy").textContent = "Copy link"), 1800);
+      showSorted();
     }
   });
 
-  $("download").addEventListener("click", () => {
+$("download").addEventListener("click", () => {
     const a = document.createElement("a");
     a.href = $("feed-url").textContent;
     a.download = "bin-collections.ics";
