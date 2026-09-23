@@ -78,15 +78,23 @@ Personality comes from scale, type and a small fixed vocabulary - not decoration
   24px, so the bleed can never scroll the page sideways. An earlier version used
   a percentage overhang and a ray that sat outside the viewBox, which overflowed
   at 1024px.
-- **Brand rays** appear in exactly three places: beside an imminent collection,
-  beside the calendar call to action, and in the success burst. Nowhere else.
+- **BrandRays** is one `<symbol id="brand-rays">`, referenced with `<use>`. Its
+  stroke weight is a custom property (`--ray-w`) so the same shape works at hero
+  scale and at 24px inline. **Budget for the page is three uses**: the hero mark,
+  the *first* urgent collection, and the success state. Several urgent bins do
+  not each get rays.
 - **The sticker** is a night-before reminder only. On collection day it is not a
   reminder, so that case is quiet text - a playful sticker saying "should
   already be out" would be the wrong tone as well as the wrong information.
 - **Collection icons** are one family: chunky flat vector, ink outline,
   category-colour fill, drawn like the logo. Always beside a written label.
-- **`SORTED.`** behind How it works is cropped to the tops of the letters at
-  7.5% stroke. If it ever crosses body copy, crop it further or delete it.
+- **`SORTED.`** lives at the very bottom, cropped by the page edge at 9% stroke,
+  and sits clear of the footer credit rather than behind it. One instance only.
+- **The hero bin** is oversized and crops against the hero edge. The section uses
+  `overflow-x: clip` so the crop can never scroll the page sideways - a fixed
+  margin alone was not enough once the bin got big.
+- **Timing type** is sized with container queries (`18cqi`), not viewport units:
+  "TOMORROW" is eight characters and overflowed a four-up grid at a fixed 48px.
 - **The lime panel pattern** is a calendar grid at ~3%. If it reads as dots, it
   is too strong.
 

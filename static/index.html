@@ -112,22 +112,19 @@
   }
 
   /* ---------- hero ---------- */
+  /* The section clips, so the bin can crop against the edge of the page
+     without ever making the document scroll sideways. */
+  .hero-section { overflow-x: clip; }
   .hero { display: grid; grid-template-columns: 65fr 35fr; gap: 48px; align-items: center; }
   .hero-art { display: grid; place-items: center; position: relative; }
-  /* Let the bin run past its column into the surrounding space rather than
-     sitting politely inside it. */
-  /* Fills its column and nudges into the page gutter. The overhang is a fixed
-     12px so it can never exceed the 24px gutter and scroll the page sideways. */
-  .hero-bin { width: min(100%, 400px); height: auto; margin-right: -12px; }
-  .annotation {
-    color: var(--mid-grey); font-size: .95rem; text-align: center;
-    margin-top: 24px; max-width: 200px;
-  }
+  /* Oversized on purpose: it has to hold its own against a 92px headline.
+     Runs past its column and crops at the section edge. */
+  .hero-bin { width: min(160%, 600px); height: auto; margin-right: -13%; }
+  @media (max-width: 1100px) { .hero-bin { width: min(148%, 500px); margin-right: -10%; } }
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; gap: 8px; }
     .hero-art { place-items: start; }
     .hero-bin { width: 116px; margin: 0; }
-    .annotation { display: none; }
   }
 
   /* The lid lifts once on arrival and settles. Never loops. */
@@ -190,8 +187,7 @@
   .msg.info { background: var(--white); color: var(--mid-grey); border: var(--hairline); }
 
   /* ---------- brand rays (reusable, used sparingly) ---------- */
-  .rays-mark { flex: none; overflow: visible; }
-  .rays-mark line { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; }
+  .rays-mark { flex: none; color: var(--ink); }
 
   /* ---------- "put it out tonight" sticker ---------- */
   .sticker {
@@ -212,7 +208,7 @@
   }
   .bin {
     background: var(--white); border: var(--hairline); border-radius: var(--r-card);
-    padding: 24px;
+    padding: 24px; container-type: inline-size;
   }
   /* The icon tile is drawn like the logo: category colour filled, ink outlined. */
   .tile {
@@ -225,15 +221,19 @@
     color: var(--mid-grey); font-size: .95rem; font-weight: 700;
     text-transform: uppercase; letter-spacing: .04em;
   }
+  /* Sized against the card, not the viewport: "TOMORROW" is eight characters
+     and overflowed a four-up grid at a fixed 48px. */
   .bin .rel {
-    font-family: var(--font-display); font-weight: 700; letter-spacing: -0.04em;
-    font-size: clamp(2rem, 3vw, 2.75rem); line-height: .94; margin-top: 8px;
-    text-transform: uppercase; display: flex; align-items: flex-start; gap: 8px;
+    font-family: var(--font-display); font-weight: 700; letter-spacing: -0.045em;
+    font-size: clamp(2rem, 18cqi, 3rem); line-height: .92; margin-top: 10px;
+    text-transform: uppercase; display: flex; align-items: flex-start; gap: 6px;
   }
-  .bin .abs { margin-top: 10px; font-size: 1rem; line-height: 1.25; }
+  .bin .rel .rays-mark { margin-top: .18em; }
+  /* The date is reference, not headline - it stays quiet under the timing. */
+  .bin .abs { margin-top: 12px; font-size: .9rem; line-height: 1.3; color: var(--mid-grey); }
   .rel.soon { color: var(--action-blue); }
-  .bin .late { margin-top: 14px; font-size: .875rem; color: var(--mid-grey); }
-  @media (max-width: 640px) { .bin .rel { font-size: clamp(2rem, 9vw, 2.5rem); } }
+  @media (max-width: 640px) { .bin .rel { font-size: clamp(2rem, 15cqi, 2.5rem); } }
+  .bin .late { margin-top: 14px; font-size: .8rem; color: var(--mid-grey); }
 
   /* Results arrive with a short lift, staggered just enough to read as one
      group settling rather than a list animating. */
@@ -253,7 +253,6 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='68'%3E%3Cg fill='%23161616' fill-opacity='0.028'%3E%3Crect x='6' y='6' width='9' height='9' rx='2'/%3E%3Crect x='22' y='6' width='9' height='9' rx='2'/%3E%3Crect x='38' y='6' width='9' height='9' rx='2'/%3E%3Crect x='6' y='22' width='9' height='9' rx='2'/%3E%3Crect x='22' y='22' width='9' height='9' rx='2'/%3E%3Crect x='38' y='22' width='9' height='9' rx='2'/%3E%3Crect x='6' y='38' width='9' height='9' rx='2'/%3E%3Crect x='22' y='38' width='9' height='9' rx='2'/%3E%3Crect x='38' y='38' width='9' height='9' rx='2'/%3E%3C/g%3E%3C/svg%3E");
   }
   .calendar-panel > * { position: relative; }
-  .panel-head { display: flex; align-items: flex-start; gap: 14px; }
   @media (max-width: 640px) { .calendar-panel { padding: 32px 24px; } }
   .calendar-panel h2 { max-width: 16ch; }
   .feed {
@@ -298,6 +297,7 @@
     background: var(--white); border: var(--hairline); border-radius: var(--r-panel);
     padding: 48px 32px; margin-top: 40px; text-align: center;
   }
+  .sorted h2 { display: flex; align-items: center; justify-content: center; gap: 12px; }
   .sorted p { margin-top: 10px; }
   .ticks { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
   .tick { display: flex; align-items: center; gap: 9px; font-size: .95rem; }
@@ -323,18 +323,19 @@
   }
 
   /* ---------- how it works ---------- */
-  #how { position: relative; overflow: hidden; }
-  /* Cropped hard by the section so only the top of the letters shows - it
-     should never run through the body copy. */
+  #how { position: relative; }
+  /* One oversized word, cropped by the bottom of the page. Sits behind the
+     footer content and never overlaps it. */
   .bleed-word {
-    position: absolute; right: -3%; bottom: -19%; margin: 0; z-index: 0;
-    font-family: var(--font-display); font-weight: 700; font-size: 19vw;
-    letter-spacing: -0.05em; line-height: .8; color: transparent;
-    -webkit-text-stroke: 2px rgba(22, 22, 22, .075);
+    position: absolute; left: 50%; transform: translateX(-50%);
+    bottom: -11vw; margin: 0; z-index: 0;
+    font-family: var(--font-display); font-weight: 700; font-size: 23vw;
+    letter-spacing: -0.05em; line-height: .78; color: transparent;
+    -webkit-text-stroke: 2px rgba(22, 22, 22, .09);
     pointer-events: none; user-select: none; white-space: nowrap;
   }
-  #how > *:not(.bleed-word) { position: relative; z-index: 1; }
-  @media (max-width: 860px) { .bleed-word { font-size: 30vw; bottom: -8%; } }
+  footer.site { position: relative; overflow: hidden; }
+  footer.site > *:not(.bleed-word) { position: relative; z-index: 1; }
   .steps { display: grid; gap: 40px; grid-template-columns: repeat(3, 1fr); margin-top: 48px; }
   @media (max-width: 860px) { .steps { grid-template-columns: 1fr; gap: 32px; } }
   .step .n {
@@ -384,6 +385,18 @@
 </head>
 <body>
 
+<!-- BrandRays: the three marks from the logo, defined once. Stroke weight is a
+     custom property so the same shape works at hero scale and inline. -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="brand-rays" viewBox="0 0 22 22">
+    <g fill="none" stroke="currentColor" stroke-width="var(--ray-w, 2.6)" stroke-linecap="round">
+      <line x1="4" y1="13" x2="1.5" y2="17" />
+      <line x1="9.5" y1="8.5" x2="8" y2="3.5" />
+      <line x1="14.5" y1="10" x2="18.5" y2="7" />
+    </g>
+  </symbol>
+</svg>
+
 <a class="visually-hidden skip" href="#find">Skip to the postcode form</a>
 
 <header class="site page-shell">
@@ -399,7 +412,7 @@
 
 <main id="top">
 
-  <section class="page-shell" aria-labelledby="hero-title">
+  <section class="page-shell hero-section" aria-labelledby="hero-title">
     <div class="hero">
       <div>
         <h1 id="hero-title">What bin is it<br />this week?</h1>
@@ -436,11 +449,8 @@
 
       <div class="hero-art" aria-hidden="true">
         <svg class="hero-bin" viewBox="0 0 168 170" role="presentation" focusable="false">
-          <g class="rays" stroke="var(--ink)" stroke-width="9" stroke-linecap="round">
-            <line x1="112" y1="34" x2="119" y2="12" />
-            <line x1="129" y1="46" x2="144" y2="29" />
-            <line x1="137" y1="66" x2="159" y2="60" />
-          </g>
+          <use href="#brand-rays" x="104" y="4" width="64" height="64"
+               style="--ray-w: 3.1; color: var(--ink)" />
           <g class="bin-lid">
             <rect x="14" y="26" width="92" height="20" rx="7"
                   fill="var(--brand-green)" stroke="var(--ink)" stroke-width="7" />
@@ -457,7 +467,6 @@
           <circle cx="88" cy="150" r="14" fill="var(--ink)" />
           <circle cx="88" cy="150" r="5" fill="var(--cream)" />
         </svg>
-        <p class="annotation">Less guessing.<br />More doing.</p>
       </div>
     </div>
   </section>
@@ -468,7 +477,6 @@
   <div id="sorted-mount"></div>
 
   <section class="page-shell" id="how" aria-labelledby="how-title">
-    <p class="bleed-word" aria-hidden="true">SORTED.</p>
     <h2 id="how-title">How it works</h2>
     <div class="steps">
       <div class="step">
@@ -520,6 +528,7 @@
 </main>
 
 <footer class="site page-shell">
+  <p class="bleed-word" aria-hidden="true">SORTED.</p>
   <a class="brand" href="#top" aria-label="Bin Day — home">
     <img src="/assets/logo/bin-day-logo-web.png" alt="" />
   </a>
@@ -541,15 +550,7 @@
     <div class="bins" id="bins"></div>
 
     <div class="calendar-panel">
-      <div class="panel-head">
-        <svg class="rays-mark" width="30" height="30" viewBox="0 0 22 22" aria-hidden="true"
-             focusable="false" style="margin-top:6px">
-          <line x1="4" y1="13" x2="1.5" y2="17"/>
-          <line x1="9.5" y1="8.5" x2="8" y2="3.5"/>
-          <line x1="14.5" y1="10" x2="18.5" y2="7"/>
-        </svg>
-        <h2>Never think about bin day again.</h2>
-      </div>
+      <h2>Never think about bin day again.</h2>
       <p class="lede">Add your collections to your calendar and we'll keep it up to date.</p>
       <div class="feed" id="feed-url" role="button" tabindex="0"
            aria-label="Copy the calendar link" title="Click to copy"></div>
@@ -569,7 +570,11 @@
   <section class="page-shell" id="sorted-wrap" style="padding-top:0">
     <div class="sorted" style="position:relative">
       <div class="burst" id="burst" aria-hidden="true"></div>
-      <h2 id="sorted-title" tabindex="-1">That's the bins sorted.</h2>
+      <h2 id="sorted-title" tabindex="-1">
+        <svg class="rays-mark" width="26" height="26" aria-hidden="true"
+             focusable="false"><use href="#brand-rays"/></svg>
+        That's the bins sorted.
+      </h2>
       <p>Your collections are now in your calendar.</p>
       <p class="helper">You may now return to more interesting things.</p>
       <div class="ticks" id="ticks"></div>
@@ -619,14 +624,10 @@ const ICONS = {
 };
 
 
-/** The three ray marks from the logo. Used sparingly - imminent collections,
- *  the calendar call to action, and the success state. Nothing else. */
-const RAYS = (cls = "") => `<svg class="rays-mark ${cls}" width="22" height="22"
-    viewBox="0 0 22 22" aria-hidden="true" focusable="false">
-    <line x1="4" y1="13" x2="1.5" y2="17"/>
-    <line x1="9.5" y1="8.5" x2="8" y2="3.5"/>
-    <line x1="14.5" y1="10" x2="18.5" y2="7"/>
-  </svg>`;
+/** BrandRays. Budget for the whole page is three: the hero mark, the first
+ *  urgent collection, and the success state. Nothing else gets them. */
+const RAYS = () => `<svg class="rays-mark" width="24" height="24" aria-hidden="true"
+    focusable="false"><use href="#brand-rays"/></svg>`;
 
 
 // Councils name bins by colour and that is how people think about them, so a
@@ -750,6 +751,7 @@ function renderResult(ics, url, where) {
   currentBins = [...next.entries()].sort((a, b) => a[1] - b[1]);
   const box = $("bins");
   box.innerHTML = "";
+  let raysUsed = false;                 // one urgent card only - see BrandRays
   currentBins.forEach(([name, when], i) => {
     const { category, colour } = classify(name);
     const days = Math.round((when - today) / 86400000);
@@ -767,10 +769,12 @@ function renderResult(ics, url, where) {
       `<div class="tile">` +
         `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[category](colour)}</svg></div>` +
       `<div class="name">${name}</div>` +
-      `<div class="rel${soon ? " soon" : ""}">${rel}${soon ? RAYS() : ""}</div>` +
+      `<div class="rel${soon ? " soon" : ""}">${rel}` +
+        `${soon && !raysUsed ? RAYS() : ""}</div>` +
       `<div class="abs">${abs}</div>` +
       (sticker ? `<div class="sticker">Put it out<br>tonight</div>`
                : action ? `<div class="late">${action}</div>` : "");
+    if (soon) raysUsed = true;
     // A short stagger so the group reads as one thing settling.
     el.style.animationDelay = `${Math.min(i, 5) * 70}ms`;
     box.append(el);
