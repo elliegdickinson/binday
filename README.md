@@ -13,10 +13,23 @@ scrapers for 353 UK councils. This app wraps it with an address picker, an
 iCalendar feed and hard caching.
 
 ```
-postcode ──► /api/addresses ──► pick ──► /api/resolve ──► /feed/<council>.ics
-                                                              │
-                                        calendar app re-fetches every ~12h
+postcode ──► /api/lookup ──► council (via postcodes.io + LAD24CD)
+                │
+                ├─ has a picker ──► /api/addresses ──► pick ──► /api/resolve ─┐
+                └─ needs a house number ─────────────────────────────────────┤
+                                                                             ▼
+                                                        /feed/<council>.ics
+                                                                │
+                                          calendar app re-fetches every ~12h
 ```
+
+Nobody picks their council from a list of 259: [postcodes.io][pio] is free and
+keyless and returns the ONS local-authority code, which is the same code
+UKBinCollectionData records as `LAD24CD`. **244 of the 259 councils match from
+a postcode alone.** The manual list is still there for the 15 without a code,
+the three ONS codes that carry more than one council upstream, and anyone
+placed wrongly. postcodes.io failing is never fatal - it falls back to the
+list.
 
 ## Coverage, honestly
 
@@ -27,6 +40,7 @@ postcode ──► /api/addresses ──► pick ──► /api/resolve ──�
 | Need you to supply a UPRN yourself | 192 |
 | Not supported: lookup needs a property id we can't derive | 16 |
 | Excluded for now (need headless Chrome) | 93 |
+| Auto-detectable from a postcode (have an LAD code) | 244 |
 
 Of the 51, one (Stockport) gets there via a postcode → address picker; the
 rest take a postcode and house number directly.
@@ -76,7 +90,8 @@ contains the UPRN, which is how it stays stateless.
 
 ```
 app/
-  main.py               FastAPI: councils, addresses, resolve, feed
+  main.py               FastAPI: lookup, councils, addresses, resolve, feed
+  postcodes.py          postcode -> local authority, via postcodes.io
   ics.py                bin list -> iCalendar
   data/councils.json    generated from UKBinCollectionData's input.json
   pickers/stockport.py  postcode -> address -> uprn
@@ -101,3 +116,4 @@ python3 tools/build_registry.py
   ("Wheeled Bin (180ltr)", "Domestic Waste Collection Service").
 
 [ukbcd]: https://github.com/robbrad/UKBinCollectionData
+[pio]: https://postcodes.io/
