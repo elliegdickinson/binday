@@ -47,6 +47,28 @@ changes.
 Minimum heights on the page: 48px in navigation, 64px in the footer, 40px below
 560px wide. Below that the stacked two-line lockup stops being readable.
 
+## The kit's bin mark has a stray fragment
+
+`assets/logo/bin-day-mark.png` (and the 192/512 variants) carry a small black
+wedge in the upper left. It is a leftover piece of the **Y from DAY**, kept
+when the mark was cropped out of the lockup. Invisible at favicon size,
+obvious at home-screen size.
+
+`bin-day-mark-clean.png` is cut from `bin-day-logo-transparent.png` with the Y
+masked off, and the favicon and app icons derive from it. **Worth fixing in the
+master** - once the kit's mark is clean, delete the derivative and regenerate
+from it.
+
+## Icons
+
+- `favicon.ico` - 16/32/48, transparent, served at the root because that is
+  what browsers, bookmarks and link previews request whether or not the page
+  links to one.
+- `icon-180/192/512.png` - home-screen icons on **cream**, not transparent: iOS
+  puts a black plate behind a transparent icon.
+- `site.webmanifest` makes it installable, which suits something people check
+  weekly from a phone.
+
 ## Third-party widgets
 
 The Ko-fi button is the only third-party UI. It is recoloured to Electric Blue

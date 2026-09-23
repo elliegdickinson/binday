@@ -324,6 +324,20 @@ app.mount("/assets", StaticFiles(directory=HERE.parent / "static" / "assets"),
           name="assets")
 
 
+@app.get("/favicon.ico")
+async def favicon() -> FileResponse:
+    return FileResponse(HERE.parent / "static" / "favicon.ico",
+                        media_type="image/x-icon",
+                        headers={"Cache-Control": "public, max-age=604800"})
+
+
+@app.get("/site.webmanifest")
+async def manifest() -> FileResponse:
+    return FileResponse(HERE.parent / "static" / "site.webmanifest",
+                        media_type="application/manifest+json",
+                        headers={"Cache-Control": "public, max-age=86400"})
+
+
 @app.get("/tokens-brand.css")
 async def brand_tokens() -> FileResponse:
     return FileResponse(HERE.parent / "static" / "tokens-brand.css",
