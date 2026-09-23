@@ -125,7 +125,7 @@
 
   .ask { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; align-items: end; }
   .ask .full { grid-column: 1 / -1; }
-  .ask button { align-self: end; }
+  .ask button { align-self: end; margin-top: 10px; }
   @media (max-width: 620px) { .ask { grid-template-columns: 1fr; } }
   .note { color: var(--grey); font-size: .92rem; margin: 14px 0 0; }
   .detected { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
@@ -447,9 +447,12 @@ function chooseAddress(found) {
     box.append(sel, ok);
     $("fields").append(box);
     sel.focus();
+    // Two "go" buttons at once reads as a choice when it isn't one.
+    $("go").classList.add("hidden");
     ok.addEventListener("click", e => {
       e.preventDefault();
       box.remove();
+      $("go").classList.remove("hidden");
       resolve(found[sel.value]);
     });
   });
@@ -480,6 +483,10 @@ function renderResult(ics, url, where) {
     const days = Math.round((when - today) / 86400000);
     const soon = days <= 1;
     const rel = days === 0 ? "Today" : days === 1 ? "Tomorrow" : `In ${days} days.`;
+    // Bins go out the night before collection. On collection day "put it out
+    // tonight" would be a day late, so only say it when there's still time.
+    const action = days === 1 ? "Put it out tonight."
+      : days === 0 ? "Should already be out." : "";
     const abs = when.toLocaleDateString("en-GB",
       { weekday: "long", day: "numeric", month: "long" });
     const el = document.createElement("div");
@@ -490,7 +497,7 @@ function renderResult(ics, url, where) {
       `<div class="name">${name}</div>` +
       `<div class="rel${soon ? " soon" : ""}">${soon ? rel : abs}</div>` +
       `<div class="abs">${soon ? abs : rel}</div>` +
-      (soon ? `<div class="out">Put it out tonight.</div>` : "");
+      (action ? `<div class="out">${action}</div>` : "");
     box.append(el);
   });
 

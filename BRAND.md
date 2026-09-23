@@ -82,7 +82,12 @@ the letterforms, stretch it, or add a gradient.
 Cream page, white cards, soft corners (14px), hairline borders. Generous
 space. One question per screen. Results are cards in a row on desktop and a
 stack on mobile, each showing icon, bin name, relative date ("Tomorrow",
-"In 8 days") and, when it's imminent, "Put it out tonight."
+"In 8 days") and, the day before collection, "Put it out tonight."
+
+**Bins go out the night before.** So "Put it out tonight" belongs on the day
+*before* a collection and nowhere else - on collection day itself it is a day
+late, and the card says "Should already be out." instead. Getting this wrong
+tells people to miss their collection.
 
 Must work at 360px wide.
 
