@@ -50,17 +50,54 @@ collections on it**. Only the complete parameter set the address search hands
 back (uprn, address, usrn, easting, northing) produces dates, so the link must
 be followed exactly as given.
 
+## Tried and rejected: the Netcall / Liberty Create cluster
+
+Croydon, North Hertfordshire and Sevenoaks (`/w/webpage/`, `oncreate.app`).
+**These genuinely need a browser.** Investigated 23 Sep 2026:
+
+- The address field is a debounced jQuery typeahead. It fires on real key
+  events only - synthetic `input`/`keyup`/`change` events dispatched into the
+  page produce no request at all.
+- The page issues a `webpage_token` and a `CSRF` var, and exposes an
+  `/w/ajax?webpage_subpage_id=…&webpage_token=…` endpoint, but the submit URLs
+  are signed against the session token. UKBinCollectionData's own author
+  documented the same conclusion in `NorthHertfordshireDistrictCouncil.py`:
+  *"No public UPRN shortcut exists - submit URLs carry an auth signature bound
+  to the session-issued webpage_token."*
+
+Replicating it would mean reconstructing the widget payload format
+(`payload[PAG…][PWG…]`) and the signing, and would break whenever the council
+rebuilds the page. Not worth it for three councils.
+
+## Tried and parked: Neath Port Talbot
+
+Plain HTTP works fine - it's an Umbraco form (`__RequestVerificationToken` +
+`ufprt`), postcode → addresses → results page, all scriptable. **But the
+results page has no dates on it.** It gives a collection day and a week colour
+("Blue Week") and expects you to derive the calendar from the cycle. Doable,
+but it's cycle logic rather than a scrape, so it's a different job.
+
+## What the platform fingerprint does and doesn't tell you
+
+Sharing a platform with a solved council does **not** mean a council is
+solvable. Syncfusion worked because the data was sitting in the HTML as JSON.
+Liberty Create shares a URL shape and nothing else useful. Judge each cluster
+by whether the data is in the response, not by the vendor.
+
 ## Suggested order of attack
 
 1. ~~Wakefield~~ - **done**.
-2. **Whitespace (3) + Netcall (2)** - five councils across two similar
-   `/w/webpage/` platforms; likely one small module each, same shape as
-   `syncfusion.py`.
-3. **Jadu / Firmstep (18)** - the big prize, and the most work. AchieveForms
-   posts through a session-bound JSON API; worth a spike on one council
-   (Tendring or Gloucester, both on `achieveservice.com`) before committing.
-4. **The remaining bespoke ones** - only worth it for a council someone
-   actually asks for.
+2. ~~Whitespace / Netcall~~ - **rejected**, see above.
+3. **Jadu / Firmstep (18)** - the only remaining cluster worth a look, and the
+   biggest. AchieveForms posts through a session-bound JSON API, which is the
+   same shape of problem that sank Liberty Create, so spike one council
+   (Tendring or Gloucester) and check the dates are in the response *before*
+   committing to it.
+4. **Headless Chrome instead.** If coverage matters more than tidiness, adding
+   a browser to the deployment unlocks all 90 at once through
+   UKBinCollectionData, rather than writing 90 modules. It costs a bigger
+   machine (~1GB rather than 512MB) and slower lookups. For anything past the
+   Firmstep cluster this is almost certainly the better trade.
 
 ## Reproducing this
 
