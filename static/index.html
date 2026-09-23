@@ -460,6 +460,17 @@ function chooseAddress(found) {
 
 let currentBins = [];
 
+/** Bring the results into view without shoving the form off the top - people
+ *  want to see the address they picked is still the one being answered. */
+function revealResult() {
+  const el = $("result");
+  const top = el.getBoundingClientRect().top;
+  // Land the results about halfway down, so the form stays on screen above.
+  const target = Math.min(window.innerHeight * 0.55, 420);
+  if (top > 0 && top <= target) return;          // already sitting nicely
+  window.scrollBy({ top: top - target, behavior: "smooth" });
+}
+
 function renderResult(ics, url, where) {
   const text = ics.replace(/\r\n /g, "");
   const events = [...text.matchAll(/DTSTART;VALUE=DATE:(\d{8})[\s\S]*?SUMMARY:(.*)/g)];
@@ -702,7 +713,7 @@ $("go").addEventListener("click", async () => {
     const url = `${location.origin}/feed/${chosen.key}.ics?${new URLSearchParams(params)}`;
     renderResult(await api(url), url, where);
     show("", "");
-    $("result").scrollIntoView({ behavior: "smooth", block: "start" });
+    revealResult();
   } catch (err) {
     show("err", err.message);
   } finally {
