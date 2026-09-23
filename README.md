@@ -35,24 +35,28 @@ list.
 
 | | Councils |
 |---|---|
-| In this build (no headless browser needed) | 260 |
-| **Work from a postcode alone** | **52** |
+| In this build (no headless browser needed) | 261 |
+| **Work from a postcode alone** | **53** |
 | Need you to supply a UPRN yourself | 192 |
 | Not supported: lookup needs a property id we can't derive | 16 |
-| Excluded for now (need headless Chrome) | 92 |
-| Auto-detectable from a postcode (have an LAD code) | 245 |
+| Excluded for now (need headless Chrome) | 91 |
+| Auto-detectable from a postcode (have an LAD code) | 246 |
 
-Of the 52, two (Stockport and Staffordshire Moorlands) get there via a
-postcode → address picker; the rest take a postcode and house number directly.
+Of the 53, three (Stockport, Staffordshire Moorlands, High Peak) get there via
+a postcode → address picker; the rest take a postcode and house number
+directly.
 
-**Some "needs a browser" councils don't.** Staffordshire Moorlands is driven
-upstream through Selenium because its Syncfusion dashboard renders
-client-side - but the page is a Razor Page whose handlers are ordinary form
-posts, and the data is embedded as JSON before Syncfusion touches it. Plain
-HTTP gets all of it. `app/pickers/staffsmoorlands.py` does the lookup *and*
-the collection natively, and `COLLECTORS` in `main.py` routes around
-UKBinCollectionData for it. Any of the other 92 on the same platform (High
-Peak, for one) can be done the same way.
+**Some "needs a browser" councils don't.** Staffordshire Moorlands and High
+Peak are driven upstream through Selenium because their Syncfusion "Public
+Dashboard" renders client-side - but the page is a Razor Page whose handlers
+are ordinary form posts, and the data is embedded as JSON before Syncfusion
+touches it. Plain HTTP gets all of it.
+
+`app/pickers/syncfusion.py` does the lookup *and* the collection for that
+platform; adding another council on it is one call to `make(base, name)`.
+`COLLECTORS` in `main.py` routes around UKBinCollectionData, and `NATIVE` in
+the registry generator keeps them despite the upstream `web_driver` flag.
+Worth checking how many of the remaining 91 are on the same platform.
 
 The gap is address lookup, not collection data. 192 of the councils here are
 keyed on a UPRN, and **there is no free national postcode → UPRN service** —
@@ -104,7 +108,7 @@ app/
   ics.py                bin list -> iCalendar
   data/councils.json    generated from UKBinCollectionData's input.json
   pickers/stockport.py  postcode -> address -> uprn
-  pickers/staffsmoorlands.py  picker + native collector, no browser
+  pickers/syncfusion.py Public Dashboard councils: picker + collector, no browser
 static/index.html       the whole front end
 tools/build_registry.py regenerates councils.json from upstream
 BRAND.md                brand guidelines

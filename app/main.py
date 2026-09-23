@@ -20,7 +20,7 @@ from fastapi.responses import FileResponse, JSONResponse, Response
 
 from . import postcodes
 from .ics import build
-from .pickers import staffsmoorlands, stockport
+from .pickers import stockport, syncfusion
 
 HERE = pathlib.Path(__file__).parent
 COUNCILS: dict = json.loads((HERE / "data" / "councils.json").read_text())
@@ -35,15 +35,21 @@ RATE_WINDOW = 300               # seconds
 # Councils with a postcode -> address picker. Everything else either needs no
 # UPRN at all, or asks the user to supply one until a picker is written.
 # Each entry is (list addresses, resolve one to a uprn + url).
+_SM_LOOKUP, _SM_RESOLVE, _SM_COLLECT = syncfusion.STAFFS_MOORLANDS
+_HP_LOOKUP, _HP_RESOLVE, _HP_COLLECT = syncfusion.HIGH_PEAK
+
 PICKERS = {
     "StockportBoroughCouncil": (stockport.lookup, stockport.resolve),
-    "StaffordshireMoorlandsDistrictCouncil": (staffsmoorlands.lookup,
-                                              staffsmoorlands.resolve),
+    "StaffordshireMoorlandsDistrictCouncil": (_SM_LOOKUP, _SM_RESOLVE),
+    "HighPeakCouncil": (_HP_LOOKUP, _HP_RESOLVE),
 }
 
 # Councils collected natively instead of through UKBinCollectionData, because
 # upstream drives them with Selenium and this app has no browser.
-COLLECTORS = {"StaffordshireMoorlandsDistrictCouncil": staffsmoorlands.collect}
+COLLECTORS = {
+    "StaffordshireMoorlandsDistrictCouncil": _SM_COLLECT,
+    "HighPeakCouncil": _HP_COLLECT,
+}
 
 # ONS local-authority code -> council keys. A handful of codes carry more than
 # one council upstream, so this maps to a list and the caller asks rather than

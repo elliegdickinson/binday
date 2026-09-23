@@ -24,7 +24,7 @@ OUT = pathlib.Path(__file__).resolve().parent.parent / "app" / "data" / "council
 # Councils upstream marks as needing a headless browser, but which this app
 # collects natively over plain HTTP (see app/pickers/). They are kept in the
 # registry despite the web_driver flag.
-NATIVE = {"StaffordshireMoorlandsDistrictCouncil"}
+NATIVE = {"StaffordshireMoorlandsDistrictCouncil", "HighPeakCouncil"}
 
 
 def load(source: str | None) -> dict:
