@@ -1,0 +1,2142 @@
+{
+ "AberdeenCityCouncil": {
+  "name": "Aberdeen City",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.aberdeencity.gov.uk"
+ },
+ "AberdeenshireCouncil": {
+  "name": "Aberdeenshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://online.aberdeenshire.gov.uk"
+ },
+ "AdurAndWorthingCouncils": {
+  "name": "Adur",
+  "needs": [],
+  "note": "Replace XXXXXXXX with your UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find it.",
+  "url": "https://www.adur-worthing.gov.uk/bin-day/?brlu-selected-address=100061878829"
+ },
+ "AmberValleyBoroughCouncil": {
+  "name": "Amber Valley",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://ambervalley.gov.uk"
+ },
+ "AntrimAndNewtonabbeyCouncil": {
+  "name": "Antrim and Newtownabbey",
+  "needs": [],
+  "note": "Navigate to [https://antrimandnewtownabbey.gov.uk/residents/bins-recycling/bins-schedule] and search for your street name. Use the URL with the ID to replace XXXXXXXX with your specific ID.",
+  "url": "https://antrimandnewtownabbey.gov.uk/residents/bins-recycling/bins-schedule/?Id=643"
+ },
+ "ArdsAndNorthDownCouncil": {
+  "name": "Ards and North Down",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.ardsandnorthdown.gov.uk"
+ },
+ "ArmaghBanbridgeCraigavonCouncil": {
+  "name": "Armagh City, Banbridge and Craigavon",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.armaghbanbridgecraigavon.gov.uk/"
+ },
+ "BCPCouncil": {
+  "name": "Bournemouth, Christchurch and Poole",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://bcpportal.bcpcouncil.gov.uk/checkyourbincollection"
+ },
+ "BarnsleyMBCouncil": {
+  "name": "Barnsley",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "To get the UPRN, you will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://waste.barnsley.gov.uk/ViewCollection/Collections"
+ },
+ "BasildonCouncil": {
+  "name": "Basildon",
+  "needs": [
+   "uprn"
+  ],
+  "note": "To get the UPRN, you will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://mybasildon.powerappsportals.com/check/where_i_live/"
+ },
+ "BasingstokeCouncil": {
+  "name": "Basingstoke and Deane",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.basingstoke.gov.uk/bincollection"
+ },
+ "BassetlawDistrictCouncil": {
+  "name": "Bassetlaw",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "",
+  "url": "https://www.bassetlaw.gov.uk"
+ },
+ "BathAndNorthEastSomersetCouncil": {
+  "name": "Bath and North East Somerset",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.bathnes.gov.uk/webforms/waste/collectionday/"
+ },
+ "BedfordBoroughCouncil": {
+  "name": "Bedford",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.bedford.gov.uk/bins-and-recycling/household-bins-and-recycling/check-your-bin-day"
+ },
+ "BedfordshireCouncil": {
+  "name": "Central Bedfordshire",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "In order to use this parser, you must provide a valid postcode and a UPRN retrieved from the council's website for your specific address.",
+  "url": "https://www.centralbedfordshire.gov.uk/info/163/bins_and_waste_collections_-_check_bin_collection_day"
+ },
+ "BelfastCityCouncil": {
+  "name": "Belfast",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://online.belfastcity.gov.uk/find-bin-collection-day/Default.aspx"
+ },
+ "BirminghamCityCouncil": {
+  "name": "Birmingham",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.birmingham.gov.uk/info/50388/check_your_collection_day"
+ },
+ "BlabyDistrictCouncil": {
+  "name": "Blaby",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.blaby.gov.uk"
+ },
+ "BlackburnCouncil": {
+  "name": "Blackburn with Darwen",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.blackburn.gov.uk"
+ },
+ "BlackpoolCouncil": {
+  "name": "Blackpool",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide postcode and house number. UPRN also accepted.",
+  "url": "https://www.blackpool.gov.uk/"
+ },
+ "BolsoverCouncil": {
+  "name": "Bolsover",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://bolsover.gov.uk"
+ },
+ "BoltonCouncil": {
+  "name": "Bolton",
+  "needs": [
+   "uprn"
+  ],
+  "note": "To get the UPRN, you will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search). Previously required a single field that was UPRN and full address; now requires UPRN and postcode as separate fields.",
+  "url": "https://bolton.gov.uk"
+ },
+ "BracknellForestCouncil": {
+  "name": "Bracknell Forest",
+  "needs": [
+   "postcode",
+   "house_number",
+   "paon"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters.",
+  "url": "https://selfservice.mybfc.bracknell-forest.gov.uk/w/webpage/waste-collection-days"
+ },
+ "BradfordMDC": {
+  "name": "Bradford",
+  "needs": [
+   "uprn"
+  ],
+  "note": "To get the UPRN, you will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search). Postcode isn't parsed by this script, but you can pass it in double quotes.",
+  "url": "https://onlineforms.bradford.gov.uk/ufs/collectiondates.eb"
+ },
+ "BraintreeDistrictCouncil": {
+  "name": "Braintree",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.braintree.gov.uk/"
+ },
+ "BrecklandCouncil": {
+  "name": "Breckland",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.breckland.gov.uk"
+ },
+ "BrentCouncil": {
+  "name": "Brent",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters.",
+  "url": "https://recyclingservices.brent.gov.uk/waste"
+ },
+ "BridgendCountyBoroughCouncil": {
+  "name": "Bridgend County Borough",
+  "needs": [
+   "postcode"
+  ],
+  "note": "",
+  "url": "https://www.bridgend.gov.uk"
+ },
+ "BristolCityCouncil": {
+  "name": "City of Bristol",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://bristolcouncil.powerappsportals.com/completedynamicformunauth/?servicetypeid=7dce896c-b3ba-ea11-a812-000d3a7f1cdc"
+ },
+ "BromsgroveDistrictCouncil": {
+  "name": "Bromsgrove",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.bromsgrove.gov.uk"
+ },
+ "BuckinghamshireCouncil": {
+  "name": "Buckinghamshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.buckinghamshire.gov.uk/waste-and-recycling/find-out-when-its-your-bin-collection/"
+ },
+ "BurnleyBoroughCouncil": {
+  "name": "Burnley",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.burnley.gov.uk"
+ },
+ "BuryCouncil": {
+  "name": "Bury",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the postcode and house number in their respective arguments, both wrapped in quotes.",
+  "url": "https://www.bury.gov.uk/waste-and-recycling/bin-collection-days-and-alerts"
+ },
+ "CaerphillyCountyBoroughCouncil": {
+  "name": "Caerphilly County Borough",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "",
+  "url": "https://www.caerphilly.gov.uk"
+ },
+ "CalderdaleCouncil": {
+  "name": "Calderdale",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number. UPRN is also accepted but no longer required. No Selenium needed.",
+  "url": "https://www.calderdale.gov.uk/environment/waste/household-collections/collectiondayfinder.jsp"
+ },
+ "CambridgeCityCouncil": {
+  "name": "Cambridge",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.cambridge.gov.uk/"
+ },
+ "CannockChaseDistrictCouncil": {
+  "name": "Cannock Chase",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "To get the UPRN, you can use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.cannockchasedc.gov.uk/"
+ },
+ "CanterburyCityCouncil": {
+  "name": "Canterbury",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.canterbury.gov.uk"
+ },
+ "CardiffCouncil": {
+  "name": "Cardiff",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.cardiff.gov.uk"
+ },
+ "CarmarthenshireCountyCouncil": {
+  "name": "Carmarthenshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.carmarthenshire.gov.wales"
+ },
+ "CastlepointDistrictCouncil": {
+  "name": "Castle Point",
+  "needs": [
+   "uprn"
+  ],
+  "note": "For this council, 'uprn' is actually a 4-digit code for your street. Go [here](https://apps.castlepoint.gov.uk/cpapps/index.cfm?fa=wastecalendar) and inspect the source of the dropdown box to find the 4-digit number for your street.",
+  "url": "https://apps.castlepoint.gov.uk/cpapps/index.cfm?fa=wastecalendar"
+ },
+ "CharnwoodBoroughCouncil": {
+  "name": "Charnwood",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.charnwood.gov.uk/pages/waste_collections_calendars"
+ },
+ "CheltenhamBoroughCouncil": {
+  "name": "Cheltenham",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.cheltenham.gov.uk"
+ },
+ "CherwellDistrictCouncil": {
+  "name": "Cherwell",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.cherwell.gov.uk"
+ },
+ "CheshireEastCouncil": {
+  "name": "Cheshire East",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://online.cheshireeast.gov.uk/mycollectionday"
+ },
+ "CheshireWestAndChesterCouncil": {
+  "name": "Cheshire West and Chester",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://my.cheshirewestandchester.gov.uk"
+ },
+ "ChesterfieldBoroughCouncil": {
+  "name": "Chesterfield",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.chesterfield.gov.uk"
+ },
+ "ChorleyCouncil": {
+  "name": "Chorley",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Chorley needs to be passed both a Postcode & UPRN to work. Find this on [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://forms.chorleysouthribble.gov.uk/xfp/form/71"
+ },
+ "ClackmannanshireCouncil": {
+  "name": "Clackmannanshire",
+  "needs": [
+   "postcode"
+  ],
+  "note": "",
+  "url": "https://www.clacks.gov.uk"
+ },
+ "CneSiarCouncil": {
+  "name": "Comhairle nan Eilean Siar",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "",
+  "url": "https://www.cne-siar.gov.uk"
+ },
+ "ConwyCountyBorough": {
+  "name": "Conwy",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.conwy.gov.uk"
+ },
+ "CornwallCouncil": {
+  "name": "Cornwall",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.cornwall.gov.uk/my-area/"
+ },
+ "CoventryCityCouncil": {
+  "name": "Coventry",
+  "needs": [],
+  "note": "Follow the instructions [here](https://www.coventry.gov.uk/bin-collection-calendar) until you get the page that shows the weekly collections for your address then copy the URL and replace the URL in the command.",
+  "url": "https://www.coventry.gov.uk/directory-record/62310/abberton-way-"
+ },
+ "CrawleyBoroughCouncil": {
+  "name": "Crawley",
+  "needs": [
+   "house_number",
+   "uprn"
+  ],
+  "note": "Crawley needs to be passed both a UPRN and a USRN to work. Find these on [FindMyAddress](https://www.findmyaddress.co.uk/search) or [FindMyStreet](https://www.findmystreet.co.uk/map).",
+  "url": "https://my.crawley.gov.uk/"
+ },
+ "CumberlandCouncil": {
+  "name": "Cumberland",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.cumberland.gov.uk/bins-recycling-and-street-cleaning/waste-collections/bin-collection-schedule"
+ },
+ "DarlingtonBoroughCouncil": {
+  "name": "Darlington Borough Council",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.darlington.gov.uk/bins-waste-and-recycling/collection-day-lookup/"
+ },
+ "DartfordBoroughCouncil": {
+  "name": "Dartford",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.dartford.gov.uk/waste-recycling/collection-day"
+ },
+ "DenbighshireCouncil": {
+  "name": "Denbighshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.denbighshire.gov.uk/"
+ },
+ "DerbyCityCouncil": {
+  "name": "Derby",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.derby.gov.uk"
+ },
+ "DerbyshireDalesDistrictCouncil": {
+  "name": "Derbyshire Dales",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the UPRN and postcode. To get the UPRN, you can use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.derbyshiredales.gov.uk/"
+ },
+ "DoncasterCouncil": {
+  "name": "Doncaster",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.doncaster.gov.uk/Compass/Entity/Launch/D3/"
+ },
+ "DorsetCouncil": {
+  "name": "Dorset Council",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.dorsetcouncil.gov.uk/"
+ },
+ "DoverDistrictCouncil": {
+  "name": "Dover",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass postcode and/or UPRN. Uses portal.waste.dover.gov.uk API (councilId 39).",
+  "url": "https://portal.waste.dover.gov.uk"
+ },
+ "DudleyCouncil": {
+  "name": "Dudley",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://my.dudley.gov.uk"
+ },
+ "DumfriesandGallowayCouncil": {
+  "name": "Dumfries and Galloway Council",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number/name. UPRN is also accepted but no longer required.",
+  "url": "https://www.dumfriesandgalloway.gov.uk"
+ },
+ "DundeeCityCouncil": {
+  "name": "Dundee City",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.dundeecity.gov.uk/"
+ },
+ "DurhamCouncil": {
+  "name": "County Durham",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.durham.gov.uk/bincollections?uprn="
+ },
+ "EalingCouncil": {
+  "name": "Ealing (deprecated, use LondonBoroughEaling)",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Deprecated duplicate of LondonBoroughEaling (#1884) - kept only for existing users' saved config. New setups should pick \"Ealing\" (LondonBoroughEaling) instead.",
+  "url": "https://www.ealing.gov.uk/site/custom_scripts/WasteCollectionWS/home/FindCollection"
+ },
+ "EastAyrshireCouncil": {
+  "name": "East Ayrshire",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass postcode and house number or full address. Uses the ReCollect API.",
+  "url": "https://www.east-ayrshire.gov.uk"
+ },
+ "EastCambridgeshireCouncil": {
+  "name": "East Cambridgeshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.eastcambs.gov.uk/"
+ },
+ "EastDevonDC": {
+  "name": "East Devon",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number/name. UPRN is also accepted but no longer required.",
+  "url": "https://eastdevon.gov.uk/recycling-and-waste/recycling-waste-information/when-is-my-bin-collected/"
+ },
+ "EastDunbartonshireCouncil": {
+  "name": "East Dunbartonshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.eastdunbarton.gov.uk/"
+ },
+ "EastHampshireDC": {
+  "name": "East Hampshire",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "",
+  "url": "https://www.easthants.gov.uk"
+ },
+ "EastHertsCouncil": {
+  "name": "East Herts Council",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://east-herts.co.uk/api/services/"
+ },
+ "EastLothianCouncil": {
+  "name": "East Lothian",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters",
+  "url": "https://eastlothian.gov.uk"
+ },
+ "EastStaffordshireBoroughCouncil": {
+  "name": "East Staffordshire",
+  "needs": [],
+  "note": "Replace `XXXXX` with your property's ID when selecting from https://www.eaststaffsbc.gov.uk/bins-rubbish-recycling/collection-dates.",
+  "url": "https://www.eaststaffsbc.gov.uk/bins-rubbish-recycling/collection-dates/68382"
+ },
+ "EastbourneBoroughCouncil": {
+  "name": "Eastbourne",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.lewes-eastbourne.gov.uk/article/1158/When-is-my-bin-collection-day"
+ },
+ "EdenDistrictCouncil": {
+  "name": "Eden District (Westmorland and Furness)",
+  "needs": [
+   "uprn"
+  ],
+  "note": "For Eden area addresses within Westmorland and Furness. Provide your UPRN. You can find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search). Note: This returns collection days (e.g., 'Wednesday') rather than specific dates.",
+  "url": "https://my.eden.gov.uk/myeden.aspx"
+ },
+ "EdinburghCityCouncil": {
+  "name": "City of Edinburgh",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your postcode and house number (or street name). The scraper resolves your collection schedule automatically via the Edinburgh directory.",
+  "url": "https://www.edinburgh.gov.uk"
+ },
+ "ElmbridgeBoroughCouncil": {
+  "name": "Elmbridge",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.elmbridge.gov.uk"
+ },
+ "EnvironmentFirst": {
+  "name": "Environment First",
+  "needs": [],
+  "note": "For properties with collections managed by Environment First, such as Lewes and Eastbourne. Replace the XXXXXXXXXX with the UPRN of your property\u00ef\u00bf\u00bdyou can use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find this.",
+  "url": "https://environmentfirst.co.uk/house.php?uprn=100060055444"
+ },
+ "ErewashBoroughCouncil": {
+  "name": "Erewash",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.erewash.gov.uk"
+ },
+ "ExeterCityCouncil": {
+  "name": "Exeter",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.exeter.gov.uk"
+ },
+ "FalkirkCouncil": {
+  "name": "Falkirk",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.falkirk.gov.uk"
+ },
+ "FarehamBoroughCouncil": {
+  "name": "Fareham",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN in the uprn parameter.",
+  "url": "https://www.fareham.gov.uk/bincalendar/intro.aspx"
+ },
+ "FenlandDistrictCouncil": {
+  "name": "Fenland",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Fenland's API only understands its own numeric PremiseID, not a national UPRN. Provide your postcode and this integration will resolve it to the PremiseID automatically. The uprn field is only used as a direct PremiseID override when no postcode is set.",
+  "url": "https://www.fenland.gov.uk/article/13114/"
+ },
+ "FermanaghOmaghDistrictCouncil": {
+  "name": "Fermanagh and Omagh",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters.",
+  "url": "https://www.fermanaghomagh.com/services/environment-and-waste/waste-collection-calendar/"
+ },
+ "FlintshireCountyCouncil": {
+  "name": "Flintshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://digital.flintshire.gov.uk"
+ },
+ "FolkestoneandHytheDistrictCouncil": {
+  "name": "Folkestone and Hythe",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.folkestone-hythe.gov.uk"
+ },
+ "FyldeCouncil": {
+  "name": "Fylde",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.fylde.gov.uk"
+ },
+ "GatesheadCouncil": {
+  "name": "Gateshead",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house name/number and postcode in their respective parameters.",
+  "url": "https://www.gateshead.gov.uk/article/3150/Bin-collection-day-checker"
+ },
+ "GedlingBoroughCouncil": {
+  "name": "Gedling",
+  "needs": [
+   "house_number"
+  ],
+  "note": "Use [this site](https://www.gbcbincalendars.co.uk/) to find the collections for your address. Use the `-n` parameter to add them in a comma-separated list inside quotes, such as: 'Friday G4, Friday J'.",
+  "url": "https://www.gedling.gov.uk/"
+ },
+ "GlasgowCityCouncil": {
+  "name": "Glasgow City",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://onlineservices.glasgow.gov.uk/forms/refuseandrecyclingcalendar/AddressSearch.aspx"
+ },
+ "GooglePublicCalendarCouncil": {
+  "name": "Google Calendar (Public)",
+  "needs": [],
+  "note": "The URL should be the public ics file URL for the public Google calendar. See https://support.google.com/calendar/answer/37083?sjid=7202815583021446882-EU. Councils that currently need this are Trafford.",
+  "url": "https://calendar.google.com/calendar/ical/0d775884b4db6a7bae5204f06dae113c1a36e505b25991ebc27c6bd42edf5b5e%40group.calendar.google.com/public/basic.ics"
+ },
+ "GosportBoroughCouncil": {
+  "name": "Gosport Borough Council",
+  "needs": [
+   "postcode"
+  ],
+  "note": "Pass the postcode parameter. This parser uses the Supatrak API.",
+  "url": "https://www.gosport.gov.uk/refuserecyclingdays"
+ },
+ "GraveshamBoroughCouncil": {
+  "name": "Gravesham",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass your postcode and house number in their respective parameters, or alternatively a UPRN found via [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://my.gravesham.gov.uk"
+ },
+ "GwyneddCouncil": {
+  "name": "Gwynedd",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://diogel.gwynedd.llyw.cymru"
+ },
+ "HackneyCouncil": {
+  "name": "Hackney",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the postcode and house number in their respective arguments, both wrapped in quotes.",
+  "url": "https://www.hackney.gov.uk"
+ },
+ "HarboroughDistrictCouncil": {
+  "name": "Harborough",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.harborough.gov.uk"
+ },
+ "HaringeyCouncil": {
+  "name": "Haringey",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the postcode, and either the UPRN or the house number to disambiguate. Find your UPRN by searching your postcode at `https://wastecollections.haringey.gov.uk`.",
+  "url": "https://wastecollections.haringey.gov.uk/property"
+ },
+ "HarlowCouncil": {
+  "name": "Harlow",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://harlow.gov.uk"
+ },
+ "HarrogateBoroughCouncil": {
+  "name": "Harrogate",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN, which can be found at [this site](https://secure.harrogate.gov.uk/inmyarea). URL doesn't need to be passed.",
+  "url": "https://secure.harrogate.gov.uk/inmyarea"
+ },
+ "HartDistrictCouncil": {
+  "name": "Hart",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.hart.gov.uk/"
+ },
+ "HartlepoolBoroughCouncil": {
+  "name": "Hartlepool",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.hartlepool.gov.uk"
+ },
+ "HastingsBoroughCouncil": {
+  "name": "Hastings",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.hastings.gov.uk"
+ },
+ "HerefordshireCouncil": {
+  "name": "Herefordshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.herefordshire.gov.uk/rubbish-recycling/check-bin-collection-day"
+ },
+ "HighlandCouncil": {
+  "name": "Highland",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.highland.gov.uk"
+ },
+ "HinckleyandBosworthBoroughCouncil": {
+  "name": "Hinckley and Bosworth",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass your postcode and house number/name.",
+  "url": "https://www.hinckley-bosworth.gov.uk"
+ },
+ "HorshamDistrictCouncil": {
+  "name": "Horsham",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide postcode and house number. UPRN (12-digit with leading zeros) also accepted. No Selenium needed.",
+  "url": "https://satellite.horsham.gov.uk"
+ },
+ "HullCityCouncil": {
+  "name": "Kingston upon Hull",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.hull.gov.uk/bins-and-recycling/bin-collections/bin-collection-day-checker"
+ },
+ "HuntingdonDistrictCouncil": {
+  "name": "Huntingdonshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "http://www.huntingdonshire.gov.uk/refuse-calendar/"
+ },
+ "InverclydeCouncil": {
+  "name": "Inverclyde",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "",
+  "url": "https://www.inverclyde.gov.uk"
+ },
+ "IpswichBoroughCouncil": {
+  "name": "Ipswich",
+  "needs": [
+   "house_number"
+  ],
+  "note": "Provide only the street name (no house number) as the PAON",
+  "url": "https://app.ipswich.gov.uk/bin-collection/"
+ },
+ "IsleOfAngleseyCouncil": {
+  "name": "Isle of Anglesey",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass either UPRN or postcode/house number. URL is not used.",
+  "url": "https://www.anglesey.gov.wales/en/Residents/Bins-and-recycling/Waste-Collection-Day.aspx"
+ },
+ "IslingtonCouncil": {
+  "name": "Islington",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass your postcode and UPRN as parameters.",
+  "url": "https://www.islington.gov.uk/your-area"
+ },
+ "KingsLynnandWestNorfolkBC": {
+  "name": "Kings Lynn and West Norfolk",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.west-norfolk.gov.uk/"
+ },
+ "KirkleesCouncil": {
+  "name": "Kirklees",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.kirklees.gov.uk/beta/your-property-bins-recycling/your-bins"
+ },
+ "LancasterCityCouncil": {
+  "name": "Lancaster",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters.",
+  "url": "https://lcc-wrp.whitespacews.com"
+ },
+ "LeedsCityCouncil": {
+  "name": "Leeds",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN.",
+  "url": "https://www.leeds.gov.uk/residents/bins-and-recycling/check-your-bin-day"
+ },
+ "LeicesterCityCouncil": {
+  "name": "Leicester",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://biffaleicester.co.uk"
+ },
+ "LewesDistrictCouncil": {
+  "name": "Lewes",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.lewes-eastbourne.gov.uk/article/1158/When-is-my-bin-collection-day"
+ },
+ "LichfieldDistrictCouncil": {
+  "name": "Lichfield",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.lichfielddc.gov.uk"
+ },
+ "LincolnCouncil": {
+  "name": "City of Lincoln",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number. UPRN is also accepted but no longer required.",
+  "url": "https://lincoln.gov.uk"
+ },
+ "LisburnCastlereaghCityCouncil": {
+  "name": "Lisburn and Castlereagh",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters.",
+  "url": "https://lisburn.isl-fusion.com"
+ },
+ "LiverpoolCityCouncil": {
+  "name": "Liverpool",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://liverpool.gov.uk/bins-and-recycling/bin-collections/"
+ },
+ "LondonBoroughCamdenCouncil": {
+  "name": "Camden",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number. UPRN is also accepted but no longer required.",
+  "url": "https://recyclingandrubbishcollections.camden.gov.uk"
+ },
+ "LondonBoroughEaling": {
+  "name": "Ealing",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.ealing.gov.uk/site/custom_scripts/WasteCollectionWS/home/FindCollection"
+ },
+ "LondonBoroughHammersmithandFulham": {
+  "name": "Hammersmith & Fulham",
+  "needs": [
+   "postcode"
+  ],
+  "note": "Pass only the property postcode",
+  "url": "https://www.lbhf.gov.uk/"
+ },
+ "LondonBoroughHarrow": {
+  "name": "Harrow",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.harrow.gov.uk"
+ },
+ "LondonBoroughHavering": {
+  "name": "Havering",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.havering.gov.uk"
+ },
+ "LondonBoroughHounslow": {
+  "name": "Hounslow",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://my.hounslow.gov.uk/service/Waste_and_recycling_collections"
+ },
+ "LondonBoroughLambeth": {
+  "name": "Lambeth",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://wasteservice.lambeth.gov.uk/WhitespaceComms/GetServicesByUprn"
+ },
+ "LondonBoroughLewisham": {
+  "name": "Lewisham",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. To get the UPRN, you can use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.lewisham.gov.uk"
+ },
+ "LondonBoroughOfRichmondUponThames": {
+  "name": "Richmond upon Thames",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass UPRN (used as PID) or postcode + house number. Street search is automatic.",
+  "url": "https://www.richmond.gov.uk/my_richmond"
+ },
+ "LondonBoroughSutton": {
+  "name": "Sutton",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide postcode and house number. Sutton-specific UPRN (from URL) also accepted.",
+  "url": "https://waste-services.sutton.gov.uk/waste"
+ },
+ "LutonBoroughCouncil": {
+  "name": "Luton",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://myforms.luton.gov.uk"
+ },
+ "MaldonDistrictCouncil": {
+  "name": "Maldon",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://maldon.suez.co.uk/maldon/ServiceSummary"
+ },
+ "MalvernHillsDC": {
+  "name": "Malvern Hills",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://swict.malvernhills.gov.uk/mhdcroundlookup/HandleSearchScreen"
+ },
+ "ManchesterCityCouncil": {
+  "name": "Manchester",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.manchester.gov.uk/bincollections"
+ },
+ "MansfieldDistrictCouncil": {
+  "name": "Mansfield",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.mansfield.gov.uk/xfp/form/1327"
+ },
+ "MedwayCouncil": {
+  "name": "Medway",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.medway.gov.uk/homepage/45/check_your_waste_collection_day"
+ },
+ "MeltonBoroughCouncil": {
+  "name": "Melton",
+  "needs": [
+   "uprn"
+  ],
+  "note": "To get the UPRN, you can use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://my.melton.gov.uk/collections"
+ },
+ "MerthyrTydfilCountyBoroughCouncil": {
+  "name": "Merthyr Tydfil County Borough",
+  "needs": [
+   "postcode"
+  ],
+  "note": "",
+  "url": "https://www.merthyr.gov.uk"
+ },
+ "MertonCouncil": {
+  "name": "Merton",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide postcode and house number. Merton-specific UPRN also accepted.",
+  "url": "https://fixmystreet.merton.gov.uk/waste/"
+ },
+ "MidAndEastAntrimBoroughCouncil": {
+  "name": "Mid and East Antrim",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the postcode and house name/number in their respective parameters. No Selenium needed.",
+  "url": "https://www.midandeastantrim.gov.uk/resident/waste-recycling/collection-dates/"
+ },
+ "MidDevonCouncil": {
+  "name": "Mid Devon",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.middevon.gov.uk"
+ },
+ "MidSussexDistrictCouncil": {
+  "name": "Mid Sussex",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the name of the street with the house number parameter, wrapped in double quotes.",
+  "url": "https://www.midsussex.gov.uk"
+ },
+ "MiddlesbroughCouncil": {
+  "name": "Middlesbrough",
+  "needs": [
+   "house_number"
+  ],
+  "note": "Pass the entire address without postcode as it appears when you type it on the website. This parser requires a Selenium webdriver.",
+  "url": "https://www.middlesbrough.gov.uk/recycling-and-rubbish/bin-collection-dates/"
+ },
+ "MiltonKeynesCityCouncil": {
+  "name": "Milton Keynes",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://mycouncil.milton-keynes.gov.uk/en/service/Waste_Collection_Round_Checker"
+ },
+ "MoleValleyDistrictCouncil": {
+  "name": "Mole Valley",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "UPRN can only be parsed with a valid postcode.",
+  "url": "https://myproperty.molevalley.gov.uk/molevalley/"
+ },
+ "MonmouthshireCountyCouncil": {
+  "name": "Monmouthshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://maps.monmouthshire.gov.uk"
+ },
+ "MorayCouncil": {
+  "name": "Moray",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Find your property ID by going to (https://bindayfinder.moray.gov.uk), search for your property and extracting the ID from the URL. i.e. (https://bindayfinder.moray.gov.uk/disp_bins.php?id=00028841)",
+  "url": "https://bindayfinder.moray.gov.uk/"
+ },
+ "NewarkAndSherwoodDC": {
+  "name": "Newark and Sherwood",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass your property's PID (labelled UPRN here) on its own, or a postcode and house number to search instead.",
+  "url": "https://app.newark-sherwooddc.gov.uk/bincollection/"
+ },
+ "NewcastleCityCouncil": {
+  "name": "Newcastle upon Tyne",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass postcode and house number or full address. Uses the ReCollect API.",
+  "url": "https://new.newcastle.gov.uk/recycling-waste/check-your-bin-collection-day"
+ },
+ "NewcastleUnderLymeCouncil": {
+  "name": "Newcastle-under-Lyme",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.newcastle-staffs.gov.uk"
+ },
+ "NewhamCouncil": {
+  "name": "Newham",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://bincollection.newham.gov.uk/"
+ },
+ "NewportCityCouncil": {
+  "name": "Newport",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.newport.gov.uk/"
+ },
+ "NorthAyrshireCouncil": {
+  "name": "North Ayrshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.north-ayrshire.gov.uk/"
+ },
+ "NorthEastLincs": {
+  "name": "North East Lincolnshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Replace XXXXXXXX with your UPRN.",
+  "url": "https://www.nelincs.gov.uk/refuse-collection-schedule/?view=timeline&uprn=11062649"
+ },
+ "NorthKestevenDistrictCouncil": {
+  "name": "North Kesteven",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN in the uprn parameter.",
+  "url": "https://www.n-kesteven.org.uk/bins/display"
+ },
+ "NorthLanarkshireCouncil": {
+  "name": "North Lanarkshire",
+  "needs": [],
+  "note": "Follow the instructions [here](https://www.northlanarkshire.gov.uk/bin-collection-dates) until you get the \"Next collections\" page, then copy the URL and replace the URL in the command.",
+  "url": "https://www.northlanarkshire.gov.uk/bin-collection-dates/000118016164/48402118"
+ },
+ "NorthLincolnshireCouncil": {
+  "name": "North Lincolnshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.northlincs.gov.uk/bins-waste-and-recycling/bin-and-box-collection-dates/"
+ },
+ "NorthNorthamptonshireCouncil": {
+  "name": "North Northamptonshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://cms.northnorthants.gov.uk/bin-collection-search/calendarevents/100031021318/2023-10-17/2023-10-01"
+ },
+ "NorthSomersetCouncil": {
+  "name": "North Somerset",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Pass the postcode and UPRN. You can find the UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://forms.n-somerset.gov.uk/Waste/CollectionSchedule"
+ },
+ "NorthTynesideCouncil": {
+  "name": "North Tyneside",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass only the UPRN (no postcode). You can find the UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.northtyneside.gov.uk/waste-collection-schedule"
+ },
+ "NorthWestLeicestershire": {
+  "name": "North West Leicestershire",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the postcode and house number. No UPRN or Selenium webdriver needed.",
+  "url": "https://www.nwleics.gov.uk/pages/collection_information"
+ },
+ "NorthYorkshire": {
+  "name": "North Yorkshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.northyorks.gov.uk/bin-calendar/lookup"
+ },
+ "NorwichCityCouncil": {
+  "name": "Norwich",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house number and postcode in their respective parameters.",
+  "url": "https://bnr-wrp.whitespacews.com"
+ },
+ "NottinghamCityCouncil": {
+  "name": "Nottingham",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://geoserver.nottinghamcity.gov.uk/bincollections2/api/collection/100031540180"
+ },
+ "NuneatonBedworthBoroughCouncil": {
+  "name": "Nuneaton and Bedworth",
+  "needs": [
+   "house_number"
+  ],
+  "note": "Pass the name of the street ONLY in the house number parameter, wrapped in double quotes. Street name must match exactly as it appears on the council's website.",
+  "url": "https://www.nuneatonandbedworth.gov.uk"
+ },
+ "OadbyAndWigstonBoroughCouncil": {
+  "name": "Oadby and Wigston",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://my.oadby-wigston.gov.uk"
+ },
+ "OldhamCouncil": {
+  "name": "Oldham",
+  "needs": [],
+  "note": "Replace UPRN in URL with your own UPRN.",
+  "url": "https://portal.oldham.gov.uk/bincollectiondates/details?uprn=422000033556"
+ },
+ "OrkneyIslandsCouncil": {
+  "name": "Orkney Islands",
+  "needs": [
+   "house_number"
+  ],
+  "note": "Pass a street, area, or island name (e.g. 'Kirkwall') in the house number parameter. Search at https://www.orkney.gov.uk/mybins to find your area.",
+  "url": "https://www.orkney.gov.uk"
+ },
+ "OxfordCityCouncil": {
+  "name": "Oxford",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.oxford.gov.uk/xfp/form/142"
+ },
+ "PembrokeshireCountyCouncil": {
+  "name": "Pembrokeshire",
+  "needs": [],
+  "note": "Replace XXXXXXXX with your UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find it.",
+  "url": "https://nearest.pembrokeshire.gov.uk/property/100100278790"
+ },
+ "PerthAndKinrossCouncil": {
+  "name": "Perth and Kinross",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.pkc.gov.uk"
+ },
+ "PlymouthCouncil": {
+  "name": "Plymouth",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.plymouth.gov.uk"
+ },
+ "PowysCouncil": {
+  "name": "Powys",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "",
+  "url": "https://en.powys.gov.uk/binday"
+ },
+ "ReadingBoroughCouncil": {
+  "name": "Reading",
+  "needs": [],
+  "note": "Replace XXXXXXXX with your property's UPRN.",
+  "url": "https://api.reading.gov.uk/api/collections/310056735"
+ },
+ "RedcarandClevelandCouncil": {
+  "name": "Redcar and Cleveland",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the house name/number and postcode in their respective parameters",
+  "url": "https://www.redcar-cleveland.gov.uk"
+ },
+ "RedditchBoroughCouncil": {
+  "name": "Redditch",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://redditchbc.gov.uk"
+ },
+ "RenfrewshireCouncil": {
+  "name": "Renfrewshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "To get the UPRN, you can use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.renfrewshire.gov.uk"
+ },
+ "RhonddaCynonTaffCouncil": {
+  "name": "Rhondda Cynon Taff",
+  "needs": [
+   "uprn"
+  ],
+  "note": "To get the UPRN, you can use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.rctcbc.gov.uk/EN/Resident/RecyclingandWaste/RecyclingandWasteCollectionDays.aspx"
+ },
+ "RochdaleCouncil": {
+  "name": "Rochdale",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. You can find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://webforms.rochdale.gov.uk/BinCalendar"
+ },
+ "RochfordCouncil": {
+  "name": "Rochford",
+  "needs": [],
+  "note": "No extra parameters are required. Dates presented should be read as 'week commencing'.",
+  "url": "https://www.rochford.gov.uk/online-bin-collections-calendar"
+ },
+ "RotherDistrictCouncil": {
+  "name": "Rother",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.rother.gov.uk"
+ },
+ "RotherhamCouncil": {
+  "name": "Rotherham",
+  "needs": [
+   "postcode",
+   "paon"
+  ],
+  "note": "Provide your postcode and house number (paon). Backend is the shared Imactivate API at bins.azurewebsites.net (same data the Rotherham Bins Android app uses). Rotherham's own bin-day page only links to PDF calendars.",
+  "url": "https://www.rotherham.gov.uk/"
+ },
+ "RoyalBoroughofGreenwich": {
+  "name": "Greenwich",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and your postcode in the `postcode` parameter.",
+  "url": "https://www.royalgreenwich.gov.uk"
+ },
+ "RunnymedeBoroughCouncil": {
+  "name": "Runnymede",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.runnymede.gov.uk/"
+ },
+ "RushmoorCouncil": {
+  "name": "Rushmoor",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.rushmoor.gov.uk"
+ },
+ "SalfordCityCouncil": {
+  "name": "Salford",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.salford.gov.uk/bins-and-recycling/bin-collection-days/your-bin-collections"
+ },
+ "SandwellBoroughCouncil": {
+  "name": "Sandwell",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.sandwell.gov.uk"
+ },
+ "ScottishBordersCouncil": {
+  "name": "Scottish Borders",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "",
+  "url": "https://www.scotborders.gov.uk"
+ },
+ "SeftonCouncil": {
+  "name": "Sefton",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the postcode and house number in their respective arguments, both wrapped in quotes.",
+  "url": "https://www.sefton.gov.uk"
+ },
+ "SheffieldCityCouncil": {
+  "name": "Sheffield",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number. UPRN is also accepted but no longer required.",
+  "url": "https://wasteservices.sheffield.gov.uk"
+ },
+ "ShetlandIslandsCouncil": {
+  "name": "Shetland Islands",
+  "needs": [
+   "postcode"
+  ],
+  "note": "",
+  "url": "https://www.shetland.gov.uk"
+ },
+ "ShropshireCouncil": {
+  "name": "Shropshire",
+  "needs": [],
+  "note": "Follow the instructions [here](https://bins.shropshire.gov.uk/) until you get the page showing your bin collection dates, then copy the URL and replace the URL in the command.",
+  "url": "https://bins.shropshire.gov.uk/property/100070034731"
+ },
+ "SloughBoroughCouncil": {
+  "name": "Slough",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Pass the postcode, and either the UPRN or the house number to disambiguate.",
+  "url": "https://waste.slough.gov.uk/PublicDashboard"
+ },
+ "SolihullCouncil": {
+  "name": "Solihull",
+  "needs": [],
+  "note": "Replace `XXXXXXXX` with your UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://digital.solihull.gov.uk/BinCollectionCalendar/Calendar.aspx?UPRN=100071005444"
+ },
+ "SouthAyrshireCouncil": {
+  "name": "South Ayrshire",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.south-ayrshire.gov.uk/"
+ },
+ "SouthCambridgeshireCouncil": {
+  "name": "South Cambridgeshire",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
+  "url": "https://www.scambs.gov.uk/recycling-and-bins/find-your-household-bin-collection-day/"
+ },
+ "SouthDerbyshireDistrictCouncil": {
+  "name": "South Derbyshire",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number. UPRN is also accepted but no longer required.",
+  "url": "https://maps.southderbyshire.gov.uk/iShareLIVE.web//getdata.aspx"
+ },
+ "SouthGloucestershireCouncil": {
+  "name": "South Gloucestershire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://api.southglos.gov.uk/wastecomp/GetCollectionDetails"
+ },
+ "SouthHamsDistrictCouncil": {
+  "name": "South Hams",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.southhams.gov.uk"
+ },
+ "SouthLanarkshireCouncil": {
+  "name": "South Lanarkshire",
+  "needs": [],
+  "note": "Follow the instructions [here](https://www.southlanarkshire.gov.uk/info/200156/bins_and_recycling/1670/bin_collections_and_calendar) until you get the page that shows the weekly collections for your street, then copy the URL and replace the URL in the command.",
+  "url": "https://www.southlanarkshire.gov.uk/directory_record/579973/abbeyhill_crescent_lesmahagow"
+ },
+ "SouthNorfolkCouncil": {
+  "name": "South Norfolk",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://area.southnorfolkandbroadland.gov.uk/FindAddress"
+ },
+ "SouthOxfordshireCouncil": {
+  "name": "South Oxfordshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to locate it.",
+  "url": "https://www.southoxon.gov.uk/south-oxfordshire-district-council/recycling-rubbish-and-waste/when-is-your-collection-day/"
+ },
+ "SouthRibbleCouncil": {
+  "name": "South Ribble",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://forms.chorleysouthribble.gov.uk/xfp/form/70"
+ },
+ "SouthStaffordshireDistrictCouncil": {
+  "name": "South Staffordshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "The URL needs to be `https://www.sstaffs.gov.uk/where-i-live?objectId=<Your_UPRN>`. Replace `<Your_UPRN>` with your UPRN. The previous `?uprn=` parameter is a deprecated placeholder that returns the van-collection fallback message.",
+  "url": "https://www.sstaffs.gov.uk/where-i-live?objectId=100031802117"
+ },
+ "SouthTynesideCouncil": {
+  "name": "South Tyneside",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
+  "url": "https://www.southtyneside.gov.uk/article/33352/Bin-collection-dates"
+ },
+ "SouthamptonCityCouncil": {
+  "name": "Southampton",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Pass the UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.southampton.gov.uk"
+ },
+ "SouthendOnSeaCityCouncil": {
+  "name": "Southend-on-Sea City",
+  "needs": [
+   "uprn"
+  ],
+  "note": "",
+  "url": "https://www.southend.gov.uk"
+ },
+ "SouthwarkCouncil": {
+  "name": "Southwark",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Replace `XXXXXXXX` with your UPRN. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://services.southwark.gov.uk/bins/lookup/"
+ },
+ "SpelthorneBoroughCouncil": {
+  "name": "Spelthorne",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "",
+  "url": "https://www.spelthorne.gov.uk"
+ },
+ "StAlbansCityAndDistrictCouncil": {
+  "name": "St Albans",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://gis.stalbans.gov.uk/NoticeBoard9/VeoliaProxy.NoticeBoard.asmx/GetServicesByUprnAndNoticeBoard"
+ },
+ "StaffordBoroughCouncil": {
+  "name": "Stafford",
+  "needs": [
+   "uprn"
+  ],
+  "note": "The URL needs to be `https://www.staffordbc.gov.uk/address/<Your_UPRN>`. Replace `<Your_UPRN>` with your UPRN.",
+  "url": "https://www.staffordbc.gov.uk/address/100032203010"
+ },
+ "StevenageBoroughCouncil": {
+  "name": "Stevenage",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.stevenage.gov.uk"
+ },
+ "StockportBoroughCouncil": {
+  "name": "Stockport",
+  "needs": [],
+  "note": "Replace `XXXXXXXX` with your UPRN.",
+  "url": "https://myaccount.stockport.gov.uk/bin-collections/show/100011434401"
+ },
+ "StokeOnTrentCityCouncil": {
+  "name": "Stoke-on-Trent",
+  "needs": [],
+  "note": "Replace `XXXXXXXXXX` with your property's UPRN.",
+  "url": "https://www.stoke.gov.uk/jadu/custom/webserviceLookUps/BarTecWebServices_missed_bin_calendar.php?UPRN=3455121482"
+ },
+ "StratfordUponAvonCouncil": {
+  "name": "Stratford-on-Avon",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find it.",
+  "url": "https://www.stratford.gov.uk/waste-recycling/when-we-collect.cfm/part/calendar"
+ },
+ "StroudDistrictCouncil": {
+  "name": "Stroud",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Replace the UPRN and postcode in the URL with your own.",
+  "url": "https://www.stroud.gov.uk/my-house?uprn=100120512183&postcode=GL10+3BH"
+ },
+ "SunderlandCityCouncil": {
+  "name": "Sunderland",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number and postcode.",
+  "url": "https://www.sunderland.gov.uk/article/12142/Find-your-bin-collection-day"
+ },
+ "SurreyHeathBoroughCouncil": {
+  "name": "Surrey Heath",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter.",
+  "url": "https://asjwsw-wrpsurreyheathmunicipal-live.whitespacews.com/"
+ },
+ "SwanseaCouncil": {
+  "name": "Swansea",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www1.swansea.gov.uk/recyclingsearch/"
+ },
+ "SwindonBoroughCouncil": {
+  "name": "Swindon",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.swindon.gov.uk"
+ },
+ "TamesideMBCouncil": {
+  "name": "Tameside",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. You can find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "http://lite.tameside.gov.uk/BinCollections/CollectionService.svc/GetBinCollection"
+ },
+ "TamworthBoroughCouncil": {
+  "name": "Tamworth Borough",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Uses the Lichfield District Council shared portal. Provide your UPRN.",
+  "url": "https://www.tamworth.gov.uk"
+ },
+ "TandridgeDistrictCouncil": {
+  "name": "Tandridge",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to locate it.",
+  "url": "https://tdcws01.tandridge.gov.uk/TDCWebAppsPublic/tfaBranded/408?utm_source=pressrelease&utm_medium=smposts&utm_campaign=check_my_bin_day"
+ },
+ "TelfordAndWrekinCouncil": {
+  "name": "Telford and Wrekin",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://dac.telford.gov.uk/bindayfinder/"
+ },
+ "TewkesburyBoroughCouncil": {
+  "name": "Tewkesbury",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Find it using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://tewkesbury.gov.uk/services/waste-and-recycling/"
+ },
+ "ThurrockCouncil": {
+  "name": "Thurrock",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your postcode and house number (or street name). The scraper resolves your collection schedule automatically via the Thurrock directory.",
+  "url": "https://www.thurrock.gov.uk"
+ },
+ "TonbridgeAndMallingBC": {
+  "name": "Tonbridge and Malling",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode.",
+  "url": "https://www.tmbc.gov.uk/"
+ },
+ "TorridgeDistrictCouncil": {
+  "name": "Torridge",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN.",
+  "url": "https://torridgedc-self.achieveservice.com"
+ },
+ "TunbridgeWellsCouncil": {
+  "name": "Tunbridge Wells",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://tunbridgewells.gov.uk"
+ },
+ "ValeofGlamorganCouncil": {
+  "name": "The Vale of Glamorgan",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number. UPRN is also accepted but no longer required.",
+  "url": "https://www.valeofglamorgan.gov.uk/en/living/Recycling-and-Waste/"
+ },
+ "ValeofWhiteHorseCouncil": {
+  "name": "Vale of White Horse",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN.",
+  "url": "https://eform.whitehorsedc.gov.uk/ebase/BINZONE_DESKTOP.eb"
+ },
+ "WalsallCouncil": {
+  "name": "Walsall",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://cag.walsall.gov.uk/"
+ },
+ "WandsworthCouncil": {
+  "name": "Wandsworth",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.wandsworth.gov.uk"
+ },
+ "WarringtonBoroughCouncil": {
+  "name": "Warrington",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.warrington.gov.uk"
+ },
+ "WarwickDistrictCouncil": {
+  "name": "Warwick",
+  "needs": [],
+  "note": "Replace `XXXXXXXX` with your UPRN.",
+  "url": "https://estates7.warwickdc.gov.uk/PropertyPortal/Property/Recycling/100070263793"
+ },
+ "WatfordBoroughCouncil": {
+  "name": "Watford",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.watford.gov.uk"
+ },
+ "WaverleyBoroughCouncil": {
+  "name": "Waverley",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Follow the instructions [here](https://wav-wrp.whitespacews.com/#!) until you get the page that shows your next scheduled collections. Then take the number from `pIndex=NUMBER` in the URL and pass it as the `-n` parameter along with your postcode in `-p`.",
+  "url": "https://wav-wrp.whitespacews.com/"
+ },
+ "WealdenDistrictCouncil": {
+  "name": "Wealden",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find it.",
+  "url": "https://www.wealden.gov.uk/recycling-and-waste/bin-search/"
+ },
+ "WelhatCouncil": {
+  "name": "Welwyn Hatfield",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode.",
+  "url": "https://www.welhat.gov.uk/xfp/form/214"
+ },
+ "WestDunbartonshireCouncil": {
+  "name": "West Dunbartonshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.west-dunbarton.gov.uk/"
+ },
+ "WestLancashireBoroughCouncil": {
+  "name": "West Lancashire",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.westlancs.gov.uk"
+ },
+ "WestLindseyDistrictCouncil": {
+  "name": "West Lindsey",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house name/number in the `house_number` parameter, and postcode in the `postcode` parameter, both wrapped in double quotes. If multiple results are returned, the first will be used.",
+  "url": "https://www.west-lindsey.gov.uk/"
+ },
+ "WestMorlandAndFurness": {
+  "name": "Westmorland and Furness",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number. UPRN is also accepted but no longer required.",
+  "url": "https://www.westmorlandandfurness.gov.uk/"
+ },
+ "WestNorthamptonshireCouncil": {
+  "name": "West Northamptonshire",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. You can find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.westnorthants.gov.uk"
+ },
+ "WestSuffolkCouncil": {
+  "name": "West Suffolk",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. You can find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://maps.westsuffolk.gov.uk/MyWestSuffolk.aspx"
+ },
+ "WestminsterCityCouncil": {
+  "name": "Westminster City",
+  "needs": [
+   "uprn"
+  ],
+  "note": "",
+  "url": "https://transact.westminster.gov.uk/env/streetsearch.aspx"
+ },
+ "WiganBoroughCouncil": {
+  "name": "Wigan",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://apps.wigan.gov.uk/MyNeighbourhood/"
+ },
+ "WiltshireCouncil": {
+  "name": "Wiltshire",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://ilambassadorformsprod.azurewebsites.net/wastecollectiondays/index"
+ },
+ "WokingBoroughCouncil": {
+  "name": "Woking",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Provide your house number in the `house_number` parameter and postcode in the `postcode` parameter. This works with all collection areas that use Joint Waste Solutions.",
+  "url": "https://asjwsw-wrpwokingmunicipal-live.whitespacews.com/"
+ },
+ "WolverhamptonCityCouncil": {
+  "name": "Wolverhampton",
+  "needs": [
+   "postcode",
+   "house_number",
+   "uprn"
+  ],
+  "note": "Provide your postcode and house number. UPRN is also accepted but no longer required.",
+  "url": "https://www.wolverhampton.gov.uk"
+ },
+ "WorcesterCityCouncil": {
+  "name": "Worcester",
+  "needs": [
+   "uprn"
+  ],
+  "note": "You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
+  "url": "https://www.Worcester.gov.uk"
+ },
+ "WyreCouncil": {
+  "name": "Wyre",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN. Find your UPRN using [FindMyAddress](https://www.findmyaddress.co.uk/search).",
+  "url": "https://www.wyre.gov.uk/bins-rubbish-recycling"
+ },
+ "WyreForestDistrictCouncil": {
+  "name": "Wyre Forest",
+  "needs": [
+   "postcode",
+   "house_number"
+  ],
+  "note": "Use the House Number field to pass the STREET NAME (e.g. Lea Street). Postcode is also required.",
+  "url": "http://www.wyreforest.gov.uk/querybin.asp"
+ },
+ "YorkCouncil": {
+  "name": "York",
+  "needs": [
+   "uprn"
+  ],
+  "note": "Provide your UPRN.",
+  "url": "https://waste-api.york.gov.uk/api/Collections/GetBinCollectionDataForUprn/"
+ }
+}

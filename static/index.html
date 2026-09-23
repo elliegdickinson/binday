@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bin Day</title>
+<meta name="description" content="Your bins. Your calendar. Sorted. Find your UK bin collections and put them in your calendar." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --lime:   #C8FF38;
+    --blue:   #456CFF;
+    --cream:  #F7F4EA;
+    --ink:    #161616;
+    --grey:   #6B6B6B;
+    --white:  #FFFFFF;
+    --line:   #E4E0D4;
+
+    --w-general:   #4D4D4D;
+    --w-recycling: #456CFF;
+    --w-garden:    #2F7D32;
+    --w-food:      #F57C1F;
+    --w-paper:     #A855E8;
+
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 16px 72px;
+    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+    background: var(--cream); color: var(--ink); line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  .brand {
+    display: flex; align-items: center; gap: 8px;
+    padding: 28px 0 0; font-family: "Space Grotesk", sans-serif;
+    font-weight: 700; font-size: 1.4rem; letter-spacing: -0.04em;
+  }
+  .brand svg { width: 18px; height: 18px; fill: var(--ink); }
+
+  h1 {
+    font-family: "Space Grotesk", sans-serif; font-weight: 700;
+    font-size: clamp(2.3rem, 8vw, 3.6rem); line-height: 1.02;
+    letter-spacing: -0.035em; margin: 26px 0 10px;
+  }
+  .lede { margin: 0 0 20px; font-size: 1.05rem; max-width: 42ch; }
+  .note { color: var(--grey); font-size: .9rem; margin: 12px 0 0; }
+  .aside {
+    font-family: Caveat, cursive; font-size: 1.35rem; color: var(--grey);
+    transform: rotate(-3deg); margin: 0 0 0 4px;
+  }
+
+  .card {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px; margin-bottom: 16px;
+  }
+  h2 {
+    font-family: "Space Grotesk", sans-serif; font-weight: 700;
+    font-size: clamp(1.4rem, 4.5vw, 1.9rem); letter-spacing: -0.02em;
+    margin: 0 0 4px;
+  }
+
+  label { display: block; font-weight: 700; font-size: .92rem; margin-bottom: 6px; }
+  .hint { color: var(--grey); font-size: .86rem; margin: -2px 0 8px; }
+  .hint a { color: var(--blue); }
+
+  input, select, button {
+    font-family: inherit; font-size: 1rem; width: 100%;
+    padding: 13px 15px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--white); color: var(--ink);
+  }
+  input:focus-visible, select:focus-visible, button:focus-visible {
+    outline: 3px solid var(--blue); outline-offset: 2px;
+  }
+  button {
+    background: var(--blue); color: #fff; border: 0; font-weight: 700;
+    cursor: pointer; margin-top: 16px;
+  }
+  button:hover:not(:disabled) { background: #3355e6; }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button.ghost {
+    background: var(--white); color: var(--ink); border: 1px solid var(--ink);
+  }
+  button.ghost:hover:not(:disabled) { background: var(--cream); }
+  button.dark { background: var(--ink); }
+  button.dark:hover:not(:disabled) { background: #000; }
+
+  .field + .field { margin-top: 16px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .row > * { flex: 1 1 150px; margin-top: 0; }
+
+  .msg { padding: 12px 14px; border-radius: 10px; font-size: .92rem; margin-top: 16px; }
+  .msg.err  { background: #FDECEA; color: #8A1C11; border: 1px solid #F3C7C1; }
+  .msg.info { background: var(--cream); color: var(--grey); border: 1px solid var(--line); }
+
+  .bins {
+    display: grid; gap: 10px; margin-top: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .bin { border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .tile {
+    width: 38px; height: 38px; border-radius: 10px; display: grid;
+    place-items: center; margin-bottom: 10px; background: var(--w-general);
+  }
+  .tile svg { width: 20px; height: 20px; fill: #fff; }
+  .bin .name { font-weight: 700; font-size: .95rem; }
+  .bin .rel  { font-weight: 700; font-size: .95rem; margin-top: 4px; }
+  .bin .abs  { color: var(--grey); font-size: .84rem; }
+  .bin .out  { color: var(--grey); font-size: .84rem; margin-top: 6px; }
+  .rel.soon  { color: var(--blue); }
+
+  .promo {
+    background: var(--lime); border: 1px solid #B6EB2C;
+    border-radius: var(--radius); padding: 22px; margin-bottom: 10px;
+  }
+  .promo p { margin: 0 0 14px; font-size: .95rem; }
+  .feed {
+    word-break: break-all; font-family: ui-monospace, Menlo, monospace;
+    font-size: .78rem; background: var(--white); padding: 11px;
+    border-radius: 10px; border: 1px solid #B6EB2C;
+  }
+  .works { font-size: .82rem; color: #4D5F18; margin: 12px 0 0; }
+
+  footer { color: var(--grey); font-size: .84rem; text-align: center; padding-top: 22px; }
+  footer a { color: var(--blue); }
+  .strap {
+    display: inline-block; background: var(--lime); color: var(--ink);
+    padding: 3px 10px; border-radius: 6px; font-weight: 700; font-size: .9rem;
+  }
+  .strap u { text-underline-offset: 3px; }
+  .hidden { display: none; }
+  @media (max-width: 560px) { .aside { display: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    BIN DAY
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9z"/></svg>
+  </div>
+
+  <h1>What bin is it<br />this week?</h1>
+  <p class="lede">Pop in your postcode and we'll find your next collections.</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="council">Your council</label>
+      <select id="council"><option value="">Loading councils…</option></select>
+    </div>
+    <div id="fields"></div>
+    <button id="go" disabled>Find my bin day →</button>
+    <p class="note">No account. No faff.</p>
+    <div id="msg"></div>
+  </div>
+
+  <div class="hidden" id="result">
+    <div class="card">
+      <h2>Here's what's going out.</h2>
+      <p class="hint" id="where"></p>
+      <div class="bins" id="bins"></div>
+    </div>
+
+    <div class="promo">
+      <h2>Never think about bin day again.</h2>
+      <p>Add your collections to your calendar and we'll keep it up to date.</p>
+      <div class="feed" id="feed-url"></div>
+      <div class="row" style="margin-top:14px">
+        <button id="copy" class="dark">Copy calendar link</button>
+        <button id="download" class="ghost">Download .ics</button>
+      </div>
+      <p class="works">Works with Apple Calendar · Google Calendar · Outlook</p>
+    </div>
+    <p class="aside">Sorted for later (you're welcome).</p>
+  </div>
+
+  <footer>
+    Collection data comes from your council, via
+    <a href="https://github.com/robbrad/UKBinCollectionData" rel="noopener">UKBinCollectionData</a>.
+    Not official - check with your council if something looks wrong.
+    <br /><br />
+    <span class="strap">Your bins. Your calendar. <u>Sorted.</u></span>
+  </footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let councils = [];
+
+const LABELS = {
+  postcode:     { label: "Postcode",     hint: "e.g. SW1A 1AA" },
+  house_number: { label: "House number", hint: "e.g. 90" },
+  uprn:         { label: "UPRN",         hint: "Your property's unique reference number" },
+  paon:         { label: "House name or number", hint: "" },
+  usrn:         { label: "Street reference (USRN)", hint: "" },
+};
+
+const ICONS = {
+  general:   '<path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9z"/>',
+  recycling: '<path d="M12 2l3 5h-2v3h-2V7H9l3-5zm7.5 9l2.5 4.5-4 2.3-1-1.7 1.6-.9-1.8-3.2h2.7zM4.5 11h2.7l-1.8 3.2 1.6.9-1 1.7-4-2.3L4.5 11zM8 19h8v2H8v-2z"/>',
+  garden:    '<path d="M20 4C10 4 4 9 4 17c0 1 .1 2 .3 3h2C6.1 19 6 18 6 17c0-1.6.4-3 1-4.2C9 15 12 16 16 16c0-5-3-8-8-9 2-1.7 5-3 12-3z"/>',
+  food:      '<path d="M8 2h8l-1 4H9L8 2zm1 6h6l1 12a2 2 0 01-2 2h-4a2 2 0 01-2-2L9 8z"/>',
+  paper:     '<path d="M6 2h8l4 4v16H6V2zm8 1.5V7h3.5L14 3.5zM8 11h8v2H8v-2zm0 4h8v2H8v-2z"/>',
+};
+
+// Councils name bins by colour and that is how people think about them, so a
+// named colour wins; otherwise fall back to the waste category's brand colour.
+const BIN_COLOURS = {
+  black: "#4D4D4D", grey: "#4D4D4D", gray: "#4D4D4D",
+  blue: "#456CFF", green: "#2F7D32", brown: "#8A5A2B",
+  red: "#D14343", purple: "#A855E8", orange: "#F57C1F",
+};
+const CATEGORY = [
+  [/food|caddy/i,                             "food"],
+  [/garden|leaf|grass/i,                      "garden"],
+  [/paper|card/i,                             "paper"],
+  [/recycl|plastic|glass|tin|can|mixed|dry/i, "recycling"],
+];
+
+function classify(name) {
+  const category = (CATEGORY.find(([re]) => re.test(name)) || [, "general"])[1];
+  const word = Object.keys(BIN_COLOURS).find(
+    c => new RegExp(`\\b${c}\\b`, "i").test(name));
+  const colour = word ? BIN_COLOURS[word]
+    : getComputedStyle(document.documentElement)
+        .getPropertyValue(`--w-${category}`).trim();
+  return { category, colour };
+}
+
+const show = (kind, text) => {
+  $("msg").innerHTML = text ? `<div class="msg ${kind}">${text}</div>` : "";
+};
+
+async function api(path) {
+  const res = await fetch(path);
+  const body = res.headers.get("content-type")?.includes("json")
+    ? await res.json() : await res.text();
+  if (!res.ok) throw new Error(body?.detail || "Something went wrong.");
+  return body;
+}
+
+async function loadCouncils() {
+  const data = await api("/api/councils");
+  councils = data.councils;
+  const sel = $("council");
+  sel.innerHTML = '<option value="">Choose your council…</option>';
+  const mk = (label, list) => {
+    const g = document.createElement("optgroup");
+    g.label = `${label} (${list.length})`;
+    list.forEach(c => g.append(new Option(c.name, c.key)));
+    return g;
+  };
+  sel.append(
+    mk("Postcode is enough", councils.filter(c => c.ready)),
+    mk("Needs your UPRN",    councils.filter(c => !c.ready && c.supported)),
+    mk("Not supported yet",  councils.filter(c => !c.supported)));
+}
+
+function renderFields() {
+  const c = councils.find(x => x.key === $("council").value);
+  const box = $("fields");
+  box.innerHTML = "";
+  $("go").disabled = !c;
+  $("result").classList.add("hidden");
+  show("", "");
+  if (!c) return;
+
+  if (!c.supported) {
+    $("go").disabled = true;
+    box.innerHTML = `<p class="hint">We can't do ${c.name} yet. Its bin lookup is
+      keyed on a property id we can't work out from a postcode, so it needs an
+      address picker writing first.</p>`;
+    return;
+  }
+
+  // With a picker we only need a postcode; the address list supplies the rest.
+  (c.picker ? ["postcode"] : c.needs).forEach(key => {
+    const meta = LABELS[key] || { label: key, hint: "" };
+    const div = document.createElement("div");
+    div.className = "field";
+    div.innerHTML = `<label for="f-${key}">${meta.label}</label>` +
+      (meta.hint ? `<p class="hint">${meta.hint}</p>` : "") +
+      `<input id="f-${key}" type="text" autocomplete="off" />`;
+    box.append(div);
+  });
+
+  if (c.needs.includes("uprn") && !c.picker) {
+    box.insertAdjacentHTML("beforeend",
+      `<p class="hint" style="margin-top:10px">This one needs a UPRN and hasn't got
+       an address picker yet. Yours is at
+       <a href="https://www.findmyaddress.co.uk/" target="_blank" rel="noopener">findmyaddress.co.uk</a>.</p>`);
+  }
+}
+
+function chooseAddress(found) {
+  return new Promise(resolve => {
+    const box = document.createElement("div");
+    box.className = "field";
+    box.innerHTML = `<label for="addr-pick">Your address</label>`;
+    const sel = document.createElement("select");
+    sel.id = "addr-pick";
+    found.forEach((a, i) => sel.append(new Option(a.address, i)));
+    const ok = document.createElement("button");
+    ok.textContent = "That's the one →";
+    box.append(sel, ok);
+    $("fields").append(box);
+    ok.addEventListener("click", e => {
+      e.preventDefault();
+      box.remove();
+      resolve(found[sel.value]);
+    });
+  });
+}
+
+function renderResult(ics, url, where) {
+  const text = ics.replace(/\r\n /g, "");
+  const events = [...text.matchAll(/DTSTART;VALUE=DATE:(\d{8})[\s\S]*?SUMMARY:(.*)/g)];
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+
+  // One card per bin, showing that bin's next collection only.
+  const next = new Map();
+  for (const [, d, summary] of events) {
+    const when = new Date(`${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6)}`);
+    if (when < today) continue;
+    for (const name of summary.replace("Bins out: ", "").trim().split(" + ")) {
+      if (!next.has(name)) next.set(name, when);
+    }
+  }
+
+  const box = $("bins");
+  box.innerHTML = "";
+  [...next.entries()].sort((a, b) => a[1] - b[1]).forEach(([name, when]) => {
+    const { category, colour } = classify(name);
+    const days = Math.round((when - today) / 86400000);
+    const rel = days === 0 ? "Today" : days === 1 ? "Tomorrow" : `In ${days} days.`;
+    const abs = when.toLocaleDateString("en-GB",
+      { weekday: "long", day: "numeric", month: "long" });
+    const el = document.createElement("div");
+    el.className = "bin";
+    el.innerHTML =
+      `<div class="tile" style="background:${colour}">` +
+        `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[category]}</svg></div>` +
+      `<div class="name">${name}</div>` +
+      `<div class="rel${days <= 1 ? " soon" : ""}">${days <= 1 ? rel : abs}</div>` +
+      `<div class="abs">${days <= 1 ? abs : rel}</div>` +
+      (days <= 1 ? `<div class="out">Put it out tonight.</div>` : "");
+    box.append(el);
+  });
+
+  $("where").textContent = where;
+  $("feed-url").textContent = url;
+  $("result").classList.remove("hidden");
+}
+
+$("council").addEventListener("change", renderFields);
+
+$("go").addEventListener("click", async () => {
+  const c = councils.find(x => x.key === $("council").value);
+  if (!c) return;
+  $("go").disabled = true;
+  const val = k => ($(`f-${k}`)?.value || "").trim();
+
+  try {
+    const params = {};
+    let where = c.name;
+
+    if (c.picker) {
+      const postcode = val("postcode");
+      if (!postcode) throw new Error("We'll need your postcode.");
+      show("info", "Finding your street…");
+      const { addresses } = await api(
+        `/api/addresses?council=${c.key}&postcode=${encodeURIComponent(postcode)}`);
+      if (!addresses.length) throw new Error("No addresses found for that postcode.");
+      show("", "");
+      const pick = await chooseAddress(addresses);
+      if (!pick) { $("go").disabled = false; return; }
+
+      show("info", "Just checking with the council…");
+      const resolved = await api(`/api/resolve?council=${c.key}` +
+        `&postcode=${encodeURIComponent(postcode)}&key=${encodeURIComponent(pick.key)}`);
+      params.uprn = resolved.uprn;
+      params.label = resolved.address;
+      where = resolved.address;
+    } else {
+      c.needs.forEach(k => {
+        const v = val(k);
+        if (!v) throw new Error(`We'll need your ${(LABELS[k]?.label || k).toLowerCase()}.`);
+        params[k === "house_number" ? "number" : k] = v;
+      });
+      params.label = val("postcode") || c.name;
+      where = [val("house_number"), val("postcode")].filter(Boolean).join(", ") || c.name;
+    }
+
+    show("info", "Asking your council…");
+    const url = `${location.origin}/feed/${c.key}.ics?${new URLSearchParams(params)}`;
+    renderResult(await api(url), url, where);
+    show("", "");
+    $("result").scrollIntoView({ behavior: "smooth", block: "start" });
+  } catch (err) {
+    show("err", err.message);
+  } finally {
+    $("go").disabled = false;
+  }
+});
+
+$("copy").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText($("feed-url").textContent);
+    $("copy").textContent = "Copied - that's the bins sorted.";
+    setTimeout(() => ($("copy").textContent = "Copy calendar link"), 2000);
+  } catch { show("err", "Couldn't copy - select the link and copy it manually."); }
+});
+
+$("download").addEventListener("click", () => {
+  const a = document.createElement("a");
+  a.href = $("feed-url").textContent;
+  a.download = "bin-collections.ics";
+  a.click();
+});
+
+loadCouncils().catch(() => show("err", "Couldn't load the council list."));
+</script>
+</body>
+</html>
