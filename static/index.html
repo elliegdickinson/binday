@@ -11,7 +11,9 @@
 <style>
   :root {
     --lime:   #C8FF38;
+    --lime-d: #B6EB2C;
     --blue:   #456CFF;
+    --blue-d: #3355E6;
     --cream:  #F7F4EA;
     --ink:    #161616;
     --grey:   #6B6B6B;
@@ -24,166 +26,320 @@
     --w-food:      #F57C1F;
     --w-paper:     #A855E8;
 
-    --radius: 14px;
+    --radius: 16px;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    margin: 0; padding: 0 16px 72px;
+    margin: 0; padding: 0 20px 80px;
     font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
     background: var(--cream); color: var(--ink); line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 720px; margin: 0 auto; }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  .grotesk { font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; }
 
-  .brand {
-    display: flex; align-items: center; gap: 8px;
-    padding: 28px 0 0; font-family: "Space Grotesk", sans-serif;
-    font-weight: 700; font-size: 1.4rem; letter-spacing: -0.04em;
+  /* ---------- wordmark ---------- */
+  .mark {
+    display: inline-flex; align-items: center; gap: .32em;
+    font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
+    letter-spacing: -0.045em; text-transform: uppercase; line-height: 1;
+    color: var(--ink); text-decoration: none;
   }
-  .brand svg { width: 18px; height: 18px; fill: var(--ink); }
+  .mark svg { width: .78em; height: .78em; fill: currentColor; flex: none; }
 
+  /* ---------- nav ---------- */
+  nav {
+    display: flex; align-items: center; gap: 18px;
+    padding: 22px 0; flex-wrap: wrap;
+  }
+  nav .mark { font-size: 1.35rem; }
+  nav .links { display: flex; gap: 18px; margin-left: auto; align-items: center; }
+  nav a.nav-link {
+    color: var(--ink); text-decoration: none; font-size: .95rem;
+  }
+  nav a.nav-link:hover { text-decoration: underline; }
+  .pill {
+    background: var(--lime); color: var(--ink); border: 1px solid var(--lime-d);
+    padding: 9px 18px; border-radius: 999px; font-weight: 700;
+    font-size: .95rem; text-decoration: none; white-space: nowrap;
+  }
+  .pill:hover { background: #BDF52B; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; padding: 26px 0 8px; }
   h1 {
-    font-family: "Space Grotesk", sans-serif; font-weight: 700;
-    font-size: clamp(2.3rem, 8vw, 3.6rem); line-height: 1.02;
-    letter-spacing: -0.035em; margin: 26px 0 10px;
+    font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
+    font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: .98;
+    letter-spacing: -0.045em; margin: 0 0 14px;
   }
-  .lede { margin: 0 0 20px; font-size: 1.05rem; max-width: 42ch; }
-  .note { color: var(--grey); font-size: .9rem; margin: 12px 0 0; }
-  .aside {
-    font-family: Caveat, cursive; font-size: 1.35rem; color: var(--grey);
-    transform: rotate(-3deg); margin: 0 0 0 4px;
+  .lede { margin: 0 0 22px; font-size: 1.12rem; max-width: 44ch; }
+  .scribble {
+    font-family: Caveat, cursive; font-weight: 600; font-size: 1.5rem;
+    color: var(--grey); line-height: 1.15;
   }
+  .hero .scribble {
+    position: absolute; right: 0; top: 64px; width: 150px;
+    transform: rotate(-4deg); text-align: center;
+  }
+  @media (max-width: 800px) { .hero .scribble { display: none; } }
 
+  /* ---------- cards ---------- */
   .card {
     background: var(--white); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 22px; margin-bottom: 16px;
+    border-radius: var(--radius); padding: 26px; margin-bottom: 18px;
   }
   h2 {
-    font-family: "Space Grotesk", sans-serif; font-weight: 700;
-    font-size: clamp(1.4rem, 4.5vw, 1.9rem); letter-spacing: -0.02em;
-    margin: 0 0 4px;
+    font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
+    font-size: clamp(1.6rem, 4.6vw, 2.2rem); letter-spacing: -0.03em;
+    margin: 0 0 6px;
+  }
+  h3 {
+    font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
+    font-size: 1.15rem; letter-spacing: -0.02em; margin: 0 0 8px;
   }
 
   label { display: block; font-weight: 700; font-size: .92rem; margin-bottom: 6px; }
-  .hint { color: var(--grey); font-size: .86rem; margin: -2px 0 8px; }
+  .hint { color: var(--grey); font-size: .88rem; margin: -2px 0 8px; }
   .hint a { color: var(--blue); }
 
   input, select, button {
     font-family: inherit; font-size: 1rem; width: 100%;
-    padding: 13px 15px; border-radius: 10px;
+    padding: 14px 16px; border-radius: 12px;
     border: 1px solid var(--line); background: var(--white); color: var(--ink);
   }
-  input:focus-visible, select:focus-visible, button:focus-visible {
+  input:focus-visible, select:focus-visible,
+  button:focus-visible, a:focus-visible {
     outline: 3px solid var(--blue); outline-offset: 2px;
   }
   button {
     background: var(--blue); color: #fff; border: 0; font-weight: 700;
-    cursor: pointer; margin-top: 16px;
+    cursor: pointer; white-space: nowrap;
   }
-  button:hover:not(:disabled) { background: #3355e6; }
+  button:hover:not(:disabled) { background: var(--blue-d); }
   button:disabled { opacity: .45; cursor: not-allowed; }
-  button.ghost {
-    background: var(--white); color: var(--ink); border: 1px solid var(--ink);
-  }
-  button.ghost:hover:not(:disabled) { background: var(--cream); }
-  button.dark { background: var(--ink); }
+  button.dark  { background: var(--ink); }
   button.dark:hover:not(:disabled) { background: #000; }
+  button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  button.ghost:hover:not(:disabled) { background: rgba(0,0,0,.05); }
 
-  .field + .field { margin-top: 16px; }
-  .row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .row > * { flex: 1 1 150px; margin-top: 0; }
+  .ask { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; align-items: end; }
+  .ask .full { grid-column: 1 / -1; }
+  .ask button { align-self: end; }
+  @media (max-width: 620px) { .ask { grid-template-columns: 1fr; } }
+  .note { color: var(--grey); font-size: .92rem; margin: 14px 0 0; }
 
-  .msg { padding: 12px 14px; border-radius: 10px; font-size: .92rem; margin-top: 16px; }
+  .msg { padding: 13px 15px; border-radius: 12px; font-size: .94rem; margin-top: 16px; }
   .msg.err  { background: #FDECEA; color: #8A1C11; border: 1px solid #F3C7C1; }
   .msg.info { background: var(--cream); color: var(--grey); border: 1px solid var(--line); }
 
+  /* ---------- results ---------- */
+  .head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .head .change {
+    margin-left: auto; color: var(--blue); font-weight: 700;
+    font-size: .95rem; background: none; border: 0; padding: 0;
+    width: auto; cursor: pointer;
+  }
+  .head .change:hover { text-decoration: underline; background: none; }
   .bins {
-    display: grid; gap: 10px; margin-top: 18px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: grid; gap: 12px; margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
-  .bin { border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .bin { border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
   .tile {
-    width: 38px; height: 38px; border-radius: 10px; display: grid;
-    place-items: center; margin-bottom: 10px; background: var(--w-general);
+    width: 44px; height: 44px; border-radius: 12px; display: grid;
+    place-items: center; margin-bottom: 12px; background: var(--w-general);
   }
-  .tile svg { width: 20px; height: 20px; fill: #fff; }
-  .bin .name { font-weight: 700; font-size: .95rem; }
-  .bin .rel  { font-weight: 700; font-size: .95rem; margin-top: 4px; }
-  .bin .abs  { color: var(--grey); font-size: .84rem; }
-  .bin .out  { color: var(--grey); font-size: .84rem; margin-top: 6px; }
+  .tile svg { width: 24px; height: 24px; fill: #fff; }
+  .bin .name { font-weight: 700; font-size: 1rem; }
+  .bin .rel  { font-weight: 700; font-size: .98rem; margin-top: 5px; }
+  .bin .abs  { color: var(--grey); font-size: .86rem; }
+  .bin .out  { color: var(--grey); font-size: .86rem; margin-top: 8px; }
   .rel.soon  { color: var(--blue); }
 
+  /* ---------- lime panel ---------- */
   .promo {
-    background: var(--lime); border: 1px solid #B6EB2C;
-    border-radius: var(--radius); padding: 22px; margin-bottom: 10px;
+    background: var(--lime); border: 1px solid var(--lime-d);
+    border-radius: var(--radius); padding: 26px; margin-bottom: 10px;
   }
-  .promo p { margin: 0 0 14px; font-size: .95rem; }
+  .promo .top { display: flex; gap: 14px; align-items: flex-start; }
+  .promo .cal { width: 40px; height: 40px; flex: none; fill: var(--ink); }
+  .promo p { margin: 0 0 16px; font-size: 1rem; }
   .feed {
     word-break: break-all; font-family: ui-monospace, Menlo, monospace;
-    font-size: .78rem; background: var(--white); padding: 11px;
-    border-radius: 10px; border: 1px solid #B6EB2C;
+    font-size: .78rem; background: var(--white); padding: 12px;
+    border-radius: 10px; border: 1px solid var(--lime-d); margin-bottom: 14px;
   }
-  .works { font-size: .82rem; color: #4D5F18; margin: 12px 0 0; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .actions > * { flex: 1 1 190px; }
+  .works { font-size: .86rem; color: #4D5F18; margin: 14px 0 0; }
 
-  footer { color: var(--grey); font-size: .84rem; text-align: center; padding-top: 22px; }
-  footer a { color: var(--blue); }
+  /* ---------- sorted ---------- */
+  .sorted { text-align: center; }
+  .sorted p { margin: 0 0 4px; }
+  .ticks {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  .tick { display: flex; align-items: center; gap: 7px; font-size: .92rem; }
+  .tick .sw { width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; }
+  .tick .sw svg { width: 13px; height: 13px; fill: #fff; }
+  .tick .ok { color: var(--blue); font-weight: 700; }
+
+  /* ---------- info ---------- */
+  .steps { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .step .n {
+    font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
+    font-size: 1.6rem; letter-spacing: -0.03em; color: var(--blue);
+  }
+  .step p { margin: 4px 0 0; font-size: .95rem; }
+  details { border-top: 1px solid var(--line); padding: 14px 0; }
+  details:first-of-type { border-top: 0; }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { margin: 10px 0 0; font-size: .95rem; color: var(--grey); }
+
+  footer { text-align: center; padding-top: 34px; }
+  footer .mark { font-size: 1.3rem; }
   .strap {
     display: inline-block; background: var(--lime); color: var(--ink);
-    padding: 3px 10px; border-radius: 6px; font-weight: 700; font-size: .9rem;
+    padding: 4px 12px; border-radius: 8px; font-weight: 700;
+    font-size: .95rem; margin-top: 12px;
   }
   .strap u { text-underline-offset: 3px; }
+  .small { color: var(--grey); font-size: .84rem; margin-top: 18px; }
+  .small a { color: var(--blue); }
   .hidden { display: none; }
-  @media (max-width: 560px) { .aside { display: none; } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">
-    BIN DAY
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9z"/></svg>
-  </div>
 
+<nav>
+  <a class="mark" href="#top">
+    Bin Day
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6l1 2h4v2H4V4h4l1-2zM6 8h12l-1 13a1 1 0 01-1 1H8a1 1 0 01-1-1L6 8zm3 3v8h2v-8H9zm4 0v8h2v-8h-2z"/></svg>
+  </a>
+  <span class="links">
+    <a class="nav-link" href="#how">How it works</a>
+    <a class="nav-link" href="#help">Help</a>
+    <a class="pill" href="#find">Find my bin day</a>
+  </span>
+</nav>
+
+<div class="hero" id="top">
   <h1>What bin is it<br />this week?</h1>
   <p class="lede">Pop in your postcode and we'll find your next collections.</p>
+  <p class="scribble">Less guessing.<br />More doing.</p>
+</div>
 
-  <div class="card">
-    <div class="field">
+<div class="card" id="find">
+  <div class="ask">
+    <div class="full">
       <label for="council">Your council</label>
-      <select id="council"><option value="">Loading councils…</option></select>
+      <select id="council"><option value="">Choose your council…</option></select>
     </div>
-    <div id="fields"></div>
-    <button id="go" disabled>Find my bin day →</button>
-    <p class="note">No account. No faff.</p>
-    <div id="msg"></div>
+    <div id="fields" class="full"></div>
+    <div class="full"><button id="go" disabled>Find my bin day →</button></div>
   </div>
+  <p class="note">No account. No faff.</p>
+  <div id="msg"></div>
+</div>
 
-  <div class="hidden" id="result">
-    <div class="card">
+<div class="hidden" id="result">
+  <div class="card">
+    <div class="head">
       <h2>Here's what's going out.</h2>
-      <p class="hint" id="where"></p>
-      <div class="bins" id="bins"></div>
+      <button class="change" id="change">Change</button>
     </div>
-
-    <div class="promo">
-      <h2>Never think about bin day again.</h2>
-      <p>Add your collections to your calendar and we'll keep it up to date.</p>
-      <div class="feed" id="feed-url"></div>
-      <div class="row" style="margin-top:14px">
-        <button id="copy" class="dark">Copy calendar link</button>
-        <button id="download" class="ghost">Download .ics</button>
-      </div>
-      <p class="works">Works with Apple Calendar · Google Calendar · Outlook</p>
-    </div>
-    <p class="aside">Sorted for later (you're welcome).</p>
+    <p class="hint" id="where"></p>
+    <div class="bins" id="bins"></div>
   </div>
 
-  <footer>
+  <div class="promo">
+    <div class="top">
+      <svg class="cal" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2H5a2 2 0 00-2 2v13a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zM5 9h14v10H5V9zm2 2v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2z"/></svg>
+      <div>
+        <h2>Never think about bin day again.</h2>
+        <p>Add your collections to your calendar and we'll keep it up to date.</p>
+      </div>
+    </div>
+    <div class="feed" id="feed-url"></div>
+    <div class="actions">
+      <button id="subscribe" class="dark">Add bin days to my calendar →</button>
+      <button id="copy" class="ghost">Copy link</button>
+      <button id="download" class="ghost">Download .ics</button>
+    </div>
+    <div id="promo-msg"></div>
+    <p class="works">Works with Apple Calendar · Google Calendar · Outlook</p>
+  </div>
+  <p class="scribble" style="transform:rotate(-2deg);margin:0 0 18px 6px">Sorted for later (you're welcome).</p>
+</div>
+
+<div class="card sorted hidden" id="sorted">
+  <h2>That's the bins sorted.</h2>
+  <p>Your collections are now in your calendar.</p>
+  <p class="hint">You may now return to more interesting things.</p>
+  <div class="ticks" id="ticks"></div>
+</div>
+
+<div class="card" id="how">
+  <h3>How it works</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="n">1</div>
+      <p>Tell us your council and postcode. We ask your council the same
+         question you would.</p>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <p>We turn the answer into a calendar feed - a link, not a file.</p>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <p>Your calendar re-checks it now and then, so the dates stay right
+         without you doing anything.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card" id="help">
+  <h3>Help</h3>
+  <details>
+    <summary>Why isn't my council here?</summary>
+    <p>Some councils need a property id we can't work out from a postcode
+       alone, so they need a bit of plumbing writing first. They're listed
+       under "Not supported yet" so you can see where yours stands.</p>
+  </details>
+  <details>
+    <summary>What's a UPRN and why do you want mine?</summary>
+    <p>It's the unique number for your property. Most councils key their bin
+       lookup on it, and there's no free national way to go from a postcode to
+       one - so for some councils we have to ask. You can find yours at
+       <a href="https://www.findmyaddress.co.uk/" target="_blank" rel="noopener">findmyaddress.co.uk</a>.</p>
+  </details>
+  <details>
+    <summary>Is this official?</summary>
+    <p>No. The dates come from your council's own website, but this isn't run
+       by them. If something looks wrong, believe your council, not us.</p>
+  </details>
+  <details>
+    <summary>Do you store my address?</summary>
+    <p>No. There's no account and no database. The calendar link itself
+       carries your property id, which is how it keeps working.</p>
+  </details>
+</div>
+
+<footer>
+  <a class="mark" href="#top">
+    Bin Day
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6l1 2h4v2H4V4h4l1-2zM6 8h12l-1 13a1 1 0 01-1 1H8a1 1 0 01-1-1L6 8zm3 3v8h2v-8H9zm4 0v8h2v-8h-2z"/></svg>
+  </a>
+  <div><span class="strap">Your bins. Your calendar. <u>Sorted.</u></span></div>
+  <p class="small">
     Collection data comes from your council, via
     <a href="https://github.com/robbrad/UKBinCollectionData" rel="noopener">UKBinCollectionData</a>.
-    Not official - check with your council if something looks wrong.
-    <br /><br />
-    <span class="strap">Your bins. Your calendar. <u>Sorted.</u></span>
-  </footer>
+  </p>
+</footer>
 </div>
 
 <script>
@@ -199,31 +355,44 @@ const LABELS = {
 };
 
 const ICONS = {
-  general:   '<path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9z"/>',
-  recycling: '<path d="M12 2l3 5h-2v3h-2V7H9l3-5zm7.5 9l2.5 4.5-4 2.3-1-1.7 1.6-.9-1.8-3.2h2.7zM4.5 11h2.7l-1.8 3.2 1.6.9-1 1.7-4-2.3L4.5 11zM8 19h8v2H8v-2z"/>',
-  garden:    '<path d="M20 4C10 4 4 9 4 17c0 1 .1 2 .3 3h2C6.1 19 6 18 6 17c0-1.6.4-3 1-4.2C9 15 12 16 16 16c0-5-3-8-8-9 2-1.7 5-3 12-3z"/>',
-  food:      '<path d="M8 2h8l-1 4H9L8 2zm1 6h6l1 12a2 2 0 01-2 2h-4a2 2 0 01-2-2L9 8z"/>',
-  paper:     '<path d="M6 2h8l4 4v16H6V2zm8 1.5V7h3.5L14 3.5zM8 11h8v2H8v-2zm0 4h8v2H8v-2z"/>',
+  general:   '<path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>',
+  // A clean two-arrow loop: the triangular recycling mark turns to mush at 24px.
+  recycling: '<path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/>',
+  garden:    '<path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32 2.6 1.23 5.8.78 7.95-1.37C19.27 14.57 20 4 20 4S9.43 4.73 6.05 8.05z"/>',
+  food:      '<path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>',
+  paper:     '<path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>',
 };
 
 // Councils name bins by colour and that is how people think about them, so a
-// named colour wins; otherwise fall back to the waste category's brand colour.
+// named colour wins for the tile; the icon still follows the waste category.
 const BIN_COLOURS = {
-  black: "#4D4D4D", grey: "#4D4D4D", gray: "#4D4D4D",
+  black: "#4D4D4D", grey: "#4D4D4D", gray: "#4D4D4D", silver: "#4D4D4D",
   blue: "#456CFF", green: "#2F7D32", brown: "#8A5A2B",
   red: "#D14343", purple: "#A855E8", orange: "#F57C1F",
 };
-const CATEGORY = [
+const BY_WASTE = [
   [/food|caddy/i,                             "food"],
   [/garden|leaf|grass/i,                      "garden"],
   [/paper|card/i,                             "paper"],
   [/recycl|plastic|glass|tin|can|mixed|dry/i, "recycling"],
+  [/refuse|general|domestic|household|non.?recycl|rubbish|landfill/i, "general"],
 ];
+// Fallback when the council only tells us a colour. Rough UK convention.
+const BY_COLOUR = {
+  black: "general", grey: "general", gray: "general", silver: "general",
+  blue: "recycling", green: "garden", brown: "recycling",
+  purple: "paper", red: "recycling", orange: "food",
+};
+
+function colourWord(name) {
+  return Object.keys(BIN_COLOURS).find(
+    c => new RegExp(`\\b${c}\\b`, "i").test(name));
+}
 
 function classify(name) {
-  const category = (CATEGORY.find(([re]) => re.test(name)) || [, "general"])[1];
-  const word = Object.keys(BIN_COLOURS).find(
-    c => new RegExp(`\\b${c}\\b`, "i").test(name));
+  const word = colourWord(name);
+  const byWaste = BY_WASTE.find(([re]) => re.test(name));
+  const category = byWaste ? byWaste[1] : (word && BY_COLOUR[word]) || "general";
   const colour = word ? BIN_COLOURS[word]
     : getComputedStyle(document.documentElement)
         .getPropertyValue(`--w-${category}`).trim();
@@ -265,14 +434,15 @@ function renderFields() {
   box.innerHTML = "";
   $("go").disabled = !c;
   $("result").classList.add("hidden");
+  $("sorted").classList.add("hidden");
   show("", "");
   if (!c) return;
 
   if (!c.supported) {
     $("go").disabled = true;
     box.innerHTML = `<p class="hint">We can't do ${c.name} yet. Its bin lookup is
-      keyed on a property id we can't work out from a postcode, so it needs an
-      address picker writing first.</p>`;
+      keyed on a property id we can't work out from a postcode, so it needs a
+      bit of plumbing writing first.</p>`;
     return;
   }
 
@@ -280,7 +450,6 @@ function renderFields() {
   (c.picker ? ["postcode"] : c.needs).forEach(key => {
     const meta = LABELS[key] || { label: key, hint: "" };
     const div = document.createElement("div");
-    div.className = "field";
     div.innerHTML = `<label for="f-${key}">${meta.label}</label>` +
       (meta.hint ? `<p class="hint">${meta.hint}</p>` : "") +
       `<input id="f-${key}" type="text" autocomplete="off" />`;
@@ -298,15 +467,16 @@ function renderFields() {
 function chooseAddress(found) {
   return new Promise(resolve => {
     const box = document.createElement("div");
-    box.className = "field";
     box.innerHTML = `<label for="addr-pick">Your address</label>`;
     const sel = document.createElement("select");
     sel.id = "addr-pick";
     found.forEach((a, i) => sel.append(new Option(a.address, i)));
     const ok = document.createElement("button");
     ok.textContent = "That's the one →";
+    ok.style.marginTop = "14px";
     box.append(sel, ok);
     $("fields").append(box);
+    sel.focus();
     ok.addEventListener("click", e => {
       e.preventDefault();
       box.remove();
@@ -314,6 +484,8 @@ function chooseAddress(found) {
     });
   });
 }
+
+let currentBins = [];
 
 function renderResult(ics, url, where) {
   const text = ics.replace(/\r\n /g, "");
@@ -330,11 +502,13 @@ function renderResult(ics, url, where) {
     }
   }
 
+  currentBins = [...next.entries()].sort((a, b) => a[1] - b[1]);
   const box = $("bins");
   box.innerHTML = "";
-  [...next.entries()].sort((a, b) => a[1] - b[1]).forEach(([name, when]) => {
+  currentBins.forEach(([name, when]) => {
     const { category, colour } = classify(name);
     const days = Math.round((when - today) / 86400000);
+    const soon = days <= 1;
     const rel = days === 0 ? "Today" : days === 1 ? "Tomorrow" : `In ${days} days.`;
     const abs = when.toLocaleDateString("en-GB",
       { weekday: "long", day: "numeric", month: "long" });
@@ -344,18 +518,42 @@ function renderResult(ics, url, where) {
       `<div class="tile" style="background:${colour}">` +
         `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[category]}</svg></div>` +
       `<div class="name">${name}</div>` +
-      `<div class="rel${days <= 1 ? " soon" : ""}">${days <= 1 ? rel : abs}</div>` +
-      `<div class="abs">${days <= 1 ? abs : rel}</div>` +
-      (days <= 1 ? `<div class="out">Put it out tonight.</div>` : "");
+      `<div class="rel${soon ? " soon" : ""}">${soon ? rel : abs}</div>` +
+      `<div class="abs">${soon ? abs : rel}</div>` +
+      (soon ? `<div class="out">Put it out tonight.</div>` : "");
     box.append(el);
   });
 
   $("where").textContent = where;
   $("feed-url").textContent = url;
   $("result").classList.remove("hidden");
+  $("sorted").classList.add("hidden");
+}
+
+function showSorted() {
+  const box = $("ticks");
+  box.innerHTML = "";
+  currentBins.forEach(([name]) => {
+    const { category, colour } = classify(name);
+    const el = document.createElement("div");
+    el.className = "tick";
+    el.innerHTML =
+      `<span class="ok">✓</span>` +
+      `<span class="sw" style="background:${colour}">` +
+        `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[category]}</svg></span>` +
+      `<span>${name}</span>`;
+    box.append(el);
+  });
+  $("sorted").classList.remove("hidden");
+  $("sorted").scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 $("council").addEventListener("change", renderFields);
+$("change").addEventListener("click", () => {
+  $("result").classList.add("hidden");
+  $("sorted").classList.add("hidden");
+  $("find").scrollIntoView({ behavior: "smooth", block: "center" });
+});
 
 $("go").addEventListener("click", async () => {
   const c = councils.find(x => x.key === $("council").value);
@@ -406,12 +604,35 @@ $("go").addEventListener("click", async () => {
   }
 });
 
+// webcal: hands the feed straight to the OS calendar app, which is what
+// "add to my calendar" should actually do.
+$("subscribe").addEventListener("click", () => {
+  const url = $("feed-url").textContent;
+  window.location.href = url.replace(/^https?:/, "webcal:");
+  setTimeout(showSorted, 600);
+});
+
 $("copy").addEventListener("click", async () => {
+  const note = $("promo-msg");
   try {
     await navigator.clipboard.writeText($("feed-url").textContent);
-    $("copy").textContent = "Copied - that's the bins sorted.";
-    setTimeout(() => ($("copy").textContent = "Copy calendar link"), 2000);
-  } catch { show("err", "Couldn't copy - select the link and copy it manually."); }
+    $("copy").textContent = "Copied";
+    note.innerHTML = "";
+    setTimeout(() => ($("copy").textContent = "Copy link"), 1800);
+    showSorted();
+  } catch {
+    // Clipboard access can be refused (permissions, no focus). Select the link
+    // so the keyboard shortcut still works, and say so right here - the form's
+    // message slot is far up the page by this point.
+    const range = document.createRange();
+    range.selectNodeContents($("feed-url"));
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    const key = navigator.platform.includes("Mac") ? "⌘C" : "Ctrl+C";
+    note.innerHTML = `<div class="msg err" style="margin-top:14px">We've selected
+      the link for you - press ${key} to copy it.</div>`;
+  }
 });
 
 $("download").addEventListener("click", () => {
