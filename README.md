@@ -56,7 +56,10 @@ touches it. Plain HTTP gets all of it.
 platform; adding another council on it is one call to `make(base, name)`.
 `COLLECTORS` in `main.py` routes around UKBinCollectionData, and `NATIVE` in
 the registry generator keeps them despite the upstream `web_driver` flag.
-Worth checking how many of the remaining 91 are on the same platform.
+[docs/browser-councils-survey.md](docs/browser-councils-survey.md) surveys the
+remaining 91: no more are on this platform, but 18 share Jadu/Firmstep, five
+share Whitespace/Netcall, and Wakefield is confirmed to work with a single
+plain GET.
 
 The gap is address lookup, not collection data. 192 of the councils here are
 keyed on a UPRN, and **there is no free national postcode → UPRN service** —
