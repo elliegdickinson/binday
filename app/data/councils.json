@@ -1995,6 +1995,16 @@
   "note": "The URL needs to be `https://www.staffordbc.gov.uk/address/<Your_UPRN>`. Replace `<Your_UPRN>` with your UPRN.",
   "url": "https://www.staffordbc.gov.uk/address/100032203010"
  },
+ "StaffordshireMoorlandsDistrictCouncil": {
+  "lad": "E07000198",
+  "name": "Staffordshire Moorlands",
+  "needs": [
+   "postcode",
+   "uprn"
+  ],
+  "note": "Provide your UPRN and postcode. Use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find your UPRN.",
+  "url": "https://www.staffsmoorlands.gov.uk/"
+ },
  "StevenageBoroughCouncil": {
   "lad": "E07000243",
   "name": "Stevenage",

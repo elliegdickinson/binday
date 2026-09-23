@@ -675,6 +675,8 @@ $("go").addEventListener("click", async () => {
       const resolved = await api(`/api/resolve?council=${chosen.key}` +
         `&postcode=${encodeURIComponent(postcode)}&key=${encodeURIComponent(pick.key)}`);
       params.uprn = resolved.uprn;
+      // Some councils key their collection lookup on postcode AND uprn.
+      params.postcode = postcode;
       params.label = resolved.address;
       where = resolved.address;
     } else {

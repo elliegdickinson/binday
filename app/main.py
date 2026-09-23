@@ -20,7 +20,7 @@ from fastapi.responses import FileResponse, JSONResponse, Response
 
 from . import postcodes
 from .ics import build
-from .pickers import stockport
+from .pickers import staffsmoorlands, stockport
 
 HERE = pathlib.Path(__file__).parent
 COUNCILS: dict = json.loads((HERE / "data" / "councils.json").read_text())
@@ -35,7 +35,15 @@ RATE_WINDOW = 300               # seconds
 # Councils with a postcode -> address picker. Everything else either needs no
 # UPRN at all, or asks the user to supply one until a picker is written.
 # Each entry is (list addresses, resolve one to a uprn + url).
-PICKERS = {"StockportBoroughCouncil": (stockport.lookup, stockport.resolve)}
+PICKERS = {
+    "StockportBoroughCouncil": (stockport.lookup, stockport.resolve),
+    "StaffordshireMoorlandsDistrictCouncil": (staffsmoorlands.lookup,
+                                              staffsmoorlands.resolve),
+}
+
+# Councils collected natively instead of through UKBinCollectionData, because
+# upstream drives them with Selenium and this app has no browser.
+COLLECTORS = {"StaffordshireMoorlandsDistrictCouncil": staffsmoorlands.collect}
 
 # ONS local-authority code -> council keys. A handful of codes carry more than
 # one council upstream, so this maps to a list and the caller asks rather than
@@ -196,6 +204,9 @@ async def resolve(request: Request, council: str, postcode: str,
 
 def _collect(council: str, url: str, extra: dict) -> list[dict]:
     """Run UKBinCollectionData. Blocking, so callers push it to a thread."""
+    if native := COLLECTORS.get(council):
+        return native(council, url, extra, user_agent=USER_AGENT)
+
     from uk_bin_collection.uk_bin_collection.collect_data import UKBinCollectionApp
 
     runner = UKBinCollectionApp()

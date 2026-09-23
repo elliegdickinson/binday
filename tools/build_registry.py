@@ -21,6 +21,11 @@ UPSTREAM = ("https://raw.githubusercontent.com/robbrad/UKBinCollectionData/"
 FIELDS = ("postcode", "house_number", "uprn", "paon", "usrn")
 OUT = pathlib.Path(__file__).resolve().parent.parent / "app" / "data" / "councils.json"
 
+# Councils upstream marks as needing a headless browser, but which this app
+# collects natively over plain HTTP (see app/pickers/). They are kept in the
+# registry despite the web_driver flag.
+NATIVE = {"StaffordshireMoorlandsDistrictCouncil"}
+
 
 def load(source: str | None) -> dict:
     if source:
@@ -36,7 +41,7 @@ def main() -> None:
     src = load(sys.argv[1] if len(sys.argv) > 1 else None)
     out = {}
     for key, cfg in src.items():
-        if cfg.get("web_driver"):
+        if cfg.get("web_driver") and key not in NATIVE:
             continue
         out[key] = {
             "name": cfg.get("wiki_name") or re.sub(r"(?<!^)(?=[A-Z])", " ", key),
@@ -57,6 +62,7 @@ def main() -> None:
     print(f"  need a uprn:                 {uprn}")
     print(f"  no identifying input at all: {bare}  (unsupported without a picker)")
     print(f"  excluded (headless browser): {len(src) - len(out)}")
+    print(f"  re-included via a native collector: {len(NATIVE)}")
 
 
 if __name__ == "__main__":
