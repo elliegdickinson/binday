@@ -282,8 +282,8 @@
 <a class="visually-hidden skip" href="#find">Skip to the postcode form</a>
 
 <header class="site page-shell">
-  <a class="brand" href="#top" aria-label="Bin Day, home">
-    <img src="/assets/logo/bin-day-logo-web.png" alt="Bin Day" />
+  <a class="brand" href="#top" aria-label="Bin Day — home">
+    <img src="/assets/logo/bin-day-logo-web.png" alt="" />
   </a>
   <nav aria-label="Main">
     <a class="quiet" href="#how">How it works</a>
@@ -336,38 +336,10 @@
     </div>
   </section>
 
-  <section class="page-shell hidden" id="result" aria-labelledby="result-title"
-           style="padding-top:0">
-    <div class="results-head">
-      <h2 id="result-title" tabindex="-1">Here's what's going out.</h2>
-      <button class="link change" id="change">Change address</button>
-    </div>
-    <p class="where" id="where"></p>
-    <div class="bins" id="bins"></div>
-
-    <div class="calendar-panel">
-      <h2>Never think about bin day again.</h2>
-      <p class="lede">Add your collections to your calendar and we'll keep it up to date.</p>
-      <div class="feed" id="feed-url"></div>
-      <div class="actions">
-        <button id="subscribe" class="ink main">Add bin days to my calendar →</button>
-        <button id="copy" class="secondary alt">Copy link</button>
-        <button id="download" class="secondary alt">Download .ics</button>
-      </div>
-      <div id="promo-msg" role="status" aria-live="polite"></div>
-      <p class="works">Works with Apple Calendar · Google Calendar · Outlook</p>
-    </div>
-    <p class="aside">Sorted for later - you're welcome.</p>
-  </section>
-
-  <section class="page-shell hidden" id="sorted-wrap" style="padding-top:0">
-    <div class="sorted">
-      <h2 id="sorted-title" tabindex="-1">That's the bins sorted.</h2>
-      <p>Your collections are now in your calendar.</p>
-      <p class="helper">You may now return to more interesting things.</p>
-      <div class="ticks" id="ticks"></div>
-    </div>
-  </section>
+  <!-- Results and success are built from templates when there is something to
+       show, rather than sitting hidden in the DOM. -->
+  <div id="results-mount"></div>
+  <div id="sorted-mount"></div>
 
   <section class="page-shell" id="how" aria-labelledby="how-title">
     <h2 id="how-title">How it works</h2>
@@ -395,9 +367,9 @@
     <div class="faq">
       <details>
         <summary>Why isn't my council here?</summary>
-        <p>Some councils need a property id we can't work out from a postcode alone,
-           so they need a bit of plumbing writing first. They're listed under
-           "Not supported yet" so you can see where yours stands.</p>
+        <p>Some councils need extra property information that we can't get from a
+           postcode alone. We're adding these councils gradually — check
+           "Not supported yet" to see where yours stands.</p>
       </details>
       <details>
         <summary>What's a UPRN and why do you want mine?</summary>
@@ -421,8 +393,8 @@
 </main>
 
 <footer class="site page-shell">
-  <a class="brand" href="#top" aria-label="Bin Day, home">
-    <img src="/assets/logo/bin-day-logo-web.png" alt="Bin Day" />
+  <a class="brand" href="#top" aria-label="Bin Day — home">
+    <img src="/assets/logo/bin-day-logo-web.png" alt="" />
   </a>
   <div><span class="strap">Your bins. Your calendar. <u>Sorted.</u></span></div>
   <p class="credit">
@@ -431,6 +403,42 @@
     Not official - check with your council if something looks wrong.
   </p>
 </footer>
+
+<template id="tpl-results">
+  <section class="page-shell" id="result" aria-labelledby="result-title" style="padding-top:0">
+    <div class="results-head">
+      <h2 id="result-title" tabindex="-1">Here's what's going out.</h2>
+      <button class="link change" id="change">Change address</button>
+    </div>
+    <p class="where" id="where"></p>
+    <div class="bins" id="bins"></div>
+
+    <div class="calendar-panel">
+      <h2>Never think about bin day again.</h2>
+      <p class="lede">Add your collections to your calendar and we'll keep it up to date.</p>
+      <div class="feed" id="feed-url"></div>
+      <div class="actions">
+        <button id="subscribe" class="ink main">Add bin days to my calendar →</button>
+        <button id="copy" class="secondary alt">Copy link</button>
+        <button id="download" class="secondary alt">Download .ics</button>
+      </div>
+      <div id="promo-msg" role="status" aria-live="polite"></div>
+      <p class="works">Works with Apple Calendar · Google Calendar · Outlook</p>
+    </div>
+    <p class="aside">Sorted for later - you're welcome.</p>
+  </section>
+</template>
+
+<template id="tpl-sorted">
+  <section class="page-shell" id="sorted-wrap" style="padding-top:0">
+    <div class="sorted">
+      <h2 id="sorted-title" tabindex="-1">That's the bins sorted.</h2>
+      <p>Your collections are now in your calendar.</p>
+      <p class="helper">You may now return to more interesting things.</p>
+      <div class="ticks" id="ticks"></div>
+    </div>
+  </section>
+</template>
 
 <script>
 const $ = (id) => document.getElementById(id);
@@ -523,6 +531,27 @@ function chooseAddress(found) {
 
 let currentBins = [];
 
+/** The results and success sections only exist in the DOM when there is
+ *  something to show. Hiding them with CSS would leave them in the page for
+ *  anyone reading it with the keyboard or a screen reader. */
+function unmountSorted() { $("sorted-mount").replaceChildren(); }
+
+function unmountResults() {
+  $("results-mount").replaceChildren();
+  unmountSorted();
+}
+
+function mountResults() {
+  unmountResults();
+  $("results-mount").append($("tpl-results").content.cloneNode(true));
+  bindResultActions();
+}
+
+function mountSorted() {
+  unmountSorted();
+  $("sorted-mount").append($("tpl-sorted").content.cloneNode(true));
+}
+
 /** Bring the results into view without shoving the form off the top - people
  *  want to see the address they picked is still the one being answered. */
 function revealResult() {
@@ -534,6 +563,7 @@ function revealResult() {
 }
 
 function renderResult(ics, url, where) {
+  mountResults();
   const text = ics.replace(/\r\n /g, "");
   const events = [...text.matchAll(/DTSTART;VALUE=DATE:(\d{8})[\s\S]*?SUMMARY:(.*)/g)];
   const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -576,12 +606,67 @@ function renderResult(ics, url, where) {
 
   $("where").textContent = where;
   $("feed-url").textContent = url;
-  $("promo-msg").innerHTML = "";
-  $("result").classList.remove("hidden");
-  $("sorted-wrap").classList.add("hidden");
+}
+
+/** The results section is cloned from a template each time, so its buttons
+ *  have to be wired up after every mount rather than once at load. */
+function bindResultActions() {
+  $("change").addEventListener("click", () => {
+    unmountResults();
+    $("f-postcode").focus();
+    $("find").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  // webcal hands the feed straight to the OS calendar app, which is what "add to
+  // my calendar" should do. Only claim success once the handover has actually
+  // happened - the OS taking focus off the page is the signal.
+    $("subscribe").addEventListener("click", () => {
+    const url = $("feed-url").textContent;
+    let handed = false;
+    const onBlur = () => { handed = true; showSorted(); };
+    window.addEventListener("blur", onBlur, { once: true });
+    window.location.href = url.replace(/^https?:/, "webcal:");
+    setTimeout(() => {
+      window.removeEventListener("blur", onBlur);
+      if (!handed) {
+        $("promo-msg").innerHTML = `<div class="msg err" style="margin-top:18px">
+          Your calendar app didn't open. Copy the link below and add it by hand.</div>`;
+      }
+    }, 2500);
+  });
+
+  $("copy").addEventListener("click", async () => {
+    const note = $("promo-msg");
+    try {
+      await navigator.clipboard.writeText($("feed-url").textContent);
+      $("copy").textContent = "Copied";
+      note.innerHTML = "";
+      setTimeout(() => ($("copy").textContent = "Copy link"), 1800);
+      showSorted();
+    } catch {
+      // Clipboard access can be refused (permissions, no focus). Select the link
+      // so the keyboard shortcut still works, and say so right here.
+      const range = document.createRange();
+      range.selectNodeContents($("feed-url"));
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      const key = navigator.platform.includes("Mac") ? "⌘C" : "Ctrl+C";
+      note.innerHTML = `<div class="msg err" style="margin-top:18px">We've selected
+        the link for you - press ${key} to copy it.</div>`;
+    }
+  });
+
+  $("download").addEventListener("click", () => {
+    const a = document.createElement("a");
+    a.href = $("feed-url").textContent;
+    a.download = "bin-collections.ics";
+    a.click();
+  });
 }
 
 function showSorted() {
+  mountSorted();
   const box = $("ticks");
   box.innerHTML = "";
   currentBins.forEach(([name]) => {
@@ -595,7 +680,6 @@ function showSorted() {
       `<span>${name}</span>`;
     box.append(el);
   });
-  $("sorted-wrap").classList.remove("hidden");
   $("sorted-title").focus();
   $("sorted-wrap").scrollIntoView({ behavior: "smooth", block: "center" });
 }
@@ -640,8 +724,7 @@ function renderFields(c) {
   chosen = c;
   const box = $("fields");
   box.innerHTML = "";
-  $("result").classList.add("hidden");
-  $("sorted-wrap").classList.add("hidden");
+  unmountResults();
   if (!c) return;
 
   if (!c.supported) {
@@ -702,13 +785,6 @@ $("council").addEventListener("change", () => {
 $("not-mine").addEventListener("click", async () => {
   await showManual(chosen?.key);
   show("", "");
-});
-
-$("change").addEventListener("click", () => {
-  $("result").classList.add("hidden");
-  $("sorted-wrap").classList.add("hidden");
-  $("f-postcode").focus();
-  $("find").scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
 $("f-postcode").addEventListener("keydown", e => {
@@ -783,58 +859,12 @@ $("go").addEventListener("click", async () => {
   }
 });
 
-// webcal hands the feed straight to the OS calendar app, which is what "add to
-// my calendar" should do. Only claim success once the handover has actually
-// happened - the OS taking focus off the page is the signal.
-$("subscribe").addEventListener("click", () => {
-  const url = $("feed-url").textContent;
-  let handed = false;
-  const onBlur = () => { handed = true; showSorted(); };
-  window.addEventListener("blur", onBlur, { once: true });
-  window.location.href = url.replace(/^https?:/, "webcal:");
-  setTimeout(() => {
-    window.removeEventListener("blur", onBlur);
-    if (!handed) {
-      $("promo-msg").innerHTML = `<div class="msg err" style="margin-top:18px">
-        Your calendar app didn't open. Copy the link below and add it by hand.</div>`;
-    }
-  }, 2500);
-});
-
-$("copy").addEventListener("click", async () => {
-  const note = $("promo-msg");
-  try {
-    await navigator.clipboard.writeText($("feed-url").textContent);
-    $("copy").textContent = "Copied";
-    note.innerHTML = "";
-    setTimeout(() => ($("copy").textContent = "Copy link"), 1800);
-    showSorted();
-  } catch {
-    // Clipboard access can be refused (permissions, no focus). Select the link
-    // so the keyboard shortcut still works, and say so right here.
-    const range = document.createRange();
-    range.selectNodeContents($("feed-url"));
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    const key = navigator.platform.includes("Mac") ? "⌘C" : "Ctrl+C";
-    note.innerHTML = `<div class="msg err" style="margin-top:18px">We've selected
-      the link for you - press ${key} to copy it.</div>`;
-  }
-});
-
-$("download").addEventListener("click", () => {
-  const a = document.createElement("a");
-  a.href = $("feed-url").textContent;
-  a.download = "bin-collections.ics";
-  a.click();
-});
-
 $("f-postcode").addEventListener("input", () => {
   if (!$("manual").classList.contains("hidden")) return;
   chosen = null;
   $("detected").classList.add("hidden");
   $("fields").innerHTML = "";
+  unmountResults();
 });
 
 $("f-postcode").focus();
