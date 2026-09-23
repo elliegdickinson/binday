@@ -7,7 +7,7 @@
 <meta name="description" content="Your bins. Your calendar. Sorted. Find your UK bin collections and put them in your calendar." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
 <style>
   :root {
     --lime:   #C8FF38;
@@ -33,27 +33,24 @@
   body {
     margin: 0; padding: 0 20px 110px;
     font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
-    background: var(--cream); color: var(--ink); line-height: 1.5;
+    background: var(--cream); color: var(--ink); line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 880px; margin: 0 auto; }
   .grotesk { font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; }
 
   /* ---------- wordmark ---------- */
-  .mark {
-    display: inline-flex; align-items: center; gap: .32em;
-    font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
-    letter-spacing: -0.045em; text-transform: uppercase; line-height: 1;
-    color: var(--ink); text-decoration: none;
-  }
-  .mark svg { width: .78em; height: .78em; fill: currentColor; flex: none; }
+  .mark { display: inline-block; line-height: 0; }
+  /* A stacked two-line lockup needs real height to stay legible. */
+  .mark img { display: block; height: 48px; width: auto; }
+  footer .mark img { height: 64px; margin: 0 auto; }
+  @media (max-width: 560px) { .mark img { height: 40px; } }
 
   /* ---------- nav ---------- */
   nav {
     display: flex; align-items: center; gap: 18px;
     padding: 22px 0; flex-wrap: wrap;
   }
-  nav .mark { font-size: 1.35rem; }
   nav .links { display: flex; gap: 18px; margin-left: auto; align-items: center; }
   nav a.nav-link {
     color: var(--ink); text-decoration: none; font-size: .95rem;
@@ -74,13 +71,9 @@
     letter-spacing: -0.045em; margin: 0 0 14px;
   }
   .lede { margin: 0 0 22px; font-size: 1.12rem; max-width: 44ch; }
-  .scribble {
-    font-family: Caveat, cursive; font-weight: 600; font-size: 1.5rem;
-    color: var(--grey); line-height: 1.15;
-  }
+  .scribble { color: var(--grey); font-size: .95rem; line-height: 1.35; }
   .hero .scribble {
-    position: absolute; right: 0; top: 64px; width: 150px;
-    transform: rotate(-4deg); text-align: center;
+    position: absolute; right: 0; top: 70px; width: 160px; text-align: right;
   }
   @media (max-width: 800px) { .hero .scribble { display: none; } }
 
@@ -94,10 +87,7 @@
     font-size: clamp(1.6rem, 4.6vw, 2.2rem); letter-spacing: -0.03em;
     margin: 0 0 6px;
   }
-  h3 {
-    font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
-    font-size: 1.15rem; letter-spacing: -0.02em; margin: 0 0 8px;
-  }
+  h3 { font-weight: 700; font-size: 1.15rem; margin: 0 0 8px; }
 
   label { display: block; font-weight: 700; font-size: .92rem; margin-bottom: 6px; }
   .hint { color: var(--grey); font-size: .88rem; margin: -2px 0 8px; }
@@ -123,10 +113,10 @@
   button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
   button.ghost:hover:not(:disabled) { background: rgba(0,0,0,.05); }
 
-  .ask { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; align-items: end; }
-  .ask .full { grid-column: 1 / -1; }
-  .ask button { align-self: end; margin-top: 10px; }
-  @media (max-width: 620px) { .ask { grid-template-columns: 1fr; } }
+  /* The lookup card's own rhythm: every block sits clear of the one above. */
+  #find > * + * { margin-top: 18px; }
+  #find #go { margin-top: 22px; }
+  #find #fields:empty { display: none; }
   .note { color: var(--grey); font-size: .92rem; margin: 14px 0 0; }
   .detected { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
   .chip {
@@ -199,10 +189,7 @@
 
   /* ---------- info ---------- */
   .steps { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
-  .step .n {
-    font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
-    font-size: 1.6rem; letter-spacing: -0.03em; color: var(--blue);
-  }
+  .step .n { font-weight: 700; font-size: 1.5rem; color: var(--blue); }
   .step p { margin: 4px 0 0; font-size: .95rem; }
   details { border-top: 1px solid var(--line); padding: 14px 0; }
   details:first-of-type { border-top: 0; }
@@ -210,7 +197,6 @@
   details p { margin: 10px 0 0; font-size: .95rem; color: var(--grey); }
 
   footer { text-align: center; padding-top: 34px; }
-  footer .mark { font-size: 1.3rem; }
   .strap {
     display: inline-block; background: var(--lime); color: var(--ink);
     padding: 4px 12px; border-radius: 8px; font-weight: 700;
@@ -226,10 +212,7 @@
 <div class="wrap">
 
 <nav>
-  <a class="mark" href="#top">
-    Bin Day
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6l1 2h4v2H4V4h4l1-2zM6 8h12l-1 13a1 1 0 01-1 1H8a1 1 0 01-1-1L6 8zm3 3v8h2v-8H9zm4 0v8h2v-8h-2z"/></svg>
-  </a>
+  <a class="mark" href="#top"><img src="/logo.png" alt="Bin Day" /></a>
   <span class="links">
     <a class="nav-link" href="#how">How it works</a>
     <a class="nav-link" href="#help">Help</a>
@@ -294,7 +277,7 @@
     <div id="promo-msg"></div>
     <p class="works">Works with Apple Calendar · Google Calendar · Outlook</p>
   </div>
-  <p class="scribble" style="transform:rotate(-2deg);margin:0 0 18px 6px">Sorted for later (you're welcome).</p>
+  <p class="scribble" style="margin:0 0 18px 2px">Sorted for later - you're welcome.</p>
 </div>
 
 <div class="card sorted hidden" id="sorted">
@@ -352,10 +335,7 @@
 </div>
 
 <footer>
-  <a class="mark" href="#top">
-    Bin Day
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6l1 2h4v2H4V4h4l1-2zM6 8h12l-1 13a1 1 0 01-1 1H8a1 1 0 01-1-1L6 8zm3 3v8h2v-8H9zm4 0v8h2v-8h-2z"/></svg>
-  </a>
+  <a class="mark" href="#top"><img src="/logo.png" alt="Bin Day" /></a>
   <div><span class="strap">Your bins. Your calendar. <u>Sorted.</u></span></div>
   <p class="small">
     Collection data comes from your council, via
@@ -444,6 +424,7 @@ function chooseAddress(found) {
     found.forEach((a, i) => sel.append(new Option(a.address, i)));
     const ok = document.createElement("button");
     ok.textContent = "That's the one →";
+    ok.style.marginTop = "18px";
     box.append(sel, ok);
     $("fields").append(box);
     sel.focus();

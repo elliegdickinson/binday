@@ -61,21 +61,40 @@ object rather than a hole.
 
 ## Typography
 
-- **Headings and the wordmark:** Space Grotesk, 700. Tight tracking
-  (`-0.03em`) at large sizes. Headings are big and confident.
-- **Body and UI:** Atkinson Hyperlegible, 400/700. Chosen for legibility -
-  this is a utility, and people read it in a hurry.
-- **Annotations:** Caveat, for the occasional handwritten aside. One per
-  screen at most, never carrying information you can't afford to miss.
+The system should read like a modern public-information service crossed with a
+bold independent brand: clear, chunky, accessible, slightly playful.
 
-## Wordmark
+- **Space Grotesk, Bold** - large headlines *only*. Oversized, tightly spaced
+  (`-0.035em`, tighter as they grow), high contrast. Not for subheads, not for
+  numbers, not for UI.
+- **Atkinson Hyperlegible, 400/700** - everything else: body copy, UI text,
+  form fields, labels, navigation, buttons, small headings. It was drawn for
+  low-vision readers, which is the right instinct for a utility.
+- Body line-height **1.6**, contrast kept strong. People read this in a hurry,
+  often outdoors.
 
-`BIN DAY` set in Space Grotesk 700, all caps, tight, with a small bin glyph
-after the Y. Strapline sits beneath on a Bin Day Green block, with "Sorted."
-underlined.
+**Avoid:** overly rounded faces, handwritten or script faces, quirky display
+faces, and the generic SaaS geometric sans. Two faces is the whole system - if
+something seems to want a third, it wants rewriting instead.
 
-Variations: ink on cream, ink on Bin Day Green, white on ink. Do not restyle
-the letterforms, stretch it, or add a gradient.
+**Case:** sentence case for essentially all UI copy ("Find my bin day",
+"Here's what's going out."). Uppercase is reserved for large brand treatments,
+which in practice means the BIN DAY lockup.
+
+## Logo
+
+`static/logo.png` - "BIN DAY" stacked on two lines in heavy black, with a lime
+wheelie bin and motion marks at the lower right.
+
+It is **artwork, not type**: never re-set it in a font, stretch it, recolour it
+or add effects. The background is transparent, so it sits on cream or white
+unchanged.
+
+Minimum heights: **48px** in navigation, **64px** in the footer, **40px** below
+560px wide. Smaller than that and a stacked two-line lockup stops being
+readable.
+
+The strapline is separate, on a Bin Day Green block with "Sorted." underlined.
 
 ## Layout
 

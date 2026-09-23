@@ -313,6 +313,12 @@ async def health() -> dict:
             "browser": sum(1 for v in COUNCILS.values() if v.get("browser"))}
 
 
+@app.get("/logo.png")
+async def logo() -> FileResponse:
+    return FileResponse(HERE.parent / "static" / "logo.png",
+                        headers={"Cache-Control": "public, max-age=604800"})
+
+
 @app.get("/")
 async def index() -> FileResponse:
     return FileResponse(HERE.parent / "static" / "index.html")
