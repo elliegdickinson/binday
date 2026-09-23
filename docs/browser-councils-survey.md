@@ -84,15 +84,48 @@ solvable. Syncfusion worked because the data was sitting in the HTML as JSON.
 Liberty Create shares a URL shape and nothing else useful. Judge each cluster
 by whether the data is in the response, not by the vendor.
 
+## Spike: Jadu / Firmstep (AchieveForms) - **viable**
+
+Spiked Gloucester on 23 Sep 2026. Unlike Liberty Create, **this cluster does
+not need a browser**, and the strongest evidence is that we already ship 28 of
+them: 28 of the 29 UKBinCollectionData modules that use `apibroker/runLookup`
+have no `web_driver` flag and are in this build today.
+
+Reproduced Gloucester's flow in plain `httpx`, no browser:
+
+1. `GET /service/<name>` - the page embeds `FS.FormDefinition` containing
+   `form_uri` (`sandbox-publish://AF-Process-…/AF-Stage-…/definition.json`).
+2. `GET /authapi/isauthenticated?uri=<double-encoded form url>&hostname=…` →
+   `auth-session` id.
+3. `POST /apibroker/runLookup?id=<lookupId>&sid=<sid>&app_name=AF-Renderer::Self`
+   with `{"formValues": {"Section 1": {<field>: {"value": …}}}}` →
+   `integration.transformed.rows_data`.
+
+Confirmed working headlessly:
+
+| Step | Lookup id | Input | Result |
+|---|---|---|---|
+| Postcode → addresses | `57fb9bf5aa4b8` | `find_postcode` | 12 addresses with UPRNs for GL2 0RR |
+| UPRN → service ids | `63f72ddc8ca25` | `binUprn` | `RefuseSackId`, `RecyclingId`, `FoodId`, `GardenId` |
+| Service id → dates | `645df93e1b901` | **not identified** | - |
+
+The third step's field name wasn't found by guessing, and the form issues it
+through a transport that a patched `XMLHttpRequest` didn't catch. Capturing it
+is a matter of persistence, not a blocker - the first two steps prove the
+transport, the session and the data are all reachable without a browser.
+
+**But the "one module unlocks 18" hope is wrong.** The *transport* is shared;
+the lookup ids, section names and field names are per-council and have to be
+discovered from each council's own form. Budget roughly a couple of hours per
+council, not one shared module for the cluster.
+
 ## Suggested order of attack
 
 1. ~~Wakefield~~ - **done**.
 2. ~~Whitespace / Netcall~~ - **rejected**, see above.
-3. **Jadu / Firmstep (18)** - the only remaining cluster worth a look, and the
-   biggest. AchieveForms posts through a session-bound JSON API, which is the
-   same shape of problem that sank Liberty Create, so spike one council
-   (Tendring or Gloucester) and check the dates are in the response *before*
-   committing to it.
+3. ~~Spike Jadu / Firmstep~~ - **done, and it's viable** (see above). Each of
+   the 18 is its own job of a couple of hours, so do them on demand rather than
+   as a batch.
 4. **Headless Chrome instead.** If coverage matters more than tidiness, adding
    a browser to the deployment unlocks all 90 at once through
    UKBinCollectionData, rather than writing 90 modules. It costs a bigger
