@@ -18,6 +18,7 @@ from collections import defaultdict
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import FileResponse, JSONResponse, Response
 
+from . import postcodes
 from .ics import build
 from .pickers import stockport
 
@@ -35,6 +36,14 @@ RATE_WINDOW = 300               # seconds
 # UPRN at all, or asks the user to supply one until a picker is written.
 # Each entry is (list addresses, resolve one to a uprn + url).
 PICKERS = {"StockportBoroughCouncil": (stockport.lookup, stockport.resolve)}
+
+# ONS local-authority code -> council keys. A handful of codes carry more than
+# one council upstream, so this maps to a list and the caller asks rather than
+# guessing.
+BY_LAD: dict[str, list[str]] = {}
+for _key, _value in COUNCILS.items():
+    if _value.get("lad"):
+        BY_LAD.setdefault(_value["lad"], []).append(_key)
 
 app = FastAPI(title="binday", docs_url="/api/docs", redoc_url=None)
 
@@ -107,6 +116,38 @@ async def councils() -> JSONResponse:
         for key, value in sorted(COUNCILS.items(), key=lambda kv: kv[1]["name"])
     ]
     return JSONResponse({"count": len(listing), "councils": listing})
+
+
+@app.get("/api/lookup")
+async def lookup(request: Request, postcode: str) -> JSONResponse:
+    """Work out which council covers a postcode, so nobody has to pick one."""
+    _rate_limit(request)
+    postcode = " ".join(postcode.upper().split())
+    if not postcodes.looks_like_postcode(postcode):
+        raise HTTPException(400, "That doesn't look like a UK postcode.")
+
+    key = f"lad:{postcode}"
+    if (hit := _cached(key)) is None:
+        found = await postcodes.district(postcode, user_agent=USER_AGENT)
+        if not found:
+            # Unknown postcode, or postcodes.io is having a moment. Either way
+            # the user can still choose their council by hand.
+            return JSONResponse({"district": None, "councils": []})
+        hit = _store(key, found)
+
+    matches = [
+        {
+            "key": k,
+            "name": COUNCILS[k]["name"],
+            "needs": COUNCILS[k]["needs"],
+            "picker": k in PICKERS,
+            "supported": _identifiable(k, COUNCILS[k]),
+            "ready": _identifiable(k, COUNCILS[k])
+                     and ("uprn" not in COUNCILS[k]["needs"] or k in PICKERS),
+        }
+        for k in BY_LAD.get(hit["code"], [])
+    ]
+    return JSONResponse({"district": hit, "councils": matches})
 
 
 @app.get("/api/addresses")
@@ -229,8 +270,10 @@ async def feed(
 @app.get("/api/health")
 async def health() -> dict:
     ready = sum(1 for k, v in COUNCILS.items()
-                if "uprn" not in v["needs"] or k in PICKERS)
-    return {"ok": True, "councils": len(COUNCILS), "ready": ready}
+                if _identifiable(k, v)
+                and ("uprn" not in v["needs"] or k in PICKERS))
+    return {"ok": True, "councils": len(COUNCILS), "ready": ready,
+            "auto_detectable": len(BY_LAD)}
 
 
 @app.get("/")

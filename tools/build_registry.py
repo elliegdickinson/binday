@@ -42,13 +42,18 @@ def main() -> None:
             "name": cfg.get("wiki_name") or re.sub(r"(?<!^)(?=[A-Z])", " ", key),
             "url": cfg.get("url", ""),
             "needs": [f for f in FIELDS if cfg.get(f)],
+            # ONS local-authority-district code, used to match the council that
+            # postcodes.io reports for a postcode.
+            "lad": cfg.get("LAD24CD", ""),
             "note": cfg.get("wiki_note", ""),
         }
 
     OUT.write_text(json.dumps(out, indent=1, sort_keys=True) + "\n")
+    lad = sum(1 for v in out.values() if v["lad"])
     bare = sum(1 for v in out.values() if not v["needs"])
     uprn = sum(1 for v in out.values() if "uprn" in v["needs"])
     print(f"{len(out)} councils written to {OUT.relative_to(OUT.parents[2])}")
+    print(f"  with an LAD code (auto-detectable from postcode): {lad}")
     print(f"  need a uprn:                 {uprn}")
     print(f"  no identifying input at all: {bare}  (unsupported without a picker)")
     print(f"  excluded (headless browser): {len(src) - len(out)}")

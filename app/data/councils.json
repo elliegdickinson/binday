@@ -1,5 +1,6 @@
 {
  "AberdeenCityCouncil": {
+  "lad": "S12000033",
   "name": "Aberdeen City",
   "needs": [
    "uprn"
@@ -8,6 +9,7 @@
   "url": "https://www.aberdeencity.gov.uk"
  },
  "AberdeenshireCouncil": {
+  "lad": "S12000034",
   "name": "Aberdeenshire",
   "needs": [
    "uprn"
@@ -16,12 +18,14 @@
   "url": "https://online.aberdeenshire.gov.uk"
  },
  "AdurAndWorthingCouncils": {
+  "lad": "E07000223",
   "name": "Adur",
   "needs": [],
   "note": "Replace XXXXXXXX with your UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find it.",
   "url": "https://www.adur-worthing.gov.uk/bin-day/?brlu-selected-address=100061878829"
  },
  "AmberValleyBoroughCouncil": {
+  "lad": "E07000032",
   "name": "Amber Valley",
   "needs": [
    "uprn"
@@ -30,12 +34,14 @@
   "url": "https://ambervalley.gov.uk"
  },
  "AntrimAndNewtonabbeyCouncil": {
+  "lad": "N09000001",
   "name": "Antrim and Newtownabbey",
   "needs": [],
   "note": "Navigate to [https://antrimandnewtownabbey.gov.uk/residents/bins-recycling/bins-schedule] and search for your street name. Use the URL with the ID to replace XXXXXXXX with your specific ID.",
   "url": "https://antrimandnewtownabbey.gov.uk/residents/bins-recycling/bins-schedule/?Id=643"
  },
  "ArdsAndNorthDownCouncil": {
+  "lad": "N09000011",
   "name": "Ards and North Down",
   "needs": [
    "uprn"
@@ -44,6 +50,7 @@
   "url": "https://www.ardsandnorthdown.gov.uk"
  },
  "ArmaghBanbridgeCraigavonCouncil": {
+  "lad": "N09000002",
   "name": "Armagh City, Banbridge and Craigavon",
   "needs": [
    "uprn"
@@ -52,6 +59,7 @@
   "url": "https://www.armaghbanbridgecraigavon.gov.uk/"
  },
  "BCPCouncil": {
+  "lad": "E06000058",
   "name": "Bournemouth, Christchurch and Poole",
   "needs": [
    "uprn"
@@ -60,6 +68,7 @@
   "url": "https://bcpportal.bcpcouncil.gov.uk/checkyourbincollection"
  },
  "BarnsleyMBCouncil": {
+  "lad": "E08000016",
   "name": "Barnsley",
   "needs": [
    "postcode",
@@ -69,6 +78,7 @@
   "url": "https://waste.barnsley.gov.uk/ViewCollection/Collections"
  },
  "BasildonCouncil": {
+  "lad": "E07000066",
   "name": "Basildon",
   "needs": [
    "uprn"
@@ -77,6 +87,7 @@
   "url": "https://mybasildon.powerappsportals.com/check/where_i_live/"
  },
  "BasingstokeCouncil": {
+  "lad": "E07000084",
   "name": "Basingstoke and Deane",
   "needs": [
    "uprn"
@@ -85,6 +96,7 @@
   "url": "https://www.basingstoke.gov.uk/bincollection"
  },
  "BassetlawDistrictCouncil": {
+  "lad": "E07000171",
   "name": "Bassetlaw",
   "needs": [
    "postcode",
@@ -94,6 +106,7 @@
   "url": "https://www.bassetlaw.gov.uk"
  },
  "BathAndNorthEastSomersetCouncil": {
+  "lad": "E06000022",
   "name": "Bath and North East Somerset",
   "needs": [
    "uprn"
@@ -102,6 +115,7 @@
   "url": "https://www.bathnes.gov.uk/webforms/waste/collectionday/"
  },
  "BedfordBoroughCouncil": {
+  "lad": "E06000055",
   "name": "Bedford",
   "needs": [
    "uprn"
@@ -110,6 +124,7 @@
   "url": "https://www.bedford.gov.uk/bins-and-recycling/household-bins-and-recycling/check-your-bin-day"
  },
  "BedfordshireCouncil": {
+  "lad": "E06000056",
   "name": "Central Bedfordshire",
   "needs": [
    "postcode",
@@ -119,6 +134,7 @@
   "url": "https://www.centralbedfordshire.gov.uk/info/163/bins_and_waste_collections_-_check_bin_collection_day"
  },
  "BelfastCityCouncil": {
+  "lad": "N09000003",
   "name": "Belfast",
   "needs": [
    "postcode",
@@ -128,6 +144,7 @@
   "url": "https://online.belfastcity.gov.uk/find-bin-collection-day/Default.aspx"
  },
  "BirminghamCityCouncil": {
+  "lad": "E08000025",
   "name": "Birmingham",
   "needs": [
    "postcode",
@@ -137,6 +154,7 @@
   "url": "https://www.birmingham.gov.uk/info/50388/check_your_collection_day"
  },
  "BlabyDistrictCouncil": {
+  "lad": "E07000129",
   "name": "Blaby",
   "needs": [
    "uprn"
@@ -145,6 +163,7 @@
   "url": "https://www.blaby.gov.uk"
  },
  "BlackburnCouncil": {
+  "lad": "E06000008",
   "name": "Blackburn with Darwen",
   "needs": [
    "uprn"
@@ -153,6 +172,7 @@
   "url": "https://www.blackburn.gov.uk"
  },
  "BlackpoolCouncil": {
+  "lad": "E06000009",
   "name": "Blackpool",
   "needs": [
    "postcode",
@@ -163,6 +183,7 @@
   "url": "https://www.blackpool.gov.uk/"
  },
  "BolsoverCouncil": {
+  "lad": "E07000033",
   "name": "Bolsover",
   "needs": [
    "uprn"
@@ -171,6 +192,7 @@
   "url": "https://bolsover.gov.uk"
  },
  "BoltonCouncil": {
+  "lad": "E08000001",
   "name": "Bolton",
   "needs": [
    "uprn"
@@ -179,6 +201,7 @@
   "url": "https://bolton.gov.uk"
  },
  "BracknellForestCouncil": {
+  "lad": "E06000036",
   "name": "Bracknell Forest",
   "needs": [
    "postcode",
@@ -189,6 +212,7 @@
   "url": "https://selfservice.mybfc.bracknell-forest.gov.uk/w/webpage/waste-collection-days"
  },
  "BradfordMDC": {
+  "lad": "E08000032",
   "name": "Bradford",
   "needs": [
    "uprn"
@@ -197,6 +221,7 @@
   "url": "https://onlineforms.bradford.gov.uk/ufs/collectiondates.eb"
  },
  "BraintreeDistrictCouncil": {
+  "lad": "E07000067",
   "name": "Braintree",
   "needs": [
    "postcode",
@@ -206,6 +231,7 @@
   "url": "https://www.braintree.gov.uk/"
  },
  "BrecklandCouncil": {
+  "lad": "E07000143",
   "name": "Breckland",
   "needs": [
    "uprn"
@@ -214,6 +240,7 @@
   "url": "https://www.breckland.gov.uk"
  },
  "BrentCouncil": {
+  "lad": "E09000005",
   "name": "Brent",
   "needs": [
    "postcode",
@@ -223,6 +250,7 @@
   "url": "https://recyclingservices.brent.gov.uk/waste"
  },
  "BridgendCountyBoroughCouncil": {
+  "lad": "",
   "name": "Bridgend County Borough",
   "needs": [
    "postcode"
@@ -231,6 +259,7 @@
   "url": "https://www.bridgend.gov.uk"
  },
  "BristolCityCouncil": {
+  "lad": "E06000023",
   "name": "City of Bristol",
   "needs": [
    "uprn"
@@ -239,6 +268,7 @@
   "url": "https://bristolcouncil.powerappsportals.com/completedynamicformunauth/?servicetypeid=7dce896c-b3ba-ea11-a812-000d3a7f1cdc"
  },
  "BromsgroveDistrictCouncil": {
+  "lad": "E07000234",
   "name": "Bromsgrove",
   "needs": [
    "uprn"
@@ -247,6 +277,7 @@
   "url": "https://www.bromsgrove.gov.uk"
  },
  "BuckinghamshireCouncil": {
+  "lad": "E06000060",
   "name": "Buckinghamshire",
   "needs": [
    "uprn"
@@ -255,6 +286,7 @@
   "url": "https://www.buckinghamshire.gov.uk/waste-and-recycling/find-out-when-its-your-bin-collection/"
  },
  "BurnleyBoroughCouncil": {
+  "lad": "E07000117",
   "name": "Burnley",
   "needs": [
    "uprn"
@@ -263,6 +295,7 @@
   "url": "https://www.burnley.gov.uk"
  },
  "BuryCouncil": {
+  "lad": "E08000002",
   "name": "Bury",
   "needs": [
    "postcode",
@@ -272,6 +305,7 @@
   "url": "https://www.bury.gov.uk/waste-and-recycling/bin-collection-days-and-alerts"
  },
  "CaerphillyCountyBoroughCouncil": {
+  "lad": "",
   "name": "Caerphilly County Borough",
   "needs": [
    "postcode",
@@ -281,6 +315,7 @@
   "url": "https://www.caerphilly.gov.uk"
  },
  "CalderdaleCouncil": {
+  "lad": "E08000033",
   "name": "Calderdale",
   "needs": [
    "postcode",
@@ -291,6 +326,7 @@
   "url": "https://www.calderdale.gov.uk/environment/waste/household-collections/collectiondayfinder.jsp"
  },
  "CambridgeCityCouncil": {
+  "lad": "E07000008",
   "name": "Cambridge",
   "needs": [
    "uprn"
@@ -299,6 +335,7 @@
   "url": "https://www.cambridge.gov.uk/"
  },
  "CannockChaseDistrictCouncil": {
+  "lad": "E07000192",
   "name": "Cannock Chase",
   "needs": [
    "postcode",
@@ -308,6 +345,7 @@
   "url": "https://www.cannockchasedc.gov.uk/"
  },
  "CanterburyCityCouncil": {
+  "lad": "E07000106",
   "name": "Canterbury",
   "needs": [
    "uprn"
@@ -316,6 +354,7 @@
   "url": "https://www.canterbury.gov.uk"
  },
  "CardiffCouncil": {
+  "lad": "W06000015",
   "name": "Cardiff",
   "needs": [
    "uprn"
@@ -324,6 +363,7 @@
   "url": "https://www.cardiff.gov.uk"
  },
  "CarmarthenshireCountyCouncil": {
+  "lad": "W06000010",
   "name": "Carmarthenshire",
   "needs": [
    "uprn"
@@ -332,6 +372,7 @@
   "url": "https://www.carmarthenshire.gov.wales"
  },
  "CastlepointDistrictCouncil": {
+  "lad": "E07000069",
   "name": "Castle Point",
   "needs": [
    "uprn"
@@ -340,6 +381,7 @@
   "url": "https://apps.castlepoint.gov.uk/cpapps/index.cfm?fa=wastecalendar"
  },
  "CharnwoodBoroughCouncil": {
+  "lad": "E07000130",
   "name": "Charnwood",
   "needs": [
    "uprn"
@@ -348,6 +390,7 @@
   "url": "https://www.charnwood.gov.uk/pages/waste_collections_calendars"
  },
  "CheltenhamBoroughCouncil": {
+  "lad": "E07000078",
   "name": "Cheltenham",
   "needs": [
    "postcode",
@@ -357,6 +400,7 @@
   "url": "https://www.cheltenham.gov.uk"
  },
  "CherwellDistrictCouncil": {
+  "lad": "E07000177",
   "name": "Cherwell",
   "needs": [
    "uprn"
@@ -365,6 +409,7 @@
   "url": "https://www.cherwell.gov.uk"
  },
  "CheshireEastCouncil": {
+  "lad": "E06000049",
   "name": "Cheshire East",
   "needs": [
    "uprn"
@@ -373,6 +418,7 @@
   "url": "https://online.cheshireeast.gov.uk/mycollectionday"
  },
  "CheshireWestAndChesterCouncil": {
+  "lad": "E06000050",
   "name": "Cheshire West and Chester",
   "needs": [
    "uprn"
@@ -381,6 +427,7 @@
   "url": "https://my.cheshirewestandchester.gov.uk"
  },
  "ChesterfieldBoroughCouncil": {
+  "lad": "E07000034",
   "name": "Chesterfield",
   "needs": [
    "uprn"
@@ -389,6 +436,7 @@
   "url": "https://www.chesterfield.gov.uk"
  },
  "ChorleyCouncil": {
+  "lad": "E07000118",
   "name": "Chorley",
   "needs": [
    "postcode",
@@ -398,6 +446,7 @@
   "url": "https://forms.chorleysouthribble.gov.uk/xfp/form/71"
  },
  "ClackmannanshireCouncil": {
+  "lad": "",
   "name": "Clackmannanshire",
   "needs": [
    "postcode"
@@ -406,6 +455,7 @@
   "url": "https://www.clacks.gov.uk"
  },
  "CneSiarCouncil": {
+  "lad": "",
   "name": "Comhairle nan Eilean Siar",
   "needs": [
    "postcode",
@@ -415,6 +465,7 @@
   "url": "https://www.cne-siar.gov.uk"
  },
  "ConwyCountyBorough": {
+  "lad": "W06000003",
   "name": "Conwy",
   "needs": [
    "uprn"
@@ -423,6 +474,7 @@
   "url": "https://www.conwy.gov.uk"
  },
  "CornwallCouncil": {
+  "lad": "E06000052",
   "name": "Cornwall",
   "needs": [
    "uprn"
@@ -431,12 +483,14 @@
   "url": "https://www.cornwall.gov.uk/my-area/"
  },
  "CoventryCityCouncil": {
+  "lad": "E08000026",
   "name": "Coventry",
   "needs": [],
   "note": "Follow the instructions [here](https://www.coventry.gov.uk/bin-collection-calendar) until you get the page that shows the weekly collections for your address then copy the URL and replace the URL in the command.",
   "url": "https://www.coventry.gov.uk/directory-record/62310/abberton-way-"
  },
  "CrawleyBoroughCouncil": {
+  "lad": "E07000226",
   "name": "Crawley",
   "needs": [
    "house_number",
@@ -446,6 +500,7 @@
   "url": "https://my.crawley.gov.uk/"
  },
  "CumberlandCouncil": {
+  "lad": "E06000063",
   "name": "Cumberland",
   "needs": [
    "uprn"
@@ -454,6 +509,7 @@
   "url": "https://www.cumberland.gov.uk/bins-recycling-and-street-cleaning/waste-collections/bin-collection-schedule"
  },
  "DarlingtonBoroughCouncil": {
+  "lad": "E06000005",
   "name": "Darlington Borough Council",
   "needs": [
    "uprn"
@@ -462,6 +518,7 @@
   "url": "https://www.darlington.gov.uk/bins-waste-and-recycling/collection-day-lookup/"
  },
  "DartfordBoroughCouncil": {
+  "lad": "E07000107",
   "name": "Dartford",
   "needs": [
    "uprn"
@@ -470,6 +527,7 @@
   "url": "https://www.dartford.gov.uk/waste-recycling/collection-day"
  },
  "DenbighshireCouncil": {
+  "lad": "W06000004",
   "name": "Denbighshire",
   "needs": [
    "uprn"
@@ -478,6 +536,7 @@
   "url": "https://www.denbighshire.gov.uk/"
  },
  "DerbyCityCouncil": {
+  "lad": "E06000015",
   "name": "Derby",
   "needs": [
    "uprn"
@@ -486,6 +545,7 @@
   "url": "https://www.derby.gov.uk"
  },
  "DerbyshireDalesDistrictCouncil": {
+  "lad": "E07000035",
   "name": "Derbyshire Dales",
   "needs": [
    "postcode",
@@ -495,6 +555,7 @@
   "url": "https://www.derbyshiredales.gov.uk/"
  },
  "DoncasterCouncil": {
+  "lad": "E08000017",
   "name": "Doncaster",
   "needs": [
    "uprn"
@@ -503,6 +564,7 @@
   "url": "https://www.doncaster.gov.uk/Compass/Entity/Launch/D3/"
  },
  "DorsetCouncil": {
+  "lad": "E06000059",
   "name": "Dorset Council",
   "needs": [
    "uprn"
@@ -511,6 +573,7 @@
   "url": "https://www.dorsetcouncil.gov.uk/"
  },
  "DoverDistrictCouncil": {
+  "lad": "E07000108",
   "name": "Dover",
   "needs": [
    "postcode",
@@ -520,6 +583,7 @@
   "url": "https://portal.waste.dover.gov.uk"
  },
  "DudleyCouncil": {
+  "lad": "E08000027",
   "name": "Dudley",
   "needs": [
    "uprn"
@@ -528,6 +592,7 @@
   "url": "https://my.dudley.gov.uk"
  },
  "DumfriesandGallowayCouncil": {
+  "lad": "S12000006",
   "name": "Dumfries and Galloway Council",
   "needs": [
    "postcode",
@@ -538,6 +603,7 @@
   "url": "https://www.dumfriesandgalloway.gov.uk"
  },
  "DundeeCityCouncil": {
+  "lad": "S12000042",
   "name": "Dundee City",
   "needs": [
    "uprn"
@@ -546,6 +612,7 @@
   "url": "https://www.dundeecity.gov.uk/"
  },
  "DurhamCouncil": {
+  "lad": "E06000047",
   "name": "County Durham",
   "needs": [
    "uprn"
@@ -554,6 +621,7 @@
   "url": "https://www.durham.gov.uk/bincollections?uprn="
  },
  "EalingCouncil": {
+  "lad": "E09000009",
   "name": "Ealing (deprecated, use LondonBoroughEaling)",
   "needs": [
    "uprn"
@@ -562,6 +630,7 @@
   "url": "https://www.ealing.gov.uk/site/custom_scripts/WasteCollectionWS/home/FindCollection"
  },
  "EastAyrshireCouncil": {
+  "lad": "S12000008",
   "name": "East Ayrshire",
   "needs": [
    "postcode",
@@ -571,6 +640,7 @@
   "url": "https://www.east-ayrshire.gov.uk"
  },
  "EastCambridgeshireCouncil": {
+  "lad": "E07000009",
   "name": "East Cambridgeshire",
   "needs": [
    "uprn"
@@ -579,6 +649,7 @@
   "url": "https://www.eastcambs.gov.uk/"
  },
  "EastDevonDC": {
+  "lad": "E07000040",
   "name": "East Devon",
   "needs": [
    "postcode",
@@ -589,6 +660,7 @@
   "url": "https://eastdevon.gov.uk/recycling-and-waste/recycling-waste-information/when-is-my-bin-collected/"
  },
  "EastDunbartonshireCouncil": {
+  "lad": "S12000045",
   "name": "East Dunbartonshire",
   "needs": [
    "uprn"
@@ -597,6 +669,7 @@
   "url": "https://www.eastdunbarton.gov.uk/"
  },
  "EastHampshireDC": {
+  "lad": "",
   "name": "East Hampshire",
   "needs": [
    "postcode",
@@ -606,6 +679,7 @@
   "url": "https://www.easthants.gov.uk"
  },
  "EastHertsCouncil": {
+  "lad": "E07000097",
   "name": "East Herts Council",
   "needs": [
    "uprn"
@@ -614,6 +688,7 @@
   "url": "https://east-herts.co.uk/api/services/"
  },
  "EastLothianCouncil": {
+  "lad": "S12000010",
   "name": "East Lothian",
   "needs": [
    "postcode",
@@ -623,12 +698,14 @@
   "url": "https://eastlothian.gov.uk"
  },
  "EastStaffordshireBoroughCouncil": {
+  "lad": "E07000193",
   "name": "East Staffordshire",
   "needs": [],
   "note": "Replace `XXXXX` with your property's ID when selecting from https://www.eaststaffsbc.gov.uk/bins-rubbish-recycling/collection-dates.",
   "url": "https://www.eaststaffsbc.gov.uk/bins-rubbish-recycling/collection-dates/68382"
  },
  "EastbourneBoroughCouncil": {
+  "lad": "E07000061",
   "name": "Eastbourne",
   "needs": [
    "uprn"
@@ -637,6 +714,7 @@
   "url": "https://www.lewes-eastbourne.gov.uk/article/1158/When-is-my-bin-collection-day"
  },
  "EdenDistrictCouncil": {
+  "lad": "E06000064",
   "name": "Eden District (Westmorland and Furness)",
   "needs": [
    "uprn"
@@ -645,6 +723,7 @@
   "url": "https://my.eden.gov.uk/myeden.aspx"
  },
  "EdinburghCityCouncil": {
+  "lad": "S12000036",
   "name": "City of Edinburgh",
   "needs": [
    "postcode",
@@ -654,6 +733,7 @@
   "url": "https://www.edinburgh.gov.uk"
  },
  "ElmbridgeBoroughCouncil": {
+  "lad": "E07000207",
   "name": "Elmbridge",
   "needs": [
    "uprn"
@@ -662,12 +742,14 @@
   "url": "https://www.elmbridge.gov.uk"
  },
  "EnvironmentFirst": {
+  "lad": "",
   "name": "Environment First",
   "needs": [],
   "note": "For properties with collections managed by Environment First, such as Lewes and Eastbourne. Replace the XXXXXXXXXX with the UPRN of your property\u00ef\u00bf\u00bdyou can use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find this.",
   "url": "https://environmentfirst.co.uk/house.php?uprn=100060055444"
  },
  "ErewashBoroughCouncil": {
+  "lad": "E07000036",
   "name": "Erewash",
   "needs": [
    "uprn"
@@ -676,6 +758,7 @@
   "url": "https://www.erewash.gov.uk"
  },
  "ExeterCityCouncil": {
+  "lad": "E07000041",
   "name": "Exeter",
   "needs": [
    "uprn"
@@ -684,6 +767,7 @@
   "url": "https://www.exeter.gov.uk"
  },
  "FalkirkCouncil": {
+  "lad": "S12000014",
   "name": "Falkirk",
   "needs": [
    "uprn"
@@ -692,6 +776,7 @@
   "url": "https://www.falkirk.gov.uk"
  },
  "FarehamBoroughCouncil": {
+  "lad": "E07000087",
   "name": "Fareham",
   "needs": [
    "uprn"
@@ -700,6 +785,7 @@
   "url": "https://www.fareham.gov.uk/bincalendar/intro.aspx"
  },
  "FenlandDistrictCouncil": {
+  "lad": "E07000010",
   "name": "Fenland",
   "needs": [
    "postcode",
@@ -709,6 +795,7 @@
   "url": "https://www.fenland.gov.uk/article/13114/"
  },
  "FermanaghOmaghDistrictCouncil": {
+  "lad": "N09000006",
   "name": "Fermanagh and Omagh",
   "needs": [
    "postcode",
@@ -718,6 +805,7 @@
   "url": "https://www.fermanaghomagh.com/services/environment-and-waste/waste-collection-calendar/"
  },
  "FlintshireCountyCouncil": {
+  "lad": "W06000005",
   "name": "Flintshire",
   "needs": [
    "uprn"
@@ -726,6 +814,7 @@
   "url": "https://digital.flintshire.gov.uk"
  },
  "FolkestoneandHytheDistrictCouncil": {
+  "lad": "E07000112",
   "name": "Folkestone and Hythe",
   "needs": [
    "uprn"
@@ -734,6 +823,7 @@
   "url": "https://www.folkestone-hythe.gov.uk"
  },
  "FyldeCouncil": {
+  "lad": "E07000119",
   "name": "Fylde",
   "needs": [
    "uprn"
@@ -742,6 +832,7 @@
   "url": "https://www.fylde.gov.uk"
  },
  "GatesheadCouncil": {
+  "lad": "E08000037",
   "name": "Gateshead",
   "needs": [
    "postcode",
@@ -751,6 +842,7 @@
   "url": "https://www.gateshead.gov.uk/article/3150/Bin-collection-day-checker"
  },
  "GedlingBoroughCouncil": {
+  "lad": "E07000173",
   "name": "Gedling",
   "needs": [
    "house_number"
@@ -759,6 +851,7 @@
   "url": "https://www.gedling.gov.uk/"
  },
  "GlasgowCityCouncil": {
+  "lad": "S12000049",
   "name": "Glasgow City",
   "needs": [
    "uprn"
@@ -767,12 +860,14 @@
   "url": "https://onlineservices.glasgow.gov.uk/forms/refuseandrecyclingcalendar/AddressSearch.aspx"
  },
  "GooglePublicCalendarCouncil": {
+  "lad": "",
   "name": "Google Calendar (Public)",
   "needs": [],
   "note": "The URL should be the public ics file URL for the public Google calendar. See https://support.google.com/calendar/answer/37083?sjid=7202815583021446882-EU. Councils that currently need this are Trafford.",
   "url": "https://calendar.google.com/calendar/ical/0d775884b4db6a7bae5204f06dae113c1a36e505b25991ebc27c6bd42edf5b5e%40group.calendar.google.com/public/basic.ics"
  },
  "GosportBoroughCouncil": {
+  "lad": "E07000082",
   "name": "Gosport Borough Council",
   "needs": [
    "postcode"
@@ -781,6 +876,7 @@
   "url": "https://www.gosport.gov.uk/refuserecyclingdays"
  },
  "GraveshamBoroughCouncil": {
+  "lad": "E07000109",
   "name": "Gravesham",
   "needs": [
    "postcode",
@@ -790,6 +886,7 @@
   "url": "https://my.gravesham.gov.uk"
  },
  "GwyneddCouncil": {
+  "lad": "W06000002",
   "name": "Gwynedd",
   "needs": [
    "uprn"
@@ -798,6 +895,7 @@
   "url": "https://diogel.gwynedd.llyw.cymru"
  },
  "HackneyCouncil": {
+  "lad": "E09000012",
   "name": "Hackney",
   "needs": [
    "postcode",
@@ -807,6 +905,7 @@
   "url": "https://www.hackney.gov.uk"
  },
  "HarboroughDistrictCouncil": {
+  "lad": "E07000131",
   "name": "Harborough",
   "needs": [
    "uprn"
@@ -815,6 +914,7 @@
   "url": "https://www.harborough.gov.uk"
  },
  "HaringeyCouncil": {
+  "lad": "E09000014",
   "name": "Haringey",
   "needs": [
    "postcode",
@@ -824,6 +924,7 @@
   "url": "https://wastecollections.haringey.gov.uk/property"
  },
  "HarlowCouncil": {
+  "lad": "E07000073",
   "name": "Harlow",
   "needs": [
    "uprn"
@@ -832,6 +933,7 @@
   "url": "https://harlow.gov.uk"
  },
  "HarrogateBoroughCouncil": {
+  "lad": "E07000165",
   "name": "Harrogate",
   "needs": [
    "uprn"
@@ -840,6 +942,7 @@
   "url": "https://secure.harrogate.gov.uk/inmyarea"
  },
  "HartDistrictCouncil": {
+  "lad": "E07000089",
   "name": "Hart",
   "needs": [
    "uprn"
@@ -848,6 +951,7 @@
   "url": "https://www.hart.gov.uk/"
  },
  "HartlepoolBoroughCouncil": {
+  "lad": "E06000001",
   "name": "Hartlepool",
   "needs": [
    "uprn"
@@ -856,6 +960,7 @@
   "url": "https://www.hartlepool.gov.uk"
  },
  "HastingsBoroughCouncil": {
+  "lad": "E07000062",
   "name": "Hastings",
   "needs": [
    "uprn"
@@ -864,6 +969,7 @@
   "url": "https://www.hastings.gov.uk"
  },
  "HerefordshireCouncil": {
+  "lad": "E06000019",
   "name": "Herefordshire",
   "needs": [
    "uprn"
@@ -872,6 +978,7 @@
   "url": "https://www.herefordshire.gov.uk/rubbish-recycling/check-bin-collection-day"
  },
  "HighlandCouncil": {
+  "lad": "S12000017",
   "name": "Highland",
   "needs": [
    "uprn"
@@ -880,6 +987,7 @@
   "url": "https://www.highland.gov.uk"
  },
  "HinckleyandBosworthBoroughCouncil": {
+  "lad": "E07000132",
   "name": "Hinckley and Bosworth",
   "needs": [
    "postcode",
@@ -889,6 +997,7 @@
   "url": "https://www.hinckley-bosworth.gov.uk"
  },
  "HorshamDistrictCouncil": {
+  "lad": "E07000227",
   "name": "Horsham",
   "needs": [
    "postcode",
@@ -899,6 +1008,7 @@
   "url": "https://satellite.horsham.gov.uk"
  },
  "HullCityCouncil": {
+  "lad": "E06000010",
   "name": "Kingston upon Hull",
   "needs": [
    "uprn"
@@ -907,6 +1017,7 @@
   "url": "https://www.hull.gov.uk/bins-and-recycling/bin-collections/bin-collection-day-checker"
  },
  "HuntingdonDistrictCouncil": {
+  "lad": "E07000011",
   "name": "Huntingdonshire",
   "needs": [
    "uprn"
@@ -915,6 +1026,7 @@
   "url": "http://www.huntingdonshire.gov.uk/refuse-calendar/"
  },
  "InverclydeCouncil": {
+  "lad": "",
   "name": "Inverclyde",
   "needs": [
    "postcode",
@@ -924,6 +1036,7 @@
   "url": "https://www.inverclyde.gov.uk"
  },
  "IpswichBoroughCouncil": {
+  "lad": "E07000202",
   "name": "Ipswich",
   "needs": [
    "house_number"
@@ -932,6 +1045,7 @@
   "url": "https://app.ipswich.gov.uk/bin-collection/"
  },
  "IsleOfAngleseyCouncil": {
+  "lad": "W06000001",
   "name": "Isle of Anglesey",
   "needs": [
    "uprn"
@@ -940,6 +1054,7 @@
   "url": "https://www.anglesey.gov.wales/en/Residents/Bins-and-recycling/Waste-Collection-Day.aspx"
  },
  "IslingtonCouncil": {
+  "lad": "E09000019",
   "name": "Islington",
   "needs": [
    "postcode",
@@ -949,6 +1064,7 @@
   "url": "https://www.islington.gov.uk/your-area"
  },
  "KingsLynnandWestNorfolkBC": {
+  "lad": "E07000146",
   "name": "Kings Lynn and West Norfolk",
   "needs": [
    "uprn"
@@ -957,6 +1073,7 @@
   "url": "https://www.west-norfolk.gov.uk/"
  },
  "KirkleesCouncil": {
+  "lad": "E08000034",
   "name": "Kirklees",
   "needs": [
    "uprn"
@@ -965,6 +1082,7 @@
   "url": "https://www.kirklees.gov.uk/beta/your-property-bins-recycling/your-bins"
  },
  "LancasterCityCouncil": {
+  "lad": "E07000121",
   "name": "Lancaster",
   "needs": [
    "postcode",
@@ -974,6 +1092,7 @@
   "url": "https://lcc-wrp.whitespacews.com"
  },
  "LeedsCityCouncil": {
+  "lad": "E08000035",
   "name": "Leeds",
   "needs": [
    "uprn"
@@ -982,6 +1101,7 @@
   "url": "https://www.leeds.gov.uk/residents/bins-and-recycling/check-your-bin-day"
  },
  "LeicesterCityCouncil": {
+  "lad": "E06000016",
   "name": "Leicester",
   "needs": [
    "uprn"
@@ -990,6 +1110,7 @@
   "url": "https://biffaleicester.co.uk"
  },
  "LewesDistrictCouncil": {
+  "lad": "E07000063",
   "name": "Lewes",
   "needs": [
    "uprn"
@@ -998,6 +1119,7 @@
   "url": "https://www.lewes-eastbourne.gov.uk/article/1158/When-is-my-bin-collection-day"
  },
  "LichfieldDistrictCouncil": {
+  "lad": "E07000194",
   "name": "Lichfield",
   "needs": [
    "uprn"
@@ -1006,6 +1128,7 @@
   "url": "https://www.lichfielddc.gov.uk"
  },
  "LincolnCouncil": {
+  "lad": "E07000138",
   "name": "City of Lincoln",
   "needs": [
    "postcode",
@@ -1016,6 +1139,7 @@
   "url": "https://lincoln.gov.uk"
  },
  "LisburnCastlereaghCityCouncil": {
+  "lad": "N09000007",
   "name": "Lisburn and Castlereagh",
   "needs": [
    "postcode",
@@ -1025,6 +1149,7 @@
   "url": "https://lisburn.isl-fusion.com"
  },
  "LiverpoolCityCouncil": {
+  "lad": "E08000012",
   "name": "Liverpool",
   "needs": [
    "uprn"
@@ -1033,6 +1158,7 @@
   "url": "https://liverpool.gov.uk/bins-and-recycling/bin-collections/"
  },
  "LondonBoroughCamdenCouncil": {
+  "lad": "E09000007",
   "name": "Camden",
   "needs": [
    "postcode",
@@ -1043,6 +1169,7 @@
   "url": "https://recyclingandrubbishcollections.camden.gov.uk"
  },
  "LondonBoroughEaling": {
+  "lad": "E09000009",
   "name": "Ealing",
   "needs": [
    "uprn"
@@ -1051,6 +1178,7 @@
   "url": "https://www.ealing.gov.uk/site/custom_scripts/WasteCollectionWS/home/FindCollection"
  },
  "LondonBoroughHammersmithandFulham": {
+  "lad": "E09000013",
   "name": "Hammersmith & Fulham",
   "needs": [
    "postcode"
@@ -1059,6 +1187,7 @@
   "url": "https://www.lbhf.gov.uk/"
  },
  "LondonBoroughHarrow": {
+  "lad": "E09000015",
   "name": "Harrow",
   "needs": [
    "uprn"
@@ -1067,6 +1196,7 @@
   "url": "https://www.harrow.gov.uk"
  },
  "LondonBoroughHavering": {
+  "lad": "E09000016",
   "name": "Havering",
   "needs": [
    "uprn"
@@ -1075,6 +1205,7 @@
   "url": "https://www.havering.gov.uk"
  },
  "LondonBoroughHounslow": {
+  "lad": "E09000018",
   "name": "Hounslow",
   "needs": [
    "uprn"
@@ -1083,6 +1214,7 @@
   "url": "https://my.hounslow.gov.uk/service/Waste_and_recycling_collections"
  },
  "LondonBoroughLambeth": {
+  "lad": "E09000022",
   "name": "Lambeth",
   "needs": [
    "uprn"
@@ -1091,6 +1223,7 @@
   "url": "https://wasteservice.lambeth.gov.uk/WhitespaceComms/GetServicesByUprn"
  },
  "LondonBoroughLewisham": {
+  "lad": "E09000023",
   "name": "Lewisham",
   "needs": [
    "uprn"
@@ -1099,6 +1232,7 @@
   "url": "https://www.lewisham.gov.uk"
  },
  "LondonBoroughOfRichmondUponThames": {
+  "lad": "E09000027",
   "name": "Richmond upon Thames",
   "needs": [
    "postcode",
@@ -1108,6 +1242,7 @@
   "url": "https://www.richmond.gov.uk/my_richmond"
  },
  "LondonBoroughSutton": {
+  "lad": "E09000029",
   "name": "Sutton",
   "needs": [
    "postcode",
@@ -1118,6 +1253,7 @@
   "url": "https://waste-services.sutton.gov.uk/waste"
  },
  "LutonBoroughCouncil": {
+  "lad": "E06000032",
   "name": "Luton",
   "needs": [
    "uprn"
@@ -1126,6 +1262,7 @@
   "url": "https://myforms.luton.gov.uk"
  },
  "MaldonDistrictCouncil": {
+  "lad": "E07000074",
   "name": "Maldon",
   "needs": [
    "uprn"
@@ -1134,6 +1271,7 @@
   "url": "https://maldon.suez.co.uk/maldon/ServiceSummary"
  },
  "MalvernHillsDC": {
+  "lad": "E07000235",
   "name": "Malvern Hills",
   "needs": [
    "uprn"
@@ -1142,6 +1280,7 @@
   "url": "https://swict.malvernhills.gov.uk/mhdcroundlookup/HandleSearchScreen"
  },
  "ManchesterCityCouncil": {
+  "lad": "E08000003",
   "name": "Manchester",
   "needs": [
    "uprn"
@@ -1150,6 +1289,7 @@
   "url": "https://www.manchester.gov.uk/bincollections"
  },
  "MansfieldDistrictCouncil": {
+  "lad": "E07000174",
   "name": "Mansfield",
   "needs": [
    "uprn"
@@ -1158,6 +1298,7 @@
   "url": "https://www.mansfield.gov.uk/xfp/form/1327"
  },
  "MedwayCouncil": {
+  "lad": "E06000035",
   "name": "Medway",
   "needs": [
    "uprn"
@@ -1166,6 +1307,7 @@
   "url": "https://www.medway.gov.uk/homepage/45/check_your_waste_collection_day"
  },
  "MeltonBoroughCouncil": {
+  "lad": "E07000133",
   "name": "Melton",
   "needs": [
    "uprn"
@@ -1174,6 +1316,7 @@
   "url": "https://my.melton.gov.uk/collections"
  },
  "MerthyrTydfilCountyBoroughCouncil": {
+  "lad": "",
   "name": "Merthyr Tydfil County Borough",
   "needs": [
    "postcode"
@@ -1182,6 +1325,7 @@
   "url": "https://www.merthyr.gov.uk"
  },
  "MertonCouncil": {
+  "lad": "E09000024",
   "name": "Merton",
   "needs": [
    "postcode",
@@ -1192,6 +1336,7 @@
   "url": "https://fixmystreet.merton.gov.uk/waste/"
  },
  "MidAndEastAntrimBoroughCouncil": {
+  "lad": "N09000008",
   "name": "Mid and East Antrim",
   "needs": [
    "postcode",
@@ -1201,6 +1346,7 @@
   "url": "https://www.midandeastantrim.gov.uk/resident/waste-recycling/collection-dates/"
  },
  "MidDevonCouncil": {
+  "lad": "E07000042",
   "name": "Mid Devon",
   "needs": [
    "uprn"
@@ -1209,6 +1355,7 @@
   "url": "https://www.middevon.gov.uk"
  },
  "MidSussexDistrictCouncil": {
+  "lad": "E07000228",
   "name": "Mid Sussex",
   "needs": [
    "postcode",
@@ -1218,6 +1365,7 @@
   "url": "https://www.midsussex.gov.uk"
  },
  "MiddlesbroughCouncil": {
+  "lad": "E06000002",
   "name": "Middlesbrough",
   "needs": [
    "house_number"
@@ -1226,6 +1374,7 @@
   "url": "https://www.middlesbrough.gov.uk/recycling-and-rubbish/bin-collection-dates/"
  },
  "MiltonKeynesCityCouncil": {
+  "lad": "E06000042",
   "name": "Milton Keynes",
   "needs": [
    "uprn"
@@ -1234,6 +1383,7 @@
   "url": "https://mycouncil.milton-keynes.gov.uk/en/service/Waste_Collection_Round_Checker"
  },
  "MoleValleyDistrictCouncil": {
+  "lad": "E07000210",
   "name": "Mole Valley",
   "needs": [
    "postcode",
@@ -1243,6 +1393,7 @@
   "url": "https://myproperty.molevalley.gov.uk/molevalley/"
  },
  "MonmouthshireCountyCouncil": {
+  "lad": "W06000021",
   "name": "Monmouthshire",
   "needs": [
    "uprn"
@@ -1251,6 +1402,7 @@
   "url": "https://maps.monmouthshire.gov.uk"
  },
  "MorayCouncil": {
+  "lad": "S12000020",
   "name": "Moray",
   "needs": [
    "postcode",
@@ -1261,6 +1413,7 @@
   "url": "https://bindayfinder.moray.gov.uk/"
  },
  "NewarkAndSherwoodDC": {
+  "lad": "E07000175",
   "name": "Newark and Sherwood",
   "needs": [
    "uprn"
@@ -1269,6 +1422,7 @@
   "url": "https://app.newark-sherwooddc.gov.uk/bincollection/"
  },
  "NewcastleCityCouncil": {
+  "lad": "E08000021",
   "name": "Newcastle upon Tyne",
   "needs": [
    "postcode",
@@ -1278,6 +1432,7 @@
   "url": "https://new.newcastle.gov.uk/recycling-waste/check-your-bin-collection-day"
  },
  "NewcastleUnderLymeCouncil": {
+  "lad": "E07000195",
   "name": "Newcastle-under-Lyme",
   "needs": [
    "uprn"
@@ -1286,6 +1441,7 @@
   "url": "https://www.newcastle-staffs.gov.uk"
  },
  "NewhamCouncil": {
+  "lad": "E09000025",
   "name": "Newham",
   "needs": [
    "uprn"
@@ -1294,6 +1450,7 @@
   "url": "https://bincollection.newham.gov.uk/"
  },
  "NewportCityCouncil": {
+  "lad": "W06000022",
   "name": "Newport",
   "needs": [
    "uprn"
@@ -1302,6 +1459,7 @@
   "url": "https://www.newport.gov.uk/"
  },
  "NorthAyrshireCouncil": {
+  "lad": "S12000021",
   "name": "North Ayrshire",
   "needs": [
    "uprn"
@@ -1310,6 +1468,7 @@
   "url": "https://www.north-ayrshire.gov.uk/"
  },
  "NorthEastLincs": {
+  "lad": "E06000012",
   "name": "North East Lincolnshire",
   "needs": [
    "uprn"
@@ -1318,6 +1477,7 @@
   "url": "https://www.nelincs.gov.uk/refuse-collection-schedule/?view=timeline&uprn=11062649"
  },
  "NorthKestevenDistrictCouncil": {
+  "lad": "E07000139",
   "name": "North Kesteven",
   "needs": [
    "uprn"
@@ -1326,12 +1486,14 @@
   "url": "https://www.n-kesteven.org.uk/bins/display"
  },
  "NorthLanarkshireCouncil": {
+  "lad": "S12000050",
   "name": "North Lanarkshire",
   "needs": [],
   "note": "Follow the instructions [here](https://www.northlanarkshire.gov.uk/bin-collection-dates) until you get the \"Next collections\" page, then copy the URL and replace the URL in the command.",
   "url": "https://www.northlanarkshire.gov.uk/bin-collection-dates/000118016164/48402118"
  },
  "NorthLincolnshireCouncil": {
+  "lad": "E06000013",
   "name": "North Lincolnshire",
   "needs": [
    "uprn"
@@ -1340,6 +1502,7 @@
   "url": "https://www.northlincs.gov.uk/bins-waste-and-recycling/bin-and-box-collection-dates/"
  },
  "NorthNorthamptonshireCouncil": {
+  "lad": "E06000061",
   "name": "North Northamptonshire",
   "needs": [
    "uprn"
@@ -1348,6 +1511,7 @@
   "url": "https://cms.northnorthants.gov.uk/bin-collection-search/calendarevents/100031021318/2023-10-17/2023-10-01"
  },
  "NorthSomersetCouncil": {
+  "lad": "E06000024",
   "name": "North Somerset",
   "needs": [
    "postcode",
@@ -1357,6 +1521,7 @@
   "url": "https://forms.n-somerset.gov.uk/Waste/CollectionSchedule"
  },
  "NorthTynesideCouncil": {
+  "lad": "E08000022",
   "name": "North Tyneside",
   "needs": [
    "uprn"
@@ -1365,6 +1530,7 @@
   "url": "https://www.northtyneside.gov.uk/waste-collection-schedule"
  },
  "NorthWestLeicestershire": {
+  "lad": "E07000134",
   "name": "North West Leicestershire",
   "needs": [
    "postcode",
@@ -1374,6 +1540,7 @@
   "url": "https://www.nwleics.gov.uk/pages/collection_information"
  },
  "NorthYorkshire": {
+  "lad": "E06000065",
   "name": "North Yorkshire",
   "needs": [
    "uprn"
@@ -1382,6 +1549,7 @@
   "url": "https://www.northyorks.gov.uk/bin-calendar/lookup"
  },
  "NorwichCityCouncil": {
+  "lad": "E07000148",
   "name": "Norwich",
   "needs": [
    "postcode",
@@ -1391,6 +1559,7 @@
   "url": "https://bnr-wrp.whitespacews.com"
  },
  "NottinghamCityCouncil": {
+  "lad": "E06000018",
   "name": "Nottingham",
   "needs": [
    "uprn"
@@ -1399,6 +1568,7 @@
   "url": "https://geoserver.nottinghamcity.gov.uk/bincollections2/api/collection/100031540180"
  },
  "NuneatonBedworthBoroughCouncil": {
+  "lad": "E07000219",
   "name": "Nuneaton and Bedworth",
   "needs": [
    "house_number"
@@ -1407,6 +1577,7 @@
   "url": "https://www.nuneatonandbedworth.gov.uk"
  },
  "OadbyAndWigstonBoroughCouncil": {
+  "lad": "E07000135",
   "name": "Oadby and Wigston",
   "needs": [
    "uprn"
@@ -1415,12 +1586,14 @@
   "url": "https://my.oadby-wigston.gov.uk"
  },
  "OldhamCouncil": {
+  "lad": "E08000004",
   "name": "Oldham",
   "needs": [],
   "note": "Replace UPRN in URL with your own UPRN.",
   "url": "https://portal.oldham.gov.uk/bincollectiondates/details?uprn=422000033556"
  },
  "OrkneyIslandsCouncil": {
+  "lad": "",
   "name": "Orkney Islands",
   "needs": [
    "house_number"
@@ -1429,6 +1602,7 @@
   "url": "https://www.orkney.gov.uk"
  },
  "OxfordCityCouncil": {
+  "lad": "E07000178",
   "name": "Oxford",
   "needs": [
    "postcode",
@@ -1438,12 +1612,14 @@
   "url": "https://www.oxford.gov.uk/xfp/form/142"
  },
  "PembrokeshireCountyCouncil": {
+  "lad": "W06000009",
   "name": "Pembrokeshire",
   "needs": [],
   "note": "Replace XXXXXXXX with your UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find it.",
   "url": "https://nearest.pembrokeshire.gov.uk/property/100100278790"
  },
  "PerthAndKinrossCouncil": {
+  "lad": "S12000048",
   "name": "Perth and Kinross",
   "needs": [
    "uprn"
@@ -1452,6 +1628,7 @@
   "url": "https://www.pkc.gov.uk"
  },
  "PlymouthCouncil": {
+  "lad": "E06000026",
   "name": "Plymouth",
   "needs": [
    "uprn"
@@ -1460,6 +1637,7 @@
   "url": "https://www.plymouth.gov.uk"
  },
  "PowysCouncil": {
+  "lad": "W06000023",
   "name": "Powys",
   "needs": [
    "postcode",
@@ -1469,12 +1647,14 @@
   "url": "https://en.powys.gov.uk/binday"
  },
  "ReadingBoroughCouncil": {
+  "lad": "E06000038",
   "name": "Reading",
   "needs": [],
   "note": "Replace XXXXXXXX with your property's UPRN.",
   "url": "https://api.reading.gov.uk/api/collections/310056735"
  },
  "RedcarandClevelandCouncil": {
+  "lad": "E06000003",
   "name": "Redcar and Cleveland",
   "needs": [
    "postcode",
@@ -1484,6 +1664,7 @@
   "url": "https://www.redcar-cleveland.gov.uk"
  },
  "RedditchBoroughCouncil": {
+  "lad": "E07000236",
   "name": "Redditch",
   "needs": [
    "uprn"
@@ -1492,6 +1673,7 @@
   "url": "https://redditchbc.gov.uk"
  },
  "RenfrewshireCouncil": {
+  "lad": "S12000038",
   "name": "Renfrewshire",
   "needs": [
    "uprn"
@@ -1500,6 +1682,7 @@
   "url": "https://www.renfrewshire.gov.uk"
  },
  "RhonddaCynonTaffCouncil": {
+  "lad": "W06000016",
   "name": "Rhondda Cynon Taff",
   "needs": [
    "uprn"
@@ -1508,6 +1691,7 @@
   "url": "https://www.rctcbc.gov.uk/EN/Resident/RecyclingandWaste/RecyclingandWasteCollectionDays.aspx"
  },
  "RochdaleCouncil": {
+  "lad": "E08000005",
   "name": "Rochdale",
   "needs": [
    "postcode",
@@ -1517,12 +1701,14 @@
   "url": "https://webforms.rochdale.gov.uk/BinCalendar"
  },
  "RochfordCouncil": {
+  "lad": "E07000075",
   "name": "Rochford",
   "needs": [],
   "note": "No extra parameters are required. Dates presented should be read as 'week commencing'.",
   "url": "https://www.rochford.gov.uk/online-bin-collections-calendar"
  },
  "RotherDistrictCouncil": {
+  "lad": "E07000064",
   "name": "Rother",
   "needs": [
    "uprn"
@@ -1531,6 +1717,7 @@
   "url": "https://www.rother.gov.uk"
  },
  "RotherhamCouncil": {
+  "lad": "E08000018",
   "name": "Rotherham",
   "needs": [
    "postcode",
@@ -1540,6 +1727,7 @@
   "url": "https://www.rotherham.gov.uk/"
  },
  "RoyalBoroughofGreenwich": {
+  "lad": "E09000011",
   "name": "Greenwich",
   "needs": [
    "postcode",
@@ -1549,6 +1737,7 @@
   "url": "https://www.royalgreenwich.gov.uk"
  },
  "RunnymedeBoroughCouncil": {
+  "lad": "E07000212",
   "name": "Runnymede",
   "needs": [
    "uprn"
@@ -1557,6 +1746,7 @@
   "url": "https://www.runnymede.gov.uk/"
  },
  "RushmoorCouncil": {
+  "lad": "E07000092",
   "name": "Rushmoor",
   "needs": [
    "uprn"
@@ -1565,6 +1755,7 @@
   "url": "https://www.rushmoor.gov.uk"
  },
  "SalfordCityCouncil": {
+  "lad": "E08000006",
   "name": "Salford",
   "needs": [
    "uprn"
@@ -1573,6 +1764,7 @@
   "url": "https://www.salford.gov.uk/bins-and-recycling/bin-collection-days/your-bin-collections"
  },
  "SandwellBoroughCouncil": {
+  "lad": "E08000028",
   "name": "Sandwell",
   "needs": [
    "uprn"
@@ -1581,6 +1773,7 @@
   "url": "https://www.sandwell.gov.uk"
  },
  "ScottishBordersCouncil": {
+  "lad": "",
   "name": "Scottish Borders",
   "needs": [
    "postcode",
@@ -1591,6 +1784,7 @@
   "url": "https://www.scotborders.gov.uk"
  },
  "SeftonCouncil": {
+  "lad": "E08000014",
   "name": "Sefton",
   "needs": [
    "postcode",
@@ -1600,6 +1794,7 @@
   "url": "https://www.sefton.gov.uk"
  },
  "SheffieldCityCouncil": {
+  "lad": "E08000019",
   "name": "Sheffield",
   "needs": [
    "postcode",
@@ -1610,6 +1805,7 @@
   "url": "https://wasteservices.sheffield.gov.uk"
  },
  "ShetlandIslandsCouncil": {
+  "lad": "",
   "name": "Shetland Islands",
   "needs": [
    "postcode"
@@ -1618,12 +1814,14 @@
   "url": "https://www.shetland.gov.uk"
  },
  "ShropshireCouncil": {
+  "lad": "E06000051",
   "name": "Shropshire",
   "needs": [],
   "note": "Follow the instructions [here](https://bins.shropshire.gov.uk/) until you get the page showing your bin collection dates, then copy the URL and replace the URL in the command.",
   "url": "https://bins.shropshire.gov.uk/property/100070034731"
  },
  "SloughBoroughCouncil": {
+  "lad": "E06000039",
   "name": "Slough",
   "needs": [
    "postcode",
@@ -1633,12 +1831,14 @@
   "url": "https://waste.slough.gov.uk/PublicDashboard"
  },
  "SolihullCouncil": {
+  "lad": "E08000029",
   "name": "Solihull",
   "needs": [],
   "note": "Replace `XXXXXXXX` with your UPRN. You will need to use [FindMyAddress](https://www.findmyaddress.co.uk/search) to find the UPRN.",
   "url": "https://digital.solihull.gov.uk/BinCollectionCalendar/Calendar.aspx?UPRN=100071005444"
  },
  "SouthAyrshireCouncil": {
+  "lad": "S12000028",
   "name": "South Ayrshire",
   "needs": [
    "postcode",
@@ -1648,6 +1848,7 @@
   "url": "https://www.south-ayrshire.gov.uk/"
  },
  "SouthCambridgeshireCouncil": {
+  "lad": "E07000012",
   "name": "South Cambridgeshire",
   "needs": [
    "postcode",
@@ -1657,6 +1858,7 @@
   "url": "https://www.scambs.gov.uk/recycling-and-bins/find-your-household-bin-collection-day/"
  },
  "SouthDerbyshireDistrictCouncil": {
+  "lad": "E07000039",
   "name": "South Derbyshire",
   "needs": [
    "postcode",
@@ -1667,6 +1869,7 @@
   "url": "https://maps.southderbyshire.gov.uk/iShareLIVE.web//getdata.aspx"
  },
  "SouthGloucestershireCouncil": {
+  "lad": "E06000025",
   "name": "South Gloucestershire",
   "needs": [
    "uprn"
@@ -1675,6 +1878,7 @@
   "url": "https://api.southglos.gov.uk/wastecomp/GetCollectionDetails"
  },
  "SouthHamsDistrictCouncil": {
+  "lad": "E07000044",
   "name": "South Hams",
   "needs": [
    "uprn"
@@ -1683,12 +1887,14 @@
   "url": "https://www.southhams.gov.uk"
  },
  "SouthLanarkshireCouncil": {
+  "lad": "S12000029",
   "name": "South Lanarkshire",
   "needs": [],
   "note": "Follow the instructions [here](https://www.southlanarkshire.gov.uk/info/200156/bins_and_recycling/1670/bin_collections_and_calendar) until you get the page that shows the weekly collections for your street, then copy the URL and replace the URL in the command.",
   "url": "https://www.southlanarkshire.gov.uk/directory_record/579973/abbeyhill_crescent_lesmahagow"
  },
  "SouthNorfolkCouncil": {
+  "lad": "E07000149",
   "name": "South Norfolk",
   "needs": [
    "uprn"
@@ -1697,6 +1903,7 @@
   "url": "https://area.southnorfolkandbroadland.gov.uk/FindAddress"
  },
  "SouthOxfordshireCouncil": {
+  "lad": "E07000179",
   "name": "South Oxfordshire",
   "needs": [
    "uprn"
@@ -1705,6 +1912,7 @@
   "url": "https://www.southoxon.gov.uk/south-oxfordshire-district-council/recycling-rubbish-and-waste/when-is-your-collection-day/"
  },
  "SouthRibbleCouncil": {
+  "lad": "E07000126",
   "name": "South Ribble",
   "needs": [
    "postcode",
@@ -1714,6 +1922,7 @@
   "url": "https://forms.chorleysouthribble.gov.uk/xfp/form/70"
  },
  "SouthStaffordshireDistrictCouncil": {
+  "lad": "E07000196",
   "name": "South Staffordshire",
   "needs": [
    "uprn"
@@ -1722,6 +1931,7 @@
   "url": "https://www.sstaffs.gov.uk/where-i-live?objectId=100031802117"
  },
  "SouthTynesideCouncil": {
+  "lad": "E08000023",
   "name": "South Tyneside",
   "needs": [
    "postcode",
@@ -1731,6 +1941,7 @@
   "url": "https://www.southtyneside.gov.uk/article/33352/Bin-collection-dates"
  },
  "SouthamptonCityCouncil": {
+  "lad": "E06000045",
   "name": "Southampton",
   "needs": [
    "uprn"
@@ -1739,6 +1950,7 @@
   "url": "https://www.southampton.gov.uk"
  },
  "SouthendOnSeaCityCouncil": {
+  "lad": "",
   "name": "Southend-on-Sea City",
   "needs": [
    "uprn"
@@ -1747,6 +1959,7 @@
   "url": "https://www.southend.gov.uk"
  },
  "SouthwarkCouncil": {
+  "lad": "E09000028",
   "name": "Southwark",
   "needs": [
    "uprn"
@@ -1755,6 +1968,7 @@
   "url": "https://services.southwark.gov.uk/bins/lookup/"
  },
  "SpelthorneBoroughCouncil": {
+  "lad": "E07000213",
   "name": "Spelthorne",
   "needs": [
    "postcode",
@@ -1764,6 +1978,7 @@
   "url": "https://www.spelthorne.gov.uk"
  },
  "StAlbansCityAndDistrictCouncil": {
+  "lad": "E07000240",
   "name": "St Albans",
   "needs": [
    "uprn"
@@ -1772,6 +1987,7 @@
   "url": "https://gis.stalbans.gov.uk/NoticeBoard9/VeoliaProxy.NoticeBoard.asmx/GetServicesByUprnAndNoticeBoard"
  },
  "StaffordBoroughCouncil": {
+  "lad": "E07000197",
   "name": "Stafford",
   "needs": [
    "uprn"
@@ -1780,6 +1996,7 @@
   "url": "https://www.staffordbc.gov.uk/address/100032203010"
  },
  "StevenageBoroughCouncil": {
+  "lad": "E07000243",
   "name": "Stevenage",
   "needs": [
    "uprn"
@@ -1788,18 +2005,21 @@
   "url": "https://www.stevenage.gov.uk"
  },
  "StockportBoroughCouncil": {
+  "lad": "E08000007",
   "name": "Stockport",
   "needs": [],
   "note": "Replace `XXXXXXXX` with your UPRN.",
   "url": "https://myaccount.stockport.gov.uk/bin-collections/show/100011434401"
  },
  "StokeOnTrentCityCouncil": {
+  "lad": "E06000021",
   "name": "Stoke-on-Trent",
   "needs": [],
   "note": "Replace `XXXXXXXXXX` with your property's UPRN.",
   "url": "https://www.stoke.gov.uk/jadu/custom/webserviceLookUps/BarTecWebServices_missed_bin_calendar.php?UPRN=3455121482"
  },
  "StratfordUponAvonCouncil": {
+  "lad": "E07000221",
   "name": "Stratford-on-Avon",
   "needs": [
    "uprn"
@@ -1808,6 +2028,7 @@
   "url": "https://www.stratford.gov.uk/waste-recycling/when-we-collect.cfm/part/calendar"
  },
  "StroudDistrictCouncil": {
+  "lad": "E07000082",
   "name": "Stroud",
   "needs": [
    "postcode",
@@ -1817,6 +2038,7 @@
   "url": "https://www.stroud.gov.uk/my-house?uprn=100120512183&postcode=GL10+3BH"
  },
  "SunderlandCityCouncil": {
+  "lad": "E08000024",
   "name": "Sunderland",
   "needs": [
    "postcode",
@@ -1826,6 +2048,7 @@
   "url": "https://www.sunderland.gov.uk/article/12142/Find-your-bin-collection-day"
  },
  "SurreyHeathBoroughCouncil": {
+  "lad": "E07000214",
   "name": "Surrey Heath",
   "needs": [
    "postcode",
@@ -1835,6 +2058,7 @@
   "url": "https://asjwsw-wrpsurreyheathmunicipal-live.whitespacews.com/"
  },
  "SwanseaCouncil": {
+  "lad": "W06000011",
   "name": "Swansea",
   "needs": [
    "postcode",
@@ -1844,6 +2068,7 @@
   "url": "https://www1.swansea.gov.uk/recyclingsearch/"
  },
  "SwindonBoroughCouncil": {
+  "lad": "E06000030",
   "name": "Swindon",
   "needs": [
    "uprn"
@@ -1852,6 +2077,7 @@
   "url": "https://www.swindon.gov.uk"
  },
  "TamesideMBCouncil": {
+  "lad": "E08000008",
   "name": "Tameside",
   "needs": [
    "uprn"
@@ -1860,6 +2086,7 @@
   "url": "http://lite.tameside.gov.uk/BinCollections/CollectionService.svc/GetBinCollection"
  },
  "TamworthBoroughCouncil": {
+  "lad": "",
   "name": "Tamworth Borough",
   "needs": [
    "postcode",
@@ -1869,6 +2096,7 @@
   "url": "https://www.tamworth.gov.uk"
  },
  "TandridgeDistrictCouncil": {
+  "lad": "E07000215",
   "name": "Tandridge",
   "needs": [
    "uprn"
@@ -1877,6 +2105,7 @@
   "url": "https://tdcws01.tandridge.gov.uk/TDCWebAppsPublic/tfaBranded/408?utm_source=pressrelease&utm_medium=smposts&utm_campaign=check_my_bin_day"
  },
  "TelfordAndWrekinCouncil": {
+  "lad": "E06000020",
   "name": "Telford and Wrekin",
   "needs": [
    "uprn"
@@ -1885,6 +2114,7 @@
   "url": "https://dac.telford.gov.uk/bindayfinder/"
  },
  "TewkesburyBoroughCouncil": {
+  "lad": "E07000083",
   "name": "Tewkesbury",
   "needs": [
    "uprn"
@@ -1893,6 +2123,7 @@
   "url": "https://tewkesbury.gov.uk/services/waste-and-recycling/"
  },
  "ThurrockCouncil": {
+  "lad": "E06000034",
   "name": "Thurrock",
   "needs": [
    "postcode",
@@ -1902,6 +2133,7 @@
   "url": "https://www.thurrock.gov.uk"
  },
  "TonbridgeAndMallingBC": {
+  "lad": "E07000115",
   "name": "Tonbridge and Malling",
   "needs": [
    "postcode",
@@ -1911,6 +2143,7 @@
   "url": "https://www.tmbc.gov.uk/"
  },
  "TorridgeDistrictCouncil": {
+  "lad": "E07000046",
   "name": "Torridge",
   "needs": [
    "uprn"
@@ -1919,6 +2152,7 @@
   "url": "https://torridgedc-self.achieveservice.com"
  },
  "TunbridgeWellsCouncil": {
+  "lad": "E07000116",
   "name": "Tunbridge Wells",
   "needs": [
    "uprn"
@@ -1927,6 +2161,7 @@
   "url": "https://tunbridgewells.gov.uk"
  },
  "ValeofGlamorganCouncil": {
+  "lad": "W06000014",
   "name": "The Vale of Glamorgan",
   "needs": [
    "postcode",
@@ -1937,6 +2172,7 @@
   "url": "https://www.valeofglamorgan.gov.uk/en/living/Recycling-and-Waste/"
  },
  "ValeofWhiteHorseCouncil": {
+  "lad": "E07000180",
   "name": "Vale of White Horse",
   "needs": [
    "uprn"
@@ -1945,6 +2181,7 @@
   "url": "https://eform.whitehorsedc.gov.uk/ebase/BINZONE_DESKTOP.eb"
  },
  "WalsallCouncil": {
+  "lad": "E08000030",
   "name": "Walsall",
   "needs": [
    "uprn"
@@ -1953,6 +2190,7 @@
   "url": "https://cag.walsall.gov.uk/"
  },
  "WandsworthCouncil": {
+  "lad": "E09000032",
   "name": "Wandsworth",
   "needs": [
    "uprn"
@@ -1961,6 +2199,7 @@
   "url": "https://www.wandsworth.gov.uk"
  },
  "WarringtonBoroughCouncil": {
+  "lad": "E06000007",
   "name": "Warrington",
   "needs": [
    "uprn"
@@ -1969,12 +2208,14 @@
   "url": "https://www.warrington.gov.uk"
  },
  "WarwickDistrictCouncil": {
+  "lad": "E07000222",
   "name": "Warwick",
   "needs": [],
   "note": "Replace `XXXXXXXX` with your UPRN.",
   "url": "https://estates7.warwickdc.gov.uk/PropertyPortal/Property/Recycling/100070263793"
  },
  "WatfordBoroughCouncil": {
+  "lad": "E07000103",
   "name": "Watford",
   "needs": [
    "uprn"
@@ -1983,6 +2224,7 @@
   "url": "https://www.watford.gov.uk"
  },
  "WaverleyBoroughCouncil": {
+  "lad": "E07000216",
   "name": "Waverley",
   "needs": [
    "postcode",
@@ -1992,6 +2234,7 @@
   "url": "https://wav-wrp.whitespacews.com/"
  },
  "WealdenDistrictCouncil": {
+  "lad": "E07000065",
   "name": "Wealden",
   "needs": [
    "uprn"
@@ -2000,6 +2243,7 @@
   "url": "https://www.wealden.gov.uk/recycling-and-waste/bin-search/"
  },
  "WelhatCouncil": {
+  "lad": "E07000241",
   "name": "Welwyn Hatfield",
   "needs": [
    "postcode",
@@ -2009,6 +2253,7 @@
   "url": "https://www.welhat.gov.uk/xfp/form/214"
  },
  "WestDunbartonshireCouncil": {
+  "lad": "S12000039",
   "name": "West Dunbartonshire",
   "needs": [
    "uprn"
@@ -2017,6 +2262,7 @@
   "url": "https://www.west-dunbarton.gov.uk/"
  },
  "WestLancashireBoroughCouncil": {
+  "lad": "E07000127",
   "name": "West Lancashire",
   "needs": [
    "postcode",
@@ -2026,6 +2272,7 @@
   "url": "https://www.westlancs.gov.uk"
  },
  "WestLindseyDistrictCouncil": {
+  "lad": "E07000142",
   "name": "West Lindsey",
   "needs": [
    "postcode",
@@ -2035,6 +2282,7 @@
   "url": "https://www.west-lindsey.gov.uk/"
  },
  "WestMorlandAndFurness": {
+  "lad": "E06000064",
   "name": "Westmorland and Furness",
   "needs": [
    "postcode",
@@ -2045,6 +2293,7 @@
   "url": "https://www.westmorlandandfurness.gov.uk/"
  },
  "WestNorthamptonshireCouncil": {
+  "lad": "E06000062",
   "name": "West Northamptonshire",
   "needs": [
    "uprn"
@@ -2053,6 +2302,7 @@
   "url": "https://www.westnorthants.gov.uk"
  },
  "WestSuffolkCouncil": {
+  "lad": "E07000245",
   "name": "West Suffolk",
   "needs": [
    "postcode",
@@ -2062,6 +2312,7 @@
   "url": "https://maps.westsuffolk.gov.uk/MyWestSuffolk.aspx"
  },
  "WestminsterCityCouncil": {
+  "lad": "",
   "name": "Westminster City",
   "needs": [
    "uprn"
@@ -2070,6 +2321,7 @@
   "url": "https://transact.westminster.gov.uk/env/streetsearch.aspx"
  },
  "WiganBoroughCouncil": {
+  "lad": "E08000010",
   "name": "Wigan",
   "needs": [
    "postcode",
@@ -2079,6 +2331,7 @@
   "url": "https://apps.wigan.gov.uk/MyNeighbourhood/"
  },
  "WiltshireCouncil": {
+  "lad": "E06000054",
   "name": "Wiltshire",
   "needs": [
    "postcode",
@@ -2088,6 +2341,7 @@
   "url": "https://ilambassadorformsprod.azurewebsites.net/wastecollectiondays/index"
  },
  "WokingBoroughCouncil": {
+  "lad": "E07000217",
   "name": "Woking",
   "needs": [
    "postcode",
@@ -2097,6 +2351,7 @@
   "url": "https://asjwsw-wrpwokingmunicipal-live.whitespacews.com/"
  },
  "WolverhamptonCityCouncil": {
+  "lad": "E08000031",
   "name": "Wolverhampton",
   "needs": [
    "postcode",
@@ -2107,6 +2362,7 @@
   "url": "https://www.wolverhampton.gov.uk"
  },
  "WorcesterCityCouncil": {
+  "lad": "E07000237",
   "name": "Worcester",
   "needs": [
    "uprn"
@@ -2115,6 +2371,7 @@
   "url": "https://www.Worcester.gov.uk"
  },
  "WyreCouncil": {
+  "lad": "E07000128",
   "name": "Wyre",
   "needs": [
    "uprn"
@@ -2123,6 +2380,7 @@
   "url": "https://www.wyre.gov.uk/bins-rubbish-recycling"
  },
  "WyreForestDistrictCouncil": {
+  "lad": "E07000239",
   "name": "Wyre Forest",
   "needs": [
    "postcode",
@@ -2132,6 +2390,7 @@
   "url": "http://www.wyreforest.gov.uk/querybin.asp"
  },
  "YorkCouncil": {
+  "lad": "E06000014",
   "name": "York",
   "needs": [
    "uprn"

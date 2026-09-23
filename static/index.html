@@ -128,6 +128,17 @@
   .ask button { align-self: end; }
   @media (max-width: 620px) { .ask { grid-template-columns: 1fr; } }
   .note { color: var(--grey); font-size: .92rem; margin: 14px 0 0; }
+  .detected { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+  .chip {
+    background: var(--lime); border: 1px solid var(--lime-d); color: var(--ink);
+    padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: .95rem;
+  }
+  .linky {
+    background: none; border: 0; padding: 0; width: auto; color: var(--blue);
+    font-weight: 700; font-size: .92rem; cursor: pointer; text-decoration: underline;
+  }
+  .linky:hover { background: none; }
+  .field.hidden, .detected.hidden { display: none; }
 
   .msg { padding: 13px 15px; border-radius: 12px; font-size: .94rem; margin-top: 16px; }
   .msg.err  { background: #FDECEA; color: #8A1C11; border: 1px solid #F3C7C1; }
@@ -233,14 +244,25 @@
 </div>
 
 <div class="card" id="find">
-  <div class="ask">
-    <div class="full">
-      <label for="council">Your council</label>
-      <select id="council"><option value="">Choose your council…</option></select>
-    </div>
-    <div id="fields" class="full"></div>
-    <div class="full"><button id="go" disabled>Find my bin day →</button></div>
+  <div class="field">
+    <label for="f-postcode">Your postcode</label>
+    <p class="hint">e.g. SW1A 1AA - we'll work out your council.</p>
+    <input id="f-postcode" type="text" inputmode="text" autocomplete="postal-code"
+           autocapitalize="characters" placeholder="Enter your postcode" />
   </div>
+
+  <div id="detected" class="detected hidden">
+    <span class="chip" id="chip"></span>
+    <button class="linky" id="not-mine">Not your council?</button>
+  </div>
+
+  <div id="manual" class="field hidden">
+    <label for="council">Choose your council</label>
+    <select id="council"><option value="">Choose your council…</option></select>
+  </div>
+
+  <div id="fields"></div>
+  <button id="go">Find my bin day →</button>
   <p class="note">No account. No faff.</p>
   <div id="msg"></div>
 </div>
@@ -287,7 +309,7 @@
   <div class="steps">
     <div class="step">
       <div class="n">1</div>
-      <p>Tell us your council and postcode. We ask your council the same
+      <p>Give us your postcode. We work out your council and ask it the same
          question you would.</p>
     </div>
     <div class="step">
@@ -411,69 +433,17 @@ async function api(path) {
   return body;
 }
 
-async function loadCouncils() {
-  const data = await api("/api/councils");
-  councils = data.councils;
-  const sel = $("council");
-  sel.innerHTML = '<option value="">Choose your council…</option>';
-  const mk = (label, list) => {
-    const g = document.createElement("optgroup");
-    g.label = `${label} (${list.length})`;
-    list.forEach(c => g.append(new Option(c.name, c.key)));
-    return g;
-  };
-  sel.append(
-    mk("Postcode is enough", councils.filter(c => c.ready)),
-    mk("Needs your UPRN",    councils.filter(c => !c.ready && c.supported)),
-    mk("Not supported yet",  councils.filter(c => !c.supported)));
-}
-
-function renderFields() {
-  const c = councils.find(x => x.key === $("council").value);
-  const box = $("fields");
-  box.innerHTML = "";
-  $("go").disabled = !c;
-  $("result").classList.add("hidden");
-  $("sorted").classList.add("hidden");
-  show("", "");
-  if (!c) return;
-
-  if (!c.supported) {
-    $("go").disabled = true;
-    box.innerHTML = `<p class="hint">We can't do ${c.name} yet. Its bin lookup is
-      keyed on a property id we can't work out from a postcode, so it needs a
-      bit of plumbing writing first.</p>`;
-    return;
-  }
-
-  // With a picker we only need a postcode; the address list supplies the rest.
-  (c.picker ? ["postcode"] : c.needs).forEach(key => {
-    const meta = LABELS[key] || { label: key, hint: "" };
-    const div = document.createElement("div");
-    div.innerHTML = `<label for="f-${key}">${meta.label}</label>` +
-      (meta.hint ? `<p class="hint">${meta.hint}</p>` : "") +
-      `<input id="f-${key}" type="text" autocomplete="off" />`;
-    box.append(div);
-  });
-
-  if (c.needs.includes("uprn") && !c.picker) {
-    box.insertAdjacentHTML("beforeend",
-      `<p class="hint" style="margin-top:10px">This one needs a UPRN and hasn't got
-       an address picker yet. Yours is at
-       <a href="https://www.findmyaddress.co.uk/" target="_blank" rel="noopener">findmyaddress.co.uk</a>.</p>`);
-  }
-}
-
 function chooseAddress(found) {
   return new Promise(resolve => {
     const box = document.createElement("div");
+    box.className = "field";
+    box.style.marginTop = "16px";
     box.innerHTML = `<label for="addr-pick">Your address</label>`;
     const sel = document.createElement("select");
     sel.id = "addr-pick";
     found.forEach((a, i) => sel.append(new Option(a.address, i)));
     const ok = document.createElement("button");
     ok.textContent = "That's the one →";
-    ok.style.marginTop = "14px";
     box.append(sel, ok);
     $("fields").append(box);
     sel.focus();
@@ -548,52 +518,177 @@ function showSorted() {
   $("sorted").scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-$("council").addEventListener("change", renderFields);
+let chosen = null;          // the council we're going to ask
+let manualLoaded = false;
+
+async function loadCouncils() {
+  if (manualLoaded) return;
+  const data = await api("/api/councils");
+  councils = data.councils;
+  const sel = $("council");
+  sel.innerHTML = '<option value="">Choose your council…</option>';
+  const mk = (label, list) => {
+    const g = document.createElement("optgroup");
+    g.label = `${label} (${list.length})`;
+    list.forEach(c => g.append(new Option(c.name, c.key)));
+    return g;
+  };
+  sel.append(
+    mk("Postcode is enough", councils.filter(c => c.ready)),
+    mk("Needs your UPRN",    councils.filter(c => !c.ready && c.supported)),
+    mk("Not supported yet",  councils.filter(c => !c.supported)));
+  manualLoaded = true;
+}
+
+async function showManual(preselect) {
+  await loadCouncils();
+  $("manual").classList.remove("hidden");
+  $("detected").classList.add("hidden");
+  if (preselect) $("council").value = preselect;
+  renderFields(councils.find(c => c.key === $("council").value) || null);
+}
+
+/** Fields beyond the postcode that this council still needs from the user. */
+function extraNeeds(c) {
+  if (!c || !c.supported) return [];
+  return (c.picker ? [] : c.needs).filter(n => n !== "postcode");
+}
+
+function renderFields(c) {
+  chosen = c;
+  const box = $("fields");
+  box.innerHTML = "";
+  $("result").classList.add("hidden");
+  $("sorted").classList.add("hidden");
+  if (!c) return;
+
+  if (!c.supported) {
+    box.innerHTML = `<p class="hint" style="margin-top:16px">We can't do ${c.name}
+      yet. Its bin lookup is keyed on a property id we can't work out from a
+      postcode, so it needs a bit of plumbing writing first.</p>`;
+    return;
+  }
+
+  extraNeeds(c).forEach(key => {
+    const meta = LABELS[key] || { label: key, hint: "" };
+    const div = document.createElement("div");
+    div.className = "field";
+    div.style.marginTop = "16px";
+    div.innerHTML = `<label for="f-${key}">${meta.label}</label>` +
+      (meta.hint ? `<p class="hint">${meta.hint}</p>` : "") +
+      `<input id="f-${key}" type="text" autocomplete="off" />`;
+    box.append(div);
+  });
+
+  if (c.needs.includes("uprn") && !c.picker) {
+    box.insertAdjacentHTML("beforeend",
+      `<p class="hint" style="margin-top:10px">This one needs a UPRN and hasn't got
+       an address picker yet. Yours is at
+       <a href="https://www.findmyaddress.co.uk/" target="_blank" rel="noopener">findmyaddress.co.uk</a>.</p>`);
+  }
+}
+
+/** Postcode -> council, without making anyone scroll a list of 259. */
+async function detect(postcode) {
+  const { district, councils: matches } = await api(
+    `/api/lookup?postcode=${encodeURIComponent(postcode)}`);
+
+  if (matches.length === 1) {
+    $("chip").textContent = matches[0].name;
+    $("detected").classList.remove("hidden");
+    $("manual").classList.add("hidden");
+    renderFields(matches[0]);
+    return matches[0];
+  }
+  if (matches.length > 1) {
+    // A couple of ONS codes carry more than one council upstream. Ask rather
+    // than guess, but only between the ones that actually apply.
+    await showManual(matches[0].key);
+    show("info", `More than one council covers ${district.name}. Pick yours.`);
+    return null;
+  }
+  // Either postcodes.io doesn't know it, or we have no scraper for that
+  // council. Fall back to the full list rather than dead-ending.
+  await showManual();
+  show("info", district
+    ? `We don't have ${district.name} yet - have a look through the list.`
+    : "We couldn't place that postcode. Choose your council below.");
+  return null;
+}
+
+$("council").addEventListener("change", () => {
+  show("", "");
+  renderFields(councils.find(c => c.key === $("council").value) || null);
+});
+
+$("not-mine").addEventListener("click", async () => {
+  await showManual(chosen?.key);
+  show("", "");
+});
+
 $("change").addEventListener("click", () => {
   $("result").classList.add("hidden");
   $("sorted").classList.add("hidden");
   $("find").scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
+$("f-postcode").addEventListener("keydown", e => {
+  if (e.key === "Enter") { e.preventDefault(); $("go").click(); }
+});
+
 $("go").addEventListener("click", async () => {
-  const c = councils.find(x => x.key === $("council").value);
-  if (!c) return;
+  const postcode = $("f-postcode").value.trim();
   $("go").disabled = true;
   const val = k => ($(`f-${k}`)?.value || "").trim();
 
   try {
-    const params = {};
-    let where = c.name;
+    if (!postcode) throw new Error("We'll need your postcode.");
 
-    if (c.picker) {
-      const postcode = val("postcode");
-      if (!postcode) throw new Error("We'll need your postcode.");
+    // First press with nothing chosen yet: work out the council, then stop so
+    // the user can fill in anything else it needs.
+    if (!chosen) {
+      show("info", "Working out your council…");
+      const found = await detect(postcode);
+      if (!found) return;
+      show("", "");
+      if (extraNeeds(found).length) {
+        show("info", `${found.name} needs a little more from you.`);
+        return;
+      }
+    }
+    if (!chosen) return;
+    if (!chosen.supported) throw new Error(`We can't do ${chosen.name} yet.`);
+
+    const params = {};
+    let where = chosen.name;
+
+    if (chosen.picker) {
       show("info", "Finding your street…");
       const { addresses } = await api(
-        `/api/addresses?council=${c.key}&postcode=${encodeURIComponent(postcode)}`);
+        `/api/addresses?council=${chosen.key}&postcode=${encodeURIComponent(postcode)}`);
       if (!addresses.length) throw new Error("No addresses found for that postcode.");
       show("", "");
       const pick = await chooseAddress(addresses);
-      if (!pick) { $("go").disabled = false; return; }
+      if (!pick) return;
 
       show("info", "Just checking with the council…");
-      const resolved = await api(`/api/resolve?council=${c.key}` +
+      const resolved = await api(`/api/resolve?council=${chosen.key}` +
         `&postcode=${encodeURIComponent(postcode)}&key=${encodeURIComponent(pick.key)}`);
       params.uprn = resolved.uprn;
       params.label = resolved.address;
       where = resolved.address;
     } else {
-      c.needs.forEach(k => {
-        const v = val(k);
+      chosen.needs.forEach(k => {
+        const v = k === "postcode" ? postcode : val(k);
         if (!v) throw new Error(`We'll need your ${(LABELS[k]?.label || k).toLowerCase()}.`);
         params[k === "house_number" ? "number" : k] = v;
       });
-      params.label = val("postcode") || c.name;
-      where = [val("house_number"), val("postcode")].filter(Boolean).join(", ") || c.name;
+      params.label = postcode;
+      where = [val("house_number"), postcode].filter(Boolean).join(", ");
     }
 
     show("info", "Asking your council…");
-    const url = `${location.origin}/feed/${c.key}.ics?${new URLSearchParams(params)}`;
+    const url = `${location.origin}/feed/${chosen.key}.ics?${new URLSearchParams(params)}`;
     renderResult(await api(url), url, where);
     show("", "");
     $("result").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -602,6 +697,14 @@ $("go").addEventListener("click", async () => {
   } finally {
     $("go").disabled = false;
   }
+});
+
+// Changing the postcode invalidates the detected council.
+$("f-postcode").addEventListener("input", () => {
+  if (!$("manual").classList.contains("hidden")) return;
+  chosen = null;
+  $("detected").classList.add("hidden");
+  $("fields").innerHTML = "";
 });
 
 // webcal: hands the feed straight to the OS calendar app, which is what
@@ -642,7 +745,7 @@ $("download").addEventListener("click", () => {
   a.click();
 });
 
-loadCouncils().catch(() => show("err", "Couldn't load the council list."));
+$("f-postcode").focus();
 </script>
 </body>
 </html>
