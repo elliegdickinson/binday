@@ -41,13 +41,18 @@ for actual dates before committing to a council.
 
 ## Confirmed working without a browser
 
-| Council | How | Evidence |
+| Council | How | Status |
 |---|---|---|
-| **Wakefield** | plain `GET .../where-i-live/?uprn=<uprn>` | 26 dates in the HTML, e.g. 9 Sep, 23 Sep, 7 Oct 2026 |
+| **Wakefield** | search `/pick-your-address`, follow the link it gives back | **Done** - `app/pickers/wakefield.py` |
+
+Wakefield had a sting in the tail: `?uprn=` **alone returns the page with no
+collections on it**. Only the complete parameter set the address search hands
+back (uprn, address, usrn, easting, northing) produces dates, so the link must
+be followed exactly as given.
 
 ## Suggested order of attack
 
-1. **Wakefield** - confirmed, a single GET and a date parse.
+1. ~~Wakefield~~ - **done**.
 2. **Whitespace (3) + Netcall (2)** - five councils across two similar
    `/w/webpage/` platforms; likely one small module each, same shape as
    `syncfusion.py`.

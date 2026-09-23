@@ -2200,6 +2200,13 @@
   "note": "Provide your UPRN.",
   "url": "https://eform.whitehorsedc.gov.uk/ebase/BINZONE_DESKTOP.eb"
  },
+ "WakefieldCityCouncil": {
+  "lad": "E08000036",
+  "name": "Wakefield",
+  "needs": [],
+  "note": "Follow the instructions [here](https://www.wakefield.gov.uk/where-i-live/) until you get the page that includes a 'Bin Collections' section, then copy the URL and replace the URL in the command.",
+  "url": "https://www.wakefield.gov.uk/where-i-live/?uprn=63035490&a=115%20Elizabeth%20Drive%20Castleford%20WF10%203RR&usrn=41801243&e=445418&n=426091&p=WF10%203RR"
+ },
  "WalsallCouncil": {
   "lad": "E08000030",
   "name": "Walsall",

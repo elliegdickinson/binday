@@ -20,7 +20,7 @@ from fastapi.responses import FileResponse, JSONResponse, Response
 
 from . import postcodes
 from .ics import build
-from .pickers import stockport, syncfusion
+from .pickers import stockport, syncfusion, wakefield
 
 HERE = pathlib.Path(__file__).parent
 COUNCILS: dict = json.loads((HERE / "data" / "councils.json").read_text())
@@ -42,6 +42,7 @@ PICKERS = {
     "StockportBoroughCouncil": (stockport.lookup, stockport.resolve),
     "StaffordshireMoorlandsDistrictCouncil": (_SM_LOOKUP, _SM_RESOLVE),
     "HighPeakCouncil": (_HP_LOOKUP, _HP_RESOLVE),
+    "WakefieldCityCouncil": (wakefield.lookup, wakefield.resolve),
 }
 
 # Councils collected natively instead of through UKBinCollectionData, because
@@ -49,6 +50,7 @@ PICKERS = {
 COLLECTORS = {
     "StaffordshireMoorlandsDistrictCouncil": _SM_COLLECT,
     "HighPeakCouncil": _HP_COLLECT,
+    "WakefieldCityCouncil": wakefield.collect,
 }
 
 # ONS local-authority code -> council keys. A handful of codes carry more than

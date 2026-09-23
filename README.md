@@ -35,16 +35,16 @@ list.
 
 | | Councils |
 |---|---|
-| In this build (no headless browser needed) | 261 |
-| **Work from a postcode alone** | **53** |
+| In this build (no headless browser needed) | 262 |
+| **Work from a postcode alone** | **54** |
 | Need you to supply a UPRN yourself | 192 |
 | Not supported: lookup needs a property id we can't derive | 16 |
-| Excluded for now (need headless Chrome) | 91 |
-| Auto-detectable from a postcode (have an LAD code) | 246 |
+| Excluded for now (need headless Chrome) | 90 |
+| Auto-detectable from a postcode (have an LAD code) | 247 |
 
-Of the 53, three (Stockport, Staffordshire Moorlands, High Peak) get there via
-a postcode → address picker; the rest take a postcode and house number
-directly.
+Of the 54, four (Stockport, Staffordshire Moorlands, High Peak, Wakefield) get
+there via a postcode → address picker; the rest take a postcode and house
+number directly.
 
 **Some "needs a browser" councils don't.** Staffordshire Moorlands and High
 Peak are driven upstream through Selenium because their Syncfusion "Public
@@ -56,10 +56,11 @@ touches it. Plain HTTP gets all of it.
 platform; adding another council on it is one call to `make(base, name)`.
 `COLLECTORS` in `main.py` routes around UKBinCollectionData, and `NATIVE` in
 the registry generator keeps them despite the upstream `web_driver` flag.
-[docs/browser-councils-survey.md](docs/browser-councils-survey.md) surveys the
-remaining 91: no more are on this platform, but 18 share Jadu/Firmstep, five
-share Whitespace/Netcall, and Wakefield is confirmed to work with a single
-plain GET.
+Wakefield is done the same way (`pickers/wakefield.py`) - a different site, the
+same story. [docs/browser-councils-survey.md](docs/browser-councils-survey.md)
+surveys the remaining 90: no more are on the Syncfusion platform, but 18 share
+Jadu/Firmstep and five share Whitespace/Netcall, so those two clusters are the
+next worthwhile targets.
 
 The gap is address lookup, not collection data. 192 of the councils here are
 keyed on a UPRN, and **there is no free national postcode → UPRN service** —
@@ -112,6 +113,7 @@ app/
   data/councils.json    generated from UKBinCollectionData's input.json
   pickers/stockport.py  postcode -> address -> uprn
   pickers/syncfusion.py Public Dashboard councils: picker + collector, no browser
+  pickers/wakefield.py  Wakefield: picker + collector, no browser
 static/index.html       the whole front end
 tools/build_registry.py regenerates councils.json from upstream
 BRAND.md                brand guidelines
