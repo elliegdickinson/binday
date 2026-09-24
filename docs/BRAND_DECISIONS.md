@@ -133,6 +133,25 @@ Facebook, Instagram and Messenger open links in their own in-app browser, which
 blocks the `webcal:` handover. That failure names itself and says to open the
 page in Safari or Chrome, because "it didn't work" sends people away.
 
+## Google and Outlook cannot subscribe from a phone
+
+Subscribing to a calendar url is a desktop-web feature at both Google and
+Microsoft. Neither phone app can add a calendar by URL, and Google's mobile
+site answers the subscribe link by offering to install the app - which is the
+worst possible answer to "put my bin days in my calendar".
+
+So on a phone those two buttons do not open a tab. They copy the link and give
+the one instruction that works: do it once on a computer, and it appears on the
+phone afterwards. The way through stays on offer as an "Open anyway" link,
+because a device detection can always be wrong.
+
+Apple is unaffected - `webcal:` is an OS handover and works on the phone
+itself, which is why it stays the recommended option on Apple devices.
+
+Worth knowing: on an Android phone the recommended option is Google, and Google
+is the one that needs a computer. The order follows the platform as specified;
+the message is what carries the truth.
+
 ## Councils that refuse automated lookups
 
 Some councils put a bot challenge in front of their bin pages - Sunderland
