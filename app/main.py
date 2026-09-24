@@ -62,6 +62,32 @@ COLLECTORS = {
     "WakefieldCityCouncil": wakefield.collect,
 }
 
+# Councils whose own website refuses automated requests. Sunderland's is
+# behind a Cloudflare managed challenge ("cf-mitigated: challenge"), which is
+# bot detection - not something to defeat, and not something a scraper can ask
+# nicely past. Listing them here means we say so up front instead of letting
+# someone fill the form and hit a raw 403.
+#
+# Each value is what to tell the user. Re-check occasionally: a council can
+# turn this off as easily as it turned it on.
+BLOCKED = {
+    "SunderlandCityCouncil":
+        "Sunderland's website blocks automated lookups, so Bin Day can't read "
+        "your collection dates. You can still check them on the council's own "
+        "page - and the calendar link will start working again if they lift it.",
+}
+
+
+def _blocked_upstream(exc: Exception) -> bool:
+    """Did the council's site turn us away rather than actually fail?
+
+    A 403 from a council front end is nearly always a bot challenge. It is a
+    different thing from a broken scraper and deserves different words.
+    """
+    text = str(exc)
+    return "403" in text and "Forbidden" in text
+
+
 # ONS local-authority code -> council keys. A handful of codes carry more than
 # one council upstream, so this maps to a list and the caller asks rather than
 # guessing.
@@ -133,9 +159,11 @@ async def councils() -> JSONResponse:
             "picker": key in PICKERS,
             "supported": _identifiable(key, value),
             "browser": bool(value.get("browser")),
+            "blocked": BLOCKED.get(key, ""),
+            "url": value["url"],
             # Ready = a postcode is enough, because either no UPRN is needed
             # or a picker can find it.
-            "ready": _identifiable(key, value)
+            "ready": key not in BLOCKED and _identifiable(key, value)
                      and ("uprn" not in value["needs"] or key in PICKERS),
             "note": value["note"],
         }
@@ -169,7 +197,9 @@ async def lookup(request: Request, postcode: str) -> JSONResponse:
             "picker": k in PICKERS,
             "browser": bool(COUNCILS[k].get("browser")),
             "supported": _identifiable(k, COUNCILS[k]),
-            "ready": _identifiable(k, COUNCILS[k])
+            "blocked": BLOCKED.get(k, ""),
+            "url": COUNCILS[k]["url"],
+            "ready": k not in BLOCKED and _identifiable(k, COUNCILS[k])
                      and ("uprn" not in COUNCILS[k]["needs"] or k in PICKERS),
         }
         for k in BY_LAD.get(hit["code"], [])
@@ -266,6 +296,9 @@ async def feed(
                      "property id we can't work out from a postcode.")
         raise HTTPException(400, "Tell us which property to look up.")
 
+    if council in BLOCKED:
+        raise HTTPException(503, BLOCKED[council])
+
     target = url or meta["url"]
 
     needs_browser = meta.get("browser") and council not in COLLECTORS
@@ -287,6 +320,12 @@ async def feed(
         except asyncio.TimeoutError:
             raise HTTPException(504, "The council's site did not respond.")
         except Exception as exc:                              # noqa: BLE001
+            if _blocked_upstream(exc):
+                raise HTTPException(
+                    503, f"{meta['name']}'s website is turning away automated "
+                         "lookups at the moment, so Bin Day can't read your "
+                         "collection dates. Try the council's own page for now."
+                ) from exc
             raise HTTPException(502, f"Could not read collections: {exc}") from exc
         if not hit:
             raise HTTPException(404, "No collections found for that address.")

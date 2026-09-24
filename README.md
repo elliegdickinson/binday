@@ -119,6 +119,16 @@ Regenerate the council registry after bumping `uk_bin_collection`:
 python3 tools/build_registry.py
 ```
 
+## Councils that block us
+
+A few councils put a bot challenge in front of their bin pages - Sunderland
+serves a Cloudflare managed challenge. Those are listed in `BLOCKED` in
+`app/main.py`: the site says so up front and links to the council's own page
+rather than letting someone fill a form that cannot succeed. Nothing here tries
+to get around a challenge.
+
+If a council lifts it, delete the entry and it works again.
+
 ## Caveats
 
 - Not official. Councils change their sites and scrapers break.

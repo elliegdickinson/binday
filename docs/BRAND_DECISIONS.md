@@ -101,6 +101,50 @@ Personality comes from scale, type and a small fixed vocabulary - not decoration
 All motion sits inside `@media (prefers-reduced-motion: no-preference)`, and
 `celebrate()` checks the query itself before creating anything.
 
+## Calendar buttons carry other people's logos, not their buttons
+
+The calendar panel offers Apple Calendar, Google Calendar and Outlook by name.
+The marks are Simple Icons' official paths, inlined rather than installed: this
+page has no package manager and one job, and a CDN script for three icons would
+be a third-party request on every load.
+
+The provider's colour lives **in the mark and nowhere else**. Cream or white
+background, ink text, ink border, 12px radius, 56px high. A lime Bin Day panel
+holding three brand-coloured provider buttons reads as someone else's UI pasted
+into ours, and the row stops being scannable.
+
+Order follows the device, and nothing is ever hidden - a wrong guess costs a
+glance, not a dead end. `navigator.userAgentData.platform` is the signal where
+it exists, the UA string only where it doesn't. Anything we cannot place keeps
+the default order and shows no "Recommended" badge, because a confident label
+on a guess is worse than no label.
+
+## Only claim the thing that actually happened
+
+Only the Apple button can be verified: `webcal:` hands the feed to the OS and
+the window losing focus is the proof. That path keeps "That's the bins sorted."
+
+Google and Outlook open a tab somewhere else. We cannot see whether the person
+finished, so they get "opened in a new tab - finish adding Bin Day there".
+**Copying the link no longer shows the success state either** - a copied link is
+not a subscription, and saying it is trains people to ignore the message.
+
+Facebook, Instagram and Messenger open links in their own in-app browser, which
+blocks the `webcal:` handover. That failure names itself and says to open the
+page in Safari or Chrome, because "it didn't work" sends people away.
+
+## Councils that refuse automated lookups
+
+Some councils put a bot challenge in front of their bin pages - Sunderland
+returns `cf-mitigated: challenge` from Cloudflare. That is a door someone chose
+to close, not a scraper bug and not something to work around.
+
+`BLOCKED` in `app/main.py` lists them with what to tell the reader, and the
+council is marked "Not supported yet" with a link to its own page, so nobody
+fills a form that cannot win. A live 403 from any other council gets the same
+words instead of a raw error. Re-check occasionally: a council can turn this off
+as easily as it turned it on.
+
 ## Third-party widgets
 
 The Ko-fi button is the only third-party UI. It is recoloured to Electric Blue

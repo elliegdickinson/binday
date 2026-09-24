@@ -297,10 +297,51 @@
     from { opacity: 0; transform: translate(-50%, 10px); }
     to   { opacity: 1; transform: translate(-50%, 0); }
   }
-  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 34px; }
-  .actions .main { flex: 1 1 300px; }
-  .actions .alt { flex: 0 1 auto; padding-inline: 22px; }
-  @media (max-width: 640px) { .actions > * { flex: 1 1 100%; } }
+  /* ---------- calendar provider buttons ---------- */
+  /* Three equal columns where they fit, stacked and full width below. The
+     provider's own colour lives in the mark only - three brand-coloured
+     buttons would be three other companies' UI sitting in Bin Day's panel. */
+  .cal-choose {
+    display: grid; gap: 12px; margin-top: 30px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 900px) { .cal-choose { grid-template-columns: 1fr; } }
+  .cal-btn {
+    display: flex; align-items: center; gap: 12px; width: 100%;
+    min-height: 56px; padding: 12px 18px; border-radius: 12px;
+    background: var(--white); border: var(--edge); color: var(--ink);
+    font-weight: 700; text-align: left;
+  }
+  .cal-btn:hover { background: #FBFBF6; transform: translateY(-1px); }
+  .cal-btn svg { width: 22px; height: 22px; flex: none; }
+  /* The provider name never wraps or shrinks to fit its column - a broken
+     "Google / Calendar" reads as a bug. The grid stacks before that happens. */
+  .cal-btn .label { white-space: nowrap; }
+  /* Only one option is recommended, but every option keeps the label row so
+     the three buttons stay on the same baseline. Stacked, it is dead space. */
+  .cal-opt .rec {
+    display: block; margin: 0 0 6px 2px; font-size: .75rem; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase; color: #4A5C18;
+  }
+  .cal-opt:not(.is-first) .rec { visibility: hidden; }
+  @media (max-width: 900px) { .cal-opt:not(.is-first) .rec { display: none; } }
+
+  .cal-fallback { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-top: 20px; }
+  .cal-fallback .secondary { flex: 0 1 auto; padding-inline: 22px; }
+  /* A download is a snapshot, not a subscription, so it must not look like a
+     peer of the buttons that keep syncing. */
+  /* #4A5C18 is the panel's quiet colour: grey on lime measures 4.52:1, which
+     passes AA only by rounding. This is 6.28:1 and still reads as subordinate. */
+  button.tertiary {
+    background: none; border: 0; padding: 0; width: auto; min-height: 44px;
+    font-weight: 400; font-size: .875rem; color: #4A5C18;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  button.tertiary:hover { color: var(--ink); background: none; transform: none; }
+  @media (max-width: 640px) {
+    .cal-fallback { gap: 14px; }
+    .cal-fallback .secondary { flex: 1 1 100%; }
+  }
   .works { margin-top: 18px; font-size: .875rem; color: #4A5C18; }
   .aside { margin-top: 20px; font-size: .95rem; color: var(--mid-grey); }
 
@@ -563,16 +604,18 @@
 
     <div class="calendar-panel">
       <h2>Never think about bin day again.</h2>
-      <p class="lede">Add your collections to your calendar and we'll keep it up to date.</p>
+      <p class="lede">Choose your calendar and we'll add your collections so they stay in sync.</p>
+      <!-- Order depends on the device, so the options are rendered by script. -->
+      <div class="cal-choose" id="cal-choose" role="group"
+           aria-label="Add your bin collections to a calendar"></div>
+      <div id="promo-msg" role="status" aria-live="polite"></div>
       <div class="feed" id="feed-url" role="button" tabindex="0"
            aria-label="Copy the calendar link" title="Click to copy"></div>
-      <div class="actions">
-        <button id="subscribe" class="ink main">Add bin days to my calendar →</button>
-        <button id="copy" class="secondary alt">Copy link</button>
-        <button id="download" class="secondary alt">Download .ics</button>
+      <div class="cal-fallback">
+        <button id="copy" class="secondary">Copy calendar link</button>
+        <button id="download" class="tertiary">Download .ics</button>
       </div>
-      <div id="promo-msg" role="status" aria-live="polite"></div>
-      <p class="works">Works with Apple Calendar · Google Calendar · Outlook</p>
+      <p class="works">Set it up once. Your bin days stay updated.</p>
     </div>
     <p class="aside">Sorted for later - you're welcome.</p>
   </section>
@@ -796,6 +839,102 @@ function renderResult(ics, url, where) {
   $("feed-url").textContent = url;
 }
 
+/* Provider marks are Simple Icons' official paths, inlined so the page keeps
+   its single-file build with no package manager and no third-party request.
+   The provider's colour lives in the mark and nowhere else. */
+const PROVIDERS = {
+  apple: {
+    name: "Apple Calendar",
+    icon: `<svg viewBox="0 0 24 24" fill="var(--ink)" aria-hidden="true" focusable="false"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>`,
+  },
+  google: {
+    name: "Google Calendar",
+    icon: `<svg viewBox="0 0 24 24" fill="#4285F4" aria-hidden="true" focusable="false"><path d="M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v16.421h5.684V5.684h12.632zm-7.207 6.25v-.065c.272-.144.5-.349.687-.617s.279-.595.279-.982c0-.379-.099-.72-.3-1.025a2.05 2.05 0 0 0-.832-.714 2.703 2.703 0 0 0-1.197-.257c-.6 0-1.094.156-1.481.467-.386.311-.65.671-.793 1.078l1.085.452c.086-.249.224-.461.413-.633.189-.172.445-.257.767-.257.33 0 .602.088.816.264a.86.86 0 0 1 .322.703c0 .33-.12.589-.36.778-.24.19-.535.284-.886.284h-.567v1.085h.633c.407 0 .748.109 1.02.327.272.218.407.499.407.843 0 .336-.129.614-.387.832s-.565.327-.924.327c-.351 0-.651-.103-.897-.311-.248-.208-.422-.502-.521-.881l-1.096.452c.178.616.505 1.082.977 1.401.472.319.984.478 1.538.477a2.84 2.84 0 0 0 1.293-.291c.382-.193.684-.458.902-.794.218-.336.327-.72.327-1.149 0-.429-.115-.797-.344-1.105a2.067 2.067 0 0 0-.881-.689zm2.093-1.931l.602.913L15 10.045v5.744h1.187V8.446h-.827l-2.158 1.557zM22.105 0h-3.289v5.184H24V1.895A1.894 1.894 0 0 0 22.105 0zm-3.289 23.5l4.684-4.684h-4.684V23.5zM0 22.105C0 23.152.848 24 1.895 24h3.289v-5.184H0v3.289z"/></svg>`,
+  },
+  outlook: {
+    name: "Outlook",
+    icon: `<svg viewBox="0 0 24 24" fill="#0078D4" aria-hidden="true" focusable="false"><path d="M7.88 12.04q0 .45-.11.87-.1.41-.33.74-.22.33-.58.52-.37.2-.87.2t-.85-.2q-.35-.21-.57-.55-.22-.33-.33-.75-.1-.42-.1-.86t.1-.87q.1-.43.34-.76.22-.34.59-.54.36-.2.87-.2t.86.2q.35.21.57.55.22.34.31.77.1.43.1.88zM24 12v9.38q0 .46-.33.8-.33.32-.8.32H7.13q-.46 0-.8-.33-.32-.33-.32-.8V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h6.5V2.55q0-.44.3-.75.3-.3.75-.3h12.9q.44 0 .75.3.3.3.3.75V10.85l1.24.72h.01q.1.07.18.18.07.12.07.25zm-6-8.25v3h3v-3zm0 4.5v3h3v-3zm0 4.5v1.83l3.05-1.83zm-5.25-9v3h3.75v-3zm0 4.5v3h3.75v-3zm0 4.5v2.03l2.41 1.5 1.34-.8v-2.73zM9 3.75V6h2l.13.01.12.04v-2.3zM5.98 15.98q.9 0 1.6-.3.7-.32 1.19-.86.48-.55.73-1.28.25-.74.25-1.61 0-.83-.25-1.55-.24-.71-.71-1.24t-1.15-.83q-.68-.3-1.55-.3-.92 0-1.64.3-.71.3-1.2.85-.5.54-.75 1.3-.25.74-.25 1.63 0 .85.26 1.56.26.72.74 1.23.48.52 1.17.81.69.3 1.56.3zM7.5 21h12.39L12 16.08V17q0 .41-.3.7-.29.3-.7.3H7.5zm15-.13v-7.24l-5.9 3.54Z"/></svg>`,
+  },
+};
+
+const CAL_ORDER = {
+  apple:   ["apple", "google", "outlook"],
+  android: ["google", "outlook", "apple"],
+  windows: ["outlook", "google", "apple"],
+  unknown: ["google", "apple", "outlook"],
+};
+
+/** Platform is only used to order the options - nothing is ever hidden, so a
+ *  wrong guess costs a glance, not a dead end. userAgentData.platform is the
+ *  clean signal where it exists; the UA string is the fallback, not the first
+ *  resort. Anything we cannot place keeps the default order and no badge. */
+function detectPlatform() {
+  const declared = (navigator.userAgentData?.platform || "").toLowerCase();
+  if (declared) {
+    if (declared.includes("macos") || declared.includes("ios")) return { order: "apple", sure: true };
+    if (declared.includes("android")) return { order: "android", sure: true };
+    if (declared.includes("windows")) return { order: "windows", sure: true };
+    if (declared.includes("chrome os") || declared.includes("chromium os"))
+      return { order: "android", sure: true };
+    return { order: "unknown", sure: false };          // Linux and anything else
+  }
+  const ua = navigator.userAgent;
+  // iPadOS reports itself as a Mac. The touch points give it away, and it wants
+  // the same calendar either way, so it only has to land in the Apple bucket.
+  if (/iPhone|iPad|iPod/.test(ua)) return { order: "apple", sure: true };
+  if (/CrOS/.test(ua)) return { order: "android", sure: true };
+  if (/Android/.test(ua)) return { order: "android", sure: true };
+  if (/Macintosh|Mac OS X/.test(ua)) return { order: "apple", sure: true };
+  if (/Windows NT/.test(ua)) return { order: "windows", sure: true };
+  return { order: "unknown", sure: false };
+}
+
+/** Facebook, Instagram and friends open links in their own in-app browser,
+ *  which blocks the webcal: handover the Apple button relies on. Worth naming,
+ *  because "it just didn't work" sends people away and "open it in Safari"
+ *  doesn't. Only used to explain a failure, never to block anything. */
+function inAppBrowser() {
+  return /FBAN|FBAV|FB_IAB|Instagram|Messenger|Line\/|LinkedInApp|Snapchat/i
+    .test(navigator.userAgent);
+}
+
+/** Every provider subscribes to the same live feed. Nothing here copies the
+ *  calendar or turns it into one-off events - the url is the product. */
+function calendarTarget(provider, feed) {
+  if (provider === "apple") {
+    return { href: feed.replace(/^https?:/, "webcal:"), handover: true };
+  }
+  if (provider === "google") {
+    return {
+      href: "https://calendar.google.com/calendar/r?cid=" + encodeURIComponent(feed),
+      handover: false,
+    };
+  }
+  return {
+    href: "https://outlook.live.com/calendar/0/addfromweb?url=" +
+          encodeURIComponent(feed) + "&name=" + encodeURIComponent("Bin Day"),
+    handover: false,
+  };
+}
+
+function renderCalendarOptions() {
+  const { order, sure } = detectPlatform();
+  const ids = CAL_ORDER[order] || CAL_ORDER.unknown;
+  $("cal-choose").innerHTML = ids.map((id, i) => {
+    const first = sure && i === 0;
+    // The name is the button's own text, so the mark is never the only thing
+    // saying which service this is.
+    return `<div class="cal-opt${first ? " is-first" : ""}">` +
+      // Every option carries the word so all three buttons keep one baseline;
+      // only the recommended one is visible. An empty span reserves no height.
+      (sure ? `<span class="rec"${first ? ' id="cal-rec"' : ' aria-hidden="true"'}>` +
+              `Recommended</span>` : "") +
+      `<button type="button" class="cal-btn" data-provider="${id}"` +
+      `${first ? ' aria-describedby="cal-rec"' : ""}>` +
+      `${PROVIDERS[id].icon}<span class="label">${PROVIDERS[id].name}</span></button></div>`;
+  }).join("");
+}
+
 /** The results section is cloned from a template each time, so its buttons
  *  have to be wired up after every mount rather than once at load. */
 function bindResultActions() {
@@ -805,22 +944,50 @@ function bindResultActions() {
     $("find").scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
-  // webcal hands the feed straight to the OS calendar app, which is what "add to
-  // my calendar" should do. Only claim success once the handover has actually
-  // happened - the OS taking focus off the page is the signal.
-    $("subscribe").addEventListener("click", () => {
-    const url = $("feed-url").textContent;
-    let handed = false;
-    const onBlur = () => { handed = true; showSorted(); };
-    window.addEventListener("blur", onBlur, { once: true });
-    window.location.href = url.replace(/^https?:/, "webcal:");
-    setTimeout(() => {
-      window.removeEventListener("blur", onBlur);
-      if (!handed) {
-        $("promo-msg").innerHTML = `<div class="msg err" style="margin-top:18px">
-          Your calendar app didn't open. Copy the link below and add it by hand.</div>`;
-      }
-    }, 2500);
+  renderCalendarOptions();
+
+  /** One message in the panel's live region. Text is ours, never user input. */
+  function note(kind, text) {
+    $("promo-msg").innerHTML = kind
+      ? `<div class="msg ${kind}" style="margin-top:18px">${text}</div>` : "";
+  }
+
+  $("cal-choose").addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-provider]");
+    if (!btn) return;
+    const id = btn.dataset.provider;
+    const { href, handover } = calendarTarget(id, $("feed-url").textContent);
+    note("", "");
+
+    if (handover) {
+      // webcal hands the feed straight to the OS calendar app. Only claim
+      // success once the handover has actually happened - the OS taking focus
+      // off the page is the signal, and it is the one outcome we can verify.
+      let handed = false;
+      const onBlur = () => { handed = true; showSorted(); };
+      window.addEventListener("blur", onBlur, { once: true });
+      window.location.href = href;
+      setTimeout(() => {
+        window.removeEventListener("blur", onBlur);
+        if (!handed) note("err", inAppBrowser()
+          ? "This app's built-in browser won't hand the calendar over. Open " +
+            "this page in Safari or Chrome and try again - or copy the calendar " +
+            "link below and add it in your calendar app by hand."
+          : "Apple Calendar didn't open. Copy the calendar link below and add " +
+            "it by hand - on a Mac that's Calendar, File, New Calendar Subscription.");
+      }, 2500);
+      return;
+    }
+
+    // A tab opening somewhere else says nothing about whether the person
+    // finished, so the message says what actually happened instead.
+    const opened = window.open(href, "_blank", "noopener");
+    if (opened) {
+      note("info", `${PROVIDERS[id].name} opened in a new tab - finish adding Bin Day there.`);
+    } else {
+      note("err", `Your browser blocked the new tab. Copy the calendar link ` +
+        `below and add it in ${PROVIDERS[id].name} by hand.`);
+    }
   });
 
     /** One short confirmation, bottom centre. role="status" so it is announced
@@ -863,11 +1030,12 @@ function bindResultActions() {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); copyFeed(); }
   });
 
+  // Copying a link is not the same as subscribing, so this no longer claims
+  // "that's the bins sorted" - the toast is role="status" and announces itself.
   $("copy").addEventListener("click", async () => {
     if (await copyFeed()) {
-      $("copy").textContent = "Copied";
-      setTimeout(() => ($("copy").textContent = "Copy link"), 1800);
-      showSorted();
+      $("copy").textContent = "Copied \u2713";
+      setTimeout(() => ($("copy").textContent = "Copy calendar link"), 1800);
     }
   });
 
@@ -932,8 +1100,8 @@ async function loadCouncils() {
   };
   sel.append(
     mk("Postcode is enough", councils.filter(c => c.ready)),
-    mk("Needs your UPRN",    councils.filter(c => !c.ready && c.supported)),
-    mk("Not supported yet",  councils.filter(c => !c.supported)));
+    mk("Needs your UPRN",    councils.filter(c => !c.ready && c.supported && !c.blocked)),
+    mk("Not supported yet",  councils.filter(c => !c.supported || c.blocked)));
   manualLoaded = true;
 }
 
@@ -947,7 +1115,7 @@ async function showManual(preselect) {
 
 /** Fields beyond the postcode that this council still needs from the user. */
 function extraNeeds(c) {
-  if (!c || !c.supported) return [];
+  if (!c || !c.supported || c.blocked) return [];
   return (c.picker ? [] : c.needs).filter(n => n !== "postcode");
 }
 
@@ -957,6 +1125,16 @@ function renderFields(c) {
   box.innerHTML = "";
   unmountResults();
   if (!c) return;
+
+  // The council's own site is refusing us. Say so plainly and send people
+  // somewhere that works, rather than letting them fill a form that can't win.
+  if (c.blocked) {
+    box.innerHTML = `<p class="helper">${c.blocked}</p>
+      <p class="helper" style="margin-top:10px">
+        <a href="${c.url}" target="_blank" rel="noopener">
+          Check your bin day on ${c.name}'s website</a></p>`;
+    return;
+  }
 
   if (!c.supported) {
     box.innerHTML = `<p class="helper">We can't do ${c.name} yet. Its bin lookup is
@@ -1037,12 +1215,16 @@ $("go").addEventListener("click", async () => {
       const found = await detect(postcode);
       if (!found) return;
       show("", "");
+      // A blocked or unsupported council has already said so in the field box.
+      // Repeating it in the message slot says the same thing twice.
+      if (found.blocked || !found.supported) return;
       if (extraNeeds(found).length) {
         show("info", `${found.name} needs a little more from you.`);
         return;
       }
     }
     if (!chosen) return;
+    if (chosen.blocked) throw new Error(chosen.blocked);
     if (!chosen.supported) throw new Error(`We can't do ${chosen.name} yet.`);
 
     const params = {};
